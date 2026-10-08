@@ -25,7 +25,7 @@ subprojects {
   apply(plugin = "net.ltgt.errorprone")
 
   dependencies {
-    "errorprone"("com.google.errorprone:error_prone_core:2.50.0")
+    "errorprone"("com.google.errorprone:error_prone_core:2.42.0")
     "errorprone"("com.uber.nullaway:nullaway:0.14.2")
     "testImplementation"("org.junit.jupiter:junit-jupiter:6.1.3")
     "testRuntimeOnly"("org.junit.platform:junit-platform-launcher")
