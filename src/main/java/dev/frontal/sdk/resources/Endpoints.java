@@ -6,376 +6,776 @@ public final class Endpoints {
 
   public static final class Agents {
     private Agents() {}
-    public static final Endpoint DELETE_AGENTS_PARAM = new Endpoint(ApiService.AGENTS, HttpMethod.DELETE, "/agents/{param}");
-    public static final Endpoint GET_AGENTS = new Endpoint(ApiService.AGENTS, HttpMethod.GET, "/agents");
-    public static final Endpoint GET_AGENTS_HEALTH = new Endpoint(ApiService.AGENTS, HttpMethod.GET, "/agents/health");
-    public static final Endpoint GET_AGENTS_RUNS_PARAM = new Endpoint(ApiService.AGENTS, HttpMethod.GET, "/agents/runs/{param}");
-    public static final Endpoint GET_AGENTS_RUNS_PARAM_CONVERSATION = new Endpoint(ApiService.AGENTS, HttpMethod.GET, "/agents/runs/{param}/conversation");
-    public static final Endpoint GET_AGENTS_PARAM = new Endpoint(ApiService.AGENTS, HttpMethod.GET, "/agents/{param}");
-    public static final Endpoint GET_AGENTS_PARAM_RUNS = new Endpoint(ApiService.AGENTS, HttpMethod.GET, "/agents/{param}/runs");
-    public static final Endpoint GET_AGENTS_PARAM_VERSIONS = new Endpoint(ApiService.AGENTS, HttpMethod.GET, "/agents/{param}/versions");
-    public static final Endpoint POST_AGENTS = new Endpoint(ApiService.AGENTS, HttpMethod.POST, "/agents");
-    public static final Endpoint POST_AGENTS_PARAM_ROLLBACK = new Endpoint(ApiService.AGENTS, HttpMethod.POST, "/agents/{param}/rollback");
-    public static final Endpoint POST_AGENTS_PARAM_RUNS = new Endpoint(ApiService.AGENTS, HttpMethod.POST, "/agents/{param}/runs");
-    public static final Endpoint PUT_AGENTS_PARAM = new Endpoint(ApiService.AGENTS, HttpMethod.PUT, "/agents/{param}");
-    public static final Endpoint STREAM_AGENTS_RUNS_PARAM_STREAM = new Endpoint(ApiService.AGENTS, HttpMethod.STREAM, "/agents/runs/{param}/stream");
+
+    public static final Endpoint DELETE_AGENTS_PARAM =
+        new Endpoint(ApiService.AGENTS, HttpMethod.DELETE, "/agents/{param}");
+    public static final Endpoint GET_AGENTS =
+        new Endpoint(ApiService.AGENTS, HttpMethod.GET, "/agents");
+    public static final Endpoint GET_AGENTS_HEALTH =
+        new Endpoint(ApiService.AGENTS, HttpMethod.GET, "/agents/health");
+    public static final Endpoint GET_AGENTS_RUNS_PARAM =
+        new Endpoint(ApiService.AGENTS, HttpMethod.GET, "/agents/runs/{param}");
+    public static final Endpoint GET_AGENTS_RUNS_PARAM_CONVERSATION =
+        new Endpoint(ApiService.AGENTS, HttpMethod.GET, "/agents/runs/{param}/conversation");
+    public static final Endpoint GET_AGENTS_PARAM =
+        new Endpoint(ApiService.AGENTS, HttpMethod.GET, "/agents/{param}");
+    public static final Endpoint GET_AGENTS_PARAM_RUNS =
+        new Endpoint(ApiService.AGENTS, HttpMethod.GET, "/agents/{param}/runs");
+    public static final Endpoint GET_AGENTS_PARAM_VERSIONS =
+        new Endpoint(ApiService.AGENTS, HttpMethod.GET, "/agents/{param}/versions");
+    public static final Endpoint POST_AGENTS =
+        new Endpoint(ApiService.AGENTS, HttpMethod.POST, "/agents");
+    public static final Endpoint POST_AGENTS_PARAM_ROLLBACK =
+        new Endpoint(ApiService.AGENTS, HttpMethod.POST, "/agents/{param}/rollback");
+    public static final Endpoint POST_AGENTS_PARAM_RUNS =
+        new Endpoint(ApiService.AGENTS, HttpMethod.POST, "/agents/{param}/runs");
+    public static final Endpoint PUT_AGENTS_PARAM =
+        new Endpoint(ApiService.AGENTS, HttpMethod.PUT, "/agents/{param}");
+    public static final Endpoint STREAM_AGENTS_RUNS_PARAM_STREAM =
+        new Endpoint(ApiService.AGENTS, HttpMethod.STREAM, "/agents/runs/{param}/stream");
   }
 
   public static final class Ai {
     private Ai() {}
-    public static final Endpoint GET_HEALTH = new Endpoint(ApiService.AI, HttpMethod.GET, "/health");
-    public static final Endpoint GET_INTERNAL_MODELS = new Endpoint(ApiService.AI, HttpMethod.GET, "/internal/models");
-    public static final Endpoint GET_INTERNAL_MODELS_DEFAULTS = new Endpoint(ApiService.AI, HttpMethod.GET, "/internal/models/defaults");
-    public static final Endpoint POST_AI_CHAT_COMPLETIONS = new Endpoint(ApiService.AI, HttpMethod.POST, "/ai/chat/completions");
-    public static final Endpoint POST_INTERNAL_EMBEDDINGS = new Endpoint(ApiService.AI, HttpMethod.POST, "/internal/embeddings");
-    public static final Endpoint POST_INTERNAL_PREDICTIONS = new Endpoint(ApiService.AI, HttpMethod.POST, "/internal/predictions");
-    public static final Endpoint POST_INTERNAL_RERANK = new Endpoint(ApiService.AI, HttpMethod.POST, "/internal/rerank");
-    public static final Endpoint POSTFORMDATA_INTERNAL_PREDICTIONS = new Endpoint(ApiService.AI, HttpMethod.POSTFORMDATA, "/internal/predictions");
-    public static final Endpoint POSTRAW_INTERNAL_PREDICTIONS = new Endpoint(ApiService.AI, HttpMethod.POSTRAW, "/internal/predictions");
+
+    public static final Endpoint GET_HEALTH =
+        new Endpoint(ApiService.AI, HttpMethod.GET, "/health");
+    public static final Endpoint GET_INTERNAL_MODELS =
+        new Endpoint(ApiService.AI, HttpMethod.GET, "/internal/models");
+    public static final Endpoint GET_INTERNAL_MODELS_DEFAULTS =
+        new Endpoint(ApiService.AI, HttpMethod.GET, "/internal/models/defaults");
+    public static final Endpoint POST_AI_CHAT_COMPLETIONS =
+        new Endpoint(ApiService.AI, HttpMethod.POST, "/ai/chat/completions");
+    public static final Endpoint POST_INTERNAL_EMBEDDINGS =
+        new Endpoint(ApiService.AI, HttpMethod.POST, "/internal/embeddings");
+    public static final Endpoint POST_INTERNAL_PREDICTIONS =
+        new Endpoint(ApiService.AI, HttpMethod.POST, "/internal/predictions");
+    public static final Endpoint POST_INTERNAL_RERANK =
+        new Endpoint(ApiService.AI, HttpMethod.POST, "/internal/rerank");
+    public static final Endpoint POSTFORMDATA_INTERNAL_PREDICTIONS =
+        new Endpoint(ApiService.AI, HttpMethod.POSTFORMDATA, "/internal/predictions");
+    public static final Endpoint POSTRAW_INTERNAL_PREDICTIONS =
+        new Endpoint(ApiService.AI, HttpMethod.POSTRAW, "/internal/predictions");
   }
 
   public static final class Audit {
     private Audit() {}
-    public static final Endpoint GET_AUDIT_EVENTS = new Endpoint(ApiService.AUDIT, HttpMethod.GET, "/audit/events");
-    public static final Endpoint GET_AUDIT_EVENTS_PARAM = new Endpoint(ApiService.AUDIT, HttpMethod.GET, "/audit/events/{param}");
-    public static final Endpoint POST_AUDIT_EVENTS = new Endpoint(ApiService.AUDIT, HttpMethod.POST, "/audit/events");
-    public static final Endpoint POST_AUDIT_EVENTS_BATCH = new Endpoint(ApiService.AUDIT, HttpMethod.POST, "/audit/events/batch");
+
+    public static final Endpoint GET_AUDIT_EVENTS =
+        new Endpoint(ApiService.AUDIT, HttpMethod.GET, "/audit/events");
+    public static final Endpoint GET_AUDIT_EVENTS_PARAM =
+        new Endpoint(ApiService.AUDIT, HttpMethod.GET, "/audit/events/{param}");
+    public static final Endpoint POST_AUDIT_EVENTS =
+        new Endpoint(ApiService.AUDIT, HttpMethod.POST, "/audit/events");
+    public static final Endpoint POST_AUDIT_EVENTS_BATCH =
+        new Endpoint(ApiService.AUDIT, HttpMethod.POST, "/audit/events/batch");
   }
 
   public static final class Auth {
     private Auth() {}
-    public static final Endpoint DELETE_AUTH_ACCOUNT_MFA_PARAM = new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/account/mfa/{param}");
-    public static final Endpoint DELETE_AUTH_ACCOUNT_PROFILE = new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/account/profile");
-    public static final Endpoint DELETE_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM = new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/account/security/api-keys/{param}");
-    public static final Endpoint DELETE_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM = new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/account/security/devices/{param}");
-    public static final Endpoint DELETE_AUTH_ACCOUNT_SESSIONS_PARAM = new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/account/sessions/{param}");
-    public static final Endpoint DELETE_AUTH_ADMIN_USERS_PARAM = new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/admin/users/{param}");
-    public static final Endpoint DELETE_AUTH_ADMIN_USERS_PARAM_FACTORS_PARAM = new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/admin/users/{param}/factors/{param}");
-    public static final Endpoint DELETE_AUTH_FACTORS_PARAM = new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/factors/{param}");
-    public static final Endpoint DELETE_AUTH_USER_IDENTITIES_PARAM = new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/user/identities/{param}");
-    public static final Endpoint GET_AUTH_ACCOUNT_AUDIT_LOG = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/audit-log");
-    public static final Endpoint GET_AUTH_ACCOUNT_MFA = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/mfa");
-    public static final Endpoint GET_AUTH_ACCOUNT_MFA_PARAM = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/mfa/{param}");
-    public static final Endpoint GET_AUTH_ACCOUNT_PROFILE = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/profile");
-    public static final Endpoint GET_AUTH_ACCOUNT_SECURITY_API_KEYS = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/security/api-keys");
-    public static final Endpoint GET_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/security/api-keys/{param}");
-    public static final Endpoint GET_AUTH_ACCOUNT_SECURITY_DEVICES = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/security/devices");
-    public static final Endpoint GET_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/security/devices/{param}");
-    public static final Endpoint GET_AUTH_ACCOUNT_SESSIONS = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/sessions");
-    public static final Endpoint GET_AUTH_ADMIN_USERS = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/admin/users");
-    public static final Endpoint GET_AUTH_ADMIN_USERS_PARAM = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/admin/users/{param}");
-    public static final Endpoint GET_AUTH_ADMIN_USERS_PARAM_FACTORS = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/admin/users/{param}/factors");
-    public static final Endpoint GET_AUTH_AUTH_SESSION = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/auth/session");
-    public static final Endpoint GET_AUTH_FACTORS = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/factors");
-    public static final Endpoint GET_AUTH_USER = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/user");
-    public static final Endpoint GET_AUTH_USER_IDENTITIES = new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/user/identities");
-    public static final Endpoint POST_AUTH_ACCOUNT_MFA = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/account/mfa");
-    public static final Endpoint POST_AUTH_ACCOUNT_MFA_PARAM_CHALLENGE = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/account/mfa/{param}/challenge");
-    public static final Endpoint POST_AUTH_ACCOUNT_MFA_PARAM_VERIFY = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/account/mfa/{param}/verify");
-    public static final Endpoint POST_AUTH_ACCOUNT_PASSWORD = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/account/password");
-    public static final Endpoint POST_AUTH_ACCOUNT_SECURITY_API_KEYS = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/account/security/api-keys");
-    public static final Endpoint POST_AUTH_ACCOUNT_SECURITY_DEVICES = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/account/security/devices");
-    public static final Endpoint POST_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM_TRUST = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/account/security/devices/{param}/trust");
-    public static final Endpoint POST_AUTH_ACCOUNT_SESSIONS_PARAM_EXTEND = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/account/sessions/{param}/extend");
-    public static final Endpoint POST_AUTH_ADMIN_GENERATE_LINK = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/admin/generate_link");
-    public static final Endpoint POST_AUTH_ADMIN_LOGOUT = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/admin/logout");
-    public static final Endpoint POST_AUTH_ADMIN_USERS = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/admin/users");
-    public static final Endpoint POST_AUTH_AUTH_SESSION = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/auth/session");
-    public static final Endpoint POST_AUTH_AUTHORIZE = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/authorize");
-    public static final Endpoint POST_AUTH_FACTORS = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/factors");
-    public static final Endpoint POST_AUTH_FACTORS_PARAM_CHALLENGE = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/factors/{param}/challenge");
-    public static final Endpoint POST_AUTH_FACTORS_PARAM_VERIFY = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/factors/{param}/verify");
-    public static final Endpoint POST_AUTH_INVITE = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/invite");
-    public static final Endpoint POST_AUTH_LOGOUT = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/logout");
-    public static final Endpoint POST_AUTH_OTP = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/otp");
-    public static final Endpoint POST_AUTH_REAUTHENTICATE = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/reauthenticate");
-    public static final Endpoint POST_AUTH_RECOVER = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/recover");
-    public static final Endpoint POST_AUTH_RESEND = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/resend");
-    public static final Endpoint POST_AUTH_SIGNUP = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/signup");
-    public static final Endpoint POST_AUTH_SSO = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/sso");
-    public static final Endpoint POST_AUTH_TOKEN_GRANT_TYPE_ID_TOKEN = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/token?grant_type=id_token");
-    public static final Endpoint POST_AUTH_TOKEN_GRANT_TYPE_PASSWORD = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/token?grant_type=password");
-    public static final Endpoint POST_AUTH_TOKEN_GRANT_TYPE_PKCE = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/token?grant_type=pkce");
-    public static final Endpoint POST_AUTH_TOKEN_GRANT_TYPE_REFRESH_TOKEN = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/token?grant_type=refresh_token");
-    public static final Endpoint POST_AUTH_USER_IDENTITIES = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/user/identities");
-    public static final Endpoint POST_AUTH_VERIFY = new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/verify");
-    public static final Endpoint PUT_AUTH_ACCOUNT_PROFILE = new Endpoint(ApiService.AUTH, HttpMethod.PUT, "/auth/account/profile");
-    public static final Endpoint PUT_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM = new Endpoint(ApiService.AUTH, HttpMethod.PUT, "/auth/account/security/api-keys/{param}");
-    public static final Endpoint PUT_AUTH_ADMIN_USERS_PARAM = new Endpoint(ApiService.AUTH, HttpMethod.PUT, "/auth/admin/users/{param}");
-    public static final Endpoint PUT_AUTH_USER = new Endpoint(ApiService.AUTH, HttpMethod.PUT, "/auth/user");
+
+    public static final Endpoint DELETE_AUTH_ACCOUNT_MFA_PARAM =
+        new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/account/mfa/{param}");
+    public static final Endpoint DELETE_AUTH_ACCOUNT_PROFILE =
+        new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/account/profile");
+    public static final Endpoint DELETE_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM =
+        new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/account/security/api-keys/{param}");
+    public static final Endpoint DELETE_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM =
+        new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/account/security/devices/{param}");
+    public static final Endpoint DELETE_AUTH_ACCOUNT_SESSIONS_PARAM =
+        new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/account/sessions/{param}");
+    public static final Endpoint DELETE_AUTH_ADMIN_USERS_PARAM =
+        new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/admin/users/{param}");
+    public static final Endpoint DELETE_AUTH_ADMIN_USERS_PARAM_FACTORS_PARAM =
+        new Endpoint(
+            ApiService.AUTH, HttpMethod.DELETE, "/auth/admin/users/{param}/factors/{param}");
+    public static final Endpoint DELETE_AUTH_FACTORS_PARAM =
+        new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/factors/{param}");
+    public static final Endpoint DELETE_AUTH_USER_IDENTITIES_PARAM =
+        new Endpoint(ApiService.AUTH, HttpMethod.DELETE, "/auth/user/identities/{param}");
+    public static final Endpoint GET_AUTH_ACCOUNT_AUDIT_LOG =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/audit-log");
+    public static final Endpoint GET_AUTH_ACCOUNT_MFA =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/mfa");
+    public static final Endpoint GET_AUTH_ACCOUNT_MFA_PARAM =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/mfa/{param}");
+    public static final Endpoint GET_AUTH_ACCOUNT_PROFILE =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/profile");
+    public static final Endpoint GET_AUTH_ACCOUNT_SECURITY_API_KEYS =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/security/api-keys");
+    public static final Endpoint GET_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/security/api-keys/{param}");
+    public static final Endpoint GET_AUTH_ACCOUNT_SECURITY_DEVICES =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/security/devices");
+    public static final Endpoint GET_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/security/devices/{param}");
+    public static final Endpoint GET_AUTH_ACCOUNT_SESSIONS =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/account/sessions");
+    public static final Endpoint GET_AUTH_ADMIN_USERS =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/admin/users");
+    public static final Endpoint GET_AUTH_ADMIN_USERS_PARAM =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/admin/users/{param}");
+    public static final Endpoint GET_AUTH_ADMIN_USERS_PARAM_FACTORS =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/admin/users/{param}/factors");
+    public static final Endpoint GET_AUTH_AUTH_SESSION =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/auth/session");
+    public static final Endpoint GET_AUTH_FACTORS =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/factors");
+    public static final Endpoint GET_AUTH_USER =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/user");
+    public static final Endpoint GET_AUTH_USER_IDENTITIES =
+        new Endpoint(ApiService.AUTH, HttpMethod.GET, "/auth/user/identities");
+    public static final Endpoint POST_AUTH_ACCOUNT_MFA =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/account/mfa");
+    public static final Endpoint POST_AUTH_ACCOUNT_MFA_PARAM_CHALLENGE =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/account/mfa/{param}/challenge");
+    public static final Endpoint POST_AUTH_ACCOUNT_MFA_PARAM_VERIFY =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/account/mfa/{param}/verify");
+    public static final Endpoint POST_AUTH_ACCOUNT_PASSWORD =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/account/password");
+    public static final Endpoint POST_AUTH_ACCOUNT_SECURITY_API_KEYS =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/account/security/api-keys");
+    public static final Endpoint POST_AUTH_ACCOUNT_SECURITY_DEVICES =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/account/security/devices");
+    public static final Endpoint POST_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM_TRUST =
+        new Endpoint(
+            ApiService.AUTH, HttpMethod.POST, "/auth/account/security/devices/{param}/trust");
+    public static final Endpoint POST_AUTH_ACCOUNT_SESSIONS_PARAM_EXTEND =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/account/sessions/{param}/extend");
+    public static final Endpoint POST_AUTH_ADMIN_GENERATE_LINK =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/admin/generate_link");
+    public static final Endpoint POST_AUTH_ADMIN_LOGOUT =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/admin/logout");
+    public static final Endpoint POST_AUTH_ADMIN_USERS =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/admin/users");
+    public static final Endpoint POST_AUTH_AUTH_SESSION =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/auth/session");
+    public static final Endpoint POST_AUTH_AUTHORIZE =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/authorize");
+    public static final Endpoint POST_AUTH_FACTORS =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/factors");
+    public static final Endpoint POST_AUTH_FACTORS_PARAM_CHALLENGE =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/factors/{param}/challenge");
+    public static final Endpoint POST_AUTH_FACTORS_PARAM_VERIFY =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/factors/{param}/verify");
+    public static final Endpoint POST_AUTH_INVITE =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/invite");
+    public static final Endpoint POST_AUTH_LOGOUT =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/logout");
+    public static final Endpoint POST_AUTH_OTP =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/otp");
+    public static final Endpoint POST_AUTH_REAUTHENTICATE =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/reauthenticate");
+    public static final Endpoint POST_AUTH_RECOVER =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/recover");
+    public static final Endpoint POST_AUTH_RESEND =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/resend");
+    public static final Endpoint POST_AUTH_SIGNUP =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/signup");
+    public static final Endpoint POST_AUTH_SSO =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/sso");
+    public static final Endpoint POST_AUTH_TOKEN_GRANT_TYPE_ID_TOKEN =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/token?grant_type=id_token");
+    public static final Endpoint POST_AUTH_TOKEN_GRANT_TYPE_PASSWORD =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/token?grant_type=password");
+    public static final Endpoint POST_AUTH_TOKEN_GRANT_TYPE_PKCE =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/token?grant_type=pkce");
+    public static final Endpoint POST_AUTH_TOKEN_GRANT_TYPE_REFRESH_TOKEN =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/token?grant_type=refresh_token");
+    public static final Endpoint POST_AUTH_USER_IDENTITIES =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/user/identities");
+    public static final Endpoint POST_AUTH_VERIFY =
+        new Endpoint(ApiService.AUTH, HttpMethod.POST, "/auth/verify");
+    public static final Endpoint PUT_AUTH_ACCOUNT_PROFILE =
+        new Endpoint(ApiService.AUTH, HttpMethod.PUT, "/auth/account/profile");
+    public static final Endpoint PUT_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM =
+        new Endpoint(ApiService.AUTH, HttpMethod.PUT, "/auth/account/security/api-keys/{param}");
+    public static final Endpoint PUT_AUTH_ADMIN_USERS_PARAM =
+        new Endpoint(ApiService.AUTH, HttpMethod.PUT, "/auth/admin/users/{param}");
+    public static final Endpoint PUT_AUTH_USER =
+        new Endpoint(ApiService.AUTH, HttpMethod.PUT, "/auth/user");
   }
 
   public static final class Billing {
     private Billing() {}
-    public static final Endpoint GET_BILLING_ADDONS_PARAM_ENTITLEMENTS = new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/addons/{param}/entitlements");
-    public static final Endpoint GET_BILLING_CUSTOMERS_PORTAL_PARAM = new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/customers/portal/{param}");
-    public static final Endpoint GET_BILLING_CUSTOMERS_PARAM_ENTITLEMENTS = new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/customers/{param}/entitlements");
-    public static final Endpoint GET_BILLING_CUSTOMERS_PARAM_INVOICES_SUMMARY = new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/customers/{param}/invoices/summary");
-    public static final Endpoint GET_BILLING_CUSTOMERS_PARAM_USAGE = new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/customers/{param}/usage");
-    public static final Endpoint GET_BILLING_CUSTOMERS_PARAM_WALLETS = new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/customers/{param}/wallets");
-    public static final Endpoint GET_BILLING_PLANS_PARAM_ENTITLEMENTS = new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/plans/{param}/entitlements");
-    public static final Endpoint GET_BILLING_PRICES_LOOKUP_PARAM = new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/prices/lookup/{param}");
-    public static final Endpoint GET_BILLING_SUBSCRIPTIONS_PARAM_ENTITLEMENTS = new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/subscriptions/{param}/entitlements");
-    public static final Endpoint GET_BILLING_WALLETS_PARAM_BALANCE_REAL_TIME = new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/wallets/{param}/balance/real-time");
-    public static final Endpoint GET_BILLING_WALLETS_PARAM_TRANSACTIONS = new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/wallets/{param}/transactions");
-    public static final Endpoint GETRAW_BILLING_INVOICES_PARAM_PDF = new Endpoint(ApiService.BILLING, HttpMethod.GETRAW, "/billing/invoices/{param}/pdf");
-    public static final Endpoint POST_BILLING_INVOICES_PREVIEW = new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/invoices/preview");
-    public static final Endpoint POST_BILLING_INVOICES_PARAM_FINALIZE = new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/invoices/{param}/finalize");
-    public static final Endpoint POST_BILLING_INVOICES_PARAM_VOID = new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/invoices/{param}/void");
-    public static final Endpoint POST_BILLING_METERS_PARAM_DISABLE = new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/meters/{param}/disable");
-    public static final Endpoint POST_BILLING_PLANS_PARAM_CLONE = new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/plans/{param}/clone");
-    public static final Endpoint POST_BILLING_SUBSCRIPTIONS_PARAM_ACTIVATE = new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/subscriptions/{param}/activate");
-    public static final Endpoint POST_BILLING_SUBSCRIPTIONS_PARAM_CANCEL = new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/subscriptions/{param}/cancel");
-    public static final Endpoint POST_BILLING_SUBSCRIPTIONS_PARAM_PAUSE = new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/subscriptions/{param}/pause");
-    public static final Endpoint POST_BILLING_SUBSCRIPTIONS_PARAM_RESUME = new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/subscriptions/{param}/resume");
-    public static final Endpoint POST_BILLING_WALLETS_PARAM_TERMINATE = new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/wallets/{param}/terminate");
-    public static final Endpoint POST_BILLING_WALLETS_PARAM_TOP_UP = new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/wallets/{param}/top-up");
+
+    public static final Endpoint GET_BILLING_ADDONS_PARAM_ENTITLEMENTS =
+        new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/addons/{param}/entitlements");
+    public static final Endpoint GET_BILLING_CUSTOMERS_PORTAL_PARAM =
+        new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/customers/portal/{param}");
+    public static final Endpoint GET_BILLING_CUSTOMERS_PARAM_ENTITLEMENTS =
+        new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/customers/{param}/entitlements");
+    public static final Endpoint GET_BILLING_CUSTOMERS_PARAM_INVOICES_SUMMARY =
+        new Endpoint(
+            ApiService.BILLING, HttpMethod.GET, "/billing/customers/{param}/invoices/summary");
+    public static final Endpoint GET_BILLING_CUSTOMERS_PARAM_USAGE =
+        new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/customers/{param}/usage");
+    public static final Endpoint GET_BILLING_CUSTOMERS_PARAM_WALLETS =
+        new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/customers/{param}/wallets");
+    public static final Endpoint GET_BILLING_PLANS_PARAM_ENTITLEMENTS =
+        new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/plans/{param}/entitlements");
+    public static final Endpoint GET_BILLING_PRICES_LOOKUP_PARAM =
+        new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/prices/lookup/{param}");
+    public static final Endpoint GET_BILLING_SUBSCRIPTIONS_PARAM_ENTITLEMENTS =
+        new Endpoint(
+            ApiService.BILLING, HttpMethod.GET, "/billing/subscriptions/{param}/entitlements");
+    public static final Endpoint GET_BILLING_WALLETS_PARAM_BALANCE_REAL_TIME =
+        new Endpoint(
+            ApiService.BILLING, HttpMethod.GET, "/billing/wallets/{param}/balance/real-time");
+    public static final Endpoint GET_BILLING_WALLETS_PARAM_TRANSACTIONS =
+        new Endpoint(ApiService.BILLING, HttpMethod.GET, "/billing/wallets/{param}/transactions");
+    public static final Endpoint GETRAW_BILLING_INVOICES_PARAM_PDF =
+        new Endpoint(ApiService.BILLING, HttpMethod.GETRAW, "/billing/invoices/{param}/pdf");
+    public static final Endpoint POST_BILLING_INVOICES_PREVIEW =
+        new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/invoices/preview");
+    public static final Endpoint POST_BILLING_INVOICES_PARAM_FINALIZE =
+        new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/invoices/{param}/finalize");
+    public static final Endpoint POST_BILLING_INVOICES_PARAM_VOID =
+        new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/invoices/{param}/void");
+    public static final Endpoint POST_BILLING_METERS_PARAM_DISABLE =
+        new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/meters/{param}/disable");
+    public static final Endpoint POST_BILLING_PLANS_PARAM_CLONE =
+        new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/plans/{param}/clone");
+    public static final Endpoint POST_BILLING_SUBSCRIPTIONS_PARAM_ACTIVATE =
+        new Endpoint(
+            ApiService.BILLING, HttpMethod.POST, "/billing/subscriptions/{param}/activate");
+    public static final Endpoint POST_BILLING_SUBSCRIPTIONS_PARAM_CANCEL =
+        new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/subscriptions/{param}/cancel");
+    public static final Endpoint POST_BILLING_SUBSCRIPTIONS_PARAM_PAUSE =
+        new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/subscriptions/{param}/pause");
+    public static final Endpoint POST_BILLING_SUBSCRIPTIONS_PARAM_RESUME =
+        new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/subscriptions/{param}/resume");
+    public static final Endpoint POST_BILLING_WALLETS_PARAM_TERMINATE =
+        new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/wallets/{param}/terminate");
+    public static final Endpoint POST_BILLING_WALLETS_PARAM_TOP_UP =
+        new Endpoint(ApiService.BILLING, HttpMethod.POST, "/billing/wallets/{param}/top-up");
   }
 
   public static final class Blob {
     private Blob() {}
-    public static final Endpoint DELETE_BLOB_OBJECT_PARAM_PARAM = new Endpoint(ApiService.BLOB, HttpMethod.DELETE, "/blob/object/{param}/{param}");
-    public static final Endpoint GET_BLOB_OBJECT_INFO_PARAM_PARAM = new Endpoint(ApiService.BLOB, HttpMethod.GET, "/blob/object/info/{param}/{param}");
-    public static final Endpoint GET_BLOB_OBJECT_PARAM_PARAM = new Endpoint(ApiService.BLOB, HttpMethod.GET, "/blob/object/{param}/{param}");
-    public static final Endpoint POST_BLOB_OBJECT_COPY = new Endpoint(ApiService.BLOB, HttpMethod.POST, "/blob/object/copy");
-    public static final Endpoint POST_BLOB_OBJECT_LIST_PARAM = new Endpoint(ApiService.BLOB, HttpMethod.POST, "/blob/object/list/{param}");
-    public static final Endpoint POST_BLOB_OBJECT_MOVE = new Endpoint(ApiService.BLOB, HttpMethod.POST, "/blob/object/move");
-    public static final Endpoint POST_BLOB_OBJECT_SIGN_PARAM_PARAM = new Endpoint(ApiService.BLOB, HttpMethod.POST, "/blob/object/sign/{param}/{param}");
-    public static final Endpoint POSTFORMDATA_BLOB_OBJECT_PARAM_PARAM = new Endpoint(ApiService.BLOB, HttpMethod.POSTFORMDATA, "/blob/object/{param}/{param}");
+
+    public static final Endpoint DELETE_BLOB_OBJECT_PARAM_PARAM =
+        new Endpoint(ApiService.BLOB, HttpMethod.DELETE, "/blob/object/{param}/{param}");
+    public static final Endpoint GET_BLOB_OBJECT_INFO_PARAM_PARAM =
+        new Endpoint(ApiService.BLOB, HttpMethod.GET, "/blob/object/info/{param}/{param}");
+    public static final Endpoint GET_BLOB_OBJECT_PARAM_PARAM =
+        new Endpoint(ApiService.BLOB, HttpMethod.GET, "/blob/object/{param}/{param}");
+    public static final Endpoint POST_BLOB_OBJECT_COPY =
+        new Endpoint(ApiService.BLOB, HttpMethod.POST, "/blob/object/copy");
+    public static final Endpoint POST_BLOB_OBJECT_LIST_PARAM =
+        new Endpoint(ApiService.BLOB, HttpMethod.POST, "/blob/object/list/{param}");
+    public static final Endpoint POST_BLOB_OBJECT_MOVE =
+        new Endpoint(ApiService.BLOB, HttpMethod.POST, "/blob/object/move");
+    public static final Endpoint POST_BLOB_OBJECT_SIGN_PARAM_PARAM =
+        new Endpoint(ApiService.BLOB, HttpMethod.POST, "/blob/object/sign/{param}/{param}");
+    public static final Endpoint POSTFORMDATA_BLOB_OBJECT_PARAM_PARAM =
+        new Endpoint(ApiService.BLOB, HttpMethod.POSTFORMDATA, "/blob/object/{param}/{param}");
   }
 
   public static final class Connectors {
     private Connectors() {}
-    public static final Endpoint DELETE_CONNECTORS_INSTALLATIONS_PARAM = new Endpoint(ApiService.CONNECTORS, HttpMethod.DELETE, "/connectors/installations/{param}");
-    public static final Endpoint GET_CONNECTORS_CATALOG = new Endpoint(ApiService.CONNECTORS, HttpMethod.GET, "/connectors/catalog");
-    public static final Endpoint GET_CONNECTORS_CATALOG_PARAM = new Endpoint(ApiService.CONNECTORS, HttpMethod.GET, "/connectors/catalog/{param}");
-    public static final Endpoint GET_CONNECTORS_CONNECTION_TESTS_PARAM = new Endpoint(ApiService.CONNECTORS, HttpMethod.GET, "/connectors/connection-tests/{param}");
-    public static final Endpoint GET_CONNECTORS_INSTALLATIONS = new Endpoint(ApiService.CONNECTORS, HttpMethod.GET, "/connectors/installations");
-    public static final Endpoint GET_CONNECTORS_INSTALLATIONS_PARAM = new Endpoint(ApiService.CONNECTORS, HttpMethod.GET, "/connectors/installations/{param}");
-    public static final Endpoint GET_DIAGNOSTICS = new Endpoint(ApiService.CONNECTORS, HttpMethod.GET, "/diagnostics");
-    public static final Endpoint PATCH_CONNECTORS_INSTALLATIONS_PARAM = new Endpoint(ApiService.CONNECTORS, HttpMethod.PATCH, "/connectors/installations/{param}");
-    public static final Endpoint POST_CONNECTORS_INSTALLATIONS = new Endpoint(ApiService.CONNECTORS, HttpMethod.POST, "/connectors/installations");
-    public static final Endpoint POST_CONNECTORS_INSTALLATIONS_PARAM_PAUSE = new Endpoint(ApiService.CONNECTORS, HttpMethod.POST, "/connectors/installations/{param}/pause");
-    public static final Endpoint POST_CONNECTORS_INSTALLATIONS_PARAM_RESUME = new Endpoint(ApiService.CONNECTORS, HttpMethod.POST, "/connectors/installations/{param}/resume");
-    public static final Endpoint POST_CONNECTORS_SYNC_RUNS_PARAM_REPLAY = new Endpoint(ApiService.CONNECTORS, HttpMethod.POST, "/connectors/sync-runs/{param}/replay");
+
+    public static final Endpoint DELETE_CONNECTORS_INSTALLATIONS_PARAM =
+        new Endpoint(ApiService.CONNECTORS, HttpMethod.DELETE, "/connectors/installations/{param}");
+    public static final Endpoint GET_CONNECTORS_CATALOG =
+        new Endpoint(ApiService.CONNECTORS, HttpMethod.GET, "/connectors/catalog");
+    public static final Endpoint GET_CONNECTORS_CATALOG_PARAM =
+        new Endpoint(ApiService.CONNECTORS, HttpMethod.GET, "/connectors/catalog/{param}");
+    public static final Endpoint GET_CONNECTORS_CONNECTION_TESTS_PARAM =
+        new Endpoint(ApiService.CONNECTORS, HttpMethod.GET, "/connectors/connection-tests/{param}");
+    public static final Endpoint GET_CONNECTORS_INSTALLATIONS =
+        new Endpoint(ApiService.CONNECTORS, HttpMethod.GET, "/connectors/installations");
+    public static final Endpoint GET_CONNECTORS_INSTALLATIONS_PARAM =
+        new Endpoint(ApiService.CONNECTORS, HttpMethod.GET, "/connectors/installations/{param}");
+    public static final Endpoint GET_DIAGNOSTICS =
+        new Endpoint(ApiService.CONNECTORS, HttpMethod.GET, "/diagnostics");
+    public static final Endpoint PATCH_CONNECTORS_INSTALLATIONS_PARAM =
+        new Endpoint(ApiService.CONNECTORS, HttpMethod.PATCH, "/connectors/installations/{param}");
+    public static final Endpoint POST_CONNECTORS_INSTALLATIONS =
+        new Endpoint(ApiService.CONNECTORS, HttpMethod.POST, "/connectors/installations");
+    public static final Endpoint POST_CONNECTORS_INSTALLATIONS_PARAM_PAUSE =
+        new Endpoint(
+            ApiService.CONNECTORS, HttpMethod.POST, "/connectors/installations/{param}/pause");
+    public static final Endpoint POST_CONNECTORS_INSTALLATIONS_PARAM_RESUME =
+        new Endpoint(
+            ApiService.CONNECTORS, HttpMethod.POST, "/connectors/installations/{param}/resume");
+    public static final Endpoint POST_CONNECTORS_SYNC_RUNS_PARAM_REPLAY =
+        new Endpoint(
+            ApiService.CONNECTORS, HttpMethod.POST, "/connectors/sync-runs/{param}/replay");
   }
 
   public static final class Data {
     private Data() {}
-    public static final Endpoint GET_DATA_AGGREGATIONS_AGGREGATIONS = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/aggregations/aggregations");
-    public static final Endpoint GET_DATA_AGGREGATIONS_AGGREGATIONS_PARAM = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/aggregations/aggregations/{param}");
-    public static final Endpoint GET_DATA_ARCHIVAL_ARCHIVAL_POLICIES = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/archival/archival/policies");
-    public static final Endpoint GET_DATA_ARCHIVAL_ARCHIVAL_POLICIES_PARAM = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/archival/archival/policies/{param}");
-    public static final Endpoint GET_DATA_ENRICHMENT_ENRICHMENT_PROFILES = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/enrichment/enrichment/profiles");
-    public static final Endpoint GET_DATA_ENRICHMENT_ENRICHMENT_PROFILES_PARAM = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/enrichment/enrichment/profiles/{param}");
-    public static final Endpoint GET_DATA_EXPORTS_EXPORTS = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/exports/exports");
-    public static final Endpoint GET_DATA_EXPORTS_EXPORTS_PARAM = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/exports/exports/{param}");
-    public static final Endpoint GET_DATA_NORMALIZATION_NORMALIZATION_PROFILES = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/normalization/normalization/profiles");
-    public static final Endpoint GET_DATA_NORMALIZATION_NORMALIZATION_PROFILES_PARAM = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/normalization/normalization/profiles/{param}");
-    public static final Endpoint GET_DATA_QUALITY_QUALITY_RULESETS = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/quality/quality/rulesets");
-    public static final Endpoint GET_DATA_QUALITY_QUALITY_RULESETS_PARAM = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/quality/quality/rulesets/{param}");
-    public static final Endpoint GET_DATA_SCHEMAS_SCHEMAS = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/schemas/schemas");
-    public static final Endpoint GET_DATA_SCHEMAS_SCHEMAS_PARAM = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/schemas/schemas/{param}");
-    public static final Endpoint GET_DATA_SERVING_SERVING_PRODUCTS = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/serving/serving/products");
-    public static final Endpoint GET_DATA_SERVING_SERVING_PRODUCTS_PARAM = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/serving/serving/products/{param}");
-    public static final Endpoint GET_DATA_STREAMS_STREAMS = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/streams/streams");
-    public static final Endpoint GET_DATA_STREAMS_STREAMS_PARAM = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/streams/streams/{param}");
-    public static final Endpoint GET_DATA_SYNC_SYNC_JOBS = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/sync/sync/jobs");
-    public static final Endpoint GET_DATA_SYNC_SYNC_JOBS_PARAM = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/sync/sync/jobs/{param}");
-    public static final Endpoint GET_DATA_TRANSFORMATIONS_TRANSFORMATIONS = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/transformations/transformations");
-    public static final Endpoint GET_DATA_TRANSFORMATIONS_TRANSFORMATIONS_PARAM = new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/transformations/transformations/{param}");
-    public static final Endpoint POST_DATA_AGGREGATIONS_AGGREGATIONS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/aggregations/aggregations");
-    public static final Endpoint POST_DATA_AGGREGATIONS_AGGREGATIONS_PARAM_EXECUTIONS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/aggregations/aggregations/{param}/executions");
-    public static final Endpoint POST_DATA_ARCHIVAL_ARCHIVAL_POLICIES = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/archival/archival/policies");
-    public static final Endpoint POST_DATA_ARCHIVAL_ARCHIVAL_POLICIES_PARAM_EXECUTIONS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/archival/archival/policies/{param}/executions");
-    public static final Endpoint POST_DATA_ENRICHMENT_ENRICHMENT_PROFILES = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/enrichment/enrichment/profiles");
-    public static final Endpoint POST_DATA_ENRICHMENT_ENRICHMENT_PROFILES_PARAM_EXECUTIONS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/enrichment/enrichment/profiles/{param}/executions");
-    public static final Endpoint POST_DATA_EXPORTS_EXPORTS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/exports/exports");
-    public static final Endpoint POST_DATA_EXPORTS_EXPORTS_PARAM_EXECUTIONS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/exports/exports/{param}/executions");
-    public static final Endpoint POST_DATA_NORMALIZATION_NORMALIZATION_PROFILES = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/normalization/normalization/profiles");
-    public static final Endpoint POST_DATA_NORMALIZATION_NORMALIZATION_PROFILES_PARAM_EXECUTIONS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/normalization/normalization/profiles/{param}/executions");
-    public static final Endpoint POST_DATA_QUALITY_QUALITY_RULESETS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/quality/quality/rulesets");
-    public static final Endpoint POST_DATA_QUALITY_QUALITY_RULESETS_PARAM_EVALUATIONS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/quality/quality/rulesets/{param}/evaluations");
-    public static final Endpoint POST_DATA_QUERY_QUERY_FEDERATED = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/query/query/federated");
-    public static final Endpoint POST_DATA_SCHEMAS_SCHEMAS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/schemas/schemas");
-    public static final Endpoint POST_DATA_SCHEMAS_SCHEMAS_RESOLVE = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/schemas/schemas/resolve");
-    public static final Endpoint POST_DATA_SERVING_SERVING_PRODUCTS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/serving/serving/products");
-    public static final Endpoint POST_DATA_SERVING_SERVING_PRODUCTS_PARAM_REFRESHES = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/serving/serving/products/{param}/refreshes");
-    public static final Endpoint POST_DATA_STREAMS_STREAMS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/streams/streams");
-    public static final Endpoint POST_DATA_STREAMS_STREAMS_PARAM_DELIVERIES = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/streams/streams/{param}/deliveries");
-    public static final Endpoint POST_DATA_SYNC_SYNC_JOBS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/sync/sync/jobs");
-    public static final Endpoint POST_DATA_SYNC_SYNC_JOBS_PARAM_EXECUTIONS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/sync/sync/jobs/{param}/executions");
-    public static final Endpoint POST_DATA_TRANSFORMATIONS_TRANSFORMATIONS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/transformations/transformations");
-    public static final Endpoint POST_DATA_TRANSFORMATIONS_TRANSFORMATIONS_PARAM_EXECUTIONS = new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/transformations/transformations/{param}/executions");
+
+    public static final Endpoint GET_DATA_AGGREGATIONS_AGGREGATIONS =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/aggregations/aggregations");
+    public static final Endpoint GET_DATA_AGGREGATIONS_AGGREGATIONS_PARAM =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/aggregations/aggregations/{param}");
+    public static final Endpoint GET_DATA_ARCHIVAL_ARCHIVAL_POLICIES =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/archival/archival/policies");
+    public static final Endpoint GET_DATA_ARCHIVAL_ARCHIVAL_POLICIES_PARAM =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/archival/archival/policies/{param}");
+    public static final Endpoint GET_DATA_ENRICHMENT_ENRICHMENT_PROFILES =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/enrichment/enrichment/profiles");
+    public static final Endpoint GET_DATA_ENRICHMENT_ENRICHMENT_PROFILES_PARAM =
+        new Endpoint(
+            ApiService.DATA, HttpMethod.GET, "/data/enrichment/enrichment/profiles/{param}");
+    public static final Endpoint GET_DATA_EXPORTS_EXPORTS =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/exports/exports");
+    public static final Endpoint GET_DATA_EXPORTS_EXPORTS_PARAM =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/exports/exports/{param}");
+    public static final Endpoint GET_DATA_NORMALIZATION_NORMALIZATION_PROFILES =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/normalization/normalization/profiles");
+    public static final Endpoint GET_DATA_NORMALIZATION_NORMALIZATION_PROFILES_PARAM =
+        new Endpoint(
+            ApiService.DATA, HttpMethod.GET, "/data/normalization/normalization/profiles/{param}");
+    public static final Endpoint GET_DATA_QUALITY_QUALITY_RULESETS =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/quality/quality/rulesets");
+    public static final Endpoint GET_DATA_QUALITY_QUALITY_RULESETS_PARAM =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/quality/quality/rulesets/{param}");
+    public static final Endpoint GET_DATA_SCHEMAS_SCHEMAS =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/schemas/schemas");
+    public static final Endpoint GET_DATA_SCHEMAS_SCHEMAS_PARAM =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/schemas/schemas/{param}");
+    public static final Endpoint GET_DATA_SERVING_SERVING_PRODUCTS =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/serving/serving/products");
+    public static final Endpoint GET_DATA_SERVING_SERVING_PRODUCTS_PARAM =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/serving/serving/products/{param}");
+    public static final Endpoint GET_DATA_STREAMS_STREAMS =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/streams/streams");
+    public static final Endpoint GET_DATA_STREAMS_STREAMS_PARAM =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/streams/streams/{param}");
+    public static final Endpoint GET_DATA_SYNC_SYNC_JOBS =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/sync/sync/jobs");
+    public static final Endpoint GET_DATA_SYNC_SYNC_JOBS_PARAM =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/sync/sync/jobs/{param}");
+    public static final Endpoint GET_DATA_TRANSFORMATIONS_TRANSFORMATIONS =
+        new Endpoint(ApiService.DATA, HttpMethod.GET, "/data/transformations/transformations");
+    public static final Endpoint GET_DATA_TRANSFORMATIONS_TRANSFORMATIONS_PARAM =
+        new Endpoint(
+            ApiService.DATA, HttpMethod.GET, "/data/transformations/transformations/{param}");
+    public static final Endpoint POST_DATA_AGGREGATIONS_AGGREGATIONS =
+        new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/aggregations/aggregations");
+    public static final Endpoint POST_DATA_AGGREGATIONS_AGGREGATIONS_PARAM_EXECUTIONS =
+        new Endpoint(
+            ApiService.DATA, HttpMethod.POST, "/data/aggregations/aggregations/{param}/executions");
+    public static final Endpoint POST_DATA_ARCHIVAL_ARCHIVAL_POLICIES =
+        new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/archival/archival/policies");
+    public static final Endpoint POST_DATA_ARCHIVAL_ARCHIVAL_POLICIES_PARAM_EXECUTIONS =
+        new Endpoint(
+            ApiService.DATA,
+            HttpMethod.POST,
+            "/data/archival/archival/policies/{param}/executions");
+    public static final Endpoint POST_DATA_ENRICHMENT_ENRICHMENT_PROFILES =
+        new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/enrichment/enrichment/profiles");
+    public static final Endpoint POST_DATA_ENRICHMENT_ENRICHMENT_PROFILES_PARAM_EXECUTIONS =
+        new Endpoint(
+            ApiService.DATA,
+            HttpMethod.POST,
+            "/data/enrichment/enrichment/profiles/{param}/executions");
+    public static final Endpoint POST_DATA_EXPORTS_EXPORTS =
+        new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/exports/exports");
+    public static final Endpoint POST_DATA_EXPORTS_EXPORTS_PARAM_EXECUTIONS =
+        new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/exports/exports/{param}/executions");
+    public static final Endpoint POST_DATA_NORMALIZATION_NORMALIZATION_PROFILES =
+        new Endpoint(
+            ApiService.DATA, HttpMethod.POST, "/data/normalization/normalization/profiles");
+    public static final Endpoint POST_DATA_NORMALIZATION_NORMALIZATION_PROFILES_PARAM_EXECUTIONS =
+        new Endpoint(
+            ApiService.DATA,
+            HttpMethod.POST,
+            "/data/normalization/normalization/profiles/{param}/executions");
+    public static final Endpoint POST_DATA_QUALITY_QUALITY_RULESETS =
+        new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/quality/quality/rulesets");
+    public static final Endpoint POST_DATA_QUALITY_QUALITY_RULESETS_PARAM_EVALUATIONS =
+        new Endpoint(
+            ApiService.DATA, HttpMethod.POST, "/data/quality/quality/rulesets/{param}/evaluations");
+    public static final Endpoint POST_DATA_QUERY_QUERY_FEDERATED =
+        new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/query/query/federated");
+    public static final Endpoint POST_DATA_SCHEMAS_SCHEMAS =
+        new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/schemas/schemas");
+    public static final Endpoint POST_DATA_SCHEMAS_SCHEMAS_RESOLVE =
+        new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/schemas/schemas/resolve");
+    public static final Endpoint POST_DATA_SERVING_SERVING_PRODUCTS =
+        new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/serving/serving/products");
+    public static final Endpoint POST_DATA_SERVING_SERVING_PRODUCTS_PARAM_REFRESHES =
+        new Endpoint(
+            ApiService.DATA, HttpMethod.POST, "/data/serving/serving/products/{param}/refreshes");
+    public static final Endpoint POST_DATA_STREAMS_STREAMS =
+        new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/streams/streams");
+    public static final Endpoint POST_DATA_STREAMS_STREAMS_PARAM_DELIVERIES =
+        new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/streams/streams/{param}/deliveries");
+    public static final Endpoint POST_DATA_SYNC_SYNC_JOBS =
+        new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/sync/sync/jobs");
+    public static final Endpoint POST_DATA_SYNC_SYNC_JOBS_PARAM_EXECUTIONS =
+        new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/sync/sync/jobs/{param}/executions");
+    public static final Endpoint POST_DATA_TRANSFORMATIONS_TRANSFORMATIONS =
+        new Endpoint(ApiService.DATA, HttpMethod.POST, "/data/transformations/transformations");
+    public static final Endpoint POST_DATA_TRANSFORMATIONS_TRANSFORMATIONS_PARAM_EXECUTIONS =
+        new Endpoint(
+            ApiService.DATA,
+            HttpMethod.POST,
+            "/data/transformations/transformations/{param}/executions");
   }
 
   public static final class Governance {
     private Governance() {}
-    public static final Endpoint DELETE_POLICIES_PARAM = new Endpoint(ApiService.GOVERNANCE, HttpMethod.DELETE, "/policies/{param}");
-    public static final Endpoint DELETE_ROLES_PARAM = new Endpoint(ApiService.GOVERNANCE, HttpMethod.DELETE, "/roles/{param}");
-    public static final Endpoint GET_COMPLIANCE_ASSESSMENTS = new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/compliance/assessments");
-    public static final Endpoint GET_COMPLIANCE_ASSESSMENTS_PARAM = new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/compliance/assessments/{param}");
-    public static final Endpoint GET_COMPLIANCE_FRAMEWORKS = new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/compliance/frameworks");
-    public static final Endpoint GET_COMPLIANCE_SCORE = new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/compliance/score");
-    public static final Endpoint GET_COMPLIANCE_VIOLATIONS = new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/compliance/violations");
-    public static final Endpoint GET_PERMISSIONS = new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/permissions");
-    public static final Endpoint GET_PERMISSIONS_PARAM = new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/permissions/{param}");
-    public static final Endpoint GET_POLICIES = new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/policies");
-    public static final Endpoint GET_POLICIES_TEMPLATES = new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/policies/templates");
-    public static final Endpoint GET_POLICIES_PARAM = new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/policies/{param}");
-    public static final Endpoint GET_POLICIES_PARAM_VERSIONS = new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/policies/{param}/versions");
-    public static final Endpoint GET_ROLES = new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/roles");
-    public static final Endpoint GET_ROLES_PARAM = new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/roles/{param}");
-    public static final Endpoint POST_ACCESS_CHECK = new Endpoint(ApiService.GOVERNANCE, HttpMethod.POST, "/access/check");
-    public static final Endpoint POST_COMPLIANCE_ASSESSMENTS = new Endpoint(ApiService.GOVERNANCE, HttpMethod.POST, "/compliance/assessments");
-    public static final Endpoint POST_COMPLIANCE_VIOLATIONS_PARAM_RESOLVE = new Endpoint(ApiService.GOVERNANCE, HttpMethod.POST, "/compliance/violations/{param}/resolve");
-    public static final Endpoint POST_PERMISSIONS = new Endpoint(ApiService.GOVERNANCE, HttpMethod.POST, "/permissions");
-    public static final Endpoint POST_POLICIES = new Endpoint(ApiService.GOVERNANCE, HttpMethod.POST, "/policies");
-    public static final Endpoint POST_POLICIES_FROM_TEMPLATE = new Endpoint(ApiService.GOVERNANCE, HttpMethod.POST, "/policies/from-template");
-    public static final Endpoint POST_POLICIES_VALIDATE = new Endpoint(ApiService.GOVERNANCE, HttpMethod.POST, "/policies/validate");
-    public static final Endpoint POST_ROLES = new Endpoint(ApiService.GOVERNANCE, HttpMethod.POST, "/roles");
-    public static final Endpoint PUT_POLICIES_PARAM = new Endpoint(ApiService.GOVERNANCE, HttpMethod.PUT, "/policies/{param}");
+
+    public static final Endpoint DELETE_POLICIES_PARAM =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.DELETE, "/policies/{param}");
+    public static final Endpoint DELETE_ROLES_PARAM =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.DELETE, "/roles/{param}");
+    public static final Endpoint GET_COMPLIANCE_ASSESSMENTS =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/compliance/assessments");
+    public static final Endpoint GET_COMPLIANCE_ASSESSMENTS_PARAM =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/compliance/assessments/{param}");
+    public static final Endpoint GET_COMPLIANCE_FRAMEWORKS =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/compliance/frameworks");
+    public static final Endpoint GET_COMPLIANCE_SCORE =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/compliance/score");
+    public static final Endpoint GET_COMPLIANCE_VIOLATIONS =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/compliance/violations");
+    public static final Endpoint GET_PERMISSIONS =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/permissions");
+    public static final Endpoint GET_PERMISSIONS_PARAM =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/permissions/{param}");
+    public static final Endpoint GET_POLICIES =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/policies");
+    public static final Endpoint GET_POLICIES_TEMPLATES =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/policies/templates");
+    public static final Endpoint GET_POLICIES_PARAM =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/policies/{param}");
+    public static final Endpoint GET_POLICIES_PARAM_VERSIONS =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/policies/{param}/versions");
+    public static final Endpoint GET_ROLES =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/roles");
+    public static final Endpoint GET_ROLES_PARAM =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.GET, "/roles/{param}");
+    public static final Endpoint POST_ACCESS_CHECK =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.POST, "/access/check");
+    public static final Endpoint POST_COMPLIANCE_ASSESSMENTS =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.POST, "/compliance/assessments");
+    public static final Endpoint POST_COMPLIANCE_VIOLATIONS_PARAM_RESOLVE =
+        new Endpoint(
+            ApiService.GOVERNANCE, HttpMethod.POST, "/compliance/violations/{param}/resolve");
+    public static final Endpoint POST_PERMISSIONS =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.POST, "/permissions");
+    public static final Endpoint POST_POLICIES =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.POST, "/policies");
+    public static final Endpoint POST_POLICIES_FROM_TEMPLATE =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.POST, "/policies/from-template");
+    public static final Endpoint POST_POLICIES_VALIDATE =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.POST, "/policies/validate");
+    public static final Endpoint POST_ROLES =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.POST, "/roles");
+    public static final Endpoint PUT_POLICIES_PARAM =
+        new Endpoint(ApiService.GOVERNANCE, HttpMethod.PUT, "/policies/{param}");
   }
 
   public static final class Lineage {
     private Lineage() {}
-    public static final Endpoint GET_LINEAGE_EDGES = new Endpoint(ApiService.LINEAGE, HttpMethod.GET, "/lineage/edges");
-    public static final Endpoint GET_LINEAGE_EDGES_PARAM = new Endpoint(ApiService.LINEAGE, HttpMethod.GET, "/lineage/edges/{param}");
-    public static final Endpoint GET_LINEAGE_GRAPH = new Endpoint(ApiService.LINEAGE, HttpMethod.GET, "/lineage/graph");
-    public static final Endpoint GET_LINEAGE_NODES = new Endpoint(ApiService.LINEAGE, HttpMethod.GET, "/lineage/nodes");
-    public static final Endpoint GET_LINEAGE_NODES_PARAM = new Endpoint(ApiService.LINEAGE, HttpMethod.GET, "/lineage/nodes/{param}");
-    public static final Endpoint GET_LINEAGE_NODES_PARAM_TRACE = new Endpoint(ApiService.LINEAGE, HttpMethod.GET, "/lineage/nodes/{param}/trace");
-    public static final Endpoint POST_LINEAGE_IMPACT = new Endpoint(ApiService.LINEAGE, HttpMethod.POST, "/lineage/impact");
+
+    public static final Endpoint GET_LINEAGE_EDGES =
+        new Endpoint(ApiService.LINEAGE, HttpMethod.GET, "/lineage/edges");
+    public static final Endpoint GET_LINEAGE_EDGES_PARAM =
+        new Endpoint(ApiService.LINEAGE, HttpMethod.GET, "/lineage/edges/{param}");
+    public static final Endpoint GET_LINEAGE_GRAPH =
+        new Endpoint(ApiService.LINEAGE, HttpMethod.GET, "/lineage/graph");
+    public static final Endpoint GET_LINEAGE_NODES =
+        new Endpoint(ApiService.LINEAGE, HttpMethod.GET, "/lineage/nodes");
+    public static final Endpoint GET_LINEAGE_NODES_PARAM =
+        new Endpoint(ApiService.LINEAGE, HttpMethod.GET, "/lineage/nodes/{param}");
+    public static final Endpoint GET_LINEAGE_NODES_PARAM_TRACE =
+        new Endpoint(ApiService.LINEAGE, HttpMethod.GET, "/lineage/nodes/{param}/trace");
+    public static final Endpoint POST_LINEAGE_IMPACT =
+        new Endpoint(ApiService.LINEAGE, HttpMethod.POST, "/lineage/impact");
   }
 
   public static final class Observability {
     private Observability() {}
-    public static final Endpoint DELETE_OBSERVABILITY_ALERTS_PARAM = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.DELETE, "/observability/alerts/{param}");
-    public static final Endpoint DELETE_OBSERVABILITY_DASHBOARDS_PARAM = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.DELETE, "/observability/dashboards/{param}");
-    public static final Endpoint GET_OBSERVABILITY_ALERTS = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/alerts");
-    public static final Endpoint GET_OBSERVABILITY_ALERTS_INCIDENTS = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/alerts/incidents");
-    public static final Endpoint GET_OBSERVABILITY_DASHBOARDS = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/dashboards");
-    public static final Endpoint GET_OBSERVABILITY_DASHBOARDS_PARAM = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/dashboards/{param}");
-    public static final Endpoint GET_OBSERVABILITY_EVENTS_STATS = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/events/stats");
-    public static final Endpoint GET_OBSERVABILITY_METRICS = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/metrics");
-    public static final Endpoint GET_OBSERVABILITY_METRICS_LIST = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/metrics/list");
-    public static final Endpoint GET_OBSERVABILITY_TRACES = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/traces");
-    public static final Endpoint GET_OBSERVABILITY_TRACES_PARAM = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/traces/{param}");
-    public static final Endpoint POST_OBSERVABILITY_ALERTS = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/alerts");
-    public static final Endpoint POST_OBSERVABILITY_ALERTS_PARAM_DISABLE = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/alerts/{param}/disable");
-    public static final Endpoint POST_OBSERVABILITY_ALERTS_PARAM_ENABLE = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/alerts/{param}/enable");
-    public static final Endpoint POST_OBSERVABILITY_DASHBOARDS = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/dashboards");
-    public static final Endpoint POST_OBSERVABILITY_DASHBOARDS_PARAM_SHARE = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/dashboards/{param}/share");
-    public static final Endpoint POST_OBSERVABILITY_EVENTS = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/events");
-    public static final Endpoint POST_OBSERVABILITY_EVENTS_BATCH = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/events/batch");
-    public static final Endpoint POST_OBSERVABILITY_LOGS_INGEST = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/logs/ingest");
-    public static final Endpoint POST_OBSERVABILITY_LOGS_QUERY = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/logs/query");
-    public static final Endpoint POST_OBSERVABILITY_METRICS_INGEST = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/metrics/ingest");
-    public static final Endpoint POST_OBSERVABILITY_TRACES_QUERY = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/traces/query");
-    public static final Endpoint PUT_OBSERVABILITY_ALERTS_PARAM = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.PUT, "/observability/alerts/{param}");
-    public static final Endpoint PUT_OBSERVABILITY_DASHBOARDS_PARAM = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.PUT, "/observability/dashboards/{param}");
-    public static final Endpoint STREAM_OBSERVABILITY_LOGS_STREAM = new Endpoint(ApiService.OBSERVABILITY, HttpMethod.STREAM, "/observability/logs/stream");
+
+    public static final Endpoint DELETE_OBSERVABILITY_ALERTS_PARAM =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.DELETE, "/observability/alerts/{param}");
+    public static final Endpoint DELETE_OBSERVABILITY_DASHBOARDS_PARAM =
+        new Endpoint(
+            ApiService.OBSERVABILITY, HttpMethod.DELETE, "/observability/dashboards/{param}");
+    public static final Endpoint GET_OBSERVABILITY_ALERTS =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/alerts");
+    public static final Endpoint GET_OBSERVABILITY_ALERTS_INCIDENTS =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/alerts/incidents");
+    public static final Endpoint GET_OBSERVABILITY_DASHBOARDS =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/dashboards");
+    public static final Endpoint GET_OBSERVABILITY_DASHBOARDS_PARAM =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/dashboards/{param}");
+    public static final Endpoint GET_OBSERVABILITY_EVENTS_STATS =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/events/stats");
+    public static final Endpoint GET_OBSERVABILITY_METRICS =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/metrics");
+    public static final Endpoint GET_OBSERVABILITY_METRICS_LIST =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/metrics/list");
+    public static final Endpoint GET_OBSERVABILITY_TRACES =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/traces");
+    public static final Endpoint GET_OBSERVABILITY_TRACES_PARAM =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.GET, "/observability/traces/{param}");
+    public static final Endpoint POST_OBSERVABILITY_ALERTS =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/alerts");
+    public static final Endpoint POST_OBSERVABILITY_ALERTS_PARAM_DISABLE =
+        new Endpoint(
+            ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/alerts/{param}/disable");
+    public static final Endpoint POST_OBSERVABILITY_ALERTS_PARAM_ENABLE =
+        new Endpoint(
+            ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/alerts/{param}/enable");
+    public static final Endpoint POST_OBSERVABILITY_DASHBOARDS =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/dashboards");
+    public static final Endpoint POST_OBSERVABILITY_DASHBOARDS_PARAM_SHARE =
+        new Endpoint(
+            ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/dashboards/{param}/share");
+    public static final Endpoint POST_OBSERVABILITY_EVENTS =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/events");
+    public static final Endpoint POST_OBSERVABILITY_EVENTS_BATCH =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/events/batch");
+    public static final Endpoint POST_OBSERVABILITY_LOGS_INGEST =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/logs/ingest");
+    public static final Endpoint POST_OBSERVABILITY_LOGS_QUERY =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/logs/query");
+    public static final Endpoint POST_OBSERVABILITY_METRICS_INGEST =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/metrics/ingest");
+    public static final Endpoint POST_OBSERVABILITY_TRACES_QUERY =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.POST, "/observability/traces/query");
+    public static final Endpoint PUT_OBSERVABILITY_ALERTS_PARAM =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.PUT, "/observability/alerts/{param}");
+    public static final Endpoint PUT_OBSERVABILITY_DASHBOARDS_PARAM =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.PUT, "/observability/dashboards/{param}");
+    public static final Endpoint STREAM_OBSERVABILITY_LOGS_STREAM =
+        new Endpoint(ApiService.OBSERVABILITY, HttpMethod.STREAM, "/observability/logs/stream");
   }
 
   public static final class Ontology {
     private Ontology() {}
-    public static final Endpoint DELETE_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/objects/object-types/{param}");
-    public static final Endpoint DELETE_ONTOLOGY_OBJECTS_OBJECTS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/objects/objects/{param}");
-    public static final Endpoint DELETE_ONTOLOGY_REASONING_RULES_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/reasoning/rules/{param}");
-    public static final Endpoint DELETE_ONTOLOGY_RELATIONSHIPS_RELATIONSHIP_TYPES_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/relationships/relationship-types/{param}");
-    public static final Endpoint DELETE_ONTOLOGY_RELATIONSHIPS_RELATIONSHIPS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/relationships/relationships/{param}");
-    public static final Endpoint DELETE_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/rollouts/rollouts/{param}");
-    public static final Endpoint DELETE_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/rollups/rollups/{param}");
-    public static final Endpoint DELETE_ONTOLOGY_SCHEMAS_SCHEMAS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/schemas/schemas/{param}");
-    public static final Endpoint DELETE_ONTOLOGY_VALIDATION_RULES_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/validation/rules/{param}");
-    public static final Endpoint DELETE_ONTOLOGY_VERSIONS_VERSIONS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/versions/versions/{param}");
-    public static final Endpoint GET_ONTOLOGY_EVENTS_EVENTS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/events/events");
-    public static final Endpoint GET_ONTOLOGY_EVENTS_EVENTS_CHECKPOINTS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/events/events/checkpoints/{param}");
-    public static final Endpoint GET_ONTOLOGY_EVENTS_EVENTS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/events/events/{param}");
-    public static final Endpoint GET_ONTOLOGY_OBJECTS_OBJECT_TYPES = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/objects/object-types");
-    public static final Endpoint GET_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/objects/object-types/{param}");
-    public static final Endpoint GET_ONTOLOGY_OBJECTS_OBJECTS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/objects/objects");
-    public static final Endpoint GET_ONTOLOGY_OBJECTS_OBJECTS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/objects/objects/{param}");
-    public static final Endpoint GET_ONTOLOGY_REASONING_RULES = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/reasoning/rules");
-    public static final Endpoint GET_ONTOLOGY_RELATIONSHIPS_RELATIONSHIP_TYPES = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/relationships/relationship-types");
-    public static final Endpoint GET_ONTOLOGY_RELATIONSHIPS_RELATIONSHIPS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/relationships/relationships");
-    public static final Endpoint GET_ONTOLOGY_RELATIONSHIPS_RELATIONSHIPS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/relationships/relationships/{param}");
-    public static final Endpoint GET_ONTOLOGY_ROLLOUTS_ROLLOUTS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/rollouts/rollouts");
-    public static final Endpoint GET_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/rollouts/rollouts/{param}");
-    public static final Endpoint GET_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM_STATUS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/rollouts/rollouts/{param}/status");
-    public static final Endpoint GET_ONTOLOGY_ROLLUPS_ROLLUP_RESULTS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/rollups/rollup-results/{param}");
-    public static final Endpoint GET_ONTOLOGY_ROLLUPS_ROLLUPS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/rollups/rollups");
-    public static final Endpoint GET_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/rollups/rollups/{param}");
-    public static final Endpoint GET_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_RESULT = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/rollups/rollups/{param}/result");
-    public static final Endpoint GET_ONTOLOGY_SCHEMAS_SCHEMAS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/schemas/schemas");
-    public static final Endpoint GET_ONTOLOGY_SCHEMAS_SCHEMAS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/schemas/schemas/{param}");
-    public static final Endpoint GET_ONTOLOGY_VALIDATION_RULES = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/validation/rules");
-    public static final Endpoint GET_ONTOLOGY_VALIDATION_RULES_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/validation/rules/{param}");
-    public static final Endpoint GET_ONTOLOGY_VERSIONS_RELEASE_BUNDLES = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/versions/release-bundles");
-    public static final Endpoint GET_ONTOLOGY_VERSIONS_RELEASE_BUNDLES_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/versions/release-bundles/{param}");
-    public static final Endpoint GET_ONTOLOGY_VERSIONS_VERSIONS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/versions/versions/{param}");
-    public static final Endpoint POST_ONTOLOGY_ENGINE_ONTOLOGIES_COMPARE_VERSIONS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/engine/ontologies/compare-versions");
-    public static final Endpoint POST_ONTOLOGY_ENGINE_ONTOLOGIES_EXPORT = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/engine/ontologies/export");
-    public static final Endpoint POST_ONTOLOGY_ENGINE_ONTOLOGIES_EXPORT_SHACL = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/engine/ontologies/export-shacl");
-    public static final Endpoint POST_ONTOLOGY_ENGINE_ONTOLOGIES_GENERATE = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/engine/ontologies/generate");
-    public static final Endpoint POST_ONTOLOGY_ENGINE_ONTOLOGIES_INFER_CLASSES = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/engine/ontologies/infer-classes");
-    public static final Endpoint POST_ONTOLOGY_ENGINE_ONTOLOGIES_INFER_PROPERTIES = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/engine/ontologies/infer-properties");
-    public static final Endpoint POST_ONTOLOGY_ENGINE_ONTOLOGIES_VALIDATE = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/engine/ontologies/validate");
-    public static final Endpoint POST_ONTOLOGY_EVENTS_EVENTS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/events/events");
-    public static final Endpoint POST_ONTOLOGY_EVENTS_EVENTS_CHECKPOINTS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/events/events/checkpoints");
-    public static final Endpoint POST_ONTOLOGY_EVENTS_EVENTS_LEASES_ACKNOWLEDGE = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/events/events/leases/acknowledge");
-    public static final Endpoint POST_ONTOLOGY_EVENTS_EVENTS_LEASES_ACQUIRE = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/events/events/leases/acquire");
-    public static final Endpoint POST_ONTOLOGY_EXTRACT_EXTRACT_ANALYZE = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/extract/extract/analyze");
-    public static final Endpoint POST_ONTOLOGY_EXTRACT_EXTRACT_ARCHITECTURE = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/extract/extract/architecture");
-    public static final Endpoint POST_ONTOLOGY_EXTRACT_EXTRACT_COREFERENCES = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/extract/extract/coreferences");
-    public static final Endpoint POST_ONTOLOGY_EXTRACT_EXTRACT_ENTITIES = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/extract/extract/entities");
-    public static final Endpoint POST_ONTOLOGY_EXTRACT_EXTRACT_EVENTS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/extract/extract/events");
-    public static final Endpoint POST_ONTOLOGY_EXTRACT_EXTRACT_RELATIONS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/extract/extract/relations");
-    public static final Endpoint POST_ONTOLOGY_EXTRACT_EXTRACT_TRIPLETS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/extract/extract/triplets");
-    public static final Endpoint POST_ONTOLOGY_REASONING_EXPLAIN = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/reasoning/explain");
-    public static final Endpoint POST_ONTOLOGY_REASONING_FACTS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/reasoning/facts");
-    public static final Endpoint POST_ONTOLOGY_REASONING_FACTS_LOAD_GRAPH = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/reasoning/facts/load-graph");
-    public static final Endpoint POST_ONTOLOGY_REASONING_REASON_BACKWARD = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/reasoning/reason/backward");
-    public static final Endpoint POST_ONTOLOGY_REASONING_REASON_FORWARD = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/reasoning/reason/forward");
-    public static final Endpoint POST_ONTOLOGY_REASONING_RULES = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/reasoning/rules");
-    public static final Endpoint POST_ONTOLOGY_ROLLOUTS_ROLLOUTS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollouts/rollouts");
-    public static final Endpoint POST_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM_PAUSE = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollouts/rollouts/{param}/pause");
-    public static final Endpoint POST_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM_RESUME = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollouts/rollouts/{param}/resume");
-    public static final Endpoint POST_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM_ROLLBACK = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollouts/rollouts/{param}/rollback");
-    public static final Endpoint POST_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM_START = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollouts/rollouts/{param}/start");
-    public static final Endpoint POST_ONTOLOGY_ROLLUPS_ROLLUPS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollups/rollups");
-    public static final Endpoint POST_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_EXECUTE = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollups/rollups/{param}/execute");
-    public static final Endpoint POST_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_PREVIEW = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollups/rollups/{param}/preview");
-    public static final Endpoint POST_ONTOLOGY_SCHEMAS_SCHEMAS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/schemas/schemas");
-    public static final Endpoint POST_ONTOLOGY_SCHEMAS_SCHEMAS_VALIDATE = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/schemas/schemas/validate");
-    public static final Endpoint POST_ONTOLOGY_TRANSFORMATIONS_TRANSFORMATIONS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/transformations/transformations");
-    public static final Endpoint POST_ONTOLOGY_VALIDATION_PAYLOADS_VALIDATE = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/validation/payloads/validate");
-    public static final Endpoint POST_ONTOLOGY_VALIDATION_RULES = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/validation/rules");
-    public static final Endpoint POST_ONTOLOGY_VERSIONS_AUDIT_VERIFY = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/versions/audit/verify");
-    public static final Endpoint POST_ONTOLOGY_VERSIONS_RELEASE_BUNDLES = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/versions/release-bundles");
-    public static final Endpoint POST_ONTOLOGY_VERSIONS_VERSIONS = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/versions/versions");
-    public static final Endpoint POST_ONTOLOGY_VERSIONS_VERSIONS_COMPARE = new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/versions/versions/compare");
-    public static final Endpoint PUT_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.PUT, "/ontology/objects/object-types/{param}");
-    public static final Endpoint PUT_ONTOLOGY_OBJECTS_OBJECTS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.PUT, "/ontology/objects/objects/{param}");
-    public static final Endpoint PUT_ONTOLOGY_REASONING_RULES_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.PUT, "/ontology/reasoning/rules/{param}");
-    public static final Endpoint PUT_ONTOLOGY_RELATIONSHIPS_RELATIONSHIPS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.PUT, "/ontology/relationships/relationships/{param}");
-    public static final Endpoint PUT_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.PUT, "/ontology/rollouts/rollouts/{param}");
-    public static final Endpoint PUT_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM = new Endpoint(ApiService.ONTOLOGY, HttpMethod.PUT, "/ontology/rollups/rollups/{param}");
+
+    public static final Endpoint DELETE_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/objects/object-types/{param}");
+    public static final Endpoint DELETE_ONTOLOGY_OBJECTS_OBJECTS_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/objects/objects/{param}");
+    public static final Endpoint DELETE_ONTOLOGY_REASONING_RULES_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/reasoning/rules/{param}");
+    public static final Endpoint DELETE_ONTOLOGY_RELATIONSHIPS_RELATIONSHIP_TYPES_PARAM =
+        new Endpoint(
+            ApiService.ONTOLOGY,
+            HttpMethod.DELETE,
+            "/ontology/relationships/relationship-types/{param}");
+    public static final Endpoint DELETE_ONTOLOGY_RELATIONSHIPS_RELATIONSHIPS_PARAM =
+        new Endpoint(
+            ApiService.ONTOLOGY,
+            HttpMethod.DELETE,
+            "/ontology/relationships/relationships/{param}");
+    public static final Endpoint DELETE_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/rollouts/rollouts/{param}");
+    public static final Endpoint DELETE_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/rollups/rollups/{param}");
+    public static final Endpoint DELETE_ONTOLOGY_SCHEMAS_SCHEMAS_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/schemas/schemas/{param}");
+    public static final Endpoint DELETE_ONTOLOGY_VALIDATION_RULES_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/validation/rules/{param}");
+    public static final Endpoint DELETE_ONTOLOGY_VERSIONS_VERSIONS_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.DELETE, "/ontology/versions/versions/{param}");
+    public static final Endpoint GET_ONTOLOGY_EVENTS_EVENTS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/events/events");
+    public static final Endpoint GET_ONTOLOGY_EVENTS_EVENTS_CHECKPOINTS_PARAM =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/events/events/checkpoints/{param}");
+    public static final Endpoint GET_ONTOLOGY_EVENTS_EVENTS_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/events/events/{param}");
+    public static final Endpoint GET_ONTOLOGY_OBJECTS_OBJECT_TYPES =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/objects/object-types");
+    public static final Endpoint GET_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/objects/object-types/{param}");
+    public static final Endpoint GET_ONTOLOGY_OBJECTS_OBJECTS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/objects/objects");
+    public static final Endpoint GET_ONTOLOGY_OBJECTS_OBJECTS_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/objects/objects/{param}");
+    public static final Endpoint GET_ONTOLOGY_REASONING_RULES =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/reasoning/rules");
+    public static final Endpoint GET_ONTOLOGY_RELATIONSHIPS_RELATIONSHIP_TYPES =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/relationships/relationship-types");
+    public static final Endpoint GET_ONTOLOGY_RELATIONSHIPS_RELATIONSHIPS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/relationships/relationships");
+    public static final Endpoint GET_ONTOLOGY_RELATIONSHIPS_RELATIONSHIPS_PARAM =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/relationships/relationships/{param}");
+    public static final Endpoint GET_ONTOLOGY_ROLLOUTS_ROLLOUTS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/rollouts/rollouts");
+    public static final Endpoint GET_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/rollouts/rollouts/{param}");
+    public static final Endpoint GET_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM_STATUS =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/rollouts/rollouts/{param}/status");
+    public static final Endpoint GET_ONTOLOGY_ROLLUPS_ROLLUP_RESULTS_PARAM =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/rollups/rollup-results/{param}");
+    public static final Endpoint GET_ONTOLOGY_ROLLUPS_ROLLUPS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/rollups/rollups");
+    public static final Endpoint GET_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/rollups/rollups/{param}");
+    public static final Endpoint GET_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_RESULT =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/rollups/rollups/{param}/result");
+    public static final Endpoint GET_ONTOLOGY_SCHEMAS_SCHEMAS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/schemas/schemas");
+    public static final Endpoint GET_ONTOLOGY_SCHEMAS_SCHEMAS_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/schemas/schemas/{param}");
+    public static final Endpoint GET_ONTOLOGY_VALIDATION_RULES =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/validation/rules");
+    public static final Endpoint GET_ONTOLOGY_VALIDATION_RULES_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/validation/rules/{param}");
+    public static final Endpoint GET_ONTOLOGY_VERSIONS_RELEASE_BUNDLES =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/versions/release-bundles");
+    public static final Endpoint GET_ONTOLOGY_VERSIONS_RELEASE_BUNDLES_PARAM =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/versions/release-bundles/{param}");
+    public static final Endpoint GET_ONTOLOGY_VERSIONS_VERSIONS_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.GET, "/ontology/versions/versions/{param}");
+    public static final Endpoint POST_ONTOLOGY_ENGINE_ONTOLOGIES_COMPARE_VERSIONS =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/engine/ontologies/compare-versions");
+    public static final Endpoint POST_ONTOLOGY_ENGINE_ONTOLOGIES_EXPORT =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/engine/ontologies/export");
+    public static final Endpoint POST_ONTOLOGY_ENGINE_ONTOLOGIES_EXPORT_SHACL =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/engine/ontologies/export-shacl");
+    public static final Endpoint POST_ONTOLOGY_ENGINE_ONTOLOGIES_GENERATE =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/engine/ontologies/generate");
+    public static final Endpoint POST_ONTOLOGY_ENGINE_ONTOLOGIES_INFER_CLASSES =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/engine/ontologies/infer-classes");
+    public static final Endpoint POST_ONTOLOGY_ENGINE_ONTOLOGIES_INFER_PROPERTIES =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/engine/ontologies/infer-properties");
+    public static final Endpoint POST_ONTOLOGY_ENGINE_ONTOLOGIES_VALIDATE =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/engine/ontologies/validate");
+    public static final Endpoint POST_ONTOLOGY_EVENTS_EVENTS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/events/events");
+    public static final Endpoint POST_ONTOLOGY_EVENTS_EVENTS_CHECKPOINTS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/events/events/checkpoints");
+    public static final Endpoint POST_ONTOLOGY_EVENTS_EVENTS_LEASES_ACKNOWLEDGE =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/events/events/leases/acknowledge");
+    public static final Endpoint POST_ONTOLOGY_EVENTS_EVENTS_LEASES_ACQUIRE =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/events/events/leases/acquire");
+    public static final Endpoint POST_ONTOLOGY_EXTRACT_EXTRACT_ANALYZE =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/extract/extract/analyze");
+    public static final Endpoint POST_ONTOLOGY_EXTRACT_EXTRACT_ARCHITECTURE =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/extract/extract/architecture");
+    public static final Endpoint POST_ONTOLOGY_EXTRACT_EXTRACT_COREFERENCES =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/extract/extract/coreferences");
+    public static final Endpoint POST_ONTOLOGY_EXTRACT_EXTRACT_ENTITIES =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/extract/extract/entities");
+    public static final Endpoint POST_ONTOLOGY_EXTRACT_EXTRACT_EVENTS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/extract/extract/events");
+    public static final Endpoint POST_ONTOLOGY_EXTRACT_EXTRACT_RELATIONS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/extract/extract/relations");
+    public static final Endpoint POST_ONTOLOGY_EXTRACT_EXTRACT_TRIPLETS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/extract/extract/triplets");
+    public static final Endpoint POST_ONTOLOGY_REASONING_EXPLAIN =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/reasoning/explain");
+    public static final Endpoint POST_ONTOLOGY_REASONING_FACTS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/reasoning/facts");
+    public static final Endpoint POST_ONTOLOGY_REASONING_FACTS_LOAD_GRAPH =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/reasoning/facts/load-graph");
+    public static final Endpoint POST_ONTOLOGY_REASONING_REASON_BACKWARD =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/reasoning/reason/backward");
+    public static final Endpoint POST_ONTOLOGY_REASONING_REASON_FORWARD =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/reasoning/reason/forward");
+    public static final Endpoint POST_ONTOLOGY_REASONING_RULES =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/reasoning/rules");
+    public static final Endpoint POST_ONTOLOGY_ROLLOUTS_ROLLOUTS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollouts/rollouts");
+    public static final Endpoint POST_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM_PAUSE =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollouts/rollouts/{param}/pause");
+    public static final Endpoint POST_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM_RESUME =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollouts/rollouts/{param}/resume");
+    public static final Endpoint POST_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM_ROLLBACK =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollouts/rollouts/{param}/rollback");
+    public static final Endpoint POST_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM_START =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollouts/rollouts/{param}/start");
+    public static final Endpoint POST_ONTOLOGY_ROLLUPS_ROLLUPS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollups/rollups");
+    public static final Endpoint POST_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_EXECUTE =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollups/rollups/{param}/execute");
+    public static final Endpoint POST_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_PREVIEW =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/rollups/rollups/{param}/preview");
+    public static final Endpoint POST_ONTOLOGY_SCHEMAS_SCHEMAS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/schemas/schemas");
+    public static final Endpoint POST_ONTOLOGY_SCHEMAS_SCHEMAS_VALIDATE =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/schemas/schemas/validate");
+    public static final Endpoint POST_ONTOLOGY_TRANSFORMATIONS_TRANSFORMATIONS =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/transformations/transformations");
+    public static final Endpoint POST_ONTOLOGY_VALIDATION_PAYLOADS_VALIDATE =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/validation/payloads/validate");
+    public static final Endpoint POST_ONTOLOGY_VALIDATION_RULES =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/validation/rules");
+    public static final Endpoint POST_ONTOLOGY_VERSIONS_AUDIT_VERIFY =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/versions/audit/verify");
+    public static final Endpoint POST_ONTOLOGY_VERSIONS_RELEASE_BUNDLES =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/versions/release-bundles");
+    public static final Endpoint POST_ONTOLOGY_VERSIONS_VERSIONS =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/versions/versions");
+    public static final Endpoint POST_ONTOLOGY_VERSIONS_VERSIONS_COMPARE =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.POST, "/ontology/versions/versions/compare");
+    public static final Endpoint PUT_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.PUT, "/ontology/objects/object-types/{param}");
+    public static final Endpoint PUT_ONTOLOGY_OBJECTS_OBJECTS_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.PUT, "/ontology/objects/objects/{param}");
+    public static final Endpoint PUT_ONTOLOGY_REASONING_RULES_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.PUT, "/ontology/reasoning/rules/{param}");
+    public static final Endpoint PUT_ONTOLOGY_RELATIONSHIPS_RELATIONSHIPS_PARAM =
+        new Endpoint(
+            ApiService.ONTOLOGY, HttpMethod.PUT, "/ontology/relationships/relationships/{param}");
+    public static final Endpoint PUT_ONTOLOGY_ROLLOUTS_ROLLOUTS_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.PUT, "/ontology/rollouts/rollouts/{param}");
+    public static final Endpoint PUT_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM =
+        new Endpoint(ApiService.ONTOLOGY, HttpMethod.PUT, "/ontology/rollups/rollups/{param}");
   }
 
   public static final class Pipelines {
     private Pipelines() {}
-    public static final Endpoint GET_DATA_PIPELINES_CAPABILITIES = new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/capabilities");
-    public static final Endpoint GET_DATA_PIPELINES_HEALTH = new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/health");
-    public static final Endpoint GET_DATA_PIPELINES_INFO = new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/info");
-    public static final Endpoint GET_DATA_PIPELINES_PIPELINE_RUNS = new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/pipeline-runs");
-    public static final Endpoint GET_DATA_PIPELINES_PIPELINE_RUNS_PARAM = new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/pipeline-runs/{param}");
-    public static final Endpoint GET_DATA_PIPELINES_PIPELINES = new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/pipelines");
-    public static final Endpoint GET_DATA_PIPELINES_PIPELINES_PARAM = new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/pipelines/{param}");
-    public static final Endpoint GET_DATA_PIPELINES_RUNS = new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/runs");
-    public static final Endpoint POST_DATA_PIPELINES_PIPELINES = new Endpoint(ApiService.PIPELINES, HttpMethod.POST, "/data/pipelines/pipelines");
-    public static final Endpoint POST_DATA_PIPELINES_RUNS = new Endpoint(ApiService.PIPELINES, HttpMethod.POST, "/data/pipelines/runs");
-    public static final Endpoint STREAM_DATA_PIPELINES_PIPELINE_RUNS_PARAM = new Endpoint(ApiService.PIPELINES, HttpMethod.STREAM, "/data/pipelines/pipeline-runs/{param}");
+
+    public static final Endpoint GET_DATA_PIPELINES_CAPABILITIES =
+        new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/capabilities");
+    public static final Endpoint GET_DATA_PIPELINES_HEALTH =
+        new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/health");
+    public static final Endpoint GET_DATA_PIPELINES_INFO =
+        new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/info");
+    public static final Endpoint GET_DATA_PIPELINES_PIPELINE_RUNS =
+        new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/pipeline-runs");
+    public static final Endpoint GET_DATA_PIPELINES_PIPELINE_RUNS_PARAM =
+        new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/pipeline-runs/{param}");
+    public static final Endpoint GET_DATA_PIPELINES_PIPELINES =
+        new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/pipelines");
+    public static final Endpoint GET_DATA_PIPELINES_PIPELINES_PARAM =
+        new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/pipelines/{param}");
+    public static final Endpoint GET_DATA_PIPELINES_RUNS =
+        new Endpoint(ApiService.PIPELINES, HttpMethod.GET, "/data/pipelines/runs");
+    public static final Endpoint POST_DATA_PIPELINES_PIPELINES =
+        new Endpoint(ApiService.PIPELINES, HttpMethod.POST, "/data/pipelines/pipelines");
+    public static final Endpoint POST_DATA_PIPELINES_RUNS =
+        new Endpoint(ApiService.PIPELINES, HttpMethod.POST, "/data/pipelines/runs");
+    public static final Endpoint STREAM_DATA_PIPELINES_PIPELINE_RUNS_PARAM =
+        new Endpoint(
+            ApiService.PIPELINES, HttpMethod.STREAM, "/data/pipelines/pipeline-runs/{param}");
   }
 
   public static final class React {
@@ -384,65 +784,118 @@ public final class Endpoints {
 
   public static final class Sandbox {
     private Sandbox() {}
-    public static final Endpoint GET_SANDBOX_LANGUAGES = new Endpoint(ApiService.SANDBOX, HttpMethod.GET, "/sandbox/languages");
-    public static final Endpoint POST_SANDBOX_SELF_TEST = new Endpoint(ApiService.SANDBOX, HttpMethod.POST, "/sandbox/self-test");
-    public static final Endpoint POST_SANDBOX_SUBMIT = new Endpoint(ApiService.SANDBOX, HttpMethod.POST, "/sandbox/submit");
+
+    public static final Endpoint GET_SANDBOX_LANGUAGES =
+        new Endpoint(ApiService.SANDBOX, HttpMethod.GET, "/sandbox/languages");
+    public static final Endpoint POST_SANDBOX_SELF_TEST =
+        new Endpoint(ApiService.SANDBOX, HttpMethod.POST, "/sandbox/self-test");
+    public static final Endpoint POST_SANDBOX_SUBMIT =
+        new Endpoint(ApiService.SANDBOX, HttpMethod.POST, "/sandbox/submit");
   }
 
   public static final class Schedules {
     private Schedules() {}
-    public static final Endpoint DELETE_WORKFLOWS_SCHEDULES_PARAM = new Endpoint(ApiService.SCHEDULES, HttpMethod.DELETE, "/workflows/schedules/{param}");
-    public static final Endpoint GET_WORKFLOWS_SCHEDULES = new Endpoint(ApiService.SCHEDULES, HttpMethod.GET, "/workflows/schedules");
-    public static final Endpoint GET_WORKFLOWS_SCHEDULES_PARAM = new Endpoint(ApiService.SCHEDULES, HttpMethod.GET, "/workflows/schedules/{param}");
-    public static final Endpoint PATCH_WORKFLOWS_SCHEDULES_PARAM = new Endpoint(ApiService.SCHEDULES, HttpMethod.PATCH, "/workflows/schedules/{param}");
-    public static final Endpoint POST_WORKFLOWS_CRON_PARSE = new Endpoint(ApiService.SCHEDULES, HttpMethod.POST, "/workflows/cron/parse");
-    public static final Endpoint POST_WORKFLOWS_CRON_VALIDATE = new Endpoint(ApiService.SCHEDULES, HttpMethod.POST, "/workflows/cron/validate");
-    public static final Endpoint POST_WORKFLOWS_SCHEDULES = new Endpoint(ApiService.SCHEDULES, HttpMethod.POST, "/workflows/schedules");
-    public static final Endpoint POST_WORKFLOWS_SCHEDULES_PARAM_PAUSE = new Endpoint(ApiService.SCHEDULES, HttpMethod.POST, "/workflows/schedules/{param}/pause");
-    public static final Endpoint POST_WORKFLOWS_SCHEDULES_PARAM_RESUME = new Endpoint(ApiService.SCHEDULES, HttpMethod.POST, "/workflows/schedules/{param}/resume");
-    public static final Endpoint POST_WORKFLOWS_SCHEDULES_PARAM_TRIGGER = new Endpoint(ApiService.SCHEDULES, HttpMethod.POST, "/workflows/schedules/{param}/trigger");
+
+    public static final Endpoint DELETE_WORKFLOWS_SCHEDULES_PARAM =
+        new Endpoint(ApiService.SCHEDULES, HttpMethod.DELETE, "/workflows/schedules/{param}");
+    public static final Endpoint GET_WORKFLOWS_SCHEDULES =
+        new Endpoint(ApiService.SCHEDULES, HttpMethod.GET, "/workflows/schedules");
+    public static final Endpoint GET_WORKFLOWS_SCHEDULES_PARAM =
+        new Endpoint(ApiService.SCHEDULES, HttpMethod.GET, "/workflows/schedules/{param}");
+    public static final Endpoint PATCH_WORKFLOWS_SCHEDULES_PARAM =
+        new Endpoint(ApiService.SCHEDULES, HttpMethod.PATCH, "/workflows/schedules/{param}");
+    public static final Endpoint POST_WORKFLOWS_CRON_PARSE =
+        new Endpoint(ApiService.SCHEDULES, HttpMethod.POST, "/workflows/cron/parse");
+    public static final Endpoint POST_WORKFLOWS_CRON_VALIDATE =
+        new Endpoint(ApiService.SCHEDULES, HttpMethod.POST, "/workflows/cron/validate");
+    public static final Endpoint POST_WORKFLOWS_SCHEDULES =
+        new Endpoint(ApiService.SCHEDULES, HttpMethod.POST, "/workflows/schedules");
+    public static final Endpoint POST_WORKFLOWS_SCHEDULES_PARAM_PAUSE =
+        new Endpoint(ApiService.SCHEDULES, HttpMethod.POST, "/workflows/schedules/{param}/pause");
+    public static final Endpoint POST_WORKFLOWS_SCHEDULES_PARAM_RESUME =
+        new Endpoint(ApiService.SCHEDULES, HttpMethod.POST, "/workflows/schedules/{param}/resume");
+    public static final Endpoint POST_WORKFLOWS_SCHEDULES_PARAM_TRIGGER =
+        new Endpoint(ApiService.SCHEDULES, HttpMethod.POST, "/workflows/schedules/{param}/trigger");
   }
 
   public static final class Webhooks {
     private Webhooks() {}
-    public static final Endpoint DELETE_WEBHOOKS_PARAM = new Endpoint(ApiService.WEBHOOKS, HttpMethod.DELETE, "/webhooks/{param}");
-    public static final Endpoint GET_WEBHOOKS = new Endpoint(ApiService.WEBHOOKS, HttpMethod.GET, "/webhooks");
-    public static final Endpoint GET_WEBHOOKS_DELIVERIES = new Endpoint(ApiService.WEBHOOKS, HttpMethod.GET, "/webhooks/deliveries");
-    public static final Endpoint GET_WEBHOOKS_DELIVERIES_PARAM = new Endpoint(ApiService.WEBHOOKS, HttpMethod.GET, "/webhooks/deliveries/{param}");
-    public static final Endpoint GET_WEBHOOKS_STATS = new Endpoint(ApiService.WEBHOOKS, HttpMethod.GET, "/webhooks/stats");
-    public static final Endpoint GET_WEBHOOKS_PARAM = new Endpoint(ApiService.WEBHOOKS, HttpMethod.GET, "/webhooks/{param}");
-    public static final Endpoint POST_WEBHOOKS = new Endpoint(ApiService.WEBHOOKS, HttpMethod.POST, "/webhooks");
-    public static final Endpoint POST_WEBHOOKS_DELIVERIES_PARAM_RETRY = new Endpoint(ApiService.WEBHOOKS, HttpMethod.POST, "/webhooks/deliveries/{param}/retry");
-    public static final Endpoint POST_WEBHOOKS_PARAM_ROTATE_SECRET = new Endpoint(ApiService.WEBHOOKS, HttpMethod.POST, "/webhooks/{param}/rotate-secret");
-    public static final Endpoint PUT_WEBHOOKS_PARAM = new Endpoint(ApiService.WEBHOOKS, HttpMethod.PUT, "/webhooks/{param}");
+
+    public static final Endpoint DELETE_WEBHOOKS_PARAM =
+        new Endpoint(ApiService.WEBHOOKS, HttpMethod.DELETE, "/webhooks/{param}");
+    public static final Endpoint GET_WEBHOOKS =
+        new Endpoint(ApiService.WEBHOOKS, HttpMethod.GET, "/webhooks");
+    public static final Endpoint GET_WEBHOOKS_DELIVERIES =
+        new Endpoint(ApiService.WEBHOOKS, HttpMethod.GET, "/webhooks/deliveries");
+    public static final Endpoint GET_WEBHOOKS_DELIVERIES_PARAM =
+        new Endpoint(ApiService.WEBHOOKS, HttpMethod.GET, "/webhooks/deliveries/{param}");
+    public static final Endpoint GET_WEBHOOKS_STATS =
+        new Endpoint(ApiService.WEBHOOKS, HttpMethod.GET, "/webhooks/stats");
+    public static final Endpoint GET_WEBHOOKS_PARAM =
+        new Endpoint(ApiService.WEBHOOKS, HttpMethod.GET, "/webhooks/{param}");
+    public static final Endpoint POST_WEBHOOKS =
+        new Endpoint(ApiService.WEBHOOKS, HttpMethod.POST, "/webhooks");
+    public static final Endpoint POST_WEBHOOKS_DELIVERIES_PARAM_RETRY =
+        new Endpoint(ApiService.WEBHOOKS, HttpMethod.POST, "/webhooks/deliveries/{param}/retry");
+    public static final Endpoint POST_WEBHOOKS_PARAM_ROTATE_SECRET =
+        new Endpoint(ApiService.WEBHOOKS, HttpMethod.POST, "/webhooks/{param}/rotate-secret");
+    public static final Endpoint PUT_WEBHOOKS_PARAM =
+        new Endpoint(ApiService.WEBHOOKS, HttpMethod.PUT, "/webhooks/{param}");
   }
 
   public static final class Workflows {
     private Workflows() {}
-    public static final Endpoint DELETE_WORKFLOWS_PARAM = new Endpoint(ApiService.WORKFLOWS, HttpMethod.DELETE, "/workflows/{param}");
-    public static final Endpoint GET_WORKFLOWS = new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows");
-    public static final Endpoint GET_WORKFLOWS_APPROVALS = new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/approvals");
-    public static final Endpoint GET_WORKFLOWS_APPROVALS_PARAM = new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/approvals/{param}");
-    public static final Endpoint GET_WORKFLOWS_EXECUTIONS = new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/executions");
-    public static final Endpoint GET_WORKFLOWS_EXECUTIONS_PARAM = new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/executions/{param}");
-    public static final Endpoint GET_WORKFLOWS_EXECUTIONS_PARAM_TASKS = new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/executions/{param}/tasks");
-    public static final Endpoint GET_WORKFLOWS_RUNS_PARAM_STEPS = new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/runs/{param}/steps");
-    public static final Endpoint GET_WORKFLOWS_TASKS_PARAM = new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/tasks/{param}");
-    public static final Endpoint GET_WORKFLOWS_TEMPLATES = new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/templates");
-    public static final Endpoint GET_WORKFLOWS_TEMPLATES_PARAM = new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/templates/{param}");
-    public static final Endpoint GET_WORKFLOWS_PARAM = new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/{param}");
-    public static final Endpoint PATCH_WORKFLOWS_PARAM = new Endpoint(ApiService.WORKFLOWS, HttpMethod.PATCH, "/workflows/{param}");
-    public static final Endpoint POST_WORKFLOWS = new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows");
-    public static final Endpoint POST_WORKFLOWS_APPROVALS_PARAM_APPROVE = new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/approvals/{param}/approve");
-    public static final Endpoint POST_WORKFLOWS_APPROVALS_PARAM_REJECT = new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/approvals/{param}/reject");
-    public static final Endpoint POST_WORKFLOWS_EXECUTIONS = new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/executions");
-    public static final Endpoint POST_WORKFLOWS_TASKS_PARAM_CANCEL = new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/tasks/{param}/cancel");
-    public static final Endpoint POST_WORKFLOWS_TASKS_PARAM_RETRY = new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/tasks/{param}/retry");
-    public static final Endpoint POST_WORKFLOWS_TEMPLATES = new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/templates");
-    public static final Endpoint POST_WORKFLOWS_TEMPLATES_PARAM_INSTANTIATE = new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/templates/{param}/instantiate");
-    public static final Endpoint POST_WORKFLOWS_PARAM_ARCHIVE = new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/{param}/archive");
-    public static final Endpoint POST_WORKFLOWS_PARAM_PUBLISH = new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/{param}/publish");
-    public static final Endpoint POST_WORKFLOWS_PARAM_RESTORE = new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/{param}/restore");
-    public static final Endpoint POST_WORKFLOWS_PARAM_VERSIONS = new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/{param}/versions");
+
+    public static final Endpoint DELETE_WORKFLOWS_PARAM =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.DELETE, "/workflows/{param}");
+    public static final Endpoint GET_WORKFLOWS =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows");
+    public static final Endpoint GET_WORKFLOWS_APPROVALS =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/approvals");
+    public static final Endpoint GET_WORKFLOWS_APPROVALS_PARAM =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/approvals/{param}");
+    public static final Endpoint GET_WORKFLOWS_EXECUTIONS =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/executions");
+    public static final Endpoint GET_WORKFLOWS_EXECUTIONS_PARAM =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/executions/{param}");
+    public static final Endpoint GET_WORKFLOWS_EXECUTIONS_PARAM_TASKS =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/executions/{param}/tasks");
+    public static final Endpoint GET_WORKFLOWS_RUNS_PARAM_STEPS =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/runs/{param}/steps");
+    public static final Endpoint GET_WORKFLOWS_TASKS_PARAM =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/tasks/{param}");
+    public static final Endpoint GET_WORKFLOWS_TEMPLATES =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/templates");
+    public static final Endpoint GET_WORKFLOWS_TEMPLATES_PARAM =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/templates/{param}");
+    public static final Endpoint GET_WORKFLOWS_PARAM =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.GET, "/workflows/{param}");
+    public static final Endpoint PATCH_WORKFLOWS_PARAM =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.PATCH, "/workflows/{param}");
+    public static final Endpoint POST_WORKFLOWS =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows");
+    public static final Endpoint POST_WORKFLOWS_APPROVALS_PARAM_APPROVE =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/approvals/{param}/approve");
+    public static final Endpoint POST_WORKFLOWS_APPROVALS_PARAM_REJECT =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/approvals/{param}/reject");
+    public static final Endpoint POST_WORKFLOWS_EXECUTIONS =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/executions");
+    public static final Endpoint POST_WORKFLOWS_TASKS_PARAM_CANCEL =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/tasks/{param}/cancel");
+    public static final Endpoint POST_WORKFLOWS_TASKS_PARAM_RETRY =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/tasks/{param}/retry");
+    public static final Endpoint POST_WORKFLOWS_TEMPLATES =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/templates");
+    public static final Endpoint POST_WORKFLOWS_TEMPLATES_PARAM_INSTANTIATE =
+        new Endpoint(
+            ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/templates/{param}/instantiate");
+    public static final Endpoint POST_WORKFLOWS_PARAM_ARCHIVE =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/{param}/archive");
+    public static final Endpoint POST_WORKFLOWS_PARAM_PUBLISH =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/{param}/publish");
+    public static final Endpoint POST_WORKFLOWS_PARAM_RESTORE =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/{param}/restore");
+    public static final Endpoint POST_WORKFLOWS_PARAM_VERSIONS =
+        new Endpoint(ApiService.WORKFLOWS, HttpMethod.POST, "/workflows/{param}/versions");
   }
 }

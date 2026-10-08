@@ -11,10 +11,11 @@ public record ApiResponse(int statusCode, Map<String, List<String>> headers, byt
   public ApiResponse {
     Objects.requireNonNull(headers, "headers");
     Objects.requireNonNull(body, "body");
-    headers = headers.entrySet().stream()
-        .collect(Collectors.toUnmodifiableMap(
-            Map.Entry::getKey,
-            entry -> List.copyOf(entry.getValue())));
+    headers =
+        headers.entrySet().stream()
+            .collect(
+                Collectors.toUnmodifiableMap(
+                    Map.Entry::getKey, entry -> List.copyOf(entry.getValue())));
     body = body.clone();
   }
 

@@ -6,9 +6,9 @@ Install JDK 17 or later with Maven 3.9+. Follow [`docs/ONBOARDING.md`](./docs/ON
 
 ## Make a change
 
-- Put shared transport and error behavior in the core module.
-- Put each service's models and operations in its corresponding module.
-- Use Maven and the Checkstyle rules in `checkstyle.xml`; follow four-space indentation from `.editorconfig`.
+- Keep the SDK in the single `dev.frontal.sdk` package and the existing Maven artifact. Use the `api/`, `auth/`, `config/`, `models/`, `resources/`, and `utils/` folders to organize source files by role; do not add Java subpackages or Maven modules.
+- Use Maven, follow the four-space indentation in `.editorconfig`, and run Spotless and Checkstyle before opening a pull request.
+- Keep service resources in `resources/` and derive route changes from the contract inventory.
 - Keep contracts and generated reports synchronized when public endpoint coverage changes.
 - Add API documentation and a runnable Java example for each public operation.
 - Record user-visible changes in `CHANGELOG.md` and use `type(scope): summary` commit subjects.

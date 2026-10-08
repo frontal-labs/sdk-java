@@ -58,7 +58,10 @@ public final class ApiClient {
   }
 
   public ApiClient(
-      ClientConfig config, HttpClient httpClient, ObjectMapper objectMapper, AuthProvider authProvider) {
+      ClientConfig config,
+      HttpClient httpClient,
+      ObjectMapper objectMapper,
+      AuthProvider authProvider) {
     this.config = Objects.requireNonNull(config, "config");
     this.httpClient = Objects.requireNonNull(httpClient, "httpClient");
     this.objectMapper = Objects.requireNonNull(objectMapper, "objectMapper");
@@ -121,9 +124,10 @@ public final class ApiClient {
         contentType = "application/json";
       }
     }
-    String accept = endpoint.method() == HttpMethod.GETRAW
-        ? "application/pdf, application/octet-stream, */*"
-        : "application/json, application/octet-stream";
+    String accept =
+        endpoint.method() == HttpMethod.GETRAW
+            ? "application/pdf, application/octet-stream, */*"
+            : "application/json, application/octet-stream";
     return exchange(endpoint, pathParams, query, publisher, contentType, accept);
   }
 
@@ -191,16 +195,22 @@ public final class ApiClient {
   }
 
   /** Opens a streaming response while preserving its status and headers. */
-  public ApiStream streamResponse(
-      Endpoint endpoint, List<String> pathParams, Map<String, ?> query)
+  public ApiStream streamResponse(Endpoint endpoint, List<String> pathParams, Map<String, ?> query)
       throws IOException, InterruptedException {
     Objects.requireNonNull(endpoint, "endpoint");
     if (endpoint.method() != HttpMethod.STREAM) {
       throw new IllegalArgumentException("stream requires a STREAM endpoint");
     }
-    HttpRequest request = buildRequest(
-        endpoint, pathParams, query, HttpRequest.BodyPublishers.noBody(), null, "text/event-stream");
-    HttpResponse<InputStream> response = httpClient.send(request, HttpResponse.BodyHandlers.ofInputStream());
+    HttpRequest request =
+        buildRequest(
+            endpoint,
+            pathParams,
+            query,
+            HttpRequest.BodyPublishers.noBody(),
+            null,
+            "text/event-stream");
+    HttpResponse<InputStream> response =
+        httpClient.send(request, HttpResponse.BodyHandlers.ofInputStream());
     if (response.statusCode() < 200 || response.statusCode() >= 300) {
       try (InputStream responseBody = response.body()) {
         throw toApiException(
@@ -223,7 +233,8 @@ public final class ApiClient {
     int attempts = endpoint.method().wireMethod().equals("GET") ? config.maxRetries() + 1 : 1;
     IOException lastFailure = null;
     for (int attempt = 0; attempt < attempts; attempt++) {
-      HttpRequest request = buildRequest(endpoint, pathParams, query, publisher, contentType, accept);
+      HttpRequest request =
+          buildRequest(endpoint, pathParams, query, publisher, contentType, accept);
       HttpResponse<InputStream> response;
       try {
         response = httpClient.send(request, HttpResponse.BodyHandlers.ofInputStream());
@@ -264,10 +275,11 @@ public final class ApiClient {
       String accept) {
     URI baseUrl = endpoint.service() == ApiService.AI ? config.aiBaseUrl() : config.apiBaseUrl();
     URI uri = RequestUriBuilder.build(baseUrl, endpoint, pathParams, query);
-    HttpRequest.Builder builder = HttpRequest.newBuilder(uri)
-        .timeout(config.requestTimeout())
-        .header("Accept", accept)
-        .header("User-Agent", config.userAgent());
+    HttpRequest.Builder builder =
+        HttpRequest.newBuilder(uri)
+            .timeout(config.requestTimeout())
+            .header("Accept", accept)
+            .header("User-Agent", config.userAgent());
     config.headers().forEach(builder::setHeader);
     if (contentType != null) {
       builder.setHeader("Content-Type", contentType);
@@ -332,13 +344,16 @@ public final class ApiClient {
   }
 
   private HttpRequest.BodyPublisher multipart(
-      String boundary, Map<String, String> fields, Map<String, Path> files)
-      throws IOException {
+      String boundary, Map<String, String> fields, Map<String, Path> files) throws IOException {
     List<HttpRequest.BodyPublisher> parts = new ArrayList<>();
     for (Map.Entry<String, String> field : fields.entrySet()) {
-      parts.add(publisher(
-          "--" + boundary + "\r\nContent-Disposition: form-data; name=\""
-              + safeHeader(field.getKey()) + "\"\r\n\r\n"));
+      parts.add(
+          publisher(
+              "--"
+                  + boundary
+                  + "\r\nContent-Disposition: form-data; name=\""
+                  + safeHeader(field.getKey())
+                  + "\"\r\n\r\n"));
       parts.add(publisher(Objects.requireNonNull(field.getValue(), "multipart field value")));
       parts.add(publisher("\r\n"));
     }
@@ -346,11 +361,18 @@ public final class ApiClient {
       Path path = Objects.requireNonNull(file.getValue(), "multipart file path");
       String filename = safeHeader(path.getFileName().toString());
       String type = Files.probeContentType(path);
-      parts.add(publisher(
-          "--" + boundary + "\r\nContent-Disposition: form-data; name=\""
-              + safeHeader(file.getKey()) + "\"; filename=\"" + filename + "\"\r\n"));
-      parts.add(publisher(
-          "Content-Type: " + (type == null ? "application/octet-stream" : type) + "\r\n\r\n"));
+      parts.add(
+          publisher(
+              "--"
+                  + boundary
+                  + "\r\nContent-Disposition: form-data; name=\""
+                  + safeHeader(file.getKey())
+                  + "\"; filename=\""
+                  + filename
+                  + "\"\r\n"));
+      parts.add(
+          publisher(
+              "Content-Type: " + (type == null ? "application/octet-stream" : type) + "\r\n\r\n"));
       try {
         parts.add(HttpRequest.BodyPublishers.ofFile(path));
       } catch (FileNotFoundException exception) {

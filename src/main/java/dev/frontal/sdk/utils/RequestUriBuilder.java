@@ -12,13 +12,17 @@ import java.util.Objects;
 public final class RequestUriBuilder {
   private RequestUriBuilder() {}
 
-  public static URI build(URI baseUrl, Endpoint endpoint, List<String> pathParameters, Map<String, ?> query) {
+  public static URI build(
+      URI baseUrl, Endpoint endpoint, List<String> pathParameters, Map<String, ?> query) {
     Objects.requireNonNull(baseUrl, "baseUrl");
     Objects.requireNonNull(endpoint, "endpoint");
     List<String> parameters = pathParameters == null ? List.of() : pathParameters;
     if (parameters.size() != endpoint.pathParameterCount()) {
       throw new IllegalArgumentException(
-          "Expected " + endpoint.pathParameterCount() + " path parameters, got " + parameters.size());
+          "Expected "
+              + endpoint.pathParameterCount()
+              + " path parameters, got "
+              + parameters.size());
     }
 
     String path = endpoint.path();
@@ -26,7 +30,10 @@ public final class RequestUriBuilder {
       if (parameter == null) {
         throw new IllegalArgumentException("Path parameters must not be null");
       }
-      path = path.replaceFirst("\\{param\\}", java.util.regex.Matcher.quoteReplacement(encodePathSegment(parameter)));
+      path =
+          path.replaceFirst(
+              "\\{param\\}",
+              java.util.regex.Matcher.quoteReplacement(encodePathSegment(parameter)));
     }
 
     StringBuilder uri = new StringBuilder(trimTrailingSlash(baseUrl.toString())).append(path);
@@ -39,9 +46,7 @@ public final class RequestUriBuilder {
 
   /** Encodes a single path segment so slashes and reserved characters stay within that segment. */
   public static String encodePathSegment(String value) {
-    return URLEncoder.encode(value, StandardCharsets.UTF_8)
-        .replace("+", "%20")
-        .replace("%7E", "~");
+    return URLEncoder.encode(value, StandardCharsets.UTF_8).replace("+", "%20").replace("%7E", "~");
   }
 
   private static String encodeQuery(Map<String, ?> query) {
@@ -49,21 +54,22 @@ public final class RequestUriBuilder {
       return "";
     }
     List<String> pairs = new ArrayList<>();
-    query.forEach((name, value) -> {
-      if (name == null || value == null) {
-        return;
-      }
-      if (value instanceof Iterable<?> values) {
-        values.forEach(item -> addPair(pairs, name, item));
-      } else if (value.getClass().isArray()) {
-        int length = java.lang.reflect.Array.getLength(value);
-        for (int index = 0; index < length; index++) {
-          addPair(pairs, name, java.lang.reflect.Array.get(value, index));
-        }
-      } else {
-        addPair(pairs, name, value);
-      }
-    });
+    query.forEach(
+        (name, value) -> {
+          if (name == null || value == null) {
+            return;
+          }
+          if (value instanceof Iterable<?> values) {
+            values.forEach(item -> addPair(pairs, name, item));
+          } else if (value.getClass().isArray()) {
+            int length = java.lang.reflect.Array.getLength(value);
+            for (int index = 0; index < length; index++) {
+              addPair(pairs, name, java.lang.reflect.Array.get(value, index));
+            }
+          } else {
+            addPair(pairs, name, value);
+          }
+        });
     return String.join("&", pairs);
   }
 

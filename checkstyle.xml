@@ -4,9 +4,21 @@
   "https://checkstyle.org/dtds/configuration_1_3.dtd">
 <module name="Checker">
   <property name="charset" value="UTF-8"/>
+  <module name="FileTabCharacter">
+    <property name="eachLine" value="true"/>
+  </module>
+  <module name="NewlineAtEndOfFile"/>
   <module name="TreeWalker">
     <module name="AvoidStarImport"/>
+    <module name="ModifierOrder"/>
     <module name="NeedBraces"/>
+    <module name="EmptyStatement"/>
+    <module name="TypeName"/>
+    <module name="MethodName"/>
+    <module name="ConstantName"/>
+    <module name="MemberName"/>
+    <module name="ParameterName"/>
+    <module name="LocalVariableName"/>
     <module name="UnusedImports"/>
   </module>
 </module>

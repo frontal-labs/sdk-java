@@ -17,7 +17,7 @@ The SDK includes a configurable HTTP client, Bearer and custom authentication, t
 | `contracts/` | OpenAPI snapshots, endpoint inventory, and this repository's conformance reports |
 | `docs/` | Java architecture, onboarding, testing, and release guidance |
 | `examples/` | Java integration guide and usage examples |
-| `templates/` | Java application starter layouts |
+| `templates/` | Enterprise-oriented Java starters for approval, batch, and streaming setups |
 | `scripts/` | Contract and documentation maintenance utilities |
 | `.github/` | Java CI, security analysis, and contribution templates |
 
@@ -60,6 +60,8 @@ mvn spotless:check
 mvn test
 mvn package
 ```
+
+`mvn verify` runs unit tests, Checkstyle, and the Google Java Format check for SDK and template sources. Apply formatting with `mvn spotless:apply` before committing Java changes.
 
 See [`CONTRIBUTING.md`](./CONTRIBUTING.md), [`docs/ONBOARDING.md`](./docs/ONBOARDING.md), and [`AGENTS.md`](./AGENTS.md).
 

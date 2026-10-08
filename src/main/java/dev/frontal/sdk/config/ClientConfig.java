@@ -57,13 +57,14 @@ public final class ClientConfig {
       int maxRetries,
       long maxResponseBytes,
       Map<String, String> headers) {
-    this(builder()
-        .apiKey(apiKey)
-        .apiBaseUrl(baseUrl)
-        .requestTimeout(timeout)
-        .maxRetries(maxRetries)
-        .maxResponseBytes(maxResponseBytes)
-        .headers(headers));
+    this(
+        builder()
+            .apiKey(apiKey)
+            .apiBaseUrl(baseUrl)
+            .requestTimeout(timeout)
+            .maxRetries(maxRetries)
+            .maxResponseBytes(maxResponseBytes)
+            .headers(headers));
   }
 
   public static Builder builder() {

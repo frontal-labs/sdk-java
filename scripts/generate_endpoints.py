@@ -53,7 +53,15 @@ def main() -> None:
         "  private Endpoints() {}",
     ]
     for service, enum_value in SERVICES.items():
-        lines.extend(["", f"  public static final class {enum_value.title()} {{", f"    private {enum_value.title()}() {{}}"])
+        lines.extend(
+            [
+                "",
+                f"  public static final class {enum_value.title()} {{",
+                f"    private {enum_value.title()}() {{}}",
+            ]
+        )
+        if routes[service]:
+            lines.append("")
         used: dict[str, int] = {}
         for route in sorted(routes[service], key=lambda item: (item["method"], item["path"])):
             name = constant_name(route["method"], route["path"])
@@ -61,10 +69,28 @@ def main() -> None:
             used[name] = count + 1
             if count:
                 name = f"{name}_{count + 1}"
-            lines.append(
-                f'    public static final Endpoint {name} = new Endpoint(ApiService.{enum_value}, '
+            declaration = (
+                f'        new Endpoint(ApiService.{enum_value}, '
                 f'HttpMethod.{route["method"]}, "{route["path"]}");'
             )
+            lines.append(f"    public static final Endpoint {name} =")
+            arguments = (
+                f'ApiService.{enum_value}, HttpMethod.{route["method"]}, '
+                f'"{route["path"]}"'
+            )
+            if len(declaration) <= 100:
+                lines.append(declaration)
+            elif len(arguments) + 14 <= 100:
+                lines.extend(["        new Endpoint(", f"            {arguments});"])
+            else:
+                lines.extend(
+                    [
+                        "        new Endpoint(",
+                        f"            ApiService.{enum_value},",
+                        f"            HttpMethod.{route['method']},",
+                        f'            "{route["path"]}");',
+                    ]
+                )
         lines.append("  }")
     lines.append("}")
     OUTPUT.write_text("\n".join(lines) + "\n", encoding="utf-8")

@@ -42,22 +42,75 @@ public final class Frontal {
     return services.get(Objects.requireNonNull(service, "service"));
   }
 
-  public ServiceClient agents() { return service(ApiService.AGENTS); }
-  public ServiceClient ai() { return service(ApiService.AI); }
-  public ServiceClient audit() { return service(ApiService.AUDIT); }
-  public ServiceClient auth() { return service(ApiService.AUTH); }
-  public ServiceClient billing() { return service(ApiService.BILLING); }
-  public ServiceClient blob() { return service(ApiService.BLOB); }
-  public ServiceClient connectors() { return service(ApiService.CONNECTORS); }
-  public ServiceClient data() { return service(ApiService.DATA); }
-  public ServiceClient governance() { return service(ApiService.GOVERNANCE); }
-  public ServiceClient lineage() { return service(ApiService.LINEAGE); }
-  public ServiceClient observability() { return service(ApiService.OBSERVABILITY); }
-  public ServiceClient ontology() { return service(ApiService.ONTOLOGY); }
-  public ServiceClient pipelines() { return service(ApiService.PIPELINES); }
-  public ServiceClient react() { return service(ApiService.REACT); }
-  public ServiceClient sandbox() { return service(ApiService.SANDBOX); }
-  public ServiceClient schedules() { return service(ApiService.SCHEDULES); }
-  public ServiceClient webhooks() { return service(ApiService.WEBHOOKS); }
-  public ServiceClient workflows() { return service(ApiService.WORKFLOWS); }
+  public ServiceClient agents() {
+    return service(ApiService.AGENTS);
+  }
+
+  public ServiceClient ai() {
+    return service(ApiService.AI);
+  }
+
+  public ServiceClient audit() {
+    return service(ApiService.AUDIT);
+  }
+
+  public ServiceClient auth() {
+    return service(ApiService.AUTH);
+  }
+
+  public ServiceClient billing() {
+    return service(ApiService.BILLING);
+  }
+
+  public ServiceClient blob() {
+    return service(ApiService.BLOB);
+  }
+
+  public ServiceClient connectors() {
+    return service(ApiService.CONNECTORS);
+  }
+
+  public ServiceClient data() {
+    return service(ApiService.DATA);
+  }
+
+  public ServiceClient governance() {
+    return service(ApiService.GOVERNANCE);
+  }
+
+  public ServiceClient lineage() {
+    return service(ApiService.LINEAGE);
+  }
+
+  public ServiceClient observability() {
+    return service(ApiService.OBSERVABILITY);
+  }
+
+  public ServiceClient ontology() {
+    return service(ApiService.ONTOLOGY);
+  }
+
+  public ServiceClient pipelines() {
+    return service(ApiService.PIPELINES);
+  }
+
+  public ServiceClient react() {
+    return service(ApiService.REACT);
+  }
+
+  public ServiceClient sandbox() {
+    return service(ApiService.SANDBOX);
+  }
+
+  public ServiceClient schedules() {
+    return service(ApiService.SCHEDULES);
+  }
+
+  public ServiceClient webhooks() {
+    return service(ApiService.WEBHOOKS);
+  }
+
+  public ServiceClient workflows() {
+    return service(ApiService.WORKFLOWS);
+  }
 }

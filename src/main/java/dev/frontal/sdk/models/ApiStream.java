@@ -15,10 +15,11 @@ public final class ApiStream implements AutoCloseable {
 
   public ApiStream(int statusCode, Map<String, List<String>> headers, InputStream body) {
     this.statusCode = statusCode;
-    this.headers = Objects.requireNonNull(headers, "headers").entrySet().stream()
-        .collect(Collectors.toUnmodifiableMap(
-            Map.Entry::getKey,
-            entry -> List.copyOf(entry.getValue())));
+    this.headers =
+        Objects.requireNonNull(headers, "headers").entrySet().stream()
+            .collect(
+                Collectors.toUnmodifiableMap(
+                    Map.Entry::getKey, entry -> List.copyOf(entry.getValue())));
     this.body = Objects.requireNonNull(body, "body");
   }
 

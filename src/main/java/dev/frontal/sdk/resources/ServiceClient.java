@@ -27,26 +27,35 @@ public final class ServiceClient {
     return request(endpoint, List.of(), Map.of(), null, responseType);
   }
 
-  public <T> T request(
-      Endpoint endpoint, List<String> pathParams, Class<T> responseType)
+  public <T> T request(Endpoint endpoint, List<String> pathParams, Class<T> responseType)
       throws IOException, InterruptedException {
     return request(endpoint, pathParams, Map.of(), null, responseType);
   }
 
-  public <T> T request(Endpoint endpoint, List<String> pathParams, Map<String, ?> query, Object body, Class<T> responseType)
+  public <T> T request(
+      Endpoint endpoint,
+      List<String> pathParams,
+      Map<String, ?> query,
+      Object body,
+      Class<T> responseType)
       throws IOException, InterruptedException {
     verify(endpoint);
     return client.request(endpoint, pathParams, query, body, responseType);
   }
 
   public <T> T request(
-      Endpoint endpoint, List<String> pathParams, Map<String, ?> query, Object body, TypeReference<T> responseType)
+      Endpoint endpoint,
+      List<String> pathParams,
+      Map<String, ?> query,
+      Object body,
+      TypeReference<T> responseType)
       throws IOException, InterruptedException {
     verify(endpoint);
     return client.request(endpoint, pathParams, query, body, responseType);
   }
 
-  public byte[] requestBytes(Endpoint endpoint, List<String> pathParams, Map<String, ?> query, Object body)
+  public byte[] requestBytes(
+      Endpoint endpoint, List<String> pathParams, Map<String, ?> query, Object body)
       throws IOException, InterruptedException {
     verify(endpoint);
     return client.requestBytes(endpoint, pathParams, query, body);
@@ -100,8 +109,7 @@ public final class ServiceClient {
     return client.stream(endpoint, pathParams, query);
   }
 
-  public ApiStream streamResponse(
-      Endpoint endpoint, List<String> pathParams, Map<String, ?> query)
+  public ApiStream streamResponse(Endpoint endpoint, List<String> pathParams, Map<String, ?> query)
       throws IOException, InterruptedException {
     verify(endpoint);
     return client.streamResponse(endpoint, pathParams, query);
