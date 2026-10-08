@@ -113,11 +113,11 @@
       "title": "SKILL"
     },
     {
-      "path": "templates/agent-approval/README.md",
+      "path": "templates/README.md",
       "title": "README"
     },
     {
-      "path": "templates/chatbot/README.md",
+      "path": "templates/agent-approval/README.md",
       "title": "README"
     },
     {
@@ -125,7 +125,7 @@
       "title": "README"
     },
     {
-      "path": "templates/pipeline-graph/README.md",
+      "path": "templates/pipeline-monitor/README.md",
       "title": "README"
     }
   ]

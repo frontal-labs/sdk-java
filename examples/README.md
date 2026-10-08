@@ -2,6 +2,8 @@
 
 Examples in this repository use Java project conventions. The SDK exposes every current route through `Endpoints` and accepts caller-provided Java response types when a contract does not define a typed model.
 
+For runnable Maven applications tailored to common deployment patterns, see [`templates/README.md`](../templates/README.md).
+
 ```java
 import com.fasterxml.jackson.databind.JsonNode;
 import dev.frontal.sdk.Endpoints;

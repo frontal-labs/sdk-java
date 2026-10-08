@@ -1,14 +1,22 @@
-# Cron export template
+# Scheduled agent export
 
-Starter layout for a scheduled export and download flow.
+A one-shot Java 17 batch application that fetches the agent collection and saves the JSON response as a timestamped file. Schedule the command with cron, a container scheduler, or your platform's job runner.
 
-This Java 17 Maven project is a starter scaffold. Add the Frontal SDK dependency to its `pom.xml`, then use the shared `Frontal` client and generated `Endpoints` constants from application code.
+## Configure and run
 
-## Run
+From the repository root, install the unpublished SDK snapshot:
 
 ```bash
-mvn package
-java -cp target/classes dev.frontal.examples.cronexport.Main
+mvn --batch-mode --no-transfer-progress install
 ```
 
-Keep application code under `src/main/java` and tests under `src/test/java`.
+Set `FRONTAL_API_KEY`, then run:
+
+```bash
+cd templates/cron-export
+mvn exec:java
+```
+
+The export is written to the current directory. Pass `-Dexec.args="path/to/export.json"` to choose a specific output path. The program writes a temporary file beside the destination and renames it into place after serialization, so readers do not see a partially written snapshot. Schedule non-overlapping runs when using a fixed output path.
+
+API and file errors are logged to standard error and return a nonzero process status, so a scheduler can detect failures. Store snapshots in an access-controlled location and define a retention policy for exported data.

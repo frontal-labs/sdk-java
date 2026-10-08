@@ -1,13 +1,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>dev.frontal.examples</groupId>
-  <artifactId>frontal-cron-export-example</artifactId>
+  <artifactId>frontal-cron-export</artifactId>
   <version>0.1.0-SNAPSHOT</version>
-  <name>Cron export starter</name>
   <properties>
     <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <frontal.sdk.version>0.1.0-SNAPSHOT</frontal.sdk.version>
+    <jackson.version>2.22.3</jackson.version>
   </properties>
+  <dependencies>
+    <dependency>
+      <groupId>dev.frontal</groupId>
+      <artifactId>frontal-sdk</artifactId>
+      <version>${frontal.sdk.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+  </dependencies>
   <build>
     <plugins>
       <plugin>
@@ -15,6 +28,14 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.13.0</version>
         <configuration><release>${maven.compiler.release}</release></configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.5.0</version>
+        <configuration>
+          <mainClass>dev.frontal.examples.cronexport.Main</mainClass>
+        </configuration>
       </plugin>
     </plugins>
   </build>

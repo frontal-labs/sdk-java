@@ -1,0 +1,17 @@
+# Java application templates
+
+Each directory is a standalone Java 17 Maven application that uses the Frontal Java SDK. The SDK snapshot is not published yet, so install it into your local Maven repository before building a template:
+
+```bash
+mvn --batch-mode --no-transfer-progress install
+```
+
+Then enter a template directory and follow its README. Inject `FRONTAL_API_KEY` from your deployment secret store; do not place credentials in source files, shell scripts, or committed environment files. `FRONTAL_API_URL` and `FRONTAL_AI_URL` use the SDK defaults when omitted.
+
+| Template | Setup pattern | SDK features |
+| --- | --- | --- |
+| [`agent-approval/`](./agent-approval/) | Human-in-the-loop command-line tool | List and explicitly approve workflow requests |
+| [`cron-export/`](./cron-export/) | Scheduled batch job | Fetch agents and atomically publish a JSON snapshot |
+| [`pipeline-monitor/`](./pipeline-monitor/) | Long-running event consumer | Read and reconnect to a pipeline run event stream |
+
+These projects demonstrate operational patterns and safe defaults. Review each README, set least-privilege API access, and configure deployment-specific logging, monitoring, and retention before production use.
