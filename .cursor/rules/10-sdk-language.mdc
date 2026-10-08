@@ -1,0 +1,11 @@
+---
+description: Java SDK code conventions and checks
+globs: **/*.java
+alwaysApply: false
+---
+
+# Java development rules
+
+Target Java 17 and preserve the single dev.frontal.sdk package. Use the existing Gradle module layout, OkHttp/Jackson, Spotless, Error Prone/NullAway, JUnit 5, and MockWebServer. Keep service behavior grounded in the committed contracts.
+
+When implementing behavior changes, add deterministic offline coverage using the repository's existing test tools. Update docs and runnable examples for public API changes. See `AGENTS.md` for project-specific rules and use the applicable skill under `skills/`.

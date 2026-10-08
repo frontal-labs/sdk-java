@@ -1,0 +1,92 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Java: Spotless check",
+      "type": "process",
+      "command": "./gradlew",
+      "args": [
+        "spotlessCheck"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false
+      },
+      "windows": {
+        "command": "gradlew.bat"
+      }
+    },
+    {
+      "label": "Java: Assemble",
+      "type": "process",
+      "command": "./gradlew",
+      "args": [
+        "assemble"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false
+      },
+      "windows": {
+        "command": "gradlew.bat"
+      }
+    },
+    {
+      "label": "Java: Lint",
+      "type": "process",
+      "command": "./gradlew",
+      "args": [
+        "lint"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false
+      },
+      "windows": {
+        "command": "gradlew.bat"
+      }
+    },
+    {
+      "label": "Java: Test",
+      "type": "process",
+      "command": "./gradlew",
+      "args": [
+        "test"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false
+      },
+      "windows": {
+        "command": "gradlew.bat"
+      }
+    },
+    {
+      "label": "Java: Examples, docs, and contract checks",
+      "type": "process",
+      "command": "./gradlew",
+      "args": [
+        "examplesTest",
+        "docsTest",
+        "checkContracts"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false
+      },
+      "windows": {
+        "command": "gradlew.bat"
+      }
+    }
+  ]
+}
