@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "dev.frontal"
-version = "1.0.0"
+version = providers.gradleProperty("sdkVersion").get()
 
 allprojects {
   group = rootProject.group
