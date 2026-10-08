@@ -10,18 +10,6 @@
     },
     {
       "method": "GET",
-      "path": "/agents/{param}"
-    },
-    {
-      "method": "GET",
-      "path": "/agents/{param}/runs"
-    },
-    {
-      "method": "GET",
-      "path": "/agents/{param}/versions"
-    },
-    {
-      "method": "GET",
       "path": "/agents/health"
     },
     {
@@ -31,6 +19,18 @@
     {
       "method": "GET",
       "path": "/agents/runs/{param}/conversation"
+    },
+    {
+      "method": "GET",
+      "path": "/agents/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/agents/{param}/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/agents/{param}/versions"
     },
     {
       "method": "POST",
@@ -204,6 +204,10 @@
     },
     {
       "method": "GET",
+      "path": "/auth/mfa/status"
+    },
+    {
+      "method": "GET",
       "path": "/auth/user"
     },
     {
@@ -280,7 +284,31 @@
     },
     {
       "method": "POST",
+      "path": "/auth/login"
+    },
+    {
+      "method": "POST",
       "path": "/auth/logout"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/mfa/backup-codes/regenerate"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/mfa/disable"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/mfa/enable"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/mfa/setup"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/mfa/verify"
     },
     {
       "method": "POST",
@@ -354,6 +382,10 @@
     },
     {
       "method": "GET",
+      "path": "/billing/customers/portal/{param}"
+    },
+    {
+      "method": "GET",
       "path": "/billing/customers/{param}/entitlements"
     },
     {
@@ -367,10 +399,6 @@
     {
       "method": "GET",
       "path": "/billing/customers/{param}/wallets"
-    },
-    {
-      "method": "GET",
-      "path": "/billing/customers/portal/{param}"
     },
     {
       "method": "GET",
@@ -398,15 +426,15 @@
     },
     {
       "method": "POST",
+      "path": "/billing/invoices/preview"
+    },
+    {
+      "method": "POST",
       "path": "/billing/invoices/{param}/finalize"
     },
     {
       "method": "POST",
       "path": "/billing/invoices/{param}/void"
-    },
-    {
-      "method": "POST",
-      "path": "/billing/invoices/preview"
     },
     {
       "method": "POST",
@@ -536,11 +564,95 @@
     },
     {
       "method": "GET",
+      "path": "/data/aggregations/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/data/aggregations/health"
+    },
+    {
+      "method": "GET",
+      "path": "/data/aggregations/info"
+    },
+    {
+      "method": "GET",
+      "path": "/data/aggregations/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/aggregations/runs/{param}"
+    },
+    {
+      "method": "GET",
       "path": "/data/archival/archival/policies"
     },
     {
       "method": "GET",
       "path": "/data/archival/archival/policies/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/archival/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/data/archival/health"
+    },
+    {
+      "method": "GET",
+      "path": "/data/archival/info"
+    },
+    {
+      "method": "GET",
+      "path": "/data/archival/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/archival/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/catalog/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/data/catalog/catalog/datasets"
+    },
+    {
+      "method": "GET",
+      "path": "/data/catalog/catalog/datasets/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/catalog/catalog/datasets/{param}/artifacts/{param}/content"
+    },
+    {
+      "method": "GET",
+      "path": "/data/catalog/catalog/sources"
+    },
+    {
+      "method": "GET",
+      "path": "/data/catalog/catalog/sources/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/catalog/health"
+    },
+    {
+      "method": "GET",
+      "path": "/data/catalog/info"
+    },
+    {
+      "method": "GET",
+      "path": "/data/catalog/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/catalog/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/enrichment/capabilities"
     },
     {
       "method": "GET",
@@ -552,11 +664,99 @@
     },
     {
       "method": "GET",
+      "path": "/data/enrichment/health"
+    },
+    {
+      "method": "GET",
+      "path": "/data/enrichment/info"
+    },
+    {
+      "method": "GET",
+      "path": "/data/enrichment/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/enrichment/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/exports/capabilities"
+    },
+    {
+      "method": "GET",
       "path": "/data/exports/exports"
     },
     {
       "method": "GET",
       "path": "/data/exports/exports/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/exports/health"
+    },
+    {
+      "method": "GET",
+      "path": "/data/exports/info"
+    },
+    {
+      "method": "GET",
+      "path": "/data/exports/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/exports/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/ingest/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/data/ingest/datasets"
+    },
+    {
+      "method": "GET",
+      "path": "/data/ingest/datasets/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/ingest/datasets/{param}/artifacts/{param}/content"
+    },
+    {
+      "method": "GET",
+      "path": "/data/ingest/health"
+    },
+    {
+      "method": "GET",
+      "path": "/data/ingest/info"
+    },
+    {
+      "method": "GET",
+      "path": "/data/ingest/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/ingest/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/ingest/schemas"
+    },
+    {
+      "method": "GET",
+      "path": "/data/ingest/schemas/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/normalization/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/data/normalization/health"
+    },
+    {
+      "method": "GET",
+      "path": "/data/normalization/info"
     },
     {
       "method": "GET",
@@ -568,11 +768,115 @@
     },
     {
       "method": "GET",
+      "path": "/data/normalization/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/normalization/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/pipelines/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/data/pipelines/health"
+    },
+    {
+      "method": "GET",
+      "path": "/data/pipelines/info"
+    },
+    {
+      "method": "GET",
+      "path": "/data/pipelines/pipeline-runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/pipelines/pipeline-runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/pipelines/pipelines"
+    },
+    {
+      "method": "GET",
+      "path": "/data/pipelines/pipelines/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/pipelines/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/pipelines/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/quality/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/data/quality/health"
+    },
+    {
+      "method": "GET",
+      "path": "/data/quality/info"
+    },
+    {
+      "method": "GET",
       "path": "/data/quality/quality/rulesets"
     },
     {
       "method": "GET",
       "path": "/data/quality/quality/rulesets/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/quality/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/quality/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/query/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/data/query/health"
+    },
+    {
+      "method": "GET",
+      "path": "/data/query/info"
+    },
+    {
+      "method": "GET",
+      "path": "/data/query/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/query/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/schemas/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/data/schemas/health"
+    },
+    {
+      "method": "GET",
+      "path": "/data/schemas/info"
+    },
+    {
+      "method": "GET",
+      "path": "/data/schemas/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/schemas/runs/{param}"
     },
     {
       "method": "GET",
@@ -584,11 +888,51 @@
     },
     {
       "method": "GET",
+      "path": "/data/serving/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/data/serving/health"
+    },
+    {
+      "method": "GET",
+      "path": "/data/serving/info"
+    },
+    {
+      "method": "GET",
+      "path": "/data/serving/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/serving/runs/{param}"
+    },
+    {
+      "method": "GET",
       "path": "/data/serving/serving/products"
     },
     {
       "method": "GET",
       "path": "/data/serving/serving/products/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/streams/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/data/streams/health"
+    },
+    {
+      "method": "GET",
+      "path": "/data/streams/info"
+    },
+    {
+      "method": "GET",
+      "path": "/data/streams/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/streams/runs/{param}"
     },
     {
       "method": "GET",
@@ -600,11 +944,51 @@
     },
     {
       "method": "GET",
+      "path": "/data/sync/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/data/sync/health"
+    },
+    {
+      "method": "GET",
+      "path": "/data/sync/info"
+    },
+    {
+      "method": "GET",
+      "path": "/data/sync/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/sync/runs/{param}"
+    },
+    {
+      "method": "GET",
       "path": "/data/sync/sync/jobs"
     },
     {
       "method": "GET",
       "path": "/data/sync/sync/jobs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/data/transformations/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/data/transformations/health"
+    },
+    {
+      "method": "GET",
+      "path": "/data/transformations/info"
+    },
+    {
+      "method": "GET",
+      "path": "/data/transformations/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/data/transformations/runs/{param}"
     },
     {
       "method": "GET",
@@ -624,11 +1008,23 @@
     },
     {
       "method": "POST",
+      "path": "/data/aggregations/runs"
+    },
+    {
+      "method": "POST",
       "path": "/data/archival/archival/policies"
     },
     {
       "method": "POST",
       "path": "/data/archival/archival/policies/{param}/executions"
+    },
+    {
+      "method": "POST",
+      "path": "/data/archival/runs"
+    },
+    {
+      "method": "POST",
+      "path": "/data/catalog/runs"
     },
     {
       "method": "POST",
@@ -640,11 +1036,27 @@
     },
     {
       "method": "POST",
+      "path": "/data/enrichment/runs"
+    },
+    {
+      "method": "POST",
       "path": "/data/exports/exports"
     },
     {
       "method": "POST",
       "path": "/data/exports/exports/{param}/executions"
+    },
+    {
+      "method": "POST",
+      "path": "/data/exports/runs"
+    },
+    {
+      "method": "POST",
+      "path": "/data/ingest/datasets/ingest"
+    },
+    {
+      "method": "POST",
+      "path": "/data/ingest/runs"
     },
     {
       "method": "POST",
@@ -656,6 +1068,18 @@
     },
     {
       "method": "POST",
+      "path": "/data/normalization/runs"
+    },
+    {
+      "method": "POST",
+      "path": "/data/pipelines/pipelines"
+    },
+    {
+      "method": "POST",
+      "path": "/data/pipelines/runs"
+    },
+    {
+      "method": "POST",
       "path": "/data/quality/quality/rulesets"
     },
     {
@@ -664,7 +1088,19 @@
     },
     {
       "method": "POST",
+      "path": "/data/quality/runs"
+    },
+    {
+      "method": "POST",
       "path": "/data/query/query/federated"
+    },
+    {
+      "method": "POST",
+      "path": "/data/query/runs"
+    },
+    {
+      "method": "POST",
+      "path": "/data/schemas/runs"
     },
     {
       "method": "POST",
@@ -676,11 +1112,19 @@
     },
     {
       "method": "POST",
+      "path": "/data/serving/runs"
+    },
+    {
+      "method": "POST",
       "path": "/data/serving/serving/products"
     },
     {
       "method": "POST",
       "path": "/data/serving/serving/products/{param}/refreshes"
+    },
+    {
+      "method": "POST",
+      "path": "/data/streams/runs"
     },
     {
       "method": "POST",
@@ -692,11 +1136,19 @@
     },
     {
       "method": "POST",
+      "path": "/data/sync/runs"
+    },
+    {
+      "method": "POST",
       "path": "/data/sync/sync/jobs"
     },
     {
       "method": "POST",
       "path": "/data/sync/sync/jobs/{param}/executions"
+    },
+    {
+      "method": "POST",
+      "path": "/data/transformations/runs"
     },
     {
       "method": "POST",
@@ -750,15 +1202,15 @@
     },
     {
       "method": "GET",
+      "path": "/policies/templates"
+    },
+    {
+      "method": "GET",
       "path": "/policies/{param}"
     },
     {
       "method": "GET",
       "path": "/policies/{param}/versions"
-    },
-    {
-      "method": "GET",
-      "path": "/policies/templates"
     },
     {
       "method": "GET",
@@ -838,6 +1290,10 @@
   "observability": [
     {
       "method": "DELETE",
+      "path": "/observability/alerts/rules/{param}"
+    },
+    {
+      "method": "DELETE",
       "path": "/observability/alerts/{param}"
     },
     {
@@ -851,6 +1307,14 @@
     {
       "method": "GET",
       "path": "/observability/alerts/incidents"
+    },
+    {
+      "method": "GET",
+      "path": "/observability/alerts/rules"
+    },
+    {
+      "method": "GET",
+      "path": "/observability/alerts/rules/{param}"
     },
     {
       "method": "GET",
@@ -883,6 +1347,14 @@
     {
       "method": "POST",
       "path": "/observability/alerts"
+    },
+    {
+      "method": "POST",
+      "path": "/observability/alerts/rules"
+    },
+    {
+      "method": "POST",
+      "path": "/observability/alerts/rules/{param}/toggle"
     },
     {
       "method": "POST",
@@ -923,6 +1395,10 @@
     {
       "method": "POST",
       "path": "/observability/traces/query"
+    },
+    {
+      "method": "PUT",
+      "path": "/observability/alerts/rules/{param}"
     },
     {
       "method": "PUT",
@@ -980,7 +1456,35 @@
     },
     {
       "method": "GET",
+      "path": "/ontology/engine/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/engine/health"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/engine/info"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/engine/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/engine/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/events/capabilities"
+    },
+    {
+      "method": "GET",
       "path": "/ontology/events/events"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/events/events/checkpoints/{param}"
     },
     {
       "method": "GET",
@@ -988,7 +1492,83 @@
     },
     {
       "method": "GET",
-      "path": "/ontology/events/events/checkpoints/{param}"
+      "path": "/ontology/events/health"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/events/info"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/events/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/events/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/extract/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/extract/health"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/extract/info"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/extract/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/extract/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/graph/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/graph/entities/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/graph/entities/{param}/provenance"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/graph/health"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/graph/info"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/graph/relationships/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/graph/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/graph/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/objects/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/objects/health"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/objects/info"
     },
     {
       "method": "GET",
@@ -1008,7 +1588,47 @@
     },
     {
       "method": "GET",
+      "path": "/ontology/objects/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/objects/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/reasoning/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/reasoning/health"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/reasoning/info"
+    },
+    {
+      "method": "GET",
       "path": "/ontology/reasoning/rules"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/reasoning/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/reasoning/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/relationships/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/relationships/health"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/relationships/info"
     },
     {
       "method": "GET",
@@ -1024,6 +1644,26 @@
     },
     {
       "method": "GET",
+      "path": "/ontology/relationships/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/relationships/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/rollouts/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/rollouts/health"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/rollouts/info"
+    },
+    {
+      "method": "GET",
       "path": "/ontology/rollouts/rollouts"
     },
     {
@@ -1033,6 +1673,26 @@
     {
       "method": "GET",
       "path": "/ontology/rollouts/rollouts/{param}/status"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/rollouts/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/rollouts/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/rollups/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/rollups/health"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/rollups/info"
     },
     {
       "method": "GET",
@@ -1052,11 +1712,71 @@
     },
     {
       "method": "GET",
+      "path": "/ontology/rollups/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/rollups/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/schemas/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/schemas/health"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/schemas/info"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/schemas/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/schemas/runs/{param}"
+    },
+    {
+      "method": "GET",
       "path": "/ontology/schemas/schemas"
     },
     {
       "method": "GET",
       "path": "/ontology/schemas/schemas/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/transformations/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/transformations/health"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/transformations/info"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/transformations/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/transformations/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/validation/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/validation/health"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/validation/info"
     },
     {
       "method": "GET",
@@ -1068,11 +1788,39 @@
     },
     {
       "method": "GET",
+      "path": "/ontology/validation/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/validation/runs/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/versions/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/versions/health"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/versions/info"
+    },
+    {
+      "method": "GET",
       "path": "/ontology/versions/release-bundles"
     },
     {
       "method": "GET",
       "path": "/ontology/versions/release-bundles/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/versions/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/ontology/versions/runs/{param}"
     },
     {
       "method": "GET",
@@ -1108,6 +1856,10 @@
     },
     {
       "method": "POST",
+      "path": "/ontology/engine/runs"
+    },
+    {
+      "method": "POST",
       "path": "/ontology/events/events"
     },
     {
@@ -1121,6 +1873,10 @@
     {
       "method": "POST",
       "path": "/ontology/events/events/leases/acquire"
+    },
+    {
+      "method": "POST",
+      "path": "/ontology/events/runs"
     },
     {
       "method": "POST",
@@ -1152,6 +1908,42 @@
     },
     {
       "method": "POST",
+      "path": "/ontology/extract/runs"
+    },
+    {
+      "method": "POST",
+      "path": "/ontology/graph/graph/analyze"
+    },
+    {
+      "method": "POST",
+      "path": "/ontology/graph/graph/build"
+    },
+    {
+      "method": "POST",
+      "path": "/ontology/graph/graph/bulk-read"
+    },
+    {
+      "method": "POST",
+      "path": "/ontology/graph/graph/neighborhood"
+    },
+    {
+      "method": "POST",
+      "path": "/ontology/graph/graph/path"
+    },
+    {
+      "method": "POST",
+      "path": "/ontology/graph/graph/query"
+    },
+    {
+      "method": "POST",
+      "path": "/ontology/graph/runs"
+    },
+    {
+      "method": "POST",
+      "path": "/ontology/objects/runs"
+    },
+    {
+      "method": "POST",
       "path": "/ontology/reasoning/explain"
     },
     {
@@ -1176,6 +1968,14 @@
     },
     {
       "method": "POST",
+      "path": "/ontology/reasoning/runs"
+    },
+    {
+      "method": "POST",
+      "path": "/ontology/relationships/runs"
+    },
+    {
+      "method": "POST",
       "path": "/ontology/rollouts/rollouts"
     },
     {
@@ -1196,6 +1996,10 @@
     },
     {
       "method": "POST",
+      "path": "/ontology/rollouts/runs"
+    },
+    {
+      "method": "POST",
       "path": "/ontology/rollups/rollups"
     },
     {
@@ -1208,11 +2012,23 @@
     },
     {
       "method": "POST",
+      "path": "/ontology/rollups/runs"
+    },
+    {
+      "method": "POST",
+      "path": "/ontology/schemas/runs"
+    },
+    {
+      "method": "POST",
       "path": "/ontology/schemas/schemas"
     },
     {
       "method": "POST",
       "path": "/ontology/schemas/schemas/validate"
+    },
+    {
+      "method": "POST",
+      "path": "/ontology/transformations/runs"
     },
     {
       "method": "POST",
@@ -1228,6 +2044,10 @@
     },
     {
       "method": "POST",
+      "path": "/ontology/validation/runs"
+    },
+    {
+      "method": "POST",
       "path": "/ontology/versions/audit/verify"
     },
     {
@@ -1236,11 +2056,23 @@
     },
     {
       "method": "POST",
+      "path": "/ontology/versions/runs"
+    },
+    {
+      "method": "POST",
       "path": "/ontology/versions/versions"
     },
     {
       "method": "POST",
       "path": "/ontology/versions/versions/compare"
+    },
+    {
+      "method": "PUT",
+      "path": "/ontology/graph/entities/{param}"
+    },
+    {
+      "method": "PUT",
+      "path": "/ontology/graph/relationships/{param}"
     },
     {
       "method": "PUT",
@@ -1381,10 +2213,6 @@
     },
     {
       "method": "GET",
-      "path": "/webhooks/{param}"
-    },
-    {
-      "method": "GET",
       "path": "/webhooks/deliveries"
     },
     {
@@ -1396,16 +2224,20 @@
       "path": "/webhooks/stats"
     },
     {
+      "method": "GET",
+      "path": "/webhooks/{param}"
+    },
+    {
       "method": "POST",
       "path": "/webhooks"
     },
     {
       "method": "POST",
-      "path": "/webhooks/{param}/rotate-secret"
+      "path": "/webhooks/deliveries/{param}/retry"
     },
     {
       "method": "POST",
-      "path": "/webhooks/deliveries/{param}/retry"
+      "path": "/webhooks/{param}/rotate-secret"
     },
     {
       "method": "PUT",
@@ -1420,10 +2252,6 @@
     {
       "method": "GET",
       "path": "/workflows"
-    },
-    {
-      "method": "GET",
-      "path": "/workflows/{param}"
     },
     {
       "method": "GET",
@@ -1462,28 +2290,28 @@
       "path": "/workflows/templates/{param}"
     },
     {
+      "method": "GET",
+      "path": "/workflows/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/workflows/{param}/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/workflows/{param}/{param}/summary"
+    },
+    {
+      "method": "GET",
+      "path": "/workflows/{param}/{param}/timeline"
+    },
+    {
       "method": "PATCH",
       "path": "/workflows/{param}"
     },
     {
       "method": "POST",
       "path": "/workflows"
-    },
-    {
-      "method": "POST",
-      "path": "/workflows/{param}/archive"
-    },
-    {
-      "method": "POST",
-      "path": "/workflows/{param}/publish"
-    },
-    {
-      "method": "POST",
-      "path": "/workflows/{param}/restore"
-    },
-    {
-      "method": "POST",
-      "path": "/workflows/{param}/versions"
     },
     {
       "method": "POST",
@@ -1495,7 +2323,15 @@
     },
     {
       "method": "POST",
+      "path": "/workflows/batch"
+    },
+    {
+      "method": "POST",
       "path": "/workflows/executions"
+    },
+    {
+      "method": "POST",
+      "path": "/workflows/search"
     },
     {
       "method": "POST",
@@ -1512,6 +2348,192 @@
     {
       "method": "POST",
       "path": "/workflows/templates/{param}/instantiate"
+    },
+    {
+      "method": "POST",
+      "path": "/workflows/{param}/archive"
+    },
+    {
+      "method": "POST",
+      "path": "/workflows/{param}/publish"
+    },
+    {
+      "method": "POST",
+      "path": "/workflows/{param}/restore"
+    },
+    {
+      "method": "POST",
+      "path": "/workflows/{param}/versions"
+    }
+  ],
+  "action-runs": [
+    {
+      "method": "GET",
+      "path": "/action-runs/{param}"
+    }
+  ],
+  "connection-tests": [
+    {
+      "method": "GET",
+      "path": "/connection-tests/{param}"
+    }
+  ],
+  "events": [
+    {
+      "method": "GET",
+      "path": "/events"
+    },
+    {
+      "method": "GET",
+      "path": "/events/monitoring"
+    },
+    {
+      "method": "GET",
+      "path": "/events/{param}"
+    },
+    {
+      "method": "POST",
+      "path": "/events"
+    },
+    {
+      "method": "POST",
+      "path": "/events/analytics"
+    },
+    {
+      "method": "POST",
+      "path": "/events/analytics-v2"
+    },
+    {
+      "method": "POST",
+      "path": "/events/benchmark/v1"
+    },
+    {
+      "method": "POST",
+      "path": "/events/benchmark/v2"
+    },
+    {
+      "method": "POST",
+      "path": "/events/bulk"
+    },
+    {
+      "method": "POST",
+      "path": "/events/huggingface-billing"
+    },
+    {
+      "method": "POST",
+      "path": "/events/query"
+    },
+    {
+      "method": "POST",
+      "path": "/events/raw/reprocess/all"
+    },
+    {
+      "method": "POST",
+      "path": "/events/raw/reprocess/pending"
+    },
+    {
+      "method": "POST",
+      "path": "/events/reprocess"
+    },
+    {
+      "method": "POST",
+      "path": "/events/reprocess/internal"
+    },
+    {
+      "method": "POST",
+      "path": "/events/usage"
+    },
+    {
+      "method": "POST",
+      "path": "/events/usage/meter"
+    }
+  ],
+  "integrations": [
+    {
+      "method": "DELETE",
+      "path": "/integrations/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/integrations/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/integrations/{param}/action-runs"
+    },
+    {
+      "method": "GET",
+      "path": "/integrations/{param}/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/integrations/{param}/connection-tests"
+    },
+    {
+      "method": "GET",
+      "path": "/integrations/{param}/surfaces"
+    },
+    {
+      "method": "PATCH",
+      "path": "/integrations/{param}"
+    },
+    {
+      "method": "POST",
+      "path": "/integrations/{param}/action-runs"
+    },
+    {
+      "method": "POST",
+      "path": "/integrations/{param}/connection-tests"
+    },
+    {
+      "method": "PUT",
+      "path": "/integrations/{param}/capabilities/{param}"
+    },
+    {
+      "method": "PUT",
+      "path": "/integrations/{param}/surfaces/{param}"
+    }
+  ],
+  "invocations": [
+    {
+      "method": "POST",
+      "path": "/invocations"
+    }
+  ],
+  "providers": [
+    {
+      "method": "GET",
+      "path": "/providers/{param}"
+    }
+  ],
+  "webhook-endpoints": [
+    {
+      "method": "DELETE",
+      "path": "/webhook-endpoints/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/webhook-endpoints"
+    },
+    {
+      "method": "GET",
+      "path": "/webhook-endpoints/{param}"
+    },
+    {
+      "method": "GET",
+      "path": "/webhook-endpoints/{param}/deliveries"
+    },
+    {
+      "method": "PATCH",
+      "path": "/webhook-endpoints/{param}"
+    },
+    {
+      "method": "POST",
+      "path": "/webhook-endpoints"
+    },
+    {
+      "method": "POST",
+      "path": "/webhook-endpoints/{param}/rotate-secret"
     }
   ]
 }

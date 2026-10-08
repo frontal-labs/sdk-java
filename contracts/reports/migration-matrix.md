@@ -4,9 +4,9 @@ _Status: generated route catalog complete. This measures catalog coverage and ge
 
 | Metric | Value |
 | --- | ---: |
-| Contract endpoint entries | 370 |
-| Generated endpoint constants | 370 |
+| Contract endpoint entries | 622 |
+| Generated endpoint constants | 622 |
 | Catalog coverage | 100% |
 | Route-specific typed request/response models | Not generated |
 
-`scripts/generate_endpoints.py` regenerates `src/main/java/dev/frontal/sdk/resources/Endpoints.java` from `contracts/sdk-endpoints.json`. All catalogued routes use the shared Java transport; callers provide response types when decoding JSON.
+`scripts/generate_endpoints.py` regenerates `services/src/main/java/dev/frontal/sdk/resources/Endpoints.java` from `contracts/sdk-endpoints.json`. All catalogued routes use the shared Java transport; callers provide response types when decoding JSON.

@@ -1,10 +1,18 @@
 # Java SDK enterprise readiness
 
-The SDK has a generic transport and generated constants for its full current route inventory. Before production release, complete and document:
+This page summarizes the controls in the Java SDK and the work required before a production release.
 
-- Operation-specific request and response models where complete schemas are available.
-- Transport coverage for error decoding, retry safety, multipart uploads, binary downloads, and streaming.
-- Compatibility and support policy for JDK 17 or later with Maven 3.9+.
-- Automated tests, dependency scanning, and release provenance.
-- Maven Central publishing credentials and protected release automation.
-- Security review of transport, credential handling, and error/logging behavior.
+## Current controls
+
+- Java 17 baseline with CI on JDK 17 and 21 using Gradle.
+- Shared OkHttp transport with bounded responses, request IDs, safe-read retries, and typed errors.
+- MockWebServer coverage for request handling, retries, pagination, error mapping, and SSE streams.
+- Contract checks that map all public and AI OpenAPI operations to Java endpoints.
+- Central Portal release workflow with GPG signing required for publication.
+
+## Remaining release work
+
+- Configure Central Portal and GPG credentials as protected GitHub secrets.
+- Complete a security review of transport, credential handling, and logging.
+- Add operation-specific request and response models where the contracts define complete schemas.
+- Configure dependency scanning and release provenance for the repository.

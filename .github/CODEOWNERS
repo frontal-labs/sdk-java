@@ -1,0 +1,14 @@
+# Route changes to the repository maintainer.
+* @gabrielfonseca
+
+/.github/ @gabrielfonseca
+/build.gradle.kts @gabrielfonseca
+/settings.gradle.kts @gabrielfonseca
+/gradle/ @gabrielfonseca
+/core/ @gabrielfonseca
+/services/ @gabrielfonseca
+/sdk/ @gabrielfonseca
+/examples/ @gabrielfonseca
+/contracts/ @gabrielfonseca
+/docs/ @gabrielfonseca
+/scripts/ @gabrielfonseca

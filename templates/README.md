@@ -1,9 +1,9 @@
 # Java application templates
 
-Each directory is a standalone Java 17 Maven application that uses the Frontal Java SDK. The SDK snapshot is not published yet, so install it into your local Maven repository before building a template:
+Each directory is a standalone Java 17 Maven application that uses `dev.frontal:frontal-sdk:1.0.0`. To build a template against this checkout, publish the SDK modules to your local Maven repository from the repository root:
 
 ```bash
-mvn --batch-mode --no-transfer-progress install
+./gradlew :core:publishToMavenLocal :services:publishToMavenLocal :sdk:publishToMavenLocal
 ```
 
 Then enter a template directory and follow its README. Inject `FRONTAL_API_KEY` from your deployment secret store; do not place credentials in source files, shell scripts, or committed environment files. `FRONTAL_API_URL` and `FRONTAL_AI_URL` use the SDK defaults when omitted.

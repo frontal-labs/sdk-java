@@ -1,13 +1,13 @@
 package dev.frontal.examples.pipelinemonitor;
 
-import dev.frontal.sdk.ApiException;
-import dev.frontal.sdk.ApiStream;
 import dev.frontal.sdk.Endpoints;
 import dev.frontal.sdk.Frontal;
-import java.io.BufferedReader;
+import dev.frontal.sdk.FrontalException;
+import dev.frontal.sdk.RateLimitException;
+import dev.frontal.sdk.SseEventIterator;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import java.io.UncheckedIOException;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -40,47 +40,59 @@ public final class Main {
 
     String runId = args[0];
     int maxRetries = maxRetriesFromEnvironment();
-    Frontal client = Frontal.fromEnvironment();
-    for (int attempt = 0; ; attempt++) {
-      try {
-        readEvents(client, runId);
-        LOGGER.log(System.Logger.Level.INFO, "Pipeline event stream closed");
-        return;
-      } catch (ApiException exception) {
-        throw exception;
-      } catch (IOException exception) {
-        if (attempt >= maxRetries) {
-          throw exception;
+    try (Frontal client = Frontal.fromEnvironment()) {
+      for (int attempt = 0; ; attempt++) {
+        try {
+          readEvents(client, runId);
+          LOGGER.log(System.Logger.Level.INFO, "Pipeline event stream closed");
+          return;
+        } catch (IOException exception) {
+          if ((exception instanceof FrontalException frontal && !frontal.retryable())
+              || attempt >= maxRetries) {
+            throw exception;
+          }
+          long delayMillis = retryDelayMillis(attempt, exception);
+          LOGGER.log(
+              System.Logger.Level.WARNING,
+              "Pipeline stream disconnected; retry {0} of {1} in {2} ms",
+              attempt + 1,
+              maxRetries,
+              delayMillis);
+          Thread.sleep(delayMillis);
         }
-        long delayMillis = Math.min(30_000L, 1_000L << Math.min(attempt, 5));
-        LOGGER.log(
-            System.Logger.Level.WARNING,
-            "Pipeline stream disconnected; retry {0} of {1} in {2} ms",
-            attempt + 1,
-            maxRetries,
-            delayMillis);
-        Thread.sleep(delayMillis);
       }
     }
   }
 
   private static void readEvents(Frontal client, String runId)
       throws IOException, InterruptedException {
-    try (ApiStream stream =
-            client
-                .pipelines()
-                .streamResponse(
-                    Endpoints.Pipelines.STREAM_DATA_PIPELINES_PIPELINE_RUNS_PARAM,
-                    List.of(runId),
-                    Map.of());
-        BufferedReader events =
-            new BufferedReader(new InputStreamReader(stream.body(), StandardCharsets.UTF_8))) {
+    try (SseEventIterator events =
+        client
+            .pipelines()
+            .streamEvents(
+                Endpoints.Pipelines.STREAM_DATA_PIPELINES_PIPELINE_RUNS_PARAM,
+                List.of(runId),
+                Map.of())) {
       LOGGER.log(System.Logger.Level.INFO, "Connected to pipeline event stream");
-      String line;
-      while ((line = events.readLine()) != null) {
-        System.out.println(line);
+      try {
+        while (events.hasNext()) {
+          System.out.println(events.next());
+        }
+      } catch (UncheckedIOException exception) {
+        throw exception.getCause();
       }
     }
+  }
+
+  private static long retryDelayMillis(int attempt, IOException exception) {
+    if (exception instanceof RateLimitException rateLimit) {
+      Duration retryAfter = rateLimit.retryAfter();
+      if (retryAfter.compareTo(Duration.ZERO) > 0) {
+        Duration maximum = Duration.ofSeconds(30);
+        return retryAfter.compareTo(maximum) >= 0 ? 30_000L : retryAfter.toMillis();
+      }
+    }
+    return Math.min(30_000L, 1_000L << Math.min(attempt, 5));
   }
 
   private static int maxRetriesFromEnvironment() {
