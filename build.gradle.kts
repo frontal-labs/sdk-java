@@ -43,7 +43,6 @@ subprojects {
     options.errorprone {
       error("NullAway")
       option("NullAway:AnnotatedPackages", "dev.frontal.sdk")
-      option("NullAway:OnlyNullMarked", "true")
     }
   }
 
