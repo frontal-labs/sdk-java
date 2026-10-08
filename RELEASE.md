@@ -1,5 +1,5 @@
 # Releasing the Frontal Java SDK
 
-Publish signed artifacts to Maven Central through the Central Portal using `.github/workflows/release.yml`. The current project version is `1.0.0`.
+Release-please manages versions, changelog entries, GitHub Releases, and `v*` tags from Conventional Commits on `main`. The publishing workflow verifies the release, generates an SPDX SBOM and provenance attestations, then publishes signed artifacts to Maven Central through the Central Portal.
 
-Before dispatching the release, update `CHANGELOG.md`, verify Java 17 and 21 CI, check the generated contract matrix, and configure the Central Portal and GPG secrets documented in [`docs/PUBLISHING.md`](./docs/PUBLISHING.md). The workflow stages and releases all signed modules; it does not run automatically on a tag.
+Merge a release-please pull request only after required CI and review checks pass. Configure the `maven-central` environment and Central Portal and GPG secrets documented in [`docs/PUBLISHING.md`](./docs/PUBLISHING.md). The version lives in `gradle.properties`; the documentation index generator reads it from there.

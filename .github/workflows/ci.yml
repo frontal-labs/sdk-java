@@ -5,34 +5,49 @@ on:
     branches: [main]
 permissions:
   contents: read
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+defaults:
+  run:
+    shell: bash
 jobs:
-  verify:
-    name: Java ${{ matrix.java }}
+  commit-messages:
+    name: Conventional commits
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check pull request commit subjects
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          failed=0
+          while IFS= read -r subject; do
+            if [[ ! "$subject" =~ ^(feat|fix|build|chore|ci|docs|perf|refactor|revert|style|test)(\([[:alnum:]._/-]+\))?!?:\ .+ ]]; then
+              printf 'Invalid Conventional Commit subject: %s\n' "$subject"
+              failed=1
+            fi
+          done < <(git log --format=%s "$BASE_SHA...$HEAD_SHA")
+          exit "$failed"
+  verify:
+    name: CI / ${{ matrix.os }} / Java ${{ matrix.java }}
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
         java: [17, 21]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v6
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c # v6.0.0
         with:
           distribution: temurin
           java-version: ${{ matrix.java }}
-      - uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: 8.14.3
-      - name: Format
-        run: gradle --no-daemon spotlessCheck
-      - name: Build
-        run: gradle --no-daemon assemble
-      - name: Lint with Error Prone and NullAway
-        run: gradle --no-daemon lint
-      - name: Unit tests
-        run: gradle --no-daemon test
-      - name: Examples
-        run: gradle --no-daemon examplesTest
-      - name: README documentation examples
-        run: gradle --no-daemon docsTest
-      - name: OpenAPI and route contracts
-        run: gradle --no-daemon checkContracts
+      - uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+      - name: Verify formatting, build, lint, tests, examples, and contracts
+        run: ./gradlew --no-daemon spotlessCheck assemble lint test examplesTest docsTest checkContracts
