@@ -1,0 +1,9 @@
+{
+  "repository": "sdk-java",
+  "language": "Java",
+  "status": "route-catalogued",
+  "contractEndpointEntries": 370,
+  "generatedEndpointConstants": 370,
+  "catalogCoverage": "100%",
+  "note": "All routes in sdk-endpoints.json have generated endpoint constants and share the generic SDK transport. Route-specific typed models are not generated because the inventory does not provide complete schemas."
+}

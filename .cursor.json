@@ -1,0 +1,4 @@
+{
+  "name": "Frontal Java SDK",
+  "description": "Java SDK workspace. Follow AGENTS.md, use the native toolchain, and check contracts/ before adding service operations."
+}

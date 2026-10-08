@@ -1,0 +1,6 @@
+* @sdk-team/core @sdk-team/maintainers
+/.github/ @sdk-team/maintainers
+/contracts/ @sdk-team/maintainers
+/docs/ @sdk-team/maintainers
+/src/main/java/dev/frontal/sdk/core/ @sdk-team/core
+/src/main/java/dev/frontal/sdk/package-info.java @sdk-team/core

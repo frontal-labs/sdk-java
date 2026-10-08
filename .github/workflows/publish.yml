@@ -1,0 +1,19 @@
+name: Maven Central release readiness
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  readiness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+      - name: Verify Maven reactor
+        run: mvn --batch-mode --no-transfer-progress verify
+      - name: Explain release route
+        run: echo "Configure signed Central Portal publishing before enabling deployment."
