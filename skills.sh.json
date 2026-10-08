@@ -1,0 +1,16 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Java SDK Engineering",
+      "description": "Java client design and deterministic SDK testing for Frontal.",
+      "skills": [
+        "frontal-sdk",
+        "java-sdk-client-design",
+        "java-mockwebserver-tests",
+        "java-junit"
+      ]
+    }
+  ]
+}

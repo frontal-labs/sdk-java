@@ -1,5 +1,9 @@
 # Frontal Java SDK
 
+![Frontal Banner](./banner.png)
+
+[![skills.sh](https://skills.sh/b/frontal-labs/sdk-java)](https://skills.sh/frontal-labs/sdk-java)
+
 Hand-written Java 17+ clients for Frontal services, with OkHttp transport, Jackson models, cursor pagination, typed failures, retries for safe reads, and SSE streams.
 
 ## Install
@@ -49,6 +53,14 @@ Requirements: JDK 17 or 21 and Python 3 for the contract check. The Gradle wrapp
 ```
 
 The Java modules are `core` (transport), `services` (domain clients and route catalog), `sdk` (unified facade), and `examples` (consumer smoke checks). See [CONTRIBUTING.md](./CONTRIBUTING.md), [docs/ONBOARDING.md](./docs/ONBOARDING.md), and [docs/PUBLISHING.md](./docs/PUBLISHING.md).
+
+## Agent skills
+
+Install this repository's Java-specific agent skills with the [skills CLI](https://skills.sh/docs/cli):
+
+```bash
+npx skills add frontal-labs/sdk-java
+```
 
 ## License
 
