@@ -7,7 +7,7 @@ Configure these settings in the repository UI because GitHub does not apply them
 - Require a pull request before merging, with at least one approving review.
 - Dismiss stale approvals when new commits are pushed and require approval of the most recent push.
 - Require all review conversations to be resolved.
-- Require these status checks: `CI / ubuntu-latest / Java 17`, `CI / ubuntu-latest / Java 21`, `CI / macos-latest / Java 17`, `CI / macos-latest / Java 21`, `CI / windows-latest / Java 17`, `CI / windows-latest / Java 21`, `CodeQL / analyze`, and `Dependency review / review`.
+- Require these status checks: `Conventional commits`, `CI / ubuntu-latest / Java 17`, `CI / ubuntu-latest / Java 21`, `CI / macos-latest / Java 17`, `CI / macos-latest / Java 21`, `CI / windows-latest / Java 17`, `CI / windows-latest / Java 21`, `CodeQL / analyze`, and `Dependency review / review`.
 - Require linear history; block force pushes and branch deletion.
 - Do not allow bypasses except for an explicitly approved emergency administrator group.
 
