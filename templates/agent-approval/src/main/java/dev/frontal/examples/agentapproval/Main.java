@@ -7,8 +7,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /** Lists pending workflow approvals and submits only an operator-confirmed approval. */
 public final class Main {
@@ -30,47 +30,43 @@ public final class Main {
   }
 
   private static void run() throws IOException, InterruptedException {
-    Frontal client = Frontal.fromEnvironment();
-    JsonNode approvals =
-        client.workflows().request(Endpoints.Workflows.GET_WORKFLOWS_APPROVALS, JsonNode.class);
-    System.out.println(
-        client
-            .apiClient()
-            .objectMapper()
-            .writerWithDefaultPrettyPrinter()
-            .writeValueAsString(approvals));
-
-    try (BufferedReader input =
-        new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8))) {
-      System.out.print("Approval ID to approve (Enter to exit): ");
-      String approvalId = input.readLine();
-      if (approvalId == null || approvalId.isBlank()) {
-        return;
-      }
-
-      System.out.print("Type 'approve " + approvalId + "' to confirm: ");
-      String confirmation = input.readLine();
-      if (!("approve " + approvalId).equals(confirmation)) {
-        System.out.println("Approval cancelled.");
-        return;
-      }
-
-      JsonNode result =
-          client
-              .workflows()
-              .request(
-                  Endpoints.Workflows.POST_WORKFLOWS_APPROVALS_PARAM_APPROVE,
-                  List.of(approvalId),
-                  Map.of(),
-                  null,
-                  JsonNode.class);
-      LOGGER.log(System.Logger.Level.INFO, "Workflow approval submitted");
+    try (Frontal client = Frontal.fromEnvironment()) {
+      JsonNode approvals = Objects.requireNonNull(
+          client.workflows().request(Endpoints.Workflows.GET_WORKFLOWS_APPROVALS, JsonNode.class),
+          "Workflow approval response was empty");
       System.out.println(
           client
               .apiClient()
               .objectMapper()
               .writerWithDefaultPrettyPrinter()
-              .writeValueAsString(result));
+              .writeValueAsString(approvals));
+
+      try (BufferedReader input =
+          new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8))) {
+        System.out.print("Approval ID to approve (Enter to exit): ");
+        String approvalId = input.readLine();
+        if (approvalId == null || approvalId.isBlank()) {
+          return;
+        }
+
+        System.out.print("Type 'approve " + approvalId + "' to confirm: ");
+        String confirmation = input.readLine();
+        if (!("approve " + approvalId).equals(confirmation)) {
+          System.out.println("Approval cancelled.");
+          return;
+        }
+
+        JsonNode result = Objects.requireNonNull(
+            client.workflows().approve(approvalId, Map.of(), JsonNode.class),
+            "Workflow approval response was empty");
+        LOGGER.log(System.Logger.Level.INFO, "Workflow approval submitted");
+        System.out.println(
+            client
+                .apiClient()
+                .objectMapper()
+                .writerWithDefaultPrettyPrinter()
+                .writeValueAsString(result));
+      }
     }
   }
 }

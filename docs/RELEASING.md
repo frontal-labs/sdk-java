@@ -1,5 +1,5 @@
-# Java release checklist
+# Releasing the Frontal Java SDK
 
-Publish signed artifacts to Maven Central through the Central Portal. Before release, verify coordinates, sources and Javadoc artifacts, signing, POM metadata, and the protected version tag. Configure credentials and signing material as repository secrets; never store them in the POM.
+The configured facade version is `1.0.0`. Release by dispatching `.github/workflows/release.yml` from protected `main` after Java 17/21 CI passes. The workflow gates publication on approval through the `maven-central` GitHub environment and uses its Central Portal and GPG secrets.
 
-Before publishing, run the Java CI checks, update the changelog and package metadata, review `contracts/reports/migration-matrix.md`, and verify the artifact contents.
+Before publishing, update the changelog, review the generated route report, and verify the facade POM carries `core` and `services` transitively. See [`PUBLISHING.md`](./PUBLISHING.md) for the required secrets and Gradle tasks.

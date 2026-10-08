@@ -1,5 +1,12 @@
 # Publishing to Maven Central
 
-Publish signed artifacts to Maven Central through the Central Portal. Before release, verify coordinates, sources and Javadoc artifacts, signing, POM metadata, and the protected version tag. Configure credentials and signing material as repository secrets; never store them in the POM.
+The project is configured to publish `dev.frontal:frontal-sdk:1.0.0` and its `core` and `services` implementation artifacts to Maven Central through the Central Portal. Gradle Nexus Publish manages upload and release; Gradle Signing signs each Maven publication.
 
-The repository currently has no registry publishing credentials or release action. Complete the implementation and release metadata first. Keep credentials in protected repository secrets and use the registry's recommended signing or trusted-publishing mechanism where available.
+Configure the `maven-central` GitHub environment to allow deployments only from `main`, require a reviewer, and store these environment secrets:
+
+- `SONATYPE_USERNAME` and `SONATYPE_PASSWORD` for the Central Portal token.
+- `SIGNING_KEY` and `SIGNING_PASSWORD` for the in-memory GPG key.
+
+Dispatch `.github/workflows/release.yml` from the protected `main` branch and enter `1.0.0` as the confirmation value. The workflow requires approval through the `maven-central` environment, runs `./gradlew spotlessCheck assemble lint test examplesTest docsTest checkContracts`, then runs `publishToSonatype closeAndReleaseSonatypeStagingRepository`. Signing and publishing credentials must never be committed.
+
+To install all modules in your local Maven repository, run `./gradlew :core:publishToMavenLocal :services:publishToMavenLocal :sdk:publishToMavenLocal`. The facade POM declares `core` and `services` transitively, so applications only need the `frontal-sdk` coordinate.

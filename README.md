@@ -1,82 +1,55 @@
 # Frontal Java SDK
 
-![Frontal Banner](./banner.png)
-
-**Frontal Java SDK library.**
-
-This repository contains the Frontal Java SDK as a single Maven artifact. Production code uses the standard Maven `src/main/java` layout and the single Java package `dev.frontal.sdk`. Six source folders organize SDK code by responsibility; they do not create Java subpackages.
-
-The SDK includes a configurable HTTP client, Bearer and custom authentication, typed Jackson request and response handling, structured API errors, bounded response handling, retries for safe reads, multipart uploads, binary responses, event streaming, and generated constants for all 370 routes in the 18-service contract inventory.
-
-## Repository map
-
-| Path | Purpose |
-| --- | --- |
-| `src/main/java/dev/frontal/sdk/` | The single Java package, organized into `api/`, `auth/`, `config/`, `models/`, `resources/`, and `utils/` |
-| `src/test/java/dev/frontal/sdk/` | Tests using the same package when package access is needed |
-| `contracts/` | OpenAPI snapshots, endpoint inventory, and this repository's conformance reports |
-| `docs/` | Java architecture, onboarding, testing, and release guidance |
-| `examples/` | Java integration guide and usage examples |
-| `templates/` | Enterprise-oriented Java starters for approval, batch, and streaming setups |
-| `scripts/` | Contract and documentation maintenance utilities |
-| `.github/` | Java CI, security analysis, and contribution templates |
+Hand-written Java 17+ clients for Frontal services, with OkHttp transport, Jackson models, cursor pagination, typed failures, retries for safe reads, and SSE streams.
 
 ## Install
 
-Add this dependency to your Maven `pom.xml` after the first Maven Central release:
+Maven:
 
 ```xml
 <dependency>
   <groupId>dev.frontal</groupId>
   <artifactId>frontal-sdk</artifactId>
-  <version>0.1.0</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
-The package is not published yet. Follow the setup instructions below to work from this checkout.
+Gradle Kotlin DSL:
+
+```kotlin
+implementation("dev.frontal:frontal-sdk:1.0.0")
+```
+
+Set `FRONTAL_API_KEY`, then make a testable call. The README snippet is compiled and run against MockWebServer in CI:
 
 ```java
-import dev.frontal.sdk.Endpoints;
-import dev.frontal.sdk.Frontal;
-import com.fasterxml.jackson.databind.JsonNode;
-
-Frontal frontal = Frontal.fromEnvironment();
-JsonNode agent = frontal.agents().request(
-    Endpoints.Agents.GET_AGENTS_PARAM,
-    java.util.List.of("agent-id"),
-    java.util.Map.of(),
-    null,
-    JsonNode.class);
+try (Frontal f = Frontal.builder().apiKey("frt_test_key").baseUrl(mock.url("/v1").toString()).build()) {
+  JsonNode agent = f.agents().get("agt_123", JsonNode.class);
+  if (!"triage".equals(agent.path("name").asText())) throw new AssertionError();
+}
 ```
 
-## Development
-
-Requirements: JDK 17 or later with Maven 3.9+. Check the toolchain with `java --version` and `mvn --version`.
-
-```bash
-mvn --batch-mode --no-transfer-progress verify
-mvn spotless:apply
-mvn spotless:check
-mvn test
-mvn package
-```
-
-`mvn verify` runs unit tests, Checkstyle, and the Google Java Format check for SDK and template sources. Apply formatting with `mvn spotless:apply` before committing Java changes.
-
-See [`CONTRIBUTING.md`](./CONTRIBUTING.md), [`docs/ONBOARDING.md`](./docs/ONBOARDING.md), and [`AGENTS.md`](./AGENTS.md).
+The production default base URL is `https://api.frontal.dev/v1`; `baseUrl(...)` is useful for tests and compatible gateways. `Frontal` exposes every API service, with named operation helpers for AI, agents, and workflows. Each service shares one transport, and all catalogued routes remain available through its `request` methods and `Endpoints` constants.
 
 ## Configuration
 
-| Variable | Purpose |
-| --- | --- |
-| `FRONTAL_API_KEY` | API key (`frt_...`) |
-| `FRONTAL_API_URL` | API base URL; defaults to `https://api.frontal.dev/v1` |
-| `FRONTAL_AI_URL` | AI base URL; defaults to `https://ai.frontal.dev` |
-| `FRONTAL_ENV` | Runtime environment (`development`, `test`, or `production`) |
-| `FRONTAL_DEBUG` | Enable debug logging |
+`Frontal.builder()` accepts `apiKey`, `baseUrl`, `aiBaseUrl`, `env`, `debug`, `timeout`, `connectTimeout`, `maxRetries`, and custom headers. `Frontal.fromEnvironment()` reads `FRONTAL_API_KEY`, `FRONTAL_API_URL`, `FRONTAL_AI_URL`, `FRONTAL_ENV`, `FRONTAL_DEBUG`, and `FRONTAL_TIMEOUT`. Java does not load `.env` files automatically.
 
-Java does not load `.env` files automatically. Read values with `System.getenv` or inject them through your runtime/deployment configuration. The committed [`.env.example`](./.env.example) is a reference only; do not commit a populated `.env` file.
+HTTP errors are `FrontalException` subclasses: `AuthException`, `RateLimitException`, `ValidationException`, `ServerException`, or `ApiException`. They expose `code()`, `requestId()`, `statusCode()`, and `retryable()`. Network failures use `NetworkException`.
+
+Paginated list operations return `PageResult<T>` with `nextPage()`, `all()`, and `Iterable<T>` support. Streaming endpoints expose `Flow.Publisher<String>` and a blocking `SseEventIterator` that callers close after use.
+
+## Build and verify
+
+Requirements: JDK 17 or 21 and Python 3 for the contract check. The Gradle wrapper is the supported build entry point.
+
+```bash
+./gradlew spotlessApply
+./gradlew spotlessCheck build lint test examplesTest docsTest checkContracts
+```
+
+The Java modules are `core` (transport), `services` (domain clients and route catalog), `sdk` (unified facade), and `examples` (consumer smoke checks). See [CONTRIBUTING.md](./CONTRIBUTING.md), [docs/ONBOARDING.md](./docs/ONBOARDING.md), and [docs/PUBLISHING.md](./docs/PUBLISHING.md).
 
 ## License
 
-Apache-2.0. See [`LICENSE.md`](./LICENSE.md).
+Apache-2.0. See [LICENSE.md](./LICENSE.md).

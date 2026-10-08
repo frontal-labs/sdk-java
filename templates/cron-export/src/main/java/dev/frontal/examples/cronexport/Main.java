@@ -1,7 +1,6 @@
 package dev.frontal.examples.cronexport;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import dev.frontal.sdk.Endpoints;
 import dev.frontal.sdk.Frontal;
 import java.io.IOException;
 import java.nio.file.AtomicMoveNotSupportedException;
@@ -47,37 +46,35 @@ public final class Main {
     if (output.toString().isBlank()) {
       throw new IllegalArgumentException("Output file must not be blank");
     }
-    Frontal client = Frontal.fromEnvironment();
-    JsonNode agents =
-        client
-            .agents()
-            .request(Endpoints.Agents.GET_AGENTS, List.of(), Map.of(), null, JsonNode.class);
+    try (Frontal client = Frontal.fromEnvironment()) {
+      List<JsonNode> agents = client.agents().list(Map.of(), JsonNode.class).all();
 
-    Path absoluteOutput = output.toAbsolutePath().normalize();
-    if (absoluteOutput.getFileName() == null) {
-      throw new IllegalArgumentException("Output path must name a file");
-    }
-    Files.createDirectories(absoluteOutput.getParent());
-    Path temporaryFile =
-        Files.createTempFile(absoluteOutput.getParent(), ".frontal-export-", ".tmp");
-    try {
-      client
-          .apiClient()
-          .objectMapper()
-          .writerWithDefaultPrettyPrinter()
-          .writeValue(temporaryFile.toFile(), agents);
-      try {
-        Files.move(
-            temporaryFile,
-            absoluteOutput,
-            StandardCopyOption.ATOMIC_MOVE,
-            StandardCopyOption.REPLACE_EXISTING);
-      } catch (AtomicMoveNotSupportedException exception) {
-        Files.move(temporaryFile, absoluteOutput, StandardCopyOption.REPLACE_EXISTING);
+      Path absoluteOutput = output.toAbsolutePath().normalize();
+      if (absoluteOutput.getFileName() == null) {
+        throw new IllegalArgumentException("Output path must name a file");
       }
-    } finally {
-      Files.deleteIfExists(temporaryFile);
+      Files.createDirectories(absoluteOutput.getParent());
+      Path temporaryFile =
+          Files.createTempFile(absoluteOutput.getParent(), ".frontal-export-", ".tmp");
+      try {
+        client
+            .apiClient()
+            .objectMapper()
+            .writerWithDefaultPrettyPrinter()
+            .writeValue(temporaryFile.toFile(), agents);
+        try {
+          Files.move(
+              temporaryFile,
+              absoluteOutput,
+              StandardCopyOption.ATOMIC_MOVE,
+              StandardCopyOption.REPLACE_EXISTING);
+        } catch (AtomicMoveNotSupportedException exception) {
+          Files.move(temporaryFile, absoluteOutput, StandardCopyOption.REPLACE_EXISTING);
+        }
+      } finally {
+        Files.deleteIfExists(temporaryFile);
+      }
+      LOGGER.log(System.Logger.Level.INFO, "Wrote agent export to {0}", absoluteOutput);
     }
-    LOGGER.log(System.Logger.Level.INFO, "Wrote agent export to {0}", absoluteOutput);
   }
 }

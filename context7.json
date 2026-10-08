@@ -1,0 +1,24 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "Frontal Java SDK",
+  "description": "Java client library for the Frontal API, with a shared OkHttp transport, Jackson models, service clients, and streaming.",
+  "folders": [],
+  "excludeFolders": [
+    ".git",
+    ".gradle",
+    "build",
+    "target",
+    "dist",
+    "coverage",
+    "test-results",
+    "tmp",
+    "temp"
+  ],
+  "rules": [
+    "Use contracts/sdk-endpoints.json and contracts/openapi as the source of truth for endpoint methods and paths.",
+    "The published facade is dev.frontal:frontal-sdk, and production classes use the dev.frontal.sdk package.",
+    "The SDK targets Java 17 and uses OkHttp for transport and Jackson for JSON.",
+    "Keep service resource types under resources/ and do not create Java subpackages.",
+    "Java does not load .env files automatically."
+  ]
+}

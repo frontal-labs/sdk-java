@@ -2,7 +2,7 @@
 
 ## Tooling
 
-Use JDK 17 or later with Maven 3.9+ and the native commands listed in [`README.md`](../README.md). The SDK runtime is written in Java. Two small repository maintenance scripts use Python 3's standard library to parse contract JSON and build the documentation index.
+Use JDK 17 or 21 with the Gradle wrapper and commands listed in [`README.md`](../README.md). The SDK runtime is written in Java. Repository contract and documentation index scripts use Python 3's standard library.
 
 ## Change placement
 
@@ -10,4 +10,4 @@ Keep all production types in `dev.frontal.sdk`. Place source files in the matchi
 
 ## Contract workflow
 
-`contracts/openapi/` and `contracts/sdk-endpoints.json` are shared input snapshots. Run `python3 scripts/check_contracts.py` to check the snapshot files, `python3 scripts/generate_endpoints.py` after changing the route inventory, and `python3 scripts/generate_docs_manifest.py` after changing Markdown documentation.
+`contracts/openapi/` and `contracts/sdk-endpoints.json` are shared inputs. After updating the public OpenAPI snapshot, run `python3 scripts/sync_endpoint_inventory.py` to add operations to the route inventory. Then run `python3 scripts/generate_endpoints.py` and `python3 scripts/check_contracts.py`. Run `python3 scripts/generate_docs_manifest.py` after adding or removing Markdown files.

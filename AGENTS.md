@@ -1,37 +1,44 @@
+<!-- context7 -->
+Use the `ctx7` CLI to fetch current documentation when code changes use a library, framework, SDK, API, CLI tool, or cloud service. Resolve a library with `npx ctx7@latest library <name> "<question>"`, then fetch its documentation with `npx ctx7@latest docs <libraryId> "<question>"`. Prefer these docs over web search for library APIs. Do not use this for general programming concepts, refactoring, or code review. Do not include credentials in queries.
+<!-- context7 -->
+
 # Frontal Java SDK - Agent Instructions
 
 ## Repository scope
 
-This repository is the Frontal Java SDK. Treat the committed contract snapshots as the source for endpoint shapes and generated route constants.
+This repository is the hand-written Frontal Java SDK. Treat the committed `contracts/sdk-endpoints.json` and OpenAPI snapshots as the source for endpoint shapes and generated route constants. Do not change the public HTTP API or OpenAPI snapshots as part of SDK implementation.
 
 ## Layout
 
-- `pom.xml` — single Maven project producing `dev.frontal:frontal-sdk`.
-- `src/main/java/dev/frontal/sdk/` — the single SDK Java package, organized into six source folders.
-- `src/test/java/dev/frontal/sdk/` — SDK tests.
+- `settings.gradle.kts`, `build.gradle.kts` — Gradle Kotlin DSL multi-module build and shared toolchain.
+- `core/` — transport, auth, configuration, errors, common models, and utilities.
+- `services/` — contract-backed endpoints and service clients.
+- `sdk/` — published `dev.frontal:frontal-sdk` facade and SDK tests.
+- `examples/` — downstream consumer smoke tests.
 - `contracts/openapi/` — shared OpenAPI snapshots.
 - `contracts/sdk-endpoints.json` — source inventory for generated route constants.
 - `docs/`, `examples/`, and `templates/` — Java-specific developer material.
 
 ## Java conventions
 
-This repository is a single Maven project with coordinates `dev.frontal:frontal-sdk`. The root POM manages the JDK baseline and shared plugin versions. Production classes use the standard `src/main/java` source root and all declare the single package `dev.frontal.sdk`. Files are organized under `api/`, `auth/`, `config/`, `models/`, `resources/`, and `utils/`; these are source organization folders, not Java subpackages. Tests use `src/test/java` and may declare the same package when package access is needed. Public APIs target JDK 17+.
+The SDK targets Java 17 and tests on Java 17 and 21. Every production class declares the single package `dev.frontal.sdk`; module and source folders organize code by role and do not create Java subpackages. Keep source files under the role folders `api/`, `auth/`, `config/`, `models/`, `resources/`, and `utils/` in their owning module. Tests use `src/test/java` and may declare the same package when package access is needed.
 
-- Keep production `.java` files under the six role folders in `src/main/java/dev/frontal/sdk`; every file must still declare `package dev.frontal.sdk;`.
-- Do not create Java subpackages or service-specific directories.
-- Add `src/main/resources` or `src/test/resources` only when needed.
-- Use the Java toolchain documented in the root README and document direct native commands.
-- Name and design types according to their role: public client/API, authentication, typed models, configuration, service resources, or stateless utilities.
-- Keep service resource types in the `resources/` source folder; do not make per-service subpackages.
-- Do not invent public method names. Add docs and runnable examples when the matching API is implemented.
+- Do not create Java subpackages or per-service directories.
+- Keep service resource types under `resources/`.
+- Use OkHttp and Jackson for transport and JSON.
+- Use Spotless with palantir-java-format, Error Prone with NullAway, JUnit 5, and MockWebServer.
+- Add or update service methods from the committed contracts; keep route constants synchronized with `scripts/generate_endpoints.py`.
+- Document new public APIs and provide runnable examples.
 - Never check in credentials or customer data.
 
 ## Key commands
 
 ```bash
-mvn --batch-mode --no-transfer-progress verify
-mvn test
-mvn package
+./gradlew spotlessCheck
+./gradlew assemble
+./gradlew lint
+./gradlew test
+./gradlew examplesTest docsTest checkContracts
 ```
 
-The contract and docs index helpers are Python 3 standard-library maintenance scripts; they do not add Python as a runtime dependency for the SDK.
+The contract and documentation index helpers use Python 3's standard library. They do not add a Python runtime dependency to the SDK.

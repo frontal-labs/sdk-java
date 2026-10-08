@@ -1,8 +1,8 @@
 {
   "name": "Frontal Java SDK",
   "language": "Java",
-  "version": "0.1.0",
-  "status": "scaffold",
+  "version": "1.0.0",
+  "status": "implemented",
   "documents": [
     {
       "path": ".github/BRANCH_PROTECTION.md",
@@ -43,6 +43,10 @@
     {
       "path": "SECURITY.md",
       "title": "SECURITY"
+    },
+    {
+      "path": "SKILL.md",
+      "title": "SKILL"
     },
     {
       "path": "contracts/README.md",

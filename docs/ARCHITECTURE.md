@@ -1,27 +1,23 @@
 # Java SDK architecture
 
-The Java SDK is one Maven artifact with one production Java package: `dev.frontal.sdk`.
+The SDK is a Gradle multi-module project with one public artifact, `dev.frontal:frontal-sdk:1.0.0`, and one Java package, `dev.frontal.sdk`.
 
-## Package and source organization
+## Modules and source organization
 
-- All production source files live under `src/main/java/dev/frontal/sdk` and declare `package dev.frontal.sdk;`.
-- The `api/`, `auth/`, `config/`, `models/`, `resources/`, and `utils/` source folders organize code by role. They do not create Java subpackages.
-- `resources/Endpoints.java` contains generated route constants for every service. `resources/ServiceClient.java` scopes requests to one service.
-- Tests live under `src/test/java/dev/frontal/sdk` and may use the same package when package-level access is needed.
-- `contracts` stores shared API snapshots and conformance reports.
+- `core/` owns OkHttp transport, Jackson conversion, authentication, configuration, errors, pagination, polling, and stream support.
+- `services/` owns contract-backed route constants and service resource classes.
+- `sdk/` owns `Frontal`, the unified builder and service accessors, plus integration and contract tests.
+- `examples/` verifies the consumer experience with MockWebServer.
+- Production classes remain in `dev.frontal.sdk`. The `api/`, `auth/`, `config/`, `models/`, `resources/`, and `utils/` folders organize types by role and do not create Java subpackages.
 
-Keep authentication types separate by responsibility from the Frontal Auth service resource types, even though both use the single SDK package.
-
-## Java mapping
-
-This repository is a single Maven project with coordinates `dev.frontal:frontal-sdk`. The root POM manages the JDK baseline and shared plugin versions. Production code follows `src/main/java`; tests follow `src/test/java`. Role folders are organizational, while all production classes deliberately use the one package name `dev.frontal.sdk`. Public APIs target JDK 17+.
+`Endpoints` is derived from `contracts/sdk-endpoints.json`. The OpenAPI snapshots remain unchanged and feed the contract gate.
 
 ## Request flow
 
-`Application → Frontal → service client → API client → shared auth/config/model handling → HTTP request → Frontal API`
+`Application → Frontal → service client → shared ApiClient → auth/config/retry → OkHttp → Frontal API`
 
-Resource types use shared authentication and configuration rather than defining independent request defaults. Keep utilities stateless and avoid turning them into a catch-all for domain behavior.
+`Frontal` creates one `ApiClient` and shares it with each service client. `ClientConfig` is immutable after build. Each request gets a unique request ID, and error mapping happens once in the shared transport. Safe GET requests may retry; writes run once. Streaming endpoints transfer response-body ownership to `ApiStream`, `SseEventIterator`, or a Flow subscription so cancellation closes the connection.
 
-## Current implementation status
+## Service APIs
 
-The SDK exposes the current contract inventory through generated endpoint constants and a generic service client. The shared snapshots do not define complete schemas for every route, so request bodies accept Java objects and responses can be decoded into caller-provided Java types or Jackson nodes.
+AI, agents, and workflows have named convenience methods for their core operations. All 622 catalogued routes remain accessible through service-scoped `request` methods and the `Endpoints` constants. The contract gate maps every operation in the public and AI OpenAPI snapshots to an endpoint. Caller-provided classes, `TypeReference`, or Jackson `JsonNode` types handle payloads that the current snapshots do not fully model.

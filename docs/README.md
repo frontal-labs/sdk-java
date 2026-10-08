@@ -1,3 +1,3 @@
 # Java documentation
 
-Read `ARCHITECTURE.md` for the package layout and request flow, `OVERVIEW.md` for the SDK surface, and `ONBOARDING.md` to set up its toolchain.
+Read `OVERVIEW.md` for the SDK surface, `ARCHITECTURE.md` for the module and request flow, and `ONBOARDING.md` to set up the toolchain. Use `TESTING.md` for verification and `PUBLISHING.md` for release steps.

@@ -9,8 +9,15 @@
 *.swp
 *.swo
 
-# Maven and Java build output
+# Gradle, Maven templates, and Java build output
+/.gradle/
+/build/
+/core/build/
+/services/build/
+/sdk/build/
+/examples/build/
 /target/
-/out/
+/**/target/
 *.class
+/out/
 /coverage/

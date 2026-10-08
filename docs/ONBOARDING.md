@@ -1,10 +1,10 @@
 # Java onboarding
 
-1. Install JDK 17 or later with Maven 3.9+.
-2. Clone this repository and install or resolve its dependencies using the Java-native toolchain.
-3. Run the format, lint, build, and test commands in the root README.
+1. Install JDK 17 or 21.
+2. Clone the repository and use the checked-in Gradle wrapper.
+3. Run `./gradlew spotlessCheck assemble lint test examplesTest docsTest checkContracts`.
 4. Review `AGENTS.md`, `docs/ARCHITECTURE.md`, and `contracts/README.md`.
-5. Select a route from `resources/Endpoints.java` and compare its method and path with `contracts/sdk-endpoints.json`.
-6. Use `Frontal` and the matching service client to send typed JSON, raw bytes, multipart data, or a stream request.
+5. Select a route from `Endpoints` and compare it with `contracts/sdk-endpoints.json` and the applicable OpenAPI snapshot.
+6. Build a client with `Frontal.builder().apiKey(...).build()` and use the matching service accessor.
 
-Install JDK 17+ and Maven 3.9+. From the repository root, run `mvn --batch-mode --no-transfer-progress verify`. Export `FRONTAL_API_KEY` and optional settings into the process environment; Java does not load `.env` files automatically.
+Export `FRONTAL_API_KEY` and optional settings into the process environment. Java does not load `.env` files automatically. Tests use MockWebServer and do not need live credentials.

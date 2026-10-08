@@ -9,10 +9,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACT = ROOT / "contracts/sdk-endpoints.json"
-OUTPUT = ROOT / "src/main/java/dev/frontal/sdk/resources/Endpoints.java"
+OUTPUT = ROOT / "services/src/main/java/dev/frontal/sdk/resources/Endpoints.java"
 CONFORMANCE = ROOT / "contracts/reports/conformance.json"
 MIGRATION_MATRIX = ROOT / "contracts/reports/migration-matrix.md"
 SERVICES = {
+    "action-runs": "ACTION_RUNS",
     "agents": "AGENTS",
     "ai": "AI",
     "audit": "AUDIT",
@@ -20,16 +21,22 @@ SERVICES = {
     "billing": "BILLING",
     "blob": "BLOB",
     "connectors": "CONNECTORS",
+    "connection-tests": "CONNECTION_TESTS",
     "data": "DATA",
+    "events": "EVENTS",
     "governance": "GOVERNANCE",
+    "integrations": "INTEGRATIONS",
+    "invocations": "INVOCATIONS",
     "lineage": "LINEAGE",
     "observability": "OBSERVABILITY",
     "ontology": "ONTOLOGY",
     "pipelines": "PIPELINES",
+    "providers": "PROVIDERS",
     "react": "REACT",
     "sandbox": "SANDBOX",
     "schedules": "SCHEDULES",
     "webhooks": "WEBHOOKS",
+    "webhook-endpoints": "WEBHOOK_ENDPOINTS",
     "workflows": "WORKFLOWS",
 }
 
@@ -53,11 +60,12 @@ def main() -> None:
         "  private Endpoints() {}",
     ]
     for service, enum_value in SERVICES.items():
+        group_name = "".join(part.title() for part in enum_value.split("_"))
         lines.extend(
             [
                 "",
-                f"  public static final class {enum_value.title()} {{",
-                f"    private {enum_value.title()}() {{}}",
+                f"  public static final class {group_name} {{",
+                f"    private {group_name}() {{}}",
             ]
         )
         if routes[service]:
@@ -119,7 +127,7 @@ def main() -> None:
         "| Catalog coverage | 100% |\n"
         "| Route-specific typed request/response models | Not generated |\n\n"
         "`scripts/generate_endpoints.py` regenerates "
-        "`src/main/java/dev/frontal/sdk/resources/Endpoints.java` from "
+        "`services/src/main/java/dev/frontal/sdk/resources/Endpoints.java` from "
         "`contracts/sdk-endpoints.json`. All catalogued routes use the shared Java transport; "
         "callers provide response types when decoding JSON.\n",
         encoding="utf-8",

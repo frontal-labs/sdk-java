@@ -6,16 +6,33 @@ on:
 permissions:
   contents: read
 jobs:
-  ci:
+  verify:
+    name: Java ${{ matrix.java }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        java: [17, 21]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "17"
-          cache: maven
-      - name: Verify Maven project
-        run: mvn --batch-mode --no-transfer-progress verify
-      - name: Check contract files
-        run: python3 scripts/check_contracts.py
+          java-version: ${{ matrix.java }}
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.14.3
+      - name: Format
+        run: gradle --no-daemon spotlessCheck
+      - name: Build
+        run: gradle --no-daemon assemble
+      - name: Lint with Error Prone and NullAway
+        run: gradle --no-daemon lint
+      - name: Unit tests
+        run: gradle --no-daemon test
+      - name: Examples
+        run: gradle --no-daemon examplesTest
+      - name: README documentation examples
+        run: gradle --no-daemon docsTest
+      - name: OpenAPI and route contracts
+        run: gradle --no-daemon checkContracts

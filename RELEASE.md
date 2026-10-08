@@ -1,5 +1,5 @@
 # Releasing the Frontal Java SDK
 
-Publish signed artifacts to Maven Central through the Central Portal. Before release, verify coordinates, sources and Javadoc artifacts, signing, POM metadata, and the protected version tag. Configure credentials and signing material as repository secrets; never store them in the POM.
+Publish signed artifacts to Maven Central through the Central Portal using `.github/workflows/release.yml`. The current project version is `1.0.0`.
 
-Before release, update `CHANGELOG.md`, confirm the supported Java version range, check the generated contract matrix, and verify package metadata. Publishing automation is not enabled while this repository is a scaffold.
+Before dispatching the release, update `CHANGELOG.md`, verify Java 17 and 21 CI, check the generated contract matrix, and configure the Central Portal and GPG secrets documented in [`docs/PUBLISHING.md`](./docs/PUBLISHING.md). The workflow stages and releases all signed modules; it does not run automatically on a tag.
