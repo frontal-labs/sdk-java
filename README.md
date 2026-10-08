@@ -2,7 +2,7 @@
 
 ![Frontal Banner](./banner.png)
 
-**Frontal client library for Java.**
+**Frontal Java SDK library.**
 
 This repository contains the Frontal Java SDK as a single Maven artifact. Production code uses the standard Maven `src/main/java` layout and the single Java package `dev.frontal.sdk`. Six source folders organize SDK code by responsibility; they do not create Java subpackages.
 
