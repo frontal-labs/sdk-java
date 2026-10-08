@@ -38,13 +38,6 @@ jobs:
       - uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
       - name: Verify release
         run: ./gradlew --no-daemon spotlessCheck assemble lint test examplesTest docsTest checkContracts
-      - name: Publish signed artifacts to the Central Portal
-        env:
-          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
-          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
-          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
-          SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
-        run: ./gradlew --no-daemon publishToSonatype closeAndReleaseSonatypeStagingRepository
       - name: Generate SPDX SBOM
         uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610 # v0.24.0
         with:
@@ -61,6 +54,15 @@ jobs:
         uses: actions/attest@a1948c3f048ba23858d222213b7c278aabede763 # v4.1.1
         with:
           subject-path: |
+            core/build/libs/*.jar
+            services/build/libs/*.jar
             sdk/build/libs/frontal-sdk-*.jar
             frontal-sdk-${{ env.RELEASE_TAG }}.spdx.json
           sbom-path: frontal-sdk-${{ env.RELEASE_TAG }}.spdx.json
+      - name: Publish signed artifacts to the Central Portal
+        env:
+          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+          SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+        run: ./gradlew --no-daemon publishToSonatype closeAndReleaseSonatypeStagingRepository

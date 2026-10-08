@@ -7,9 +7,27 @@
       "extra-files": [
         "gradle.properties",
         "README.md",
+        "RELEASE.md",
+        {
+          "type": "json",
+          "path": "mcp.json",
+          "jsonpath": "$.version"
+        },
+        "docs/ARCHITECTURE.md",
+        {
+          "type": "json",
+          "path": "docs/mcp.json",
+          "jsonpath": "$.version"
+        },
         "docs/OVERVIEW.md",
         "docs/PUBLISHING.md",
-        "docs/RELEASING.md"
+        "docs/RELEASING.md",
+        "examples/README.md",
+        "templates/README.md",
+        "templates/agent-approval/pom.xml",
+        "templates/cron-export/pom.xml",
+        "templates/pipeline-monitor/pom.xml",
+        "core/src/main/java/dev/frontal/sdk/config/ClientConfig.java"
       ]
     }
   }
