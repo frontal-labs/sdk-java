@@ -43,6 +43,7 @@ public final class Frontal implements AutoCloseable {
                         case CONNECTION_TESTS -> new ConnectionTestsClient(apiClient);
                         case DATA -> new DataClient(apiClient);
                         case EVENTS -> new EventsClient(apiClient);
+                        case FUNCTIONS -> new FunctionsClient(apiClient);
                         case GOVERNANCE -> new GovernanceClient(apiClient);
                         case INVOCATIONS -> new InvocationsClient(apiClient);
                         case LINEAGE -> new LineageClient(apiClient);
@@ -118,6 +119,11 @@ public final class Frontal implements AutoCloseable {
 
     public EventsClient events() {
         return (EventsClient) service(ApiService.EVENTS);
+    }
+
+    /** Returns the Functions API client. */
+    public FunctionsClient functions() {
+        return (FunctionsClient) service(ApiService.FUNCTIONS);
     }
 
     public GovernanceClient governance() {
