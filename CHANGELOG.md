@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add the typed Functions API client, execution and deployment operations, and examples.
+
 ## 2.0.0
 
 - Establish the initial SDK release with the multi-module build, shared transport, typed failures, pagination, polling, and SSE support.

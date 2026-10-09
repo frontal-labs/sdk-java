@@ -94,6 +94,7 @@ The configured request timeout applies to each ordinary call attempt and `stream
 
 
 Browse the [service API reference](./docs/api/README.md) for all named operations and route signatures.
+Functions endpoints are not in the current OpenAPI snapshot; see the [Functions API guide](./docs/api/functions.md) for its typed client and example.
 
 ## Build and verify
 
