@@ -43,7 +43,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|DELETE|/auth/account/profile")
-    public <T> @Nullable T deleteProfile(QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T deleteProfile(QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.DELETE_AUTH_ACCOUNT_PROFILE, List.of(), query, null, responseType);
     }
     /**
@@ -55,7 +56,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T deleteProfile(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T deleteProfile(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.DELETE_AUTH_ACCOUNT_PROFILE, List.of(), query, null, responseType);
     }
     /**
@@ -91,7 +93,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|GET|/auth/account/audit-log")
-    public <T> @Nullable T getAuditLog(QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getAuditLog(QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_ACCOUNT_AUDIT_LOG, List.of(), query, null, responseType);
     }
     /**
@@ -103,7 +106,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getAuditLog(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getAuditLog(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_ACCOUNT_AUDIT_LOG, List.of(), query, null, responseType);
     }
     /**
@@ -151,7 +155,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getMfa(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getMfa(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_ACCOUNT_MFA, List.of(), query, null, responseType);
     }
     /**
@@ -187,7 +192,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|GET|/auth/account/profile")
-    public <T> @Nullable T getProfile(QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getProfile(QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_ACCOUNT_PROFILE, List.of(), query, null, responseType);
     }
     /**
@@ -199,7 +205,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getProfile(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getProfile(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_ACCOUNT_PROFILE, List.of(), query, null, responseType);
     }
     /**
@@ -236,7 +243,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/account/mfa")
-    public <T> @Nullable T createMfa(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createMfa(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ACCOUNT_MFA, List.of(), query, body, responseType);
     }
     /**
@@ -249,7 +257,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createMfa(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createMfa(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ACCOUNT_MFA, List.of(), query, body, responseType);
     }
     /**
@@ -261,7 +270,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createMfa(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createMfa(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createMfa(QueryParams.empty(), body, responseType);
     }
     /**
@@ -273,7 +283,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createMfa(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createMfa(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createMfa(QueryParams.empty(), body, responseType);
     }
 
@@ -288,7 +299,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/account/password")
-    public <T> @Nullable T createPassword(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createPassword(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ACCOUNT_PASSWORD, List.of(), query, body, responseType);
     }
     /**
@@ -301,7 +313,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createPassword(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createPassword(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ACCOUNT_PASSWORD, List.of(), query, body, responseType);
     }
     /**
@@ -313,7 +326,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createPassword(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createPassword(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createPassword(QueryParams.empty(), body, responseType);
     }
     /**
@@ -325,7 +339,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createPassword(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createPassword(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createPassword(QueryParams.empty(), body, responseType);
     }
 
@@ -340,7 +355,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|PUT|/auth/account/profile")
-    public <T> @Nullable T updateProfile(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T updateProfile(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.PUT_AUTH_ACCOUNT_PROFILE, List.of(), query, body, responseType);
     }
     /**
@@ -353,7 +369,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T updateProfile(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T updateProfile(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.PUT_AUTH_ACCOUNT_PROFILE, List.of(), query, body, responseType);
     }
     /**
@@ -365,7 +382,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T updateProfile(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T updateProfile(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return updateProfile(QueryParams.empty(), body, responseType);
     }
     /**
@@ -377,8 +395,8 @@ public final class AuthAccountClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T updateProfile(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T updateProfile(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return updateProfile(QueryParams.empty(), body, responseType);
     }
-
 }

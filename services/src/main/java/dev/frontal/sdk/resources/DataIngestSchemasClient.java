@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -34,7 +33,8 @@ public final class DataIngestSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_INGEST_SCHEMAS, List.of(), query, null, responseType);
     }
     /**
@@ -71,7 +71,8 @@ public final class DataIngestSchemasClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|GET|/data/ingest/schemas/{param}")
-    public <T> @Nullable T get(String schemaRef, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String schemaRef, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_INGEST_SCHEMAS_PARAM, List.of(schemaRef), query, null, responseType);
     }
     /**
@@ -84,7 +85,8 @@ public final class DataIngestSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String schemaRef, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String schemaRef, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_INGEST_SCHEMAS_PARAM, List.of(schemaRef), query, null, responseType);
     }
     /**
@@ -108,8 +110,8 @@ public final class DataIngestSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String schemaRef, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String schemaRef, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(schemaRef, QueryParams.empty(), responseType);
     }
-
 }

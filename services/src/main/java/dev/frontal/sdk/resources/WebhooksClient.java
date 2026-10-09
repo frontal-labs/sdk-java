@@ -37,7 +37,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("webhooks|DELETE|/webhooks/{param}")
-    public <T> @Nullable T delete(String webhookId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String webhookId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Webhooks.DELETE_WEBHOOKS_PARAM, List.of(webhookId), query, null, responseType);
     }
     /**
@@ -50,7 +51,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String webhookId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String webhookId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Webhooks.DELETE_WEBHOOKS_PARAM, List.of(webhookId), query, null, responseType);
     }
     /**
@@ -74,7 +76,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String webhookId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String webhookId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(webhookId, QueryParams.empty(), responseType);
     }
 
@@ -100,7 +103,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Webhooks.GET_WEBHOOKS, List.of(), query, null, responseType);
     }
     /**
@@ -137,7 +141,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("webhooks|GET|/webhooks/{param}")
-    public <T> @Nullable T get(String webhookId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String webhookId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Webhooks.GET_WEBHOOKS_PARAM, List.of(webhookId), query, null, responseType);
     }
     /**
@@ -150,7 +155,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String webhookId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String webhookId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Webhooks.GET_WEBHOOKS_PARAM, List.of(webhookId), query, null, responseType);
     }
     /**
@@ -174,7 +180,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String webhookId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String webhookId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(webhookId, QueryParams.empty(), responseType);
     }
 
@@ -189,7 +196,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("webhooks|POST|/webhooks")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Webhooks.POST_WEBHOOKS, List.of(), query, body, responseType);
     }
     /**
@@ -202,7 +210,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Webhooks.POST_WEBHOOKS, List.of(), query, body, responseType);
     }
     /**
@@ -214,7 +223,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -226,7 +236,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -242,8 +253,11 @@ public final class WebhooksClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("webhooks|POST|/webhooks/{param}/rotate-secret")
-    public <T> @Nullable T rotateSecret(String webhookId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Webhooks.POST_WEBHOOKS_PARAM_ROTATE_SECRET, List.of(webhookId), query, body, responseType);
+    public <T> @Nullable T rotateSecret(
+            String webhookId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Webhooks.POST_WEBHOOKS_PARAM_ROTATE_SECRET, List.of(webhookId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /webhooks/{param}/rotate-secret} using a generic response type.
@@ -256,8 +270,11 @@ public final class WebhooksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T rotateSecret(String webhookId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Webhooks.POST_WEBHOOKS_PARAM_ROTATE_SECRET, List.of(webhookId), query, body, responseType);
+    public <T> @Nullable T rotateSecret(
+            String webhookId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Webhooks.POST_WEBHOOKS_PARAM_ROTATE_SECRET, List.of(webhookId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /webhooks/{param}/rotate-secret} without query parameters.
@@ -269,7 +286,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T rotateSecret(String webhookId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T rotateSecret(String webhookId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return rotateSecret(webhookId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -282,7 +300,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T rotateSecret(String webhookId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T rotateSecret(String webhookId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return rotateSecret(webhookId, QueryParams.empty(), body, responseType);
     }
 
@@ -298,7 +317,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("webhooks|PUT|/webhooks/{param}")
-    public <T> @Nullable T update(String webhookId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String webhookId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Webhooks.PUT_WEBHOOKS_PARAM, List.of(webhookId), query, body, responseType);
     }
     /**
@@ -312,7 +332,9 @@ public final class WebhooksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String webhookId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(
+            String webhookId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Webhooks.PUT_WEBHOOKS_PARAM, List.of(webhookId), query, body, responseType);
     }
     /**
@@ -325,7 +347,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String webhookId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String webhookId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return update(webhookId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -338,8 +361,8 @@ public final class WebhooksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String webhookId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String webhookId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return update(webhookId, QueryParams.empty(), body, responseType);
     }
-
 }

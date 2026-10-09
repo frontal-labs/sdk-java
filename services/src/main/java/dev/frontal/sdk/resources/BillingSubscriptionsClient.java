@@ -31,8 +31,15 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("billing|POST|/billing/subscriptions/{param}/activate")
-    public <T> @Nullable T activate(String subscriptionId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_ACTIVATE, List.of(subscriptionId), query, body, responseType);
+    public <T> @Nullable T activate(
+            String subscriptionId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_ACTIVATE,
+                List.of(subscriptionId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/subscriptions/{param}/activate} using a generic response type.
@@ -45,8 +52,15 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T activate(String subscriptionId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_ACTIVATE, List.of(subscriptionId), query, body, responseType);
+    public <T> @Nullable T activate(
+            String subscriptionId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_ACTIVATE,
+                List.of(subscriptionId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/subscriptions/{param}/activate} without query parameters.
@@ -58,7 +72,8 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T activate(String subscriptionId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T activate(String subscriptionId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return activate(subscriptionId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -71,7 +86,8 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T activate(String subscriptionId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T activate(String subscriptionId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return activate(subscriptionId, QueryParams.empty(), body, responseType);
     }
 
@@ -87,8 +103,15 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("billing|POST|/billing/subscriptions/{param}/cancel")
-    public <T> @Nullable T cancel(String subscriptionId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_CANCEL, List.of(subscriptionId), query, body, responseType);
+    public <T> @Nullable T cancel(
+            String subscriptionId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_CANCEL,
+                List.of(subscriptionId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/subscriptions/{param}/cancel} using a generic response type.
@@ -101,8 +124,15 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T cancel(String subscriptionId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_CANCEL, List.of(subscriptionId), query, body, responseType);
+    public <T> @Nullable T cancel(
+            String subscriptionId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_CANCEL,
+                List.of(subscriptionId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/subscriptions/{param}/cancel} without query parameters.
@@ -114,7 +144,8 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T cancel(String subscriptionId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T cancel(String subscriptionId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return cancel(subscriptionId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -127,7 +158,8 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T cancel(String subscriptionId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T cancel(String subscriptionId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return cancel(subscriptionId, QueryParams.empty(), body, responseType);
     }
 
@@ -143,8 +175,15 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("billing|POST|/billing/subscriptions/{param}/pause")
-    public <T> @Nullable T pause(String subscriptionId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_PAUSE, List.of(subscriptionId), query, body, responseType);
+    public <T> @Nullable T pause(
+            String subscriptionId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_PAUSE,
+                List.of(subscriptionId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/subscriptions/{param}/pause} using a generic response type.
@@ -157,8 +196,15 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T pause(String subscriptionId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_PAUSE, List.of(subscriptionId), query, body, responseType);
+    public <T> @Nullable T pause(
+            String subscriptionId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_PAUSE,
+                List.of(subscriptionId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/subscriptions/{param}/pause} without query parameters.
@@ -170,7 +216,8 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T pause(String subscriptionId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T pause(String subscriptionId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return pause(subscriptionId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -183,7 +230,8 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T pause(String subscriptionId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T pause(String subscriptionId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return pause(subscriptionId, QueryParams.empty(), body, responseType);
     }
 
@@ -199,8 +247,15 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("billing|POST|/billing/subscriptions/{param}/resume")
-    public <T> @Nullable T resume(String subscriptionId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_RESUME, List.of(subscriptionId), query, body, responseType);
+    public <T> @Nullable T resume(
+            String subscriptionId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_RESUME,
+                List.of(subscriptionId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/subscriptions/{param}/resume} using a generic response type.
@@ -213,8 +268,15 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resume(String subscriptionId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_RESUME, List.of(subscriptionId), query, body, responseType);
+    public <T> @Nullable T resume(
+            String subscriptionId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_SUBSCRIPTIONS_PARAM_RESUME,
+                List.of(subscriptionId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/subscriptions/{param}/resume} without query parameters.
@@ -226,7 +288,8 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resume(String subscriptionId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T resume(String subscriptionId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return resume(subscriptionId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -239,8 +302,8 @@ public final class BillingSubscriptionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resume(String subscriptionId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T resume(String subscriptionId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return resume(subscriptionId, QueryParams.empty(), body, responseType);
     }
-
 }

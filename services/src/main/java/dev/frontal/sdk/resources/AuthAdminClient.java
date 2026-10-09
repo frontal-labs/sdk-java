@@ -30,7 +30,8 @@ public final class AuthAdminClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/admin/generate_link")
-    public <T> @Nullable T createGenerateLink(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createGenerateLink(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ADMIN_GENERATE_LINK, List.of(), query, body, responseType);
     }
     /**
@@ -43,7 +44,8 @@ public final class AuthAdminClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createGenerateLink(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createGenerateLink(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ADMIN_GENERATE_LINK, List.of(), query, body, responseType);
     }
     /**
@@ -55,7 +57,8 @@ public final class AuthAdminClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createGenerateLink(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createGenerateLink(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createGenerateLink(QueryParams.empty(), body, responseType);
     }
     /**
@@ -67,7 +70,8 @@ public final class AuthAdminClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createGenerateLink(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createGenerateLink(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createGenerateLink(QueryParams.empty(), body, responseType);
     }
 
@@ -82,7 +86,8 @@ public final class AuthAdminClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/admin/logout")
-    public <T> @Nullable T logout(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T logout(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ADMIN_LOGOUT, List.of(), query, body, responseType);
     }
     /**
@@ -95,7 +100,8 @@ public final class AuthAdminClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T logout(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T logout(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ADMIN_LOGOUT, List.of(), query, body, responseType);
     }
     /**
@@ -107,7 +113,8 @@ public final class AuthAdminClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T logout(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T logout(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return logout(QueryParams.empty(), body, responseType);
     }
     /**
@@ -119,8 +126,8 @@ public final class AuthAdminClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T logout(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T logout(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return logout(QueryParams.empty(), body, responseType);
     }
-
 }

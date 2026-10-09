@@ -41,7 +41,8 @@ public final class DataTransformationsTransformationsClient extends ServiceClien
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_TRANSFORMATIONS_TRANSFORMATIONS, List.of(), query, null, responseType);
     }
     /**
@@ -78,8 +79,14 @@ public final class DataTransformationsTransformationsClient extends ServiceClien
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|GET|/data/transformations/transformations/{param}")
-    public <T> @Nullable T get(String transformationId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.GET_DATA_TRANSFORMATIONS_TRANSFORMATIONS_PARAM, List.of(transformationId), query, null, responseType);
+    public <T> @Nullable T get(String transformationId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.GET_DATA_TRANSFORMATIONS_TRANSFORMATIONS_PARAM,
+                List.of(transformationId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /data/transformations/transformations/{param}} using a generic response type.
@@ -91,8 +98,14 @@ public final class DataTransformationsTransformationsClient extends ServiceClien
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String transformationId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.GET_DATA_TRANSFORMATIONS_TRANSFORMATIONS_PARAM, List.of(transformationId), query, null, responseType);
+    public <T> @Nullable T get(String transformationId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.GET_DATA_TRANSFORMATIONS_TRANSFORMATIONS_PARAM,
+                List.of(transformationId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /data/transformations/transformations/{param}} without query parameters.
@@ -103,7 +116,8 @@ public final class DataTransformationsTransformationsClient extends ServiceClien
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String transformationId, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String transformationId, Class<T> responseType)
+            throws IOException, InterruptedException {
         return get(transformationId, QueryParams.empty(), responseType);
     }
     /**
@@ -115,7 +129,8 @@ public final class DataTransformationsTransformationsClient extends ServiceClien
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String transformationId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String transformationId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(transformationId, QueryParams.empty(), responseType);
     }
 
@@ -130,7 +145,8 @@ public final class DataTransformationsTransformationsClient extends ServiceClien
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|POST|/data/transformations/transformations")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_TRANSFORMATIONS_TRANSFORMATIONS, List.of(), query, body, responseType);
     }
     /**
@@ -143,7 +159,8 @@ public final class DataTransformationsTransformationsClient extends ServiceClien
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_TRANSFORMATIONS_TRANSFORMATIONS, List.of(), query, body, responseType);
     }
     /**
@@ -155,7 +172,8 @@ public final class DataTransformationsTransformationsClient extends ServiceClien
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -167,8 +185,8 @@ public final class DataTransformationsTransformationsClient extends ServiceClien
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
-
 }

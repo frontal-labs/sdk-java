@@ -30,7 +30,8 @@ public final class SandboxClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("sandbox|POST|/sandbox/self-test")
-    public <T> @Nullable T createSelfTest(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createSelfTest(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Sandbox.POST_SANDBOX_SELF_TEST, List.of(), query, body, responseType);
     }
     /**
@@ -43,7 +44,8 @@ public final class SandboxClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createSelfTest(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createSelfTest(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Sandbox.POST_SANDBOX_SELF_TEST, List.of(), query, body, responseType);
     }
     /**
@@ -55,7 +57,8 @@ public final class SandboxClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createSelfTest(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createSelfTest(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createSelfTest(QueryParams.empty(), body, responseType);
     }
     /**
@@ -67,7 +70,8 @@ public final class SandboxClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createSelfTest(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createSelfTest(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createSelfTest(QueryParams.empty(), body, responseType);
     }
 
@@ -82,7 +86,8 @@ public final class SandboxClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("sandbox|POST|/sandbox/submit")
-    public <T> @Nullable T submit(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T submit(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Sandbox.POST_SANDBOX_SUBMIT, List.of(), query, body, responseType);
     }
     /**
@@ -95,7 +100,8 @@ public final class SandboxClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T submit(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T submit(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Sandbox.POST_SANDBOX_SUBMIT, List.of(), query, body, responseType);
     }
     /**
@@ -107,7 +113,8 @@ public final class SandboxClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T submit(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T submit(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return submit(QueryParams.empty(), body, responseType);
     }
     /**
@@ -119,8 +126,8 @@ public final class SandboxClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T submit(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T submit(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return submit(QueryParams.empty(), body, responseType);
     }
-
 }

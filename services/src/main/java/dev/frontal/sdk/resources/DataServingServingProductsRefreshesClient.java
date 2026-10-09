@@ -24,8 +24,14 @@ public final class DataServingServingProductsRefreshesClient extends ServiceClie
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|POST|/data/serving/serving/products/{param}/refreshes")
-    public <T> @Nullable T create(String productId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.POST_DATA_SERVING_SERVING_PRODUCTS_PARAM_REFRESHES, List.of(productId), query, body, responseType);
+    public <T> @Nullable T create(String productId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.POST_DATA_SERVING_SERVING_PRODUCTS_PARAM_REFRESHES,
+                List.of(productId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /data/serving/serving/products/{param}/refreshes} using a generic response type.
@@ -38,8 +44,15 @@ public final class DataServingServingProductsRefreshesClient extends ServiceClie
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(String productId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.POST_DATA_SERVING_SERVING_PRODUCTS_PARAM_REFRESHES, List.of(productId), query, body, responseType);
+    public <T> @Nullable T create(
+            String productId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.POST_DATA_SERVING_SERVING_PRODUCTS_PARAM_REFRESHES,
+                List.of(productId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /data/serving/serving/products/{param}/refreshes} without query parameters.
@@ -51,7 +64,8 @@ public final class DataServingServingProductsRefreshesClient extends ServiceClie
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(String productId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(String productId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(productId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -64,8 +78,8 @@ public final class DataServingServingProductsRefreshesClient extends ServiceClie
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(String productId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(String productId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(productId, QueryParams.empty(), body, responseType);
     }
-
 }

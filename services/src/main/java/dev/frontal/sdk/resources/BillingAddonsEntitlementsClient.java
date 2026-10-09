@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -23,8 +22,10 @@ public final class BillingAddonsEntitlementsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("billing|GET|/billing/addons/{param}/entitlements")
-    public <T> @Nullable T list(String addonId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.GET_BILLING_ADDONS_PARAM_ENTITLEMENTS, List.of(addonId), query, null, responseType);
+    public <T> @Nullable T list(String addonId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.GET_BILLING_ADDONS_PARAM_ENTITLEMENTS, List.of(addonId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /billing/addons/{param}/entitlements} using a generic response type.
@@ -36,8 +37,10 @@ public final class BillingAddonsEntitlementsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(String addonId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.GET_BILLING_ADDONS_PARAM_ENTITLEMENTS, List.of(addonId), query, null, responseType);
+    public <T> @Nullable T list(String addonId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.GET_BILLING_ADDONS_PARAM_ENTITLEMENTS, List.of(addonId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /billing/addons/{param}/entitlements} without query parameters.
@@ -60,8 +63,8 @@ public final class BillingAddonsEntitlementsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(String addonId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(String addonId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return list(addonId, QueryParams.empty(), responseType);
     }
-
 }

@@ -23,7 +23,8 @@ public final class SchedulesWorkflowsCronClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("schedules|POST|/workflows/cron/parse")
-    public <T> @Nullable T parse(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T parse(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Schedules.POST_WORKFLOWS_CRON_PARSE, List.of(), query, body, responseType);
     }
     /**
@@ -36,7 +37,8 @@ public final class SchedulesWorkflowsCronClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T parse(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T parse(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Schedules.POST_WORKFLOWS_CRON_PARSE, List.of(), query, body, responseType);
     }
     /**
@@ -48,7 +50,8 @@ public final class SchedulesWorkflowsCronClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T parse(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T parse(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return parse(QueryParams.empty(), body, responseType);
     }
     /**
@@ -60,7 +63,8 @@ public final class SchedulesWorkflowsCronClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T parse(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T parse(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return parse(QueryParams.empty(), body, responseType);
     }
 
@@ -75,7 +79,8 @@ public final class SchedulesWorkflowsCronClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("schedules|POST|/workflows/cron/validate")
-    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Schedules.POST_WORKFLOWS_CRON_VALIDATE, List.of(), query, body, responseType);
     }
     /**
@@ -88,7 +93,8 @@ public final class SchedulesWorkflowsCronClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Schedules.POST_WORKFLOWS_CRON_VALIDATE, List.of(), query, body, responseType);
     }
     /**
@@ -100,7 +106,8 @@ public final class SchedulesWorkflowsCronClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T validate(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T validate(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return validate(QueryParams.empty(), body, responseType);
     }
     /**
@@ -112,8 +119,8 @@ public final class SchedulesWorkflowsCronClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T validate(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T validate(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return validate(QueryParams.empty(), body, responseType);
     }
-
 }

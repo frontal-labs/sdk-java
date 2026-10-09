@@ -48,7 +48,8 @@ public final class OntologyEventsEventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.GET_ONTOLOGY_EVENTS_EVENTS, List.of(), query, null, responseType);
     }
     /**
@@ -85,8 +86,10 @@ public final class OntologyEventsEventsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|GET|/ontology/events/events/{param}")
-    public <T> @Nullable T get(String eventId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_EVENTS_EVENTS_PARAM, List.of(eventId), query, null, responseType);
+    public <T> @Nullable T get(String eventId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_EVENTS_EVENTS_PARAM, List.of(eventId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/events/events/{param}} using a generic response type.
@@ -98,8 +101,10 @@ public final class OntologyEventsEventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String eventId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_EVENTS_EVENTS_PARAM, List.of(eventId), query, null, responseType);
+    public <T> @Nullable T get(String eventId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_EVENTS_EVENTS_PARAM, List.of(eventId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/events/events/{param}} without query parameters.
@@ -137,7 +142,8 @@ public final class OntologyEventsEventsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/events/events")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_EVENTS_EVENTS, List.of(), query, body, responseType);
     }
     /**
@@ -150,7 +156,8 @@ public final class OntologyEventsEventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_EVENTS_EVENTS, List.of(), query, body, responseType);
     }
     /**
@@ -162,7 +169,8 @@ public final class OntologyEventsEventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -174,8 +182,8 @@ public final class OntologyEventsEventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
-
 }

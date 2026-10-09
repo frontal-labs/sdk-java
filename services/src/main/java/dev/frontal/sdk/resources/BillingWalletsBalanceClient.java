@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -23,8 +22,14 @@ public final class BillingWalletsBalanceClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("billing|GET|/billing/wallets/{param}/balance/real-time")
-    public <T> @Nullable T getRealTime(String walletId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.GET_BILLING_WALLETS_PARAM_BALANCE_REAL_TIME, List.of(walletId), query, null, responseType);
+    public <T> @Nullable T getRealTime(String walletId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.GET_BILLING_WALLETS_PARAM_BALANCE_REAL_TIME,
+                List.of(walletId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /billing/wallets/{param}/balance/real-time} using a generic response type.
@@ -36,8 +41,14 @@ public final class BillingWalletsBalanceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getRealTime(String walletId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.GET_BILLING_WALLETS_PARAM_BALANCE_REAL_TIME, List.of(walletId), query, null, responseType);
+    public <T> @Nullable T getRealTime(String walletId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.GET_BILLING_WALLETS_PARAM_BALANCE_REAL_TIME,
+                List.of(walletId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /billing/wallets/{param}/balance/real-time} without query parameters.
@@ -48,7 +59,8 @@ public final class BillingWalletsBalanceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getRealTime(String walletId, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getRealTime(String walletId, Class<T> responseType)
+            throws IOException, InterruptedException {
         return getRealTime(walletId, QueryParams.empty(), responseType);
     }
     /**
@@ -60,8 +72,8 @@ public final class BillingWalletsBalanceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getRealTime(String walletId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getRealTime(String walletId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return getRealTime(walletId, QueryParams.empty(), responseType);
     }
-
 }

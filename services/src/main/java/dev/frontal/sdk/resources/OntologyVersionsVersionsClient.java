@@ -23,8 +23,14 @@ public final class OntologyVersionsVersionsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|DELETE|/ontology/versions/versions/{param}")
-    public <T> @Nullable T delete(String versionId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.DELETE_ONTOLOGY_VERSIONS_VERSIONS_PARAM, List.of(versionId), query, null, responseType);
+    public <T> @Nullable T delete(String versionId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.DELETE_ONTOLOGY_VERSIONS_VERSIONS_PARAM,
+                List.of(versionId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /ontology/versions/versions/{param}} using a generic response type.
@@ -36,8 +42,14 @@ public final class OntologyVersionsVersionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String versionId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.DELETE_ONTOLOGY_VERSIONS_VERSIONS_PARAM, List.of(versionId), query, null, responseType);
+    public <T> @Nullable T delete(String versionId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.DELETE_ONTOLOGY_VERSIONS_VERSIONS_PARAM,
+                List.of(versionId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /ontology/versions/versions/{param}} without query parameters.
@@ -60,7 +72,8 @@ public final class OntologyVersionsVersionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String versionId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String versionId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(versionId, QueryParams.empty(), responseType);
     }
 
@@ -75,8 +88,10 @@ public final class OntologyVersionsVersionsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|GET|/ontology/versions/versions/{param}")
-    public <T> @Nullable T get(String versionId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_VERSIONS_VERSIONS_PARAM, List.of(versionId), query, null, responseType);
+    public <T> @Nullable T get(String versionId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_VERSIONS_VERSIONS_PARAM, List.of(versionId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/versions/versions/{param}} using a generic response type.
@@ -88,8 +103,10 @@ public final class OntologyVersionsVersionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String versionId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_VERSIONS_VERSIONS_PARAM, List.of(versionId), query, null, responseType);
+    public <T> @Nullable T get(String versionId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_VERSIONS_VERSIONS_PARAM, List.of(versionId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/versions/versions/{param}} without query parameters.
@@ -112,7 +129,8 @@ public final class OntologyVersionsVersionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String versionId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String versionId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(versionId, QueryParams.empty(), responseType);
     }
 
@@ -127,7 +145,8 @@ public final class OntologyVersionsVersionsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/versions/versions")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_VERSIONS_VERSIONS, List.of(), query, body, responseType);
     }
     /**
@@ -140,7 +159,8 @@ public final class OntologyVersionsVersionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_VERSIONS_VERSIONS, List.of(), query, body, responseType);
     }
     /**
@@ -152,7 +172,8 @@ public final class OntologyVersionsVersionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -164,7 +185,8 @@ public final class OntologyVersionsVersionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -179,8 +201,10 @@ public final class OntologyVersionsVersionsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/versions/versions/compare")
-    public <T> @Nullable T compare(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_VERSIONS_VERSIONS_COMPARE, List.of(), query, body, responseType);
+    public <T> @Nullable T compare(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_VERSIONS_VERSIONS_COMPARE, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/versions/versions/compare} using a generic response type.
@@ -192,8 +216,10 @@ public final class OntologyVersionsVersionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T compare(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_VERSIONS_VERSIONS_COMPARE, List.of(), query, body, responseType);
+    public <T> @Nullable T compare(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_VERSIONS_VERSIONS_COMPARE, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/versions/versions/compare} without query parameters.
@@ -204,7 +230,8 @@ public final class OntologyVersionsVersionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T compare(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T compare(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return compare(QueryParams.empty(), body, responseType);
     }
     /**
@@ -216,8 +243,8 @@ public final class OntologyVersionsVersionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T compare(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T compare(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return compare(QueryParams.empty(), body, responseType);
     }
-
 }

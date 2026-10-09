@@ -34,7 +34,8 @@ public final class WebhooksDeliveriesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Webhooks.GET_WEBHOOKS_DELIVERIES, List.of(), query, null, responseType);
     }
     /**
@@ -71,8 +72,10 @@ public final class WebhooksDeliveriesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("webhooks|GET|/webhooks/deliveries/{param}")
-    public <T> @Nullable T get(String deliveryId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Webhooks.GET_WEBHOOKS_DELIVERIES_PARAM, List.of(deliveryId), query, null, responseType);
+    public <T> @Nullable T get(String deliveryId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Webhooks.GET_WEBHOOKS_DELIVERIES_PARAM, List.of(deliveryId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /webhooks/deliveries/{param}} using a generic response type.
@@ -84,8 +87,10 @@ public final class WebhooksDeliveriesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String deliveryId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Webhooks.GET_WEBHOOKS_DELIVERIES_PARAM, List.of(deliveryId), query, null, responseType);
+    public <T> @Nullable T get(String deliveryId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Webhooks.GET_WEBHOOKS_DELIVERIES_PARAM, List.of(deliveryId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /webhooks/deliveries/{param}} without query parameters.
@@ -108,7 +113,8 @@ public final class WebhooksDeliveriesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String deliveryId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String deliveryId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(deliveryId, QueryParams.empty(), responseType);
     }
 
@@ -124,8 +130,14 @@ public final class WebhooksDeliveriesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("webhooks|POST|/webhooks/deliveries/{param}/retry")
-    public <T> @Nullable T retry(String deliveryId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Webhooks.POST_WEBHOOKS_DELIVERIES_PARAM_RETRY, List.of(deliveryId), query, body, responseType);
+    public <T> @Nullable T retry(String deliveryId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Webhooks.POST_WEBHOOKS_DELIVERIES_PARAM_RETRY,
+                List.of(deliveryId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /webhooks/deliveries/{param}/retry} using a generic response type.
@@ -138,8 +150,15 @@ public final class WebhooksDeliveriesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T retry(String deliveryId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Webhooks.POST_WEBHOOKS_DELIVERIES_PARAM_RETRY, List.of(deliveryId), query, body, responseType);
+    public <T> @Nullable T retry(
+            String deliveryId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Webhooks.POST_WEBHOOKS_DELIVERIES_PARAM_RETRY,
+                List.of(deliveryId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /webhooks/deliveries/{param}/retry} without query parameters.
@@ -151,7 +170,8 @@ public final class WebhooksDeliveriesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T retry(String deliveryId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T retry(String deliveryId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return retry(deliveryId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -164,8 +184,8 @@ public final class WebhooksDeliveriesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T retry(String deliveryId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T retry(String deliveryId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return retry(deliveryId, QueryParams.empty(), body, responseType);
     }
-
 }

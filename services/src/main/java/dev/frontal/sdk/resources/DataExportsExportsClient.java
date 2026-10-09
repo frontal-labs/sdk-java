@@ -41,7 +41,8 @@ public final class DataExportsExportsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_EXPORTS_EXPORTS, List.of(), query, null, responseType);
     }
     /**
@@ -78,7 +79,8 @@ public final class DataExportsExportsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|GET|/data/exports/exports/{param}")
-    public <T> @Nullable T get(String exportId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String exportId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_EXPORTS_EXPORTS_PARAM, List.of(exportId), query, null, responseType);
     }
     /**
@@ -91,7 +93,8 @@ public final class DataExportsExportsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String exportId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String exportId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_EXPORTS_EXPORTS_PARAM, List.of(exportId), query, null, responseType);
     }
     /**
@@ -115,7 +118,8 @@ public final class DataExportsExportsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String exportId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String exportId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(exportId, QueryParams.empty(), responseType);
     }
 
@@ -130,7 +134,8 @@ public final class DataExportsExportsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|POST|/data/exports/exports")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_EXPORTS_EXPORTS, List.of(), query, body, responseType);
     }
     /**
@@ -143,7 +148,8 @@ public final class DataExportsExportsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_EXPORTS_EXPORTS, List.of(), query, body, responseType);
     }
     /**
@@ -155,7 +161,8 @@ public final class DataExportsExportsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -167,8 +174,8 @@ public final class DataExportsExportsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
-
 }

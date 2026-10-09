@@ -34,7 +34,8 @@ public final class AuditEventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Audit.GET_AUDIT_EVENTS, List.of(), query, null, responseType);
     }
     /**
@@ -71,7 +72,8 @@ public final class AuditEventsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("audit|GET|/audit/events/{param}")
-    public <T> @Nullable T get(String eventId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String eventId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Audit.GET_AUDIT_EVENTS_PARAM, List.of(eventId), query, null, responseType);
     }
     /**
@@ -84,7 +86,8 @@ public final class AuditEventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String eventId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String eventId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Audit.GET_AUDIT_EVENTS_PARAM, List.of(eventId), query, null, responseType);
     }
     /**
@@ -123,7 +126,8 @@ public final class AuditEventsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("audit|POST|/audit/events")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Audit.POST_AUDIT_EVENTS, List.of(), query, body, responseType);
     }
     /**
@@ -136,7 +140,8 @@ public final class AuditEventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Audit.POST_AUDIT_EVENTS, List.of(), query, body, responseType);
     }
     /**
@@ -148,7 +153,8 @@ public final class AuditEventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -160,7 +166,8 @@ public final class AuditEventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -175,7 +182,8 @@ public final class AuditEventsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("audit|POST|/audit/events/batch")
-    public <T> @Nullable T batch(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T batch(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Audit.POST_AUDIT_EVENTS_BATCH, List.of(), query, body, responseType);
     }
     /**
@@ -188,7 +196,8 @@ public final class AuditEventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T batch(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T batch(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Audit.POST_AUDIT_EVENTS_BATCH, List.of(), query, body, responseType);
     }
     /**
@@ -200,7 +209,8 @@ public final class AuditEventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T batch(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T batch(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return batch(QueryParams.empty(), body, responseType);
     }
     /**
@@ -212,8 +222,8 @@ public final class AuditEventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T batch(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T batch(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return batch(QueryParams.empty(), body, responseType);
     }
-
 }

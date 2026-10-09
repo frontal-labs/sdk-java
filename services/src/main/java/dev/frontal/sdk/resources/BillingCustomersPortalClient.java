@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -23,8 +22,10 @@ public final class BillingCustomersPortalClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("billing|GET|/billing/customers/portal/{param}")
-    public <T> @Nullable T get(String portalId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.GET_BILLING_CUSTOMERS_PORTAL_PARAM, List.of(portalId), query, null, responseType);
+    public <T> @Nullable T get(String portalId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.GET_BILLING_CUSTOMERS_PORTAL_PARAM, List.of(portalId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /billing/customers/portal/{param}} using a generic response type.
@@ -36,8 +37,10 @@ public final class BillingCustomersPortalClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String portalId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.GET_BILLING_CUSTOMERS_PORTAL_PARAM, List.of(portalId), query, null, responseType);
+    public <T> @Nullable T get(String portalId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.GET_BILLING_CUSTOMERS_PORTAL_PARAM, List.of(portalId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /billing/customers/portal/{param}} without query parameters.
@@ -60,8 +63,8 @@ public final class BillingCustomersPortalClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String portalId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String portalId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(portalId, QueryParams.empty(), responseType);
     }
-
 }

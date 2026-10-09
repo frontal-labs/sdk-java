@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -23,8 +22,14 @@ public final class OntologyRollupsRollupResultsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|GET|/ontology/rollups/rollup-results/{param}")
-    public <T> @Nullable T get(String executionId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_ROLLUPS_ROLLUP_RESULTS_PARAM, List.of(executionId), query, null, responseType);
+    public <T> @Nullable T get(String executionId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_ROLLUPS_ROLLUP_RESULTS_PARAM,
+                List.of(executionId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/rollups/rollup-results/{param}} using a generic response type.
@@ -36,8 +41,14 @@ public final class OntologyRollupsRollupResultsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String executionId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_ROLLUPS_ROLLUP_RESULTS_PARAM, List.of(executionId), query, null, responseType);
+    public <T> @Nullable T get(String executionId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_ROLLUPS_ROLLUP_RESULTS_PARAM,
+                List.of(executionId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/rollups/rollup-results/{param}} without query parameters.
@@ -60,8 +71,8 @@ public final class OntologyRollupsRollupResultsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String executionId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String executionId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(executionId, QueryParams.empty(), responseType);
     }
-
 }

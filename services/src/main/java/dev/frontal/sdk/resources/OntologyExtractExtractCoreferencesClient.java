@@ -23,8 +23,10 @@ public final class OntologyExtractExtractCoreferencesClient extends ServiceClien
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/extract/extract/coreferences")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_EXTRACT_EXTRACT_COREFERENCES, List.of(), query, body, responseType);
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_EXTRACT_EXTRACT_COREFERENCES, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/extract/extract/coreferences} using a generic response type.
@@ -36,8 +38,10 @@ public final class OntologyExtractExtractCoreferencesClient extends ServiceClien
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_EXTRACT_EXTRACT_COREFERENCES, List.of(), query, body, responseType);
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_EXTRACT_EXTRACT_COREFERENCES, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/extract/extract/coreferences} without query parameters.
@@ -48,7 +52,8 @@ public final class OntologyExtractExtractCoreferencesClient extends ServiceClien
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -60,8 +65,8 @@ public final class OntologyExtractExtractCoreferencesClient extends ServiceClien
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
-
 }

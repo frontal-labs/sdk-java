@@ -23,8 +23,14 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("observability|DELETE|/observability/dashboards/{param}")
-    public <T> @Nullable T delete(String dashboardId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.DELETE_OBSERVABILITY_DASHBOARDS_PARAM, List.of(dashboardId), query, null, responseType);
+    public <T> @Nullable T delete(String dashboardId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.DELETE_OBSERVABILITY_DASHBOARDS_PARAM,
+                List.of(dashboardId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /observability/dashboards/{param}} using a generic response type.
@@ -36,8 +42,14 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String dashboardId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.DELETE_OBSERVABILITY_DASHBOARDS_PARAM, List.of(dashboardId), query, null, responseType);
+    public <T> @Nullable T delete(String dashboardId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.DELETE_OBSERVABILITY_DASHBOARDS_PARAM,
+                List.of(dashboardId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /observability/dashboards/{param}} without query parameters.
@@ -60,7 +72,8 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String dashboardId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String dashboardId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(dashboardId, QueryParams.empty(), responseType);
     }
 
@@ -86,7 +99,8 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Observability.GET_OBSERVABILITY_DASHBOARDS, List.of(), query, null, responseType);
     }
     /**
@@ -123,8 +137,14 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("observability|GET|/observability/dashboards/{param}")
-    public <T> @Nullable T get(String dashboardId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.GET_OBSERVABILITY_DASHBOARDS_PARAM, List.of(dashboardId), query, null, responseType);
+    public <T> @Nullable T get(String dashboardId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.GET_OBSERVABILITY_DASHBOARDS_PARAM,
+                List.of(dashboardId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /observability/dashboards/{param}} using a generic response type.
@@ -136,8 +156,14 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String dashboardId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.GET_OBSERVABILITY_DASHBOARDS_PARAM, List.of(dashboardId), query, null, responseType);
+    public <T> @Nullable T get(String dashboardId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.GET_OBSERVABILITY_DASHBOARDS_PARAM,
+                List.of(dashboardId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /observability/dashboards/{param}} without query parameters.
@@ -160,7 +186,8 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String dashboardId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String dashboardId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(dashboardId, QueryParams.empty(), responseType);
     }
 
@@ -175,7 +202,8 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("observability|POST|/observability/dashboards")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Observability.POST_OBSERVABILITY_DASHBOARDS, List.of(), query, body, responseType);
     }
     /**
@@ -188,7 +216,8 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Observability.POST_OBSERVABILITY_DASHBOARDS, List.of(), query, body, responseType);
     }
     /**
@@ -200,7 +229,8 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -212,7 +242,8 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -228,8 +259,14 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("observability|POST|/observability/dashboards/{param}/share")
-    public <T> @Nullable T share(String dashboardId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.POST_OBSERVABILITY_DASHBOARDS_PARAM_SHARE, List.of(dashboardId), query, body, responseType);
+    public <T> @Nullable T share(String dashboardId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.POST_OBSERVABILITY_DASHBOARDS_PARAM_SHARE,
+                List.of(dashboardId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /observability/dashboards/{param}/share} using a generic response type.
@@ -242,8 +279,15 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T share(String dashboardId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.POST_OBSERVABILITY_DASHBOARDS_PARAM_SHARE, List.of(dashboardId), query, body, responseType);
+    public <T> @Nullable T share(
+            String dashboardId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.POST_OBSERVABILITY_DASHBOARDS_PARAM_SHARE,
+                List.of(dashboardId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /observability/dashboards/{param}/share} without query parameters.
@@ -255,7 +299,8 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T share(String dashboardId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T share(String dashboardId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return share(dashboardId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -268,7 +313,8 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T share(String dashboardId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T share(String dashboardId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return share(dashboardId, QueryParams.empty(), body, responseType);
     }
 
@@ -284,8 +330,14 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("observability|PUT|/observability/dashboards/{param}")
-    public <T> @Nullable T update(String dashboardId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.PUT_OBSERVABILITY_DASHBOARDS_PARAM, List.of(dashboardId), query, body, responseType);
+    public <T> @Nullable T update(String dashboardId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.PUT_OBSERVABILITY_DASHBOARDS_PARAM,
+                List.of(dashboardId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code PUT /observability/dashboards/{param}} using a generic response type.
@@ -298,8 +350,15 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String dashboardId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.PUT_OBSERVABILITY_DASHBOARDS_PARAM, List.of(dashboardId), query, body, responseType);
+    public <T> @Nullable T update(
+            String dashboardId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.PUT_OBSERVABILITY_DASHBOARDS_PARAM,
+                List.of(dashboardId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code PUT /observability/dashboards/{param}} without query parameters.
@@ -311,7 +370,8 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String dashboardId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String dashboardId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return update(dashboardId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -324,8 +384,8 @@ public final class ObservabilityDashboardsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String dashboardId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String dashboardId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return update(dashboardId, QueryParams.empty(), body, responseType);
     }
-
 }

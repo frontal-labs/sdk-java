@@ -34,7 +34,8 @@ public final class WorkflowsTemplatesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Workflows.GET_WORKFLOWS_TEMPLATES, List.of(), query, null, responseType);
     }
     /**
@@ -71,8 +72,10 @@ public final class WorkflowsTemplatesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("workflows|GET|/workflows/templates/{param}")
-    public <T> @Nullable T get(String templateId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.GET_WORKFLOWS_TEMPLATES_PARAM, List.of(templateId), query, null, responseType);
+    public <T> @Nullable T get(String templateId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Workflows.GET_WORKFLOWS_TEMPLATES_PARAM, List.of(templateId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /workflows/templates/{param}} using a generic response type.
@@ -84,8 +87,10 @@ public final class WorkflowsTemplatesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String templateId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.GET_WORKFLOWS_TEMPLATES_PARAM, List.of(templateId), query, null, responseType);
+    public <T> @Nullable T get(String templateId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Workflows.GET_WORKFLOWS_TEMPLATES_PARAM, List.of(templateId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /workflows/templates/{param}} without query parameters.
@@ -108,7 +113,8 @@ public final class WorkflowsTemplatesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String templateId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String templateId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(templateId, QueryParams.empty(), responseType);
     }
 
@@ -123,7 +129,8 @@ public final class WorkflowsTemplatesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("workflows|POST|/workflows/templates")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Workflows.POST_WORKFLOWS_TEMPLATES, List.of(), query, body, responseType);
     }
     /**
@@ -136,7 +143,8 @@ public final class WorkflowsTemplatesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Workflows.POST_WORKFLOWS_TEMPLATES, List.of(), query, body, responseType);
     }
     /**
@@ -148,7 +156,8 @@ public final class WorkflowsTemplatesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -160,7 +169,8 @@ public final class WorkflowsTemplatesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -176,8 +186,15 @@ public final class WorkflowsTemplatesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("workflows|POST|/workflows/templates/{param}/instantiate")
-    public <T> @Nullable T instantiate(String templateId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.POST_WORKFLOWS_TEMPLATES_PARAM_INSTANTIATE, List.of(templateId), query, body, responseType);
+    public <T> @Nullable T instantiate(
+            String templateId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Workflows.POST_WORKFLOWS_TEMPLATES_PARAM_INSTANTIATE,
+                List.of(templateId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/templates/{param}/instantiate} using a generic response type.
@@ -190,8 +207,15 @@ public final class WorkflowsTemplatesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T instantiate(String templateId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.POST_WORKFLOWS_TEMPLATES_PARAM_INSTANTIATE, List.of(templateId), query, body, responseType);
+    public <T> @Nullable T instantiate(
+            String templateId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Workflows.POST_WORKFLOWS_TEMPLATES_PARAM_INSTANTIATE,
+                List.of(templateId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/templates/{param}/instantiate} without query parameters.
@@ -203,7 +227,8 @@ public final class WorkflowsTemplatesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T instantiate(String templateId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T instantiate(String templateId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return instantiate(templateId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -216,8 +241,8 @@ public final class WorkflowsTemplatesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T instantiate(String templateId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T instantiate(String templateId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return instantiate(templateId, QueryParams.empty(), body, responseType);
     }
-
 }

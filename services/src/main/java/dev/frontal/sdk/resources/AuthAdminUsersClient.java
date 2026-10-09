@@ -30,7 +30,8 @@ public final class AuthAdminUsersClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|DELETE|/auth/admin/users/{param}")
-    public <T> @Nullable T delete(String userId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String userId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.DELETE_AUTH_ADMIN_USERS_PARAM, List.of(userId), query, null, responseType);
     }
     /**
@@ -43,7 +44,8 @@ public final class AuthAdminUsersClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String userId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String userId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.DELETE_AUTH_ADMIN_USERS_PARAM, List.of(userId), query, null, responseType);
     }
     /**
@@ -67,7 +69,8 @@ public final class AuthAdminUsersClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String userId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String userId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(userId, QueryParams.empty(), responseType);
     }
 
@@ -93,7 +96,8 @@ public final class AuthAdminUsersClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_ADMIN_USERS, List.of(), query, null, responseType);
     }
     /**
@@ -130,7 +134,8 @@ public final class AuthAdminUsersClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|GET|/auth/admin/users/{param}")
-    public <T> @Nullable T get(String userId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String userId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_ADMIN_USERS_PARAM, List.of(userId), query, null, responseType);
     }
     /**
@@ -143,7 +148,8 @@ public final class AuthAdminUsersClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String userId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String userId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_ADMIN_USERS_PARAM, List.of(userId), query, null, responseType);
     }
     /**
@@ -182,7 +188,8 @@ public final class AuthAdminUsersClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/admin/users")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ADMIN_USERS, List.of(), query, body, responseType);
     }
     /**
@@ -195,7 +202,8 @@ public final class AuthAdminUsersClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ADMIN_USERS, List.of(), query, body, responseType);
     }
     /**
@@ -207,7 +215,8 @@ public final class AuthAdminUsersClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -219,7 +228,8 @@ public final class AuthAdminUsersClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -235,7 +245,8 @@ public final class AuthAdminUsersClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|PUT|/auth/admin/users/{param}")
-    public <T> @Nullable T update(String userId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String userId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.PUT_AUTH_ADMIN_USERS_PARAM, List.of(userId), query, body, responseType);
     }
     /**
@@ -249,7 +260,9 @@ public final class AuthAdminUsersClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String userId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(
+            String userId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.PUT_AUTH_ADMIN_USERS_PARAM, List.of(userId), query, body, responseType);
     }
     /**
@@ -262,7 +275,8 @@ public final class AuthAdminUsersClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String userId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String userId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return update(userId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -275,8 +289,8 @@ public final class AuthAdminUsersClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String userId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String userId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return update(userId, QueryParams.empty(), body, responseType);
     }
-
 }

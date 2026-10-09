@@ -23,8 +23,10 @@ public final class OntologyGraphEntitiesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|GET|/ontology/graph/entities/{param}")
-    public <T> @Nullable T get(String entityId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_GRAPH_ENTITIES_PARAM, List.of(entityId), query, null, responseType);
+    public <T> @Nullable T get(String entityId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_GRAPH_ENTITIES_PARAM, List.of(entityId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/graph/entities/{param}} using a generic response type.
@@ -36,8 +38,10 @@ public final class OntologyGraphEntitiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String entityId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_GRAPH_ENTITIES_PARAM, List.of(entityId), query, null, responseType);
+    public <T> @Nullable T get(String entityId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_GRAPH_ENTITIES_PARAM, List.of(entityId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/graph/entities/{param}} without query parameters.
@@ -60,7 +64,8 @@ public final class OntologyGraphEntitiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String entityId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String entityId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(entityId, QueryParams.empty(), responseType);
     }
 
@@ -75,8 +80,14 @@ public final class OntologyGraphEntitiesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|GET|/ontology/graph/entities/{param}/provenance")
-    public <T> @Nullable T getProvenance(String entityId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_GRAPH_ENTITIES_PARAM_PROVENANCE, List.of(entityId), query, null, responseType);
+    public <T> @Nullable T getProvenance(String entityId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_GRAPH_ENTITIES_PARAM_PROVENANCE,
+                List.of(entityId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/graph/entities/{param}/provenance} using a generic response type.
@@ -88,8 +99,14 @@ public final class OntologyGraphEntitiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getProvenance(String entityId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_GRAPH_ENTITIES_PARAM_PROVENANCE, List.of(entityId), query, null, responseType);
+    public <T> @Nullable T getProvenance(String entityId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_GRAPH_ENTITIES_PARAM_PROVENANCE,
+                List.of(entityId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/graph/entities/{param}/provenance} without query parameters.
@@ -100,7 +117,8 @@ public final class OntologyGraphEntitiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getProvenance(String entityId, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getProvenance(String entityId, Class<T> responseType)
+            throws IOException, InterruptedException {
         return getProvenance(entityId, QueryParams.empty(), responseType);
     }
     /**
@@ -112,7 +130,8 @@ public final class OntologyGraphEntitiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getProvenance(String entityId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getProvenance(String entityId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return getProvenance(entityId, QueryParams.empty(), responseType);
     }
 
@@ -128,8 +147,10 @@ public final class OntologyGraphEntitiesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|PUT|/ontology/graph/entities/{param}")
-    public <T> @Nullable T update(String entityId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.PUT_ONTOLOGY_GRAPH_ENTITIES_PARAM, List.of(entityId), query, body, responseType);
+    public <T> @Nullable T update(String entityId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.PUT_ONTOLOGY_GRAPH_ENTITIES_PARAM, List.of(entityId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code PUT /ontology/graph/entities/{param}} using a generic response type.
@@ -142,8 +163,11 @@ public final class OntologyGraphEntitiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String entityId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.PUT_ONTOLOGY_GRAPH_ENTITIES_PARAM, List.of(entityId), query, body, responseType);
+    public <T> @Nullable T update(
+            String entityId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.PUT_ONTOLOGY_GRAPH_ENTITIES_PARAM, List.of(entityId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code PUT /ontology/graph/entities/{param}} without query parameters.
@@ -155,7 +179,8 @@ public final class OntologyGraphEntitiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String entityId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String entityId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return update(entityId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -168,8 +193,8 @@ public final class OntologyGraphEntitiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String entityId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String entityId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return update(entityId, QueryParams.empty(), body, responseType);
     }
-
 }

@@ -23,8 +23,14 @@ public final class OntologyEventsEventsCheckpointsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|GET|/ontology/events/events/checkpoints/{param}")
-    public <T> @Nullable T get(String consumer, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_EVENTS_EVENTS_CHECKPOINTS_PARAM, List.of(consumer), query, null, responseType);
+    public <T> @Nullable T get(String consumer, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_EVENTS_EVENTS_CHECKPOINTS_PARAM,
+                List.of(consumer),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/events/events/checkpoints/{param}} using a generic response type.
@@ -36,8 +42,14 @@ public final class OntologyEventsEventsCheckpointsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String consumer, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_EVENTS_EVENTS_CHECKPOINTS_PARAM, List.of(consumer), query, null, responseType);
+    public <T> @Nullable T get(String consumer, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_EVENTS_EVENTS_CHECKPOINTS_PARAM,
+                List.of(consumer),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/events/events/checkpoints/{param}} without query parameters.
@@ -60,7 +72,8 @@ public final class OntologyEventsEventsCheckpointsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String consumer, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String consumer, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(consumer, QueryParams.empty(), responseType);
     }
 
@@ -75,8 +88,10 @@ public final class OntologyEventsEventsCheckpointsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/events/events/checkpoints")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_EVENTS_EVENTS_CHECKPOINTS, List.of(), query, body, responseType);
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_EVENTS_EVENTS_CHECKPOINTS, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/events/events/checkpoints} using a generic response type.
@@ -88,8 +103,10 @@ public final class OntologyEventsEventsCheckpointsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_EVENTS_EVENTS_CHECKPOINTS, List.of(), query, body, responseType);
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_EVENTS_EVENTS_CHECKPOINTS, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/events/events/checkpoints} without query parameters.
@@ -100,7 +117,8 @@ public final class OntologyEventsEventsCheckpointsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -112,8 +130,8 @@ public final class OntologyEventsEventsCheckpointsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
-
 }

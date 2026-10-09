@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -23,8 +22,14 @@ public final class ConnectionTestsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("connection-tests|GET|/connection-tests/{param}")
-    public <T> @Nullable T get(String connectionTestId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.ConnectionTests.GET_CONNECTION_TESTS_PARAM, List.of(connectionTestId), query, null, responseType);
+    public <T> @Nullable T get(String connectionTestId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.ConnectionTests.GET_CONNECTION_TESTS_PARAM,
+                List.of(connectionTestId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /connection-tests/{param}} using a generic response type.
@@ -36,8 +41,14 @@ public final class ConnectionTestsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String connectionTestId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.ConnectionTests.GET_CONNECTION_TESTS_PARAM, List.of(connectionTestId), query, null, responseType);
+    public <T> @Nullable T get(String connectionTestId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.ConnectionTests.GET_CONNECTION_TESTS_PARAM,
+                List.of(connectionTestId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /connection-tests/{param}} without query parameters.
@@ -48,7 +59,8 @@ public final class ConnectionTestsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String connectionTestId, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String connectionTestId, Class<T> responseType)
+            throws IOException, InterruptedException {
         return get(connectionTestId, QueryParams.empty(), responseType);
     }
     /**
@@ -60,8 +72,8 @@ public final class ConnectionTestsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String connectionTestId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String connectionTestId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(connectionTestId, QueryParams.empty(), responseType);
     }
-
 }

@@ -23,7 +23,8 @@ public final class EventsRawReprocessClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("events|POST|/events/raw/reprocess/all")
-    public <T> @Nullable T createAll(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createAll(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_RAW_REPROCESS_ALL, List.of(), query, body, responseType);
     }
     /**
@@ -36,7 +37,8 @@ public final class EventsRawReprocessClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createAll(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createAll(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_RAW_REPROCESS_ALL, List.of(), query, body, responseType);
     }
     /**
@@ -48,7 +50,8 @@ public final class EventsRawReprocessClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createAll(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createAll(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createAll(QueryParams.empty(), body, responseType);
     }
     /**
@@ -60,7 +63,8 @@ public final class EventsRawReprocessClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createAll(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createAll(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createAll(QueryParams.empty(), body, responseType);
     }
 
@@ -75,7 +79,8 @@ public final class EventsRawReprocessClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("events|POST|/events/raw/reprocess/pending")
-    public <T> @Nullable T createPending(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createPending(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_RAW_REPROCESS_PENDING, List.of(), query, body, responseType);
     }
     /**
@@ -88,7 +93,8 @@ public final class EventsRawReprocessClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createPending(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createPending(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_RAW_REPROCESS_PENDING, List.of(), query, body, responseType);
     }
     /**
@@ -100,7 +106,8 @@ public final class EventsRawReprocessClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createPending(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createPending(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createPending(QueryParams.empty(), body, responseType);
     }
     /**
@@ -112,8 +119,8 @@ public final class EventsRawReprocessClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createPending(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createPending(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createPending(QueryParams.empty(), body, responseType);
     }
-
 }

@@ -23,7 +23,8 @@ public final class GovernanceRolesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("governance|DELETE|/roles/{param}")
-    public <T> @Nullable T delete(String roleId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String roleId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Governance.DELETE_ROLES_PARAM, List.of(roleId), query, null, responseType);
     }
     /**
@@ -36,7 +37,8 @@ public final class GovernanceRolesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String roleId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String roleId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Governance.DELETE_ROLES_PARAM, List.of(roleId), query, null, responseType);
     }
     /**
@@ -60,7 +62,8 @@ public final class GovernanceRolesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String roleId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String roleId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(roleId, QueryParams.empty(), responseType);
     }
 
@@ -86,7 +89,8 @@ public final class GovernanceRolesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Governance.GET_ROLES, List.of(), query, null, responseType);
     }
     /**
@@ -123,7 +127,8 @@ public final class GovernanceRolesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("governance|GET|/roles/{param}")
-    public <T> @Nullable T get(String roleId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String roleId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Governance.GET_ROLES_PARAM, List.of(roleId), query, null, responseType);
     }
     /**
@@ -136,7 +141,8 @@ public final class GovernanceRolesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String roleId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String roleId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Governance.GET_ROLES_PARAM, List.of(roleId), query, null, responseType);
     }
     /**
@@ -175,7 +181,8 @@ public final class GovernanceRolesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("governance|POST|/roles")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Governance.POST_ROLES, List.of(), query, body, responseType);
     }
     /**
@@ -188,7 +195,8 @@ public final class GovernanceRolesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Governance.POST_ROLES, List.of(), query, body, responseType);
     }
     /**
@@ -200,7 +208,8 @@ public final class GovernanceRolesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -212,8 +221,8 @@ public final class GovernanceRolesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
-
 }

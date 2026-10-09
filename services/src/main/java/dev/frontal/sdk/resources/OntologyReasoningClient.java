@@ -69,7 +69,8 @@ public final class OntologyReasoningClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T health(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T health(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.GET_ONTOLOGY_REASONING_HEALTH, List.of(), query, null, responseType);
     }
     /**
@@ -117,7 +118,8 @@ public final class OntologyReasoningClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getInfo(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getInfo(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.GET_ONTOLOGY_REASONING_INFO, List.of(), query, null, responseType);
     }
     /**
@@ -154,7 +156,8 @@ public final class OntologyReasoningClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/reasoning/explain")
-    public <T> @Nullable T createExplain(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createExplain(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_REASONING_EXPLAIN, List.of(), query, body, responseType);
     }
     /**
@@ -167,7 +170,8 @@ public final class OntologyReasoningClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createExplain(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createExplain(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_REASONING_EXPLAIN, List.of(), query, body, responseType);
     }
     /**
@@ -179,7 +183,8 @@ public final class OntologyReasoningClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createExplain(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createExplain(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createExplain(QueryParams.empty(), body, responseType);
     }
     /**
@@ -191,8 +196,8 @@ public final class OntologyReasoningClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createExplain(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createExplain(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createExplain(QueryParams.empty(), body, responseType);
     }
-
 }

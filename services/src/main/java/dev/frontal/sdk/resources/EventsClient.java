@@ -62,7 +62,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.GET_EVENTS, List.of(), query, null, responseType);
     }
     /**
@@ -98,7 +99,8 @@ public final class EventsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("events|GET|/events/monitoring")
-    public <T> @Nullable T getMonitoring(QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getMonitoring(QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.GET_EVENTS_MONITORING, List.of(), query, null, responseType);
     }
     /**
@@ -110,7 +112,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getMonitoring(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getMonitoring(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.GET_EVENTS_MONITORING, List.of(), query, null, responseType);
     }
     /**
@@ -147,7 +150,8 @@ public final class EventsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("events|GET|/events/{param}")
-    public <T> @Nullable T get(String id, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String id, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.GET_EVENTS_PARAM, List.of(id), query, null, responseType);
     }
     /**
@@ -160,7 +164,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String id, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String id, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.GET_EVENTS_PARAM, List.of(id), query, null, responseType);
     }
     /**
@@ -199,7 +204,8 @@ public final class EventsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("events|POST|/events")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS, List.of(), query, body, responseType);
     }
     /**
@@ -212,7 +218,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS, List.of(), query, body, responseType);
     }
     /**
@@ -224,7 +231,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -236,7 +244,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -251,7 +260,8 @@ public final class EventsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("events|POST|/events/analytics")
-    public <T> @Nullable T analytics(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T analytics(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_ANALYTICS, List.of(), query, body, responseType);
     }
     /**
@@ -264,7 +274,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T analytics(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T analytics(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_ANALYTICS, List.of(), query, body, responseType);
     }
     /**
@@ -276,7 +287,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T analytics(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T analytics(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return analytics(QueryParams.empty(), body, responseType);
     }
     /**
@@ -288,7 +300,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T analytics(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T analytics(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return analytics(QueryParams.empty(), body, responseType);
     }
 
@@ -303,7 +316,8 @@ public final class EventsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("events|POST|/events/analytics-v2")
-    public <T> @Nullable T createAnalyticsV2(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createAnalyticsV2(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_ANALYTICS_V2, List.of(), query, body, responseType);
     }
     /**
@@ -316,7 +330,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createAnalyticsV2(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createAnalyticsV2(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_ANALYTICS_V2, List.of(), query, body, responseType);
     }
     /**
@@ -328,7 +343,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createAnalyticsV2(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createAnalyticsV2(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createAnalyticsV2(QueryParams.empty(), body, responseType);
     }
     /**
@@ -340,7 +356,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createAnalyticsV2(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createAnalyticsV2(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createAnalyticsV2(QueryParams.empty(), body, responseType);
     }
 
@@ -355,7 +372,8 @@ public final class EventsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("events|POST|/events/bulk")
-    public <T> @Nullable T bulk(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T bulk(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_BULK, List.of(), query, body, responseType);
     }
     /**
@@ -368,7 +386,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T bulk(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T bulk(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_BULK, List.of(), query, body, responseType);
     }
     /**
@@ -380,7 +399,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T bulk(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T bulk(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return bulk(QueryParams.empty(), body, responseType);
     }
     /**
@@ -392,7 +412,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T bulk(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T bulk(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return bulk(QueryParams.empty(), body, responseType);
     }
 
@@ -407,7 +428,8 @@ public final class EventsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("events|POST|/events/huggingface-billing")
-    public <T> @Nullable T createHuggingfaceBilling(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createHuggingfaceBilling(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_HUGGINGFACE_BILLING, List.of(), query, body, responseType);
     }
     /**
@@ -420,7 +442,9 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createHuggingfaceBilling(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createHuggingfaceBilling(
+            QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_HUGGINGFACE_BILLING, List.of(), query, body, responseType);
     }
     /**
@@ -432,7 +456,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createHuggingfaceBilling(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createHuggingfaceBilling(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createHuggingfaceBilling(QueryParams.empty(), body, responseType);
     }
     /**
@@ -444,7 +469,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createHuggingfaceBilling(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createHuggingfaceBilling(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createHuggingfaceBilling(QueryParams.empty(), body, responseType);
     }
 
@@ -459,7 +485,8 @@ public final class EventsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("events|POST|/events/query")
-    public <T> @Nullable T query(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T query(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_QUERY, List.of(), query, body, responseType);
     }
     /**
@@ -472,7 +499,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T query(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T query(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_QUERY, List.of(), query, body, responseType);
     }
     /**
@@ -484,7 +512,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T query(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T query(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return query(QueryParams.empty(), body, responseType);
     }
     /**
@@ -496,7 +525,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T query(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T query(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return query(QueryParams.empty(), body, responseType);
     }
 
@@ -511,7 +541,8 @@ public final class EventsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("events|POST|/events/reprocess")
-    public <T> @Nullable T reprocess(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T reprocess(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_REPROCESS, List.of(), query, body, responseType);
     }
     /**
@@ -524,7 +555,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T reprocess(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T reprocess(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_REPROCESS, List.of(), query, body, responseType);
     }
     /**
@@ -536,7 +568,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T reprocess(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T reprocess(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return reprocess(QueryParams.empty(), body, responseType);
     }
     /**
@@ -548,7 +581,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T reprocess(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T reprocess(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return reprocess(QueryParams.empty(), body, responseType);
     }
 
@@ -563,7 +597,8 @@ public final class EventsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("events|POST|/events/usage")
-    public <T> @Nullable T usage(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T usage(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_USAGE, List.of(), query, body, responseType);
     }
     /**
@@ -576,7 +611,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T usage(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T usage(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_USAGE, List.of(), query, body, responseType);
     }
     /**
@@ -588,7 +624,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T usage(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T usage(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return usage(QueryParams.empty(), body, responseType);
     }
     /**
@@ -600,8 +637,8 @@ public final class EventsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T usage(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T usage(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return usage(QueryParams.empty(), body, responseType);
     }
-
 }

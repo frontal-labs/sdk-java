@@ -23,7 +23,8 @@ public final class AuthAccountMfaClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|DELETE|/auth/account/mfa/{param}")
-    public <T> @Nullable T delete(String mfaId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String mfaId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.DELETE_AUTH_ACCOUNT_MFA_PARAM, List.of(mfaId), query, null, responseType);
     }
     /**
@@ -36,7 +37,8 @@ public final class AuthAccountMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String mfaId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String mfaId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.DELETE_AUTH_ACCOUNT_MFA_PARAM, List.of(mfaId), query, null, responseType);
     }
     /**
@@ -60,7 +62,8 @@ public final class AuthAccountMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String mfaId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String mfaId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(mfaId, QueryParams.empty(), responseType);
     }
 
@@ -75,7 +78,8 @@ public final class AuthAccountMfaClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|GET|/auth/account/mfa/{param}")
-    public <T> @Nullable T get(String mfaId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String mfaId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_ACCOUNT_MFA_PARAM, List.of(mfaId), query, null, responseType);
     }
     /**
@@ -88,7 +92,8 @@ public final class AuthAccountMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String mfaId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String mfaId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_ACCOUNT_MFA_PARAM, List.of(mfaId), query, null, responseType);
     }
     /**
@@ -128,7 +133,9 @@ public final class AuthAccountMfaClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/account/mfa/{param}/challenge")
-    public <T> @Nullable T createChallenge(String mfaId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createChallenge(
+            String mfaId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ACCOUNT_MFA_PARAM_CHALLENGE, List.of(mfaId), query, body, responseType);
     }
     /**
@@ -142,7 +149,9 @@ public final class AuthAccountMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createChallenge(String mfaId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createChallenge(
+            String mfaId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ACCOUNT_MFA_PARAM_CHALLENGE, List.of(mfaId), query, body, responseType);
     }
     /**
@@ -155,7 +164,8 @@ public final class AuthAccountMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createChallenge(String mfaId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createChallenge(String mfaId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createChallenge(mfaId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -168,7 +178,8 @@ public final class AuthAccountMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createChallenge(String mfaId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createChallenge(String mfaId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createChallenge(mfaId, QueryParams.empty(), body, responseType);
     }
 
@@ -184,7 +195,8 @@ public final class AuthAccountMfaClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/account/mfa/{param}/verify")
-    public <T> @Nullable T verify(String mfaId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(String mfaId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ACCOUNT_MFA_PARAM_VERIFY, List.of(mfaId), query, body, responseType);
     }
     /**
@@ -198,7 +210,9 @@ public final class AuthAccountMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T verify(String mfaId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(
+            String mfaId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ACCOUNT_MFA_PARAM_VERIFY, List.of(mfaId), query, body, responseType);
     }
     /**
@@ -211,7 +225,8 @@ public final class AuthAccountMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T verify(String mfaId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(String mfaId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return verify(mfaId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -224,8 +239,8 @@ public final class AuthAccountMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T verify(String mfaId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(String mfaId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return verify(mfaId, QueryParams.empty(), body, responseType);
     }
-
 }

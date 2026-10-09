@@ -34,7 +34,8 @@ public final class PipelinesDataPipelinesPipelinesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Pipelines.GET_DATA_PIPELINES_PIPELINES, List.of(), query, null, responseType);
     }
     /**
@@ -71,8 +72,10 @@ public final class PipelinesDataPipelinesPipelinesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("pipelines|GET|/data/pipelines/pipelines/{param}")
-    public <T> @Nullable T get(String pipelineId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Pipelines.GET_DATA_PIPELINES_PIPELINES_PARAM, List.of(pipelineId), query, null, responseType);
+    public <T> @Nullable T get(String pipelineId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Pipelines.GET_DATA_PIPELINES_PIPELINES_PARAM, List.of(pipelineId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /data/pipelines/pipelines/{param}} using a generic response type.
@@ -84,8 +87,10 @@ public final class PipelinesDataPipelinesPipelinesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String pipelineId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Pipelines.GET_DATA_PIPELINES_PIPELINES_PARAM, List.of(pipelineId), query, null, responseType);
+    public <T> @Nullable T get(String pipelineId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Pipelines.GET_DATA_PIPELINES_PIPELINES_PARAM, List.of(pipelineId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /data/pipelines/pipelines/{param}} without query parameters.
@@ -108,7 +113,8 @@ public final class PipelinesDataPipelinesPipelinesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String pipelineId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String pipelineId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(pipelineId, QueryParams.empty(), responseType);
     }
 
@@ -123,7 +129,8 @@ public final class PipelinesDataPipelinesPipelinesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("pipelines|POST|/data/pipelines/pipelines")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Pipelines.POST_DATA_PIPELINES_PIPELINES, List.of(), query, body, responseType);
     }
     /**
@@ -136,7 +143,8 @@ public final class PipelinesDataPipelinesPipelinesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Pipelines.POST_DATA_PIPELINES_PIPELINES, List.of(), query, body, responseType);
     }
     /**
@@ -148,7 +156,8 @@ public final class PipelinesDataPipelinesPipelinesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -160,8 +169,8 @@ public final class PipelinesDataPipelinesPipelinesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
-
 }

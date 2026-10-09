@@ -34,7 +34,8 @@ public final class GovernanceComplianceViolationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Governance.GET_COMPLIANCE_VIOLATIONS, List.of(), query, null, responseType);
     }
     /**
@@ -72,8 +73,15 @@ public final class GovernanceComplianceViolationsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("governance|POST|/compliance/violations/{param}/resolve")
-    public <T> @Nullable T resolve(String violationId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Governance.POST_COMPLIANCE_VIOLATIONS_PARAM_RESOLVE, List.of(violationId), query, body, responseType);
+    public <T> @Nullable T resolve(
+            String violationId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Governance.POST_COMPLIANCE_VIOLATIONS_PARAM_RESOLVE,
+                List.of(violationId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /compliance/violations/{param}/resolve} using a generic response type.
@@ -86,8 +94,15 @@ public final class GovernanceComplianceViolationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resolve(String violationId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Governance.POST_COMPLIANCE_VIOLATIONS_PARAM_RESOLVE, List.of(violationId), query, body, responseType);
+    public <T> @Nullable T resolve(
+            String violationId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Governance.POST_COMPLIANCE_VIOLATIONS_PARAM_RESOLVE,
+                List.of(violationId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /compliance/violations/{param}/resolve} without query parameters.
@@ -99,7 +114,8 @@ public final class GovernanceComplianceViolationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resolve(String violationId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T resolve(String violationId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return resolve(violationId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -112,8 +128,8 @@ public final class GovernanceComplianceViolationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resolve(String violationId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T resolve(String violationId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return resolve(violationId, QueryParams.empty(), body, responseType);
     }
-
 }

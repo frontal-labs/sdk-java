@@ -23,8 +23,14 @@ public final class OntologyEngineOntologiesCompareVersionsClient extends Service
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/engine/ontologies/compare-versions")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_COMPARE_VERSIONS, List.of(), query, body, responseType);
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_COMPARE_VERSIONS,
+                List.of(),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/engine/ontologies/compare-versions} using a generic response type.
@@ -36,8 +42,14 @@ public final class OntologyEngineOntologiesCompareVersionsClient extends Service
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_COMPARE_VERSIONS, List.of(), query, body, responseType);
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_COMPARE_VERSIONS,
+                List.of(),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/engine/ontologies/compare-versions} without query parameters.
@@ -48,7 +60,8 @@ public final class OntologyEngineOntologiesCompareVersionsClient extends Service
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -60,8 +73,8 @@ public final class OntologyEngineOntologiesCompareVersionsClient extends Service
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
-
 }

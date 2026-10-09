@@ -25,8 +25,11 @@ public final class BlobObjectSignClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("blob|POST|/blob/object/sign/{param}/{param}")
-    public <T> @Nullable T get(String signId, String signId2, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Blob.POST_BLOB_OBJECT_SIGN_PARAM_PARAM, List.of(signId, signId2), query, body, responseType);
+    public <T> @Nullable T get(
+            String signId, String signId2, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Blob.POST_BLOB_OBJECT_SIGN_PARAM_PARAM, List.of(signId, signId2), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /blob/object/sign/{param}/{param}} using a generic response type.
@@ -40,8 +43,11 @@ public final class BlobObjectSignClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String signId, String signId2, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Blob.POST_BLOB_OBJECT_SIGN_PARAM_PARAM, List.of(signId, signId2), query, body, responseType);
+    public <T> @Nullable T get(
+            String signId, String signId2, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Blob.POST_BLOB_OBJECT_SIGN_PARAM_PARAM, List.of(signId, signId2), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /blob/object/sign/{param}/{param}} without query parameters.
@@ -54,7 +60,8 @@ public final class BlobObjectSignClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String signId, String signId2, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String signId, String signId2, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return get(signId, signId2, QueryParams.empty(), body, responseType);
     }
     /**
@@ -68,8 +75,8 @@ public final class BlobObjectSignClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String signId, String signId2, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String signId, String signId2, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(signId, signId2, QueryParams.empty(), body, responseType);
     }
-
 }

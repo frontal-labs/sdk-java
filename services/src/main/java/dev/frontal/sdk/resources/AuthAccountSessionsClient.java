@@ -23,8 +23,10 @@ public final class AuthAccountSessionsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|DELETE|/auth/account/sessions/{param}")
-    public <T> @Nullable T delete(String sessionId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.DELETE_AUTH_ACCOUNT_SESSIONS_PARAM, List.of(sessionId), query, null, responseType);
+    public <T> @Nullable T delete(String sessionId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.DELETE_AUTH_ACCOUNT_SESSIONS_PARAM, List.of(sessionId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code DELETE /auth/account/sessions/{param}} using a generic response type.
@@ -36,8 +38,10 @@ public final class AuthAccountSessionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String sessionId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.DELETE_AUTH_ACCOUNT_SESSIONS_PARAM, List.of(sessionId), query, null, responseType);
+    public <T> @Nullable T delete(String sessionId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.DELETE_AUTH_ACCOUNT_SESSIONS_PARAM, List.of(sessionId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code DELETE /auth/account/sessions/{param}} without query parameters.
@@ -60,7 +64,8 @@ public final class AuthAccountSessionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String sessionId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String sessionId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(sessionId, QueryParams.empty(), responseType);
     }
 
@@ -86,7 +91,8 @@ public final class AuthAccountSessionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_ACCOUNT_SESSIONS, List.of(), query, null, responseType);
     }
     /**
@@ -124,8 +130,10 @@ public final class AuthAccountSessionsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/account/sessions/{param}/extend")
-    public <T> @Nullable T extend(String sessionId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.POST_AUTH_ACCOUNT_SESSIONS_PARAM_EXTEND, List.of(sessionId), query, body, responseType);
+    public <T> @Nullable T extend(String sessionId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.POST_AUTH_ACCOUNT_SESSIONS_PARAM_EXTEND, List.of(sessionId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /auth/account/sessions/{param}/extend} using a generic response type.
@@ -138,8 +146,11 @@ public final class AuthAccountSessionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T extend(String sessionId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.POST_AUTH_ACCOUNT_SESSIONS_PARAM_EXTEND, List.of(sessionId), query, body, responseType);
+    public <T> @Nullable T extend(
+            String sessionId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.POST_AUTH_ACCOUNT_SESSIONS_PARAM_EXTEND, List.of(sessionId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /auth/account/sessions/{param}/extend} without query parameters.
@@ -151,7 +162,8 @@ public final class AuthAccountSessionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T extend(String sessionId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T extend(String sessionId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return extend(sessionId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -164,8 +176,8 @@ public final class AuthAccountSessionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T extend(String sessionId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T extend(String sessionId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return extend(sessionId, QueryParams.empty(), body, responseType);
     }
-
 }

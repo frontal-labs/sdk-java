@@ -34,7 +34,8 @@ public final class PipelinesDataPipelinesRunsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Pipelines.GET_DATA_PIPELINES_RUNS, List.of(), query, null, responseType);
     }
     /**
@@ -71,7 +72,8 @@ public final class PipelinesDataPipelinesRunsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("pipelines|POST|/data/pipelines/runs")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Pipelines.POST_DATA_PIPELINES_RUNS, List.of(), query, body, responseType);
     }
     /**
@@ -84,7 +86,8 @@ public final class PipelinesDataPipelinesRunsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Pipelines.POST_DATA_PIPELINES_RUNS, List.of(), query, body, responseType);
     }
     /**
@@ -96,7 +99,8 @@ public final class PipelinesDataPipelinesRunsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -108,8 +112,8 @@ public final class PipelinesDataPipelinesRunsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
-
 }

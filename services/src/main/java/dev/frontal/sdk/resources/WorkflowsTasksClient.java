@@ -23,7 +23,8 @@ public final class WorkflowsTasksClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("workflows|GET|/workflows/tasks/{param}")
-    public <T> @Nullable T get(String taskId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String taskId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Workflows.GET_WORKFLOWS_TASKS_PARAM, List.of(taskId), query, null, responseType);
     }
     /**
@@ -36,7 +37,8 @@ public final class WorkflowsTasksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String taskId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String taskId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Workflows.GET_WORKFLOWS_TASKS_PARAM, List.of(taskId), query, null, responseType);
     }
     /**
@@ -76,8 +78,10 @@ public final class WorkflowsTasksClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("workflows|POST|/workflows/tasks/{param}/cancel")
-    public <T> @Nullable T cancel(String taskId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.POST_WORKFLOWS_TASKS_PARAM_CANCEL, List.of(taskId), query, body, responseType);
+    public <T> @Nullable T cancel(String taskId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Workflows.POST_WORKFLOWS_TASKS_PARAM_CANCEL, List.of(taskId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/tasks/{param}/cancel} using a generic response type.
@@ -90,8 +94,11 @@ public final class WorkflowsTasksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T cancel(String taskId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.POST_WORKFLOWS_TASKS_PARAM_CANCEL, List.of(taskId), query, body, responseType);
+    public <T> @Nullable T cancel(
+            String taskId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Workflows.POST_WORKFLOWS_TASKS_PARAM_CANCEL, List.of(taskId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/tasks/{param}/cancel} without query parameters.
@@ -103,7 +110,8 @@ public final class WorkflowsTasksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T cancel(String taskId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T cancel(String taskId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return cancel(taskId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -116,7 +124,8 @@ public final class WorkflowsTasksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T cancel(String taskId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T cancel(String taskId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return cancel(taskId, QueryParams.empty(), body, responseType);
     }
 
@@ -132,8 +141,10 @@ public final class WorkflowsTasksClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("workflows|POST|/workflows/tasks/{param}/retry")
-    public <T> @Nullable T retry(String taskId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.POST_WORKFLOWS_TASKS_PARAM_RETRY, List.of(taskId), query, body, responseType);
+    public <T> @Nullable T retry(String taskId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Workflows.POST_WORKFLOWS_TASKS_PARAM_RETRY, List.of(taskId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/tasks/{param}/retry} using a generic response type.
@@ -146,8 +157,11 @@ public final class WorkflowsTasksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T retry(String taskId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.POST_WORKFLOWS_TASKS_PARAM_RETRY, List.of(taskId), query, body, responseType);
+    public <T> @Nullable T retry(
+            String taskId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Workflows.POST_WORKFLOWS_TASKS_PARAM_RETRY, List.of(taskId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/tasks/{param}/retry} without query parameters.
@@ -159,7 +173,8 @@ public final class WorkflowsTasksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T retry(String taskId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T retry(String taskId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return retry(taskId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -172,8 +187,8 @@ public final class WorkflowsTasksClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T retry(String taskId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T retry(String taskId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return retry(taskId, QueryParams.empty(), body, responseType);
     }
-
 }

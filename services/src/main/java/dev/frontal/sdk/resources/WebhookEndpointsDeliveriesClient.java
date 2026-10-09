@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -23,8 +22,14 @@ public final class WebhookEndpointsDeliveriesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("webhook-endpoints|GET|/webhook-endpoints/{param}/deliveries")
-    public <T> @Nullable T list(String id, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.WebhookEndpoints.GET_WEBHOOK_ENDPOINTS_PARAM_DELIVERIES, List.of(id), query, null, responseType);
+    public <T> @Nullable T list(String id, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.WebhookEndpoints.GET_WEBHOOK_ENDPOINTS_PARAM_DELIVERIES,
+                List.of(id),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /webhook-endpoints/{param}/deliveries} using a generic response type.
@@ -36,8 +41,14 @@ public final class WebhookEndpointsDeliveriesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(String id, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.WebhookEndpoints.GET_WEBHOOK_ENDPOINTS_PARAM_DELIVERIES, List.of(id), query, null, responseType);
+    public <T> @Nullable T list(String id, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.WebhookEndpoints.GET_WEBHOOK_ENDPOINTS_PARAM_DELIVERIES,
+                List.of(id),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /webhook-endpoints/{param}/deliveries} without query parameters.
@@ -63,5 +74,4 @@ public final class WebhookEndpointsDeliveriesClient extends ServiceClient {
     public <T> @Nullable T list(String id, TypeReference<T> responseType) throws IOException, InterruptedException {
         return list(id, QueryParams.empty(), responseType);
     }
-
 }

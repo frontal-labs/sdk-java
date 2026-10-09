@@ -34,7 +34,8 @@ public final class ObservabilityMetricsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Observability.GET_OBSERVABILITY_METRICS, List.of(), query, null, responseType);
     }
     /**
@@ -82,7 +83,8 @@ public final class ObservabilityMetricsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getList(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getList(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Observability.GET_OBSERVABILITY_METRICS_LIST, List.of(), query, null, responseType);
     }
     /**
@@ -119,7 +121,8 @@ public final class ObservabilityMetricsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("observability|POST|/observability/metrics/ingest")
-    public <T> @Nullable T ingest(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T ingest(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Observability.POST_OBSERVABILITY_METRICS_INGEST, List.of(), query, body, responseType);
     }
     /**
@@ -132,7 +135,8 @@ public final class ObservabilityMetricsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T ingest(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T ingest(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Observability.POST_OBSERVABILITY_METRICS_INGEST, List.of(), query, body, responseType);
     }
     /**
@@ -144,7 +148,8 @@ public final class ObservabilityMetricsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T ingest(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T ingest(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return ingest(QueryParams.empty(), body, responseType);
     }
     /**
@@ -156,8 +161,8 @@ public final class ObservabilityMetricsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T ingest(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T ingest(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return ingest(QueryParams.empty(), body, responseType);
     }
-
 }

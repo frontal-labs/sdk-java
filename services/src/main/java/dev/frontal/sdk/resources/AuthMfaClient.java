@@ -41,7 +41,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T status(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T status(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_MFA_STATUS, List.of(), query, null, responseType);
     }
     /**
@@ -78,7 +79,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/mfa/disable")
-    public <T> @Nullable T disable(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T disable(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_MFA_DISABLE, List.of(), query, body, responseType);
     }
     /**
@@ -91,7 +93,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T disable(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T disable(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_MFA_DISABLE, List.of(), query, body, responseType);
     }
     /**
@@ -103,7 +106,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T disable(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T disable(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return disable(QueryParams.empty(), body, responseType);
     }
     /**
@@ -115,7 +119,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T disable(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T disable(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return disable(QueryParams.empty(), body, responseType);
     }
 
@@ -130,7 +135,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/mfa/enable")
-    public <T> @Nullable T enable(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T enable(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_MFA_ENABLE, List.of(), query, body, responseType);
     }
     /**
@@ -143,7 +149,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T enable(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T enable(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_MFA_ENABLE, List.of(), query, body, responseType);
     }
     /**
@@ -155,7 +162,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T enable(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T enable(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return enable(QueryParams.empty(), body, responseType);
     }
     /**
@@ -167,7 +175,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T enable(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T enable(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return enable(QueryParams.empty(), body, responseType);
     }
 
@@ -182,7 +191,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/mfa/setup")
-    public <T> @Nullable T setup(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T setup(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_MFA_SETUP, List.of(), query, body, responseType);
     }
     /**
@@ -195,7 +205,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T setup(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T setup(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_MFA_SETUP, List.of(), query, body, responseType);
     }
     /**
@@ -207,7 +218,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T setup(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T setup(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return setup(QueryParams.empty(), body, responseType);
     }
     /**
@@ -219,7 +231,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T setup(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T setup(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return setup(QueryParams.empty(), body, responseType);
     }
 
@@ -234,7 +247,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/mfa/verify")
-    public <T> @Nullable T verify(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_MFA_VERIFY, List.of(), query, body, responseType);
     }
     /**
@@ -247,7 +261,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T verify(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_MFA_VERIFY, List.of(), query, body, responseType);
     }
     /**
@@ -259,7 +274,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T verify(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return verify(QueryParams.empty(), body, responseType);
     }
     /**
@@ -271,8 +287,8 @@ public final class AuthMfaClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T verify(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return verify(QueryParams.empty(), body, responseType);
     }
-
 }

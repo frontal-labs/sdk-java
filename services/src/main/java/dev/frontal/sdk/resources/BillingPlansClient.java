@@ -31,7 +31,8 @@ public final class BillingPlansClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("billing|POST|/billing/plans/{param}/clone")
-    public <T> @Nullable T clone(String planId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T clone(String planId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Billing.POST_BILLING_PLANS_PARAM_CLONE, List.of(planId), query, body, responseType);
     }
     /**
@@ -45,7 +46,9 @@ public final class BillingPlansClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T clone(String planId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T clone(
+            String planId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Billing.POST_BILLING_PLANS_PARAM_CLONE, List.of(planId), query, body, responseType);
     }
     /**
@@ -58,7 +61,8 @@ public final class BillingPlansClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T clone(String planId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T clone(String planId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return clone(planId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -71,8 +75,8 @@ public final class BillingPlansClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T clone(String planId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T clone(String planId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return clone(planId, QueryParams.empty(), body, responseType);
     }
-
 }

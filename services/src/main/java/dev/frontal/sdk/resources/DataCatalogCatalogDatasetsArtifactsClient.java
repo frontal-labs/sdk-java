@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -24,8 +23,14 @@ public final class DataCatalogCatalogDatasetsArtifactsClient extends ServiceClie
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|GET|/data/catalog/catalog/datasets/{param}/artifacts/{param}/content")
-    public <T> @Nullable T getContent(String datasetId, String manifestId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.GET_DATA_CATALOG_CATALOG_DATASETS_PARAM_ARTIFACTS_PARAM_CONTENT, List.of(datasetId, manifestId), query, null, responseType);
+    public <T> @Nullable T getContent(String datasetId, String manifestId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.GET_DATA_CATALOG_CATALOG_DATASETS_PARAM_ARTIFACTS_PARAM_CONTENT,
+                List.of(datasetId, manifestId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /data/catalog/catalog/datasets/{param}/artifacts/{param}/content} using a generic response type.
@@ -38,8 +43,15 @@ public final class DataCatalogCatalogDatasetsArtifactsClient extends ServiceClie
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getContent(String datasetId, String manifestId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.GET_DATA_CATALOG_CATALOG_DATASETS_PARAM_ARTIFACTS_PARAM_CONTENT, List.of(datasetId, manifestId), query, null, responseType);
+    public <T> @Nullable T getContent(
+            String datasetId, String manifestId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.GET_DATA_CATALOG_CATALOG_DATASETS_PARAM_ARTIFACTS_PARAM_CONTENT,
+                List.of(datasetId, manifestId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /data/catalog/catalog/datasets/{param}/artifacts/{param}/content} without query parameters.
@@ -51,7 +63,8 @@ public final class DataCatalogCatalogDatasetsArtifactsClient extends ServiceClie
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getContent(String datasetId, String manifestId, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getContent(String datasetId, String manifestId, Class<T> responseType)
+            throws IOException, InterruptedException {
         return getContent(datasetId, manifestId, QueryParams.empty(), responseType);
     }
     /**
@@ -64,8 +77,8 @@ public final class DataCatalogCatalogDatasetsArtifactsClient extends ServiceClie
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getContent(String datasetId, String manifestId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getContent(String datasetId, String manifestId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return getContent(datasetId, manifestId, QueryParams.empty(), responseType);
     }
-
 }

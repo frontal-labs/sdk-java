@@ -23,7 +23,8 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|DELETE|/auth/factors/{param}")
-    public <T> @Nullable T delete(String factorId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String factorId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.DELETE_AUTH_FACTORS_PARAM, List.of(factorId), query, null, responseType);
     }
     /**
@@ -36,7 +37,8 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String factorId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String factorId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.DELETE_AUTH_FACTORS_PARAM, List.of(factorId), query, null, responseType);
     }
     /**
@@ -60,7 +62,8 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String factorId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String factorId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(factorId, QueryParams.empty(), responseType);
     }
 
@@ -86,7 +89,8 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_FACTORS, List.of(), query, null, responseType);
     }
     /**
@@ -123,7 +127,8 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/factors")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_FACTORS, List.of(), query, body, responseType);
     }
     /**
@@ -136,7 +141,8 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_FACTORS, List.of(), query, body, responseType);
     }
     /**
@@ -148,7 +154,8 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -160,7 +167,8 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -176,7 +184,9 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/factors/{param}/challenge")
-    public <T> @Nullable T createChallenge(String factorId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createChallenge(
+            String factorId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_FACTORS_PARAM_CHALLENGE, List.of(factorId), query, body, responseType);
     }
     /**
@@ -190,7 +200,9 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createChallenge(String factorId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createChallenge(
+            String factorId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_FACTORS_PARAM_CHALLENGE, List.of(factorId), query, body, responseType);
     }
     /**
@@ -203,7 +215,8 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createChallenge(String factorId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createChallenge(String factorId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createChallenge(factorId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -216,7 +229,8 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createChallenge(String factorId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createChallenge(String factorId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createChallenge(factorId, QueryParams.empty(), body, responseType);
     }
 
@@ -232,7 +246,8 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/factors/{param}/verify")
-    public <T> @Nullable T verify(String factorId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(String factorId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_FACTORS_PARAM_VERIFY, List.of(factorId), query, body, responseType);
     }
     /**
@@ -246,7 +261,9 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T verify(String factorId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(
+            String factorId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_FACTORS_PARAM_VERIFY, List.of(factorId), query, body, responseType);
     }
     /**
@@ -259,7 +276,8 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T verify(String factorId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(String factorId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return verify(factorId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -272,8 +290,8 @@ public final class AuthFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T verify(String factorId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(String factorId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return verify(factorId, QueryParams.empty(), body, responseType);
     }
-
 }

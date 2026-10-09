@@ -23,8 +23,10 @@ public final class OntologyValidationPayloadsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/validation/payloads/validate")
-    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_VALIDATION_PAYLOADS_VALIDATE, List.of(), query, body, responseType);
+    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_VALIDATION_PAYLOADS_VALIDATE, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/validation/payloads/validate} using a generic response type.
@@ -36,8 +38,10 @@ public final class OntologyValidationPayloadsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_VALIDATION_PAYLOADS_VALIDATE, List.of(), query, body, responseType);
+    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_VALIDATION_PAYLOADS_VALIDATE, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/validation/payloads/validate} without query parameters.
@@ -48,7 +52,8 @@ public final class OntologyValidationPayloadsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T validate(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T validate(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return validate(QueryParams.empty(), body, responseType);
     }
     /**
@@ -60,8 +65,8 @@ public final class OntologyValidationPayloadsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T validate(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T validate(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return validate(QueryParams.empty(), body, responseType);
     }
-
 }

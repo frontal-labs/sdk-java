@@ -24,8 +24,14 @@ public final class DataNormalizationNormalizationProfilesExecutionsClient extend
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|POST|/data/normalization/normalization/profiles/{param}/executions")
-    public <T> @Nullable T create(String profileId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.POST_DATA_NORMALIZATION_NORMALIZATION_PROFILES_PARAM_EXECUTIONS, List.of(profileId), query, body, responseType);
+    public <T> @Nullable T create(String profileId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.POST_DATA_NORMALIZATION_NORMALIZATION_PROFILES_PARAM_EXECUTIONS,
+                List.of(profileId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /data/normalization/normalization/profiles/{param}/executions} using a generic response type.
@@ -38,8 +44,15 @@ public final class DataNormalizationNormalizationProfilesExecutionsClient extend
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(String profileId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.POST_DATA_NORMALIZATION_NORMALIZATION_PROFILES_PARAM_EXECUTIONS, List.of(profileId), query, body, responseType);
+    public <T> @Nullable T create(
+            String profileId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.POST_DATA_NORMALIZATION_NORMALIZATION_PROFILES_PARAM_EXECUTIONS,
+                List.of(profileId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /data/normalization/normalization/profiles/{param}/executions} without query parameters.
@@ -51,7 +64,8 @@ public final class DataNormalizationNormalizationProfilesExecutionsClient extend
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(String profileId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(String profileId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(profileId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -64,8 +78,8 @@ public final class DataNormalizationNormalizationProfilesExecutionsClient extend
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(String profileId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(String profileId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(profileId, QueryParams.empty(), body, responseType);
     }
-
 }

@@ -44,7 +44,8 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/engine/ontologies/export")
-    public <T> @Nullable T export(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T export(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_EXPORT, List.of(), query, body, responseType);
     }
     /**
@@ -57,7 +58,8 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T export(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T export(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_EXPORT, List.of(), query, body, responseType);
     }
     /**
@@ -69,7 +71,8 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T export(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T export(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return export(QueryParams.empty(), body, responseType);
     }
     /**
@@ -81,7 +84,8 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T export(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T export(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return export(QueryParams.empty(), body, responseType);
     }
 
@@ -96,8 +100,10 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/engine/ontologies/export-shacl")
-    public <T> @Nullable T createExportShacl(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_EXPORT_SHACL, List.of(), query, body, responseType);
+    public <T> @Nullable T createExportShacl(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_EXPORT_SHACL, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/engine/ontologies/export-shacl} using a generic response type.
@@ -109,8 +115,10 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createExportShacl(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_EXPORT_SHACL, List.of(), query, body, responseType);
+    public <T> @Nullable T createExportShacl(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_EXPORT_SHACL, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/engine/ontologies/export-shacl} without query parameters.
@@ -121,7 +129,8 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createExportShacl(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createExportShacl(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createExportShacl(QueryParams.empty(), body, responseType);
     }
     /**
@@ -133,7 +142,8 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createExportShacl(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createExportShacl(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createExportShacl(QueryParams.empty(), body, responseType);
     }
 
@@ -148,8 +158,10 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/engine/ontologies/generate")
-    public <T> @Nullable T generate(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_GENERATE, List.of(), query, body, responseType);
+    public <T> @Nullable T generate(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_GENERATE, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/engine/ontologies/generate} using a generic response type.
@@ -161,8 +173,10 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T generate(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_GENERATE, List.of(), query, body, responseType);
+    public <T> @Nullable T generate(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_GENERATE, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/engine/ontologies/generate} without query parameters.
@@ -173,7 +187,8 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T generate(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T generate(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return generate(QueryParams.empty(), body, responseType);
     }
     /**
@@ -185,7 +200,8 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T generate(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T generate(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return generate(QueryParams.empty(), body, responseType);
     }
 
@@ -200,8 +216,10 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/engine/ontologies/validate")
-    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_VALIDATE, List.of(), query, body, responseType);
+    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_VALIDATE, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/engine/ontologies/validate} using a generic response type.
@@ -213,8 +231,10 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_VALIDATE, List.of(), query, body, responseType);
+    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_ENGINE_ONTOLOGIES_VALIDATE, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/engine/ontologies/validate} without query parameters.
@@ -225,7 +245,8 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T validate(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T validate(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return validate(QueryParams.empty(), body, responseType);
     }
     /**
@@ -237,8 +258,8 @@ public final class OntologyEngineOntologiesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T validate(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T validate(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return validate(QueryParams.empty(), body, responseType);
     }
-
 }

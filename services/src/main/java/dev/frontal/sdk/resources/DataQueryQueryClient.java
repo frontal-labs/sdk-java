@@ -23,7 +23,8 @@ public final class DataQueryQueryClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|POST|/data/query/query/federated")
-    public <T> @Nullable T federated(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T federated(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_QUERY_QUERY_FEDERATED, List.of(), query, body, responseType);
     }
     /**
@@ -36,7 +37,8 @@ public final class DataQueryQueryClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T federated(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T federated(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_QUERY_QUERY_FEDERATED, List.of(), query, body, responseType);
     }
     /**
@@ -48,7 +50,8 @@ public final class DataQueryQueryClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T federated(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T federated(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return federated(QueryParams.empty(), body, responseType);
     }
     /**
@@ -60,8 +63,8 @@ public final class DataQueryQueryClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T federated(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T federated(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return federated(QueryParams.empty(), body, responseType);
     }
-
 }

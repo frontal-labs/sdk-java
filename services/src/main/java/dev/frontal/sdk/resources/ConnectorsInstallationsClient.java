@@ -23,8 +23,14 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("connectors|DELETE|/connectors/installations/{param}")
-    public <T> @Nullable T delete(String installationId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Connectors.DELETE_CONNECTORS_INSTALLATIONS_PARAM, List.of(installationId), query, null, responseType);
+    public <T> @Nullable T delete(String installationId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Connectors.DELETE_CONNECTORS_INSTALLATIONS_PARAM,
+                List.of(installationId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /connectors/installations/{param}} using a generic response type.
@@ -36,8 +42,14 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String installationId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Connectors.DELETE_CONNECTORS_INSTALLATIONS_PARAM, List.of(installationId), query, null, responseType);
+    public <T> @Nullable T delete(String installationId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Connectors.DELETE_CONNECTORS_INSTALLATIONS_PARAM,
+                List.of(installationId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /connectors/installations/{param}} without query parameters.
@@ -48,7 +60,8 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String installationId, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String installationId, Class<T> responseType)
+            throws IOException, InterruptedException {
         return delete(installationId, QueryParams.empty(), responseType);
     }
     /**
@@ -60,7 +73,8 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String installationId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String installationId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(installationId, QueryParams.empty(), responseType);
     }
 
@@ -86,7 +100,8 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Connectors.GET_CONNECTORS_INSTALLATIONS, List.of(), query, null, responseType);
     }
     /**
@@ -123,8 +138,14 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("connectors|GET|/connectors/installations/{param}")
-    public <T> @Nullable T get(String installationId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Connectors.GET_CONNECTORS_INSTALLATIONS_PARAM, List.of(installationId), query, null, responseType);
+    public <T> @Nullable T get(String installationId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Connectors.GET_CONNECTORS_INSTALLATIONS_PARAM,
+                List.of(installationId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /connectors/installations/{param}} using a generic response type.
@@ -136,8 +157,14 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String installationId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Connectors.GET_CONNECTORS_INSTALLATIONS_PARAM, List.of(installationId), query, null, responseType);
+    public <T> @Nullable T get(String installationId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Connectors.GET_CONNECTORS_INSTALLATIONS_PARAM,
+                List.of(installationId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /connectors/installations/{param}} without query parameters.
@@ -160,7 +187,8 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String installationId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String installationId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(installationId, QueryParams.empty(), responseType);
     }
 
@@ -176,8 +204,15 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("connectors|PATCH|/connectors/installations/{param}")
-    public <T> @Nullable T update(String installationId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Connectors.PATCH_CONNECTORS_INSTALLATIONS_PARAM, List.of(installationId), query, body, responseType);
+    public <T> @Nullable T update(
+            String installationId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Connectors.PATCH_CONNECTORS_INSTALLATIONS_PARAM,
+                List.of(installationId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code PATCH /connectors/installations/{param}} using a generic response type.
@@ -190,8 +225,15 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String installationId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Connectors.PATCH_CONNECTORS_INSTALLATIONS_PARAM, List.of(installationId), query, body, responseType);
+    public <T> @Nullable T update(
+            String installationId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Connectors.PATCH_CONNECTORS_INSTALLATIONS_PARAM,
+                List.of(installationId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code PATCH /connectors/installations/{param}} without query parameters.
@@ -203,7 +245,8 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String installationId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String installationId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return update(installationId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -216,7 +259,8 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String installationId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String installationId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return update(installationId, QueryParams.empty(), body, responseType);
     }
 
@@ -231,7 +275,8 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("connectors|POST|/connectors/installations")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Connectors.POST_CONNECTORS_INSTALLATIONS, List.of(), query, body, responseType);
     }
     /**
@@ -244,7 +289,8 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Connectors.POST_CONNECTORS_INSTALLATIONS, List.of(), query, body, responseType);
     }
     /**
@@ -256,7 +302,8 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -268,7 +315,8 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -284,8 +332,15 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("connectors|POST|/connectors/installations/{param}/pause")
-    public <T> @Nullable T pause(String installationId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Connectors.POST_CONNECTORS_INSTALLATIONS_PARAM_PAUSE, List.of(installationId), query, body, responseType);
+    public <T> @Nullable T pause(
+            String installationId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Connectors.POST_CONNECTORS_INSTALLATIONS_PARAM_PAUSE,
+                List.of(installationId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /connectors/installations/{param}/pause} using a generic response type.
@@ -298,8 +353,15 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T pause(String installationId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Connectors.POST_CONNECTORS_INSTALLATIONS_PARAM_PAUSE, List.of(installationId), query, body, responseType);
+    public <T> @Nullable T pause(
+            String installationId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Connectors.POST_CONNECTORS_INSTALLATIONS_PARAM_PAUSE,
+                List.of(installationId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /connectors/installations/{param}/pause} without query parameters.
@@ -311,7 +373,8 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T pause(String installationId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T pause(String installationId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return pause(installationId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -324,7 +387,8 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T pause(String installationId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T pause(String installationId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return pause(installationId, QueryParams.empty(), body, responseType);
     }
 
@@ -340,8 +404,15 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("connectors|POST|/connectors/installations/{param}/resume")
-    public <T> @Nullable T resume(String installationId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Connectors.POST_CONNECTORS_INSTALLATIONS_PARAM_RESUME, List.of(installationId), query, body, responseType);
+    public <T> @Nullable T resume(
+            String installationId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Connectors.POST_CONNECTORS_INSTALLATIONS_PARAM_RESUME,
+                List.of(installationId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /connectors/installations/{param}/resume} using a generic response type.
@@ -354,8 +425,15 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resume(String installationId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Connectors.POST_CONNECTORS_INSTALLATIONS_PARAM_RESUME, List.of(installationId), query, body, responseType);
+    public <T> @Nullable T resume(
+            String installationId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Connectors.POST_CONNECTORS_INSTALLATIONS_PARAM_RESUME,
+                List.of(installationId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /connectors/installations/{param}/resume} without query parameters.
@@ -367,7 +445,8 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resume(String installationId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T resume(String installationId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return resume(installationId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -380,8 +459,8 @@ public final class ConnectorsInstallationsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resume(String installationId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T resume(String installationId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return resume(installationId, QueryParams.empty(), body, responseType);
     }
-
 }

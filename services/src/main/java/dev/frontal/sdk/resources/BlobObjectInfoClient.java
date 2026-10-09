@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -24,8 +23,10 @@ public final class BlobObjectInfoClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("blob|GET|/blob/object/info/{param}/{param}")
-    public <T> @Nullable T get(String infoId, String infoId2, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Blob.GET_BLOB_OBJECT_INFO_PARAM_PARAM, List.of(infoId, infoId2), query, null, responseType);
+    public <T> @Nullable T get(String infoId, String infoId2, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Blob.GET_BLOB_OBJECT_INFO_PARAM_PARAM, List.of(infoId, infoId2), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /blob/object/info/{param}/{param}} using a generic response type.
@@ -38,8 +39,10 @@ public final class BlobObjectInfoClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String infoId, String infoId2, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Blob.GET_BLOB_OBJECT_INFO_PARAM_PARAM, List.of(infoId, infoId2), query, null, responseType);
+    public <T> @Nullable T get(String infoId, String infoId2, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Blob.GET_BLOB_OBJECT_INFO_PARAM_PARAM, List.of(infoId, infoId2), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /blob/object/info/{param}/{param}} without query parameters.
@@ -51,7 +54,8 @@ public final class BlobObjectInfoClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String infoId, String infoId2, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String infoId, String infoId2, Class<T> responseType)
+            throws IOException, InterruptedException {
         return get(infoId, infoId2, QueryParams.empty(), responseType);
     }
     /**
@@ -64,8 +68,8 @@ public final class BlobObjectInfoClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String infoId, String infoId2, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String infoId, String infoId2, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(infoId, infoId2, QueryParams.empty(), responseType);
     }
-
 }

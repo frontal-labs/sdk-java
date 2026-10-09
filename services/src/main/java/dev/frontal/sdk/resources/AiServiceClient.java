@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -48,7 +47,8 @@ public class AiServiceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T health(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T health(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ai.GET_HEALTH, List.of(), query, null, responseType);
     }
     /**
@@ -73,5 +73,4 @@ public class AiServiceClient extends ServiceClient {
     public <T> @Nullable T health(TypeReference<T> responseType) throws IOException, InterruptedException {
         return health(QueryParams.empty(), responseType);
     }
-
 }

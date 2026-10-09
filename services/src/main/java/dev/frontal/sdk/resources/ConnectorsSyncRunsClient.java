@@ -24,8 +24,14 @@ public final class ConnectorsSyncRunsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("connectors|POST|/connectors/sync-runs/{param}/replay")
-    public <T> @Nullable T replay(String syncRunId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Connectors.POST_CONNECTORS_SYNC_RUNS_PARAM_REPLAY, List.of(syncRunId), query, body, responseType);
+    public <T> @Nullable T replay(String syncRunId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Connectors.POST_CONNECTORS_SYNC_RUNS_PARAM_REPLAY,
+                List.of(syncRunId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /connectors/sync-runs/{param}/replay} using a generic response type.
@@ -38,8 +44,15 @@ public final class ConnectorsSyncRunsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T replay(String syncRunId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Connectors.POST_CONNECTORS_SYNC_RUNS_PARAM_REPLAY, List.of(syncRunId), query, body, responseType);
+    public <T> @Nullable T replay(
+            String syncRunId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Connectors.POST_CONNECTORS_SYNC_RUNS_PARAM_REPLAY,
+                List.of(syncRunId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /connectors/sync-runs/{param}/replay} without query parameters.
@@ -51,7 +64,8 @@ public final class ConnectorsSyncRunsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T replay(String syncRunId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T replay(String syncRunId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return replay(syncRunId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -64,8 +78,8 @@ public final class ConnectorsSyncRunsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T replay(String syncRunId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T replay(String syncRunId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return replay(syncRunId, QueryParams.empty(), body, responseType);
     }
-
 }

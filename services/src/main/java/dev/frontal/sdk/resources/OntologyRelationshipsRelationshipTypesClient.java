@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -23,8 +22,14 @@ public final class OntologyRelationshipsRelationshipTypesClient extends ServiceC
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|DELETE|/ontology/relationships/relationship-types/{param}")
-    public <T> @Nullable T delete(String relationshipTypeId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.DELETE_ONTOLOGY_RELATIONSHIPS_RELATIONSHIP_TYPES_PARAM, List.of(relationshipTypeId), query, null, responseType);
+    public <T> @Nullable T delete(String relationshipTypeId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.DELETE_ONTOLOGY_RELATIONSHIPS_RELATIONSHIP_TYPES_PARAM,
+                List.of(relationshipTypeId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /ontology/relationships/relationship-types/{param}} using a generic response type.
@@ -36,8 +41,14 @@ public final class OntologyRelationshipsRelationshipTypesClient extends ServiceC
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String relationshipTypeId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.DELETE_ONTOLOGY_RELATIONSHIPS_RELATIONSHIP_TYPES_PARAM, List.of(relationshipTypeId), query, null, responseType);
+    public <T> @Nullable T delete(String relationshipTypeId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.DELETE_ONTOLOGY_RELATIONSHIPS_RELATIONSHIP_TYPES_PARAM,
+                List.of(relationshipTypeId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /ontology/relationships/relationship-types/{param}} without query parameters.
@@ -48,7 +59,8 @@ public final class OntologyRelationshipsRelationshipTypesClient extends ServiceC
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String relationshipTypeId, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String relationshipTypeId, Class<T> responseType)
+            throws IOException, InterruptedException {
         return delete(relationshipTypeId, QueryParams.empty(), responseType);
     }
     /**
@@ -60,7 +72,8 @@ public final class OntologyRelationshipsRelationshipTypesClient extends ServiceC
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String relationshipTypeId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String relationshipTypeId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(relationshipTypeId, QueryParams.empty(), responseType);
     }
 
@@ -75,7 +88,8 @@ public final class OntologyRelationshipsRelationshipTypesClient extends ServiceC
      */
     @SdkOperation("ontology|GET|/ontology/relationships/relationship-types")
     public <T> @Nullable T list(QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_RELATIONSHIPS_RELATIONSHIP_TYPES, List.of(), query, null, responseType);
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_RELATIONSHIPS_RELATIONSHIP_TYPES, List.of(), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/relationships/relationship-types} using a generic response type.
@@ -86,8 +100,10 @@ public final class OntologyRelationshipsRelationshipTypesClient extends ServiceC
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_RELATIONSHIPS_RELATIONSHIP_TYPES, List.of(), query, null, responseType);
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_RELATIONSHIPS_RELATIONSHIP_TYPES, List.of(), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/relationships/relationship-types} without query parameters.
@@ -111,5 +127,4 @@ public final class OntologyRelationshipsRelationshipTypesClient extends ServiceC
     public <T> @Nullable T list(TypeReference<T> responseType) throws IOException, InterruptedException {
         return list(QueryParams.empty(), responseType);
     }
-
 }

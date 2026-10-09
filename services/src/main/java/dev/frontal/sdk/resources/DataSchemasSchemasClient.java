@@ -34,7 +34,8 @@ public final class DataSchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_SCHEMAS_SCHEMAS, List.of(), query, null, responseType);
     }
     /**
@@ -71,7 +72,8 @@ public final class DataSchemasSchemasClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|GET|/data/schemas/schemas/{param}")
-    public <T> @Nullable T get(String schemaRef, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String schemaRef, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_SCHEMAS_SCHEMAS_PARAM, List.of(schemaRef), query, null, responseType);
     }
     /**
@@ -84,7 +86,8 @@ public final class DataSchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String schemaRef, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String schemaRef, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_SCHEMAS_SCHEMAS_PARAM, List.of(schemaRef), query, null, responseType);
     }
     /**
@@ -108,7 +111,8 @@ public final class DataSchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String schemaRef, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String schemaRef, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(schemaRef, QueryParams.empty(), responseType);
     }
 
@@ -123,7 +127,8 @@ public final class DataSchemasSchemasClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|POST|/data/schemas/schemas")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_SCHEMAS_SCHEMAS, List.of(), query, body, responseType);
     }
     /**
@@ -136,7 +141,8 @@ public final class DataSchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_SCHEMAS_SCHEMAS, List.of(), query, body, responseType);
     }
     /**
@@ -148,7 +154,8 @@ public final class DataSchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -160,7 +167,8 @@ public final class DataSchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -175,7 +183,8 @@ public final class DataSchemasSchemasClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|POST|/data/schemas/schemas/resolve")
-    public <T> @Nullable T resolve(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T resolve(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_SCHEMAS_SCHEMAS_RESOLVE, List.of(), query, body, responseType);
     }
     /**
@@ -188,7 +197,8 @@ public final class DataSchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resolve(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T resolve(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_SCHEMAS_SCHEMAS_RESOLVE, List.of(), query, body, responseType);
     }
     /**
@@ -200,7 +210,8 @@ public final class DataSchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resolve(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T resolve(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return resolve(QueryParams.empty(), body, responseType);
     }
     /**
@@ -212,8 +223,8 @@ public final class DataSchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resolve(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T resolve(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return resolve(QueryParams.empty(), body, responseType);
     }
-
 }

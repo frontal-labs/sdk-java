@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -24,8 +23,14 @@ public final class AuthAdminUsersFactorsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|DELETE|/auth/admin/users/{param}/factors/{param}")
-    public <T> @Nullable T delete(String userId, String factorId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.DELETE_AUTH_ADMIN_USERS_PARAM_FACTORS_PARAM, List.of(userId, factorId), query, null, responseType);
+    public <T> @Nullable T delete(String userId, String factorId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.DELETE_AUTH_ADMIN_USERS_PARAM_FACTORS_PARAM,
+                List.of(userId, factorId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /auth/admin/users/{param}/factors/{param}} using a generic response type.
@@ -38,8 +43,14 @@ public final class AuthAdminUsersFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String userId, String factorId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.DELETE_AUTH_ADMIN_USERS_PARAM_FACTORS_PARAM, List.of(userId, factorId), query, null, responseType);
+    public <T> @Nullable T delete(String userId, String factorId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.DELETE_AUTH_ADMIN_USERS_PARAM_FACTORS_PARAM,
+                List.of(userId, factorId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /auth/admin/users/{param}/factors/{param}} without query parameters.
@@ -51,7 +62,8 @@ public final class AuthAdminUsersFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String userId, String factorId, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String userId, String factorId, Class<T> responseType)
+            throws IOException, InterruptedException {
         return delete(userId, factorId, QueryParams.empty(), responseType);
     }
     /**
@@ -64,7 +76,8 @@ public final class AuthAdminUsersFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String userId, String factorId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String userId, String factorId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(userId, factorId, QueryParams.empty(), responseType);
     }
 
@@ -79,7 +92,8 @@ public final class AuthAdminUsersFactorsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|GET|/auth/admin/users/{param}/factors")
-    public <T> @Nullable T list(String userId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(String userId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_ADMIN_USERS_PARAM_FACTORS, List.of(userId), query, null, responseType);
     }
     /**
@@ -92,7 +106,8 @@ public final class AuthAdminUsersFactorsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(String userId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(String userId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_ADMIN_USERS_PARAM_FACTORS, List.of(userId), query, null, responseType);
     }
     /**
@@ -119,5 +134,4 @@ public final class AuthAdminUsersFactorsClient extends ServiceClient {
     public <T> @Nullable T list(String userId, TypeReference<T> responseType) throws IOException, InterruptedException {
         return list(userId, QueryParams.empty(), responseType);
     }
-
 }

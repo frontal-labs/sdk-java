@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -23,7 +22,8 @@ public final class AgentsVersionsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("agents|GET|/agents/{param}/versions")
-    public <T> @Nullable T list(String agentId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(String agentId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Agents.GET_AGENTS_PARAM_VERSIONS, List.of(agentId), query, null, responseType);
     }
     /**
@@ -36,7 +36,8 @@ public final class AgentsVersionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(String agentId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(String agentId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Agents.GET_AGENTS_PARAM_VERSIONS, List.of(agentId), query, null, responseType);
     }
     /**
@@ -60,8 +61,8 @@ public final class AgentsVersionsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(String agentId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(String agentId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return list(agentId, QueryParams.empty(), responseType);
     }
-
 }

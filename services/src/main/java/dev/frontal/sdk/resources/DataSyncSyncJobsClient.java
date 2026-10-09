@@ -41,7 +41,8 @@ public final class DataSyncSyncJobsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_SYNC_SYNC_JOBS, List.of(), query, null, responseType);
     }
     /**
@@ -78,7 +79,8 @@ public final class DataSyncSyncJobsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|GET|/data/sync/sync/jobs/{param}")
-    public <T> @Nullable T get(String jobId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String jobId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_SYNC_SYNC_JOBS_PARAM, List.of(jobId), query, null, responseType);
     }
     /**
@@ -91,7 +93,8 @@ public final class DataSyncSyncJobsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String jobId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String jobId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_SYNC_SYNC_JOBS_PARAM, List.of(jobId), query, null, responseType);
     }
     /**
@@ -130,7 +133,8 @@ public final class DataSyncSyncJobsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|POST|/data/sync/sync/jobs")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_SYNC_SYNC_JOBS, List.of(), query, body, responseType);
     }
     /**
@@ -143,7 +147,8 @@ public final class DataSyncSyncJobsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_SYNC_SYNC_JOBS, List.of(), query, body, responseType);
     }
     /**
@@ -155,7 +160,8 @@ public final class DataSyncSyncJobsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -167,8 +173,8 @@ public final class DataSyncSyncJobsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
-
 }

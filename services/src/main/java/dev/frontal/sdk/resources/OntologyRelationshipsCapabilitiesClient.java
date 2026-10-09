@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -23,7 +22,8 @@ public final class OntologyRelationshipsCapabilitiesClient extends ServiceClient
      */
     @SdkOperation("ontology|GET|/ontology/relationships/capabilities")
     public <T> @Nullable T list(QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_RELATIONSHIPS_CAPABILITIES, List.of(), query, null, responseType);
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_RELATIONSHIPS_CAPABILITIES, List.of(), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/relationships/capabilities} using a generic response type.
@@ -34,8 +34,10 @@ public final class OntologyRelationshipsCapabilitiesClient extends ServiceClient
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_RELATIONSHIPS_CAPABILITIES, List.of(), query, null, responseType);
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_RELATIONSHIPS_CAPABILITIES, List.of(), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/relationships/capabilities} without query parameters.
@@ -59,5 +61,4 @@ public final class OntologyRelationshipsCapabilitiesClient extends ServiceClient
     public <T> @Nullable T list(TypeReference<T> responseType) throws IOException, InterruptedException {
         return list(QueryParams.empty(), responseType);
     }
-
 }

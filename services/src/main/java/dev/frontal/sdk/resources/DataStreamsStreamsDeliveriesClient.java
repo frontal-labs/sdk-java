@@ -24,8 +24,14 @@ public final class DataStreamsStreamsDeliveriesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|POST|/data/streams/streams/{param}/deliveries")
-    public <T> @Nullable T create(String streamId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.POST_DATA_STREAMS_STREAMS_PARAM_DELIVERIES, List.of(streamId), query, body, responseType);
+    public <T> @Nullable T create(String streamId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.POST_DATA_STREAMS_STREAMS_PARAM_DELIVERIES,
+                List.of(streamId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /data/streams/streams/{param}/deliveries} using a generic response type.
@@ -38,8 +44,15 @@ public final class DataStreamsStreamsDeliveriesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(String streamId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.POST_DATA_STREAMS_STREAMS_PARAM_DELIVERIES, List.of(streamId), query, body, responseType);
+    public <T> @Nullable T create(
+            String streamId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.POST_DATA_STREAMS_STREAMS_PARAM_DELIVERIES,
+                List.of(streamId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /data/streams/streams/{param}/deliveries} without query parameters.
@@ -51,7 +64,8 @@ public final class DataStreamsStreamsDeliveriesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(String streamId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(String streamId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(streamId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -64,8 +78,8 @@ public final class DataStreamsStreamsDeliveriesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(String streamId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(String streamId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(streamId, QueryParams.empty(), body, responseType);
     }
-
 }

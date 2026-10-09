@@ -23,7 +23,8 @@ public final class AuthMfaBackupCodesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/mfa/backup-codes/regenerate")
-    public <T> @Nullable T createRegenerate(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createRegenerate(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_MFA_BACKUP_CODES_REGENERATE, List.of(), query, body, responseType);
     }
     /**
@@ -36,7 +37,8 @@ public final class AuthMfaBackupCodesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createRegenerate(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createRegenerate(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_MFA_BACKUP_CODES_REGENERATE, List.of(), query, body, responseType);
     }
     /**
@@ -48,7 +50,8 @@ public final class AuthMfaBackupCodesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createRegenerate(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createRegenerate(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createRegenerate(QueryParams.empty(), body, responseType);
     }
     /**
@@ -60,8 +63,8 @@ public final class AuthMfaBackupCodesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createRegenerate(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createRegenerate(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createRegenerate(QueryParams.empty(), body, responseType);
     }
-
 }

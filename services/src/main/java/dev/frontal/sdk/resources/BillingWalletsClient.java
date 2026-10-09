@@ -38,8 +38,11 @@ public final class BillingWalletsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("billing|POST|/billing/wallets/{param}/terminate")
-    public <T> @Nullable T createTerminate(String walletId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_WALLETS_PARAM_TERMINATE, List.of(walletId), query, body, responseType);
+    public <T> @Nullable T createTerminate(
+            String walletId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_WALLETS_PARAM_TERMINATE, List.of(walletId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/wallets/{param}/terminate} using a generic response type.
@@ -52,8 +55,11 @@ public final class BillingWalletsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createTerminate(String walletId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_WALLETS_PARAM_TERMINATE, List.of(walletId), query, body, responseType);
+    public <T> @Nullable T createTerminate(
+            String walletId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_WALLETS_PARAM_TERMINATE, List.of(walletId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/wallets/{param}/terminate} without query parameters.
@@ -65,7 +71,8 @@ public final class BillingWalletsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createTerminate(String walletId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTerminate(String walletId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createTerminate(walletId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -78,7 +85,8 @@ public final class BillingWalletsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createTerminate(String walletId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTerminate(String walletId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createTerminate(walletId, QueryParams.empty(), body, responseType);
     }
 
@@ -94,8 +102,10 @@ public final class BillingWalletsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("billing|POST|/billing/wallets/{param}/top-up")
-    public <T> @Nullable T topUp(String walletId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_WALLETS_PARAM_TOP_UP, List.of(walletId), query, body, responseType);
+    public <T> @Nullable T topUp(String walletId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_WALLETS_PARAM_TOP_UP, List.of(walletId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/wallets/{param}/top-up} using a generic response type.
@@ -108,8 +118,11 @@ public final class BillingWalletsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T topUp(String walletId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_WALLETS_PARAM_TOP_UP, List.of(walletId), query, body, responseType);
+    public <T> @Nullable T topUp(
+            String walletId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_WALLETS_PARAM_TOP_UP, List.of(walletId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/wallets/{param}/top-up} without query parameters.
@@ -121,7 +134,8 @@ public final class BillingWalletsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T topUp(String walletId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T topUp(String walletId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return topUp(walletId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -134,8 +148,8 @@ public final class BillingWalletsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T topUp(String walletId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T topUp(String walletId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return topUp(walletId, QueryParams.empty(), body, responseType);
     }
-
 }

@@ -41,7 +41,8 @@ public final class DataEnrichmentEnrichmentProfilesClient extends ServiceClient 
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_ENRICHMENT_ENRICHMENT_PROFILES, List.of(), query, null, responseType);
     }
     /**
@@ -78,8 +79,14 @@ public final class DataEnrichmentEnrichmentProfilesClient extends ServiceClient 
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|GET|/data/enrichment/enrichment/profiles/{param}")
-    public <T> @Nullable T get(String profileId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.GET_DATA_ENRICHMENT_ENRICHMENT_PROFILES_PARAM, List.of(profileId), query, null, responseType);
+    public <T> @Nullable T get(String profileId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.GET_DATA_ENRICHMENT_ENRICHMENT_PROFILES_PARAM,
+                List.of(profileId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /data/enrichment/enrichment/profiles/{param}} using a generic response type.
@@ -91,8 +98,14 @@ public final class DataEnrichmentEnrichmentProfilesClient extends ServiceClient 
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String profileId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.GET_DATA_ENRICHMENT_ENRICHMENT_PROFILES_PARAM, List.of(profileId), query, null, responseType);
+    public <T> @Nullable T get(String profileId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.GET_DATA_ENRICHMENT_ENRICHMENT_PROFILES_PARAM,
+                List.of(profileId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /data/enrichment/enrichment/profiles/{param}} without query parameters.
@@ -115,7 +128,8 @@ public final class DataEnrichmentEnrichmentProfilesClient extends ServiceClient 
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String profileId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String profileId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(profileId, QueryParams.empty(), responseType);
     }
 
@@ -130,7 +144,8 @@ public final class DataEnrichmentEnrichmentProfilesClient extends ServiceClient 
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|POST|/data/enrichment/enrichment/profiles")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_ENRICHMENT_ENRICHMENT_PROFILES, List.of(), query, body, responseType);
     }
     /**
@@ -143,7 +158,8 @@ public final class DataEnrichmentEnrichmentProfilesClient extends ServiceClient 
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_ENRICHMENT_ENRICHMENT_PROFILES, List.of(), query, body, responseType);
     }
     /**
@@ -155,7 +171,8 @@ public final class DataEnrichmentEnrichmentProfilesClient extends ServiceClient 
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -167,8 +184,8 @@ public final class DataEnrichmentEnrichmentProfilesClient extends ServiceClient 
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
-
 }

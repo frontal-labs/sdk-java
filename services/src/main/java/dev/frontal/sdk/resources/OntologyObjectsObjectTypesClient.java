@@ -23,8 +23,14 @@ public final class OntologyObjectsObjectTypesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|DELETE|/ontology/objects/object-types/{param}")
-    public <T> @Nullable T delete(String objectTypeId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.DELETE_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM, List.of(objectTypeId), query, null, responseType);
+    public <T> @Nullable T delete(String objectTypeId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.DELETE_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM,
+                List.of(objectTypeId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /ontology/objects/object-types/{param}} using a generic response type.
@@ -36,8 +42,14 @@ public final class OntologyObjectsObjectTypesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String objectTypeId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.DELETE_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM, List.of(objectTypeId), query, null, responseType);
+    public <T> @Nullable T delete(String objectTypeId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.DELETE_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM,
+                List.of(objectTypeId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /ontology/objects/object-types/{param}} without query parameters.
@@ -60,7 +72,8 @@ public final class OntologyObjectsObjectTypesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String objectTypeId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String objectTypeId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(objectTypeId, QueryParams.empty(), responseType);
     }
 
@@ -86,7 +99,8 @@ public final class OntologyObjectsObjectTypesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.GET_ONTOLOGY_OBJECTS_OBJECT_TYPES, List.of(), query, null, responseType);
     }
     /**
@@ -123,8 +137,14 @@ public final class OntologyObjectsObjectTypesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|GET|/ontology/objects/object-types/{param}")
-    public <T> @Nullable T get(String objectTypeId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM, List.of(objectTypeId), query, null, responseType);
+    public <T> @Nullable T get(String objectTypeId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM,
+                List.of(objectTypeId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/objects/object-types/{param}} using a generic response type.
@@ -136,8 +156,14 @@ public final class OntologyObjectsObjectTypesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String objectTypeId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM, List.of(objectTypeId), query, null, responseType);
+    public <T> @Nullable T get(String objectTypeId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM,
+                List.of(objectTypeId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/objects/object-types/{param}} without query parameters.
@@ -160,7 +186,8 @@ public final class OntologyObjectsObjectTypesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String objectTypeId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String objectTypeId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(objectTypeId, QueryParams.empty(), responseType);
     }
 
@@ -176,8 +203,15 @@ public final class OntologyObjectsObjectTypesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|PUT|/ontology/objects/object-types/{param}")
-    public <T> @Nullable T update(String objectTypeId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.PUT_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM, List.of(objectTypeId), query, body, responseType);
+    public <T> @Nullable T update(
+            String objectTypeId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.PUT_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM,
+                List.of(objectTypeId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code PUT /ontology/objects/object-types/{param}} using a generic response type.
@@ -190,8 +224,15 @@ public final class OntologyObjectsObjectTypesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String objectTypeId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.PUT_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM, List.of(objectTypeId), query, body, responseType);
+    public <T> @Nullable T update(
+            String objectTypeId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.PUT_ONTOLOGY_OBJECTS_OBJECT_TYPES_PARAM,
+                List.of(objectTypeId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code PUT /ontology/objects/object-types/{param}} without query parameters.
@@ -203,7 +244,8 @@ public final class OntologyObjectsObjectTypesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String objectTypeId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String objectTypeId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return update(objectTypeId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -216,8 +258,8 @@ public final class OntologyObjectsObjectTypesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String objectTypeId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String objectTypeId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return update(objectTypeId, QueryParams.empty(), body, responseType);
     }
-
 }

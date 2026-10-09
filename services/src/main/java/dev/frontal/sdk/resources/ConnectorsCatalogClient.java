@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -23,8 +22,10 @@ public final class ConnectorsCatalogClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("connectors|GET|/connectors/catalog/{param}")
-    public <T> @Nullable T get(String catalogId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Connectors.GET_CONNECTORS_CATALOG_PARAM, List.of(catalogId), query, null, responseType);
+    public <T> @Nullable T get(String catalogId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Connectors.GET_CONNECTORS_CATALOG_PARAM, List.of(catalogId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /connectors/catalog/{param}} using a generic response type.
@@ -36,8 +37,10 @@ public final class ConnectorsCatalogClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String catalogId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Connectors.GET_CONNECTORS_CATALOG_PARAM, List.of(catalogId), query, null, responseType);
+    public <T> @Nullable T get(String catalogId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Connectors.GET_CONNECTORS_CATALOG_PARAM, List.of(catalogId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /connectors/catalog/{param}} without query parameters.
@@ -60,8 +63,8 @@ public final class ConnectorsCatalogClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String catalogId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String catalogId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(catalogId, QueryParams.empty(), responseType);
     }
-
 }

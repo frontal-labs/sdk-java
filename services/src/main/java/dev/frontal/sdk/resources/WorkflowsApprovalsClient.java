@@ -34,7 +34,8 @@ public final class WorkflowsApprovalsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Workflows.GET_WORKFLOWS_APPROVALS, List.of(), query, null, responseType);
     }
     /**
@@ -71,8 +72,10 @@ public final class WorkflowsApprovalsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("workflows|GET|/workflows/approvals/{param}")
-    public <T> @Nullable T get(String approvalId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.GET_WORKFLOWS_APPROVALS_PARAM, List.of(approvalId), query, null, responseType);
+    public <T> @Nullable T get(String approvalId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Workflows.GET_WORKFLOWS_APPROVALS_PARAM, List.of(approvalId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /workflows/approvals/{param}} using a generic response type.
@@ -84,8 +87,10 @@ public final class WorkflowsApprovalsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String approvalId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.GET_WORKFLOWS_APPROVALS_PARAM, List.of(approvalId), query, null, responseType);
+    public <T> @Nullable T get(String approvalId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Workflows.GET_WORKFLOWS_APPROVALS_PARAM, List.of(approvalId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /workflows/approvals/{param}} without query parameters.
@@ -108,7 +113,8 @@ public final class WorkflowsApprovalsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String approvalId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String approvalId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(approvalId, QueryParams.empty(), responseType);
     }
 
@@ -124,8 +130,14 @@ public final class WorkflowsApprovalsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("workflows|POST|/workflows/approvals/{param}/approve")
-    public <T> @Nullable T approve(String approvalId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.POST_WORKFLOWS_APPROVALS_PARAM_APPROVE, List.of(approvalId), query, body, responseType);
+    public <T> @Nullable T approve(String approvalId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Workflows.POST_WORKFLOWS_APPROVALS_PARAM_APPROVE,
+                List.of(approvalId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/approvals/{param}/approve} using a generic response type.
@@ -138,8 +150,15 @@ public final class WorkflowsApprovalsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T approve(String approvalId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.POST_WORKFLOWS_APPROVALS_PARAM_APPROVE, List.of(approvalId), query, body, responseType);
+    public <T> @Nullable T approve(
+            String approvalId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Workflows.POST_WORKFLOWS_APPROVALS_PARAM_APPROVE,
+                List.of(approvalId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/approvals/{param}/approve} without query parameters.
@@ -151,7 +170,8 @@ public final class WorkflowsApprovalsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T approve(String approvalId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T approve(String approvalId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return approve(approvalId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -164,7 +184,8 @@ public final class WorkflowsApprovalsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T approve(String approvalId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T approve(String approvalId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return approve(approvalId, QueryParams.empty(), body, responseType);
     }
 
@@ -180,8 +201,14 @@ public final class WorkflowsApprovalsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("workflows|POST|/workflows/approvals/{param}/reject")
-    public <T> @Nullable T reject(String approvalId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.POST_WORKFLOWS_APPROVALS_PARAM_REJECT, List.of(approvalId), query, body, responseType);
+    public <T> @Nullable T reject(String approvalId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Workflows.POST_WORKFLOWS_APPROVALS_PARAM_REJECT,
+                List.of(approvalId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/approvals/{param}/reject} using a generic response type.
@@ -194,8 +221,15 @@ public final class WorkflowsApprovalsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T reject(String approvalId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.POST_WORKFLOWS_APPROVALS_PARAM_REJECT, List.of(approvalId), query, body, responseType);
+    public <T> @Nullable T reject(
+            String approvalId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Workflows.POST_WORKFLOWS_APPROVALS_PARAM_REJECT,
+                List.of(approvalId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/approvals/{param}/reject} without query parameters.
@@ -207,7 +241,8 @@ public final class WorkflowsApprovalsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T reject(String approvalId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T reject(String approvalId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return reject(approvalId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -220,8 +255,8 @@ public final class WorkflowsApprovalsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T reject(String approvalId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T reject(String approvalId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return reject(approvalId, QueryParams.empty(), body, responseType);
     }
-
 }

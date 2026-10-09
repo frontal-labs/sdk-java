@@ -23,8 +23,14 @@ public final class AuthAccountSecurityApiKeysClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|DELETE|/auth/account/security/api-keys/{param}")
-    public <T> @Nullable T delete(String apiKeyId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.DELETE_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM, List.of(apiKeyId), query, null, responseType);
+    public <T> @Nullable T delete(String apiKeyId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.DELETE_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM,
+                List.of(apiKeyId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /auth/account/security/api-keys/{param}} using a generic response type.
@@ -36,8 +42,14 @@ public final class AuthAccountSecurityApiKeysClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String apiKeyId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.DELETE_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM, List.of(apiKeyId), query, null, responseType);
+    public <T> @Nullable T delete(String apiKeyId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.DELETE_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM,
+                List.of(apiKeyId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /auth/account/security/api-keys/{param}} without query parameters.
@@ -60,7 +72,8 @@ public final class AuthAccountSecurityApiKeysClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String apiKeyId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String apiKeyId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(apiKeyId, QueryParams.empty(), responseType);
     }
 
@@ -86,7 +99,8 @@ public final class AuthAccountSecurityApiKeysClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_ACCOUNT_SECURITY_API_KEYS, List.of(), query, null, responseType);
     }
     /**
@@ -123,8 +137,10 @@ public final class AuthAccountSecurityApiKeysClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|GET|/auth/account/security/api-keys/{param}")
-    public <T> @Nullable T get(String apiKeyId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.GET_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM, List.of(apiKeyId), query, null, responseType);
+    public <T> @Nullable T get(String apiKeyId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.GET_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM, List.of(apiKeyId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /auth/account/security/api-keys/{param}} using a generic response type.
@@ -136,8 +152,10 @@ public final class AuthAccountSecurityApiKeysClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String apiKeyId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.GET_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM, List.of(apiKeyId), query, null, responseType);
+    public <T> @Nullable T get(String apiKeyId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.GET_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM, List.of(apiKeyId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /auth/account/security/api-keys/{param}} without query parameters.
@@ -160,7 +178,8 @@ public final class AuthAccountSecurityApiKeysClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String apiKeyId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String apiKeyId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(apiKeyId, QueryParams.empty(), responseType);
     }
 
@@ -175,7 +194,8 @@ public final class AuthAccountSecurityApiKeysClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/account/security/api-keys")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ACCOUNT_SECURITY_API_KEYS, List.of(), query, body, responseType);
     }
     /**
@@ -188,7 +208,8 @@ public final class AuthAccountSecurityApiKeysClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ACCOUNT_SECURITY_API_KEYS, List.of(), query, body, responseType);
     }
     /**
@@ -200,7 +221,8 @@ public final class AuthAccountSecurityApiKeysClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -212,7 +234,8 @@ public final class AuthAccountSecurityApiKeysClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -228,8 +251,10 @@ public final class AuthAccountSecurityApiKeysClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|PUT|/auth/account/security/api-keys/{param}")
-    public <T> @Nullable T update(String apiKeyId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.PUT_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM, List.of(apiKeyId), query, body, responseType);
+    public <T> @Nullable T update(String apiKeyId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.PUT_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM, List.of(apiKeyId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code PUT /auth/account/security/api-keys/{param}} using a generic response type.
@@ -242,8 +267,11 @@ public final class AuthAccountSecurityApiKeysClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String apiKeyId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.PUT_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM, List.of(apiKeyId), query, body, responseType);
+    public <T> @Nullable T update(
+            String apiKeyId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.PUT_AUTH_ACCOUNT_SECURITY_API_KEYS_PARAM, List.of(apiKeyId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code PUT /auth/account/security/api-keys/{param}} without query parameters.
@@ -255,7 +283,8 @@ public final class AuthAccountSecurityApiKeysClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String apiKeyId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String apiKeyId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return update(apiKeyId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -268,8 +297,8 @@ public final class AuthAccountSecurityApiKeysClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String apiKeyId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String apiKeyId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return update(apiKeyId, QueryParams.empty(), body, responseType);
     }
-
 }

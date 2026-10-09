@@ -37,8 +37,10 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("observability|DELETE|/observability/alerts/{param}")
-    public <T> @Nullable T delete(String alertId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.DELETE_OBSERVABILITY_ALERTS_PARAM, List.of(alertId), query, null, responseType);
+    public <T> @Nullable T delete(String alertId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.DELETE_OBSERVABILITY_ALERTS_PARAM, List.of(alertId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code DELETE /observability/alerts/{param}} using a generic response type.
@@ -50,8 +52,10 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String alertId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.DELETE_OBSERVABILITY_ALERTS_PARAM, List.of(alertId), query, null, responseType);
+    public <T> @Nullable T delete(String alertId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.DELETE_OBSERVABILITY_ALERTS_PARAM, List.of(alertId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code DELETE /observability/alerts/{param}} without query parameters.
@@ -74,7 +78,8 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String alertId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String alertId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(alertId, QueryParams.empty(), responseType);
     }
 
@@ -100,7 +105,8 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Observability.GET_OBSERVABILITY_ALERTS, List.of(), query, null, responseType);
     }
     /**
@@ -137,7 +143,8 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("observability|POST|/observability/alerts")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Observability.POST_OBSERVABILITY_ALERTS, List.of(), query, body, responseType);
     }
     /**
@@ -150,7 +157,8 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Observability.POST_OBSERVABILITY_ALERTS, List.of(), query, body, responseType);
     }
     /**
@@ -162,7 +170,8 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -174,7 +183,8 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -190,8 +200,14 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("observability|POST|/observability/alerts/{param}/disable")
-    public <T> @Nullable T disable(String alertId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.POST_OBSERVABILITY_ALERTS_PARAM_DISABLE, List.of(alertId), query, body, responseType);
+    public <T> @Nullable T disable(String alertId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.POST_OBSERVABILITY_ALERTS_PARAM_DISABLE,
+                List.of(alertId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /observability/alerts/{param}/disable} using a generic response type.
@@ -204,8 +220,15 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T disable(String alertId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.POST_OBSERVABILITY_ALERTS_PARAM_DISABLE, List.of(alertId), query, body, responseType);
+    public <T> @Nullable T disable(
+            String alertId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.POST_OBSERVABILITY_ALERTS_PARAM_DISABLE,
+                List.of(alertId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /observability/alerts/{param}/disable} without query parameters.
@@ -217,7 +240,8 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T disable(String alertId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T disable(String alertId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return disable(alertId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -230,7 +254,8 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T disable(String alertId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T disable(String alertId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return disable(alertId, QueryParams.empty(), body, responseType);
     }
 
@@ -246,8 +271,14 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("observability|POST|/observability/alerts/{param}/enable")
-    public <T> @Nullable T enable(String alertId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.POST_OBSERVABILITY_ALERTS_PARAM_ENABLE, List.of(alertId), query, body, responseType);
+    public <T> @Nullable T enable(String alertId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.POST_OBSERVABILITY_ALERTS_PARAM_ENABLE,
+                List.of(alertId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /observability/alerts/{param}/enable} using a generic response type.
@@ -260,8 +291,15 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T enable(String alertId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.POST_OBSERVABILITY_ALERTS_PARAM_ENABLE, List.of(alertId), query, body, responseType);
+    public <T> @Nullable T enable(
+            String alertId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.POST_OBSERVABILITY_ALERTS_PARAM_ENABLE,
+                List.of(alertId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /observability/alerts/{param}/enable} without query parameters.
@@ -273,7 +311,8 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T enable(String alertId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T enable(String alertId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return enable(alertId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -286,7 +325,8 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T enable(String alertId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T enable(String alertId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return enable(alertId, QueryParams.empty(), body, responseType);
     }
 
@@ -302,8 +342,10 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("observability|PUT|/observability/alerts/{param}")
-    public <T> @Nullable T update(String alertId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.PUT_OBSERVABILITY_ALERTS_PARAM, List.of(alertId), query, body, responseType);
+    public <T> @Nullable T update(String alertId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.PUT_OBSERVABILITY_ALERTS_PARAM, List.of(alertId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code PUT /observability/alerts/{param}} using a generic response type.
@@ -316,8 +358,11 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String alertId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Observability.PUT_OBSERVABILITY_ALERTS_PARAM, List.of(alertId), query, body, responseType);
+    public <T> @Nullable T update(
+            String alertId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Observability.PUT_OBSERVABILITY_ALERTS_PARAM, List.of(alertId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code PUT /observability/alerts/{param}} without query parameters.
@@ -329,7 +374,8 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String alertId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String alertId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return update(alertId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -342,8 +388,8 @@ public final class ObservabilityAlertsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String alertId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String alertId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return update(alertId, QueryParams.empty(), body, responseType);
     }
-
 }

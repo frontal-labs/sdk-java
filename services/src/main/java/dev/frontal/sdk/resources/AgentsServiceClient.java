@@ -37,7 +37,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("agents|DELETE|/agents/{param}")
-    public <T> @Nullable T delete(String agentId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String agentId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Agents.DELETE_AGENTS_PARAM, List.of(agentId), query, null, responseType);
     }
     /**
@@ -50,7 +51,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String agentId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String agentId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Agents.DELETE_AGENTS_PARAM, List.of(agentId), query, null, responseType);
     }
     /**
@@ -74,7 +76,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String agentId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String agentId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(agentId, QueryParams.empty(), responseType);
     }
 
@@ -100,7 +103,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Agents.GET_AGENTS, List.of(), query, null, responseType);
     }
     /**
@@ -148,7 +152,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T health(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T health(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Agents.GET_AGENTS_HEALTH, List.of(), query, null, responseType);
     }
     /**
@@ -185,7 +190,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("agents|GET|/agents/{param}")
-    public <T> @Nullable T get(String agentId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String agentId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Agents.GET_AGENTS_PARAM, List.of(agentId), query, null, responseType);
     }
     /**
@@ -198,7 +204,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String agentId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String agentId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Agents.GET_AGENTS_PARAM, List.of(agentId), query, null, responseType);
     }
     /**
@@ -237,7 +244,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("agents|POST|/agents")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Agents.POST_AGENTS, List.of(), query, body, responseType);
     }
     /**
@@ -250,7 +258,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Agents.POST_AGENTS, List.of(), query, body, responseType);
     }
     /**
@@ -262,7 +271,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -274,7 +284,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -290,7 +301,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("agents|POST|/agents/{param}/rollback")
-    public <T> @Nullable T rollback(String agentId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T rollback(String agentId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Agents.POST_AGENTS_PARAM_ROLLBACK, List.of(agentId), query, body, responseType);
     }
     /**
@@ -304,7 +316,9 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T rollback(String agentId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T rollback(
+            String agentId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Agents.POST_AGENTS_PARAM_ROLLBACK, List.of(agentId), query, body, responseType);
     }
     /**
@@ -317,7 +331,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T rollback(String agentId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T rollback(String agentId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return rollback(agentId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -330,7 +345,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T rollback(String agentId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T rollback(String agentId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return rollback(agentId, QueryParams.empty(), body, responseType);
     }
 
@@ -346,7 +362,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("agents|PUT|/agents/{param}")
-    public <T> @Nullable T update(String agentId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String agentId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Agents.PUT_AGENTS_PARAM, List.of(agentId), query, body, responseType);
     }
     /**
@@ -360,7 +377,9 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String agentId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(
+            String agentId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Agents.PUT_AGENTS_PARAM, List.of(agentId), query, body, responseType);
     }
     /**
@@ -373,7 +392,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String agentId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String agentId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return update(agentId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -386,8 +406,8 @@ public class AgentsServiceClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String agentId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String agentId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return update(agentId, QueryParams.empty(), body, responseType);
     }
-
 }

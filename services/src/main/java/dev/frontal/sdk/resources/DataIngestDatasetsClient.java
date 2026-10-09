@@ -41,7 +41,8 @@ public final class DataIngestDatasetsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_INGEST_DATASETS, List.of(), query, null, responseType);
     }
     /**
@@ -78,7 +79,8 @@ public final class DataIngestDatasetsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|GET|/data/ingest/datasets/{param}")
-    public <T> @Nullable T get(String datasetId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String datasetId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_INGEST_DATASETS_PARAM, List.of(datasetId), query, null, responseType);
     }
     /**
@@ -91,7 +93,8 @@ public final class DataIngestDatasetsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String datasetId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String datasetId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.GET_DATA_INGEST_DATASETS_PARAM, List.of(datasetId), query, null, responseType);
     }
     /**
@@ -115,7 +118,8 @@ public final class DataIngestDatasetsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String datasetId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String datasetId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(datasetId, QueryParams.empty(), responseType);
     }
 
@@ -130,7 +134,8 @@ public final class DataIngestDatasetsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|POST|/data/ingest/datasets/ingest")
-    public <T> @Nullable T ingest(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T ingest(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_INGEST_DATASETS_INGEST, List.of(), query, body, responseType);
     }
     /**
@@ -143,7 +148,8 @@ public final class DataIngestDatasetsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T ingest(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T ingest(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Data.POST_DATA_INGEST_DATASETS_INGEST, List.of(), query, body, responseType);
     }
     /**
@@ -155,7 +161,8 @@ public final class DataIngestDatasetsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T ingest(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T ingest(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return ingest(QueryParams.empty(), body, responseType);
     }
     /**
@@ -167,8 +174,8 @@ public final class DataIngestDatasetsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T ingest(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T ingest(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return ingest(QueryParams.empty(), body, responseType);
     }
-
 }

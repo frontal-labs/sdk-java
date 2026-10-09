@@ -23,8 +23,10 @@ public final class OntologyValidationRulesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|DELETE|/ontology/validation/rules/{param}")
-    public <T> @Nullable T delete(String ruleId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.DELETE_ONTOLOGY_VALIDATION_RULES_PARAM, List.of(ruleId), query, null, responseType);
+    public <T> @Nullable T delete(String ruleId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.DELETE_ONTOLOGY_VALIDATION_RULES_PARAM, List.of(ruleId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code DELETE /ontology/validation/rules/{param}} using a generic response type.
@@ -36,8 +38,10 @@ public final class OntologyValidationRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String ruleId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.DELETE_ONTOLOGY_VALIDATION_RULES_PARAM, List.of(ruleId), query, null, responseType);
+    public <T> @Nullable T delete(String ruleId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.DELETE_ONTOLOGY_VALIDATION_RULES_PARAM, List.of(ruleId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code DELETE /ontology/validation/rules/{param}} without query parameters.
@@ -60,7 +64,8 @@ public final class OntologyValidationRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String ruleId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String ruleId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(ruleId, QueryParams.empty(), responseType);
     }
 
@@ -86,7 +91,8 @@ public final class OntologyValidationRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.GET_ONTOLOGY_VALIDATION_RULES, List.of(), query, null, responseType);
     }
     /**
@@ -123,8 +129,10 @@ public final class OntologyValidationRulesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|GET|/ontology/validation/rules/{param}")
-    public <T> @Nullable T get(String ruleId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_VALIDATION_RULES_PARAM, List.of(ruleId), query, null, responseType);
+    public <T> @Nullable T get(String ruleId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_VALIDATION_RULES_PARAM, List.of(ruleId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/validation/rules/{param}} using a generic response type.
@@ -136,8 +144,10 @@ public final class OntologyValidationRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String ruleId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_VALIDATION_RULES_PARAM, List.of(ruleId), query, null, responseType);
+    public <T> @Nullable T get(String ruleId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_VALIDATION_RULES_PARAM, List.of(ruleId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/validation/rules/{param}} without query parameters.
@@ -175,7 +185,8 @@ public final class OntologyValidationRulesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/validation/rules")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_VALIDATION_RULES, List.of(), query, body, responseType);
     }
     /**
@@ -188,7 +199,8 @@ public final class OntologyValidationRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_VALIDATION_RULES, List.of(), query, body, responseType);
     }
     /**
@@ -200,7 +212,8 @@ public final class OntologyValidationRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -212,8 +225,8 @@ public final class OntologyValidationRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
-
 }

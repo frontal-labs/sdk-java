@@ -76,7 +76,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getUser(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getUser(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_USER, List.of(), query, null, responseType);
     }
     /**
@@ -113,7 +114,8 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/authorize")
-    public <T> @Nullable T createAuthorize(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createAuthorize(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_AUTHORIZE, List.of(), query, body, responseType);
     }
     /**
@@ -126,7 +128,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createAuthorize(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createAuthorize(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_AUTHORIZE, List.of(), query, body, responseType);
     }
     /**
@@ -138,7 +141,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createAuthorize(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createAuthorize(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createAuthorize(QueryParams.empty(), body, responseType);
     }
     /**
@@ -150,7 +154,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createAuthorize(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createAuthorize(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createAuthorize(QueryParams.empty(), body, responseType);
     }
 
@@ -165,7 +170,8 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/invite")
-    public <T> @Nullable T createInvite(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createInvite(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_INVITE, List.of(), query, body, responseType);
     }
     /**
@@ -178,7 +184,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createInvite(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createInvite(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_INVITE, List.of(), query, body, responseType);
     }
     /**
@@ -190,7 +197,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createInvite(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createInvite(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createInvite(QueryParams.empty(), body, responseType);
     }
     /**
@@ -202,7 +210,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createInvite(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createInvite(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createInvite(QueryParams.empty(), body, responseType);
     }
 
@@ -217,7 +226,8 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/login")
-    public <T> @Nullable T login(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T login(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_LOGIN, List.of(), query, body, responseType);
     }
     /**
@@ -230,7 +240,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T login(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T login(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_LOGIN, List.of(), query, body, responseType);
     }
     /**
@@ -242,7 +253,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T login(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T login(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return login(QueryParams.empty(), body, responseType);
     }
     /**
@@ -254,7 +266,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T login(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T login(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return login(QueryParams.empty(), body, responseType);
     }
 
@@ -269,7 +282,8 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/logout")
-    public <T> @Nullable T logout(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T logout(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_LOGOUT, List.of(), query, body, responseType);
     }
     /**
@@ -282,7 +296,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T logout(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T logout(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_LOGOUT, List.of(), query, body, responseType);
     }
     /**
@@ -294,7 +309,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T logout(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T logout(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return logout(QueryParams.empty(), body, responseType);
     }
     /**
@@ -306,7 +322,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T logout(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T logout(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return logout(QueryParams.empty(), body, responseType);
     }
 
@@ -321,7 +338,8 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/otp")
-    public <T> @Nullable T createOtp(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createOtp(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_OTP, List.of(), query, body, responseType);
     }
     /**
@@ -334,7 +352,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createOtp(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createOtp(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_OTP, List.of(), query, body, responseType);
     }
     /**
@@ -346,7 +365,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createOtp(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createOtp(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createOtp(QueryParams.empty(), body, responseType);
     }
     /**
@@ -358,7 +378,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createOtp(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createOtp(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createOtp(QueryParams.empty(), body, responseType);
     }
 
@@ -373,7 +394,8 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/reauthenticate")
-    public <T> @Nullable T createReauthenticate(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createReauthenticate(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_REAUTHENTICATE, List.of(), query, body, responseType);
     }
     /**
@@ -386,7 +408,9 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createReauthenticate(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createReauthenticate(
+            QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_REAUTHENTICATE, List.of(), query, body, responseType);
     }
     /**
@@ -398,7 +422,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createReauthenticate(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createReauthenticate(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createReauthenticate(QueryParams.empty(), body, responseType);
     }
     /**
@@ -410,7 +435,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createReauthenticate(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createReauthenticate(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createReauthenticate(QueryParams.empty(), body, responseType);
     }
 
@@ -425,7 +451,8 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/recover")
-    public <T> @Nullable T createRecover(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createRecover(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_RECOVER, List.of(), query, body, responseType);
     }
     /**
@@ -438,7 +465,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createRecover(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createRecover(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_RECOVER, List.of(), query, body, responseType);
     }
     /**
@@ -450,7 +478,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createRecover(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createRecover(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createRecover(QueryParams.empty(), body, responseType);
     }
     /**
@@ -462,7 +491,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createRecover(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createRecover(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createRecover(QueryParams.empty(), body, responseType);
     }
 
@@ -477,7 +507,8 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/resend")
-    public <T> @Nullable T createResend(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createResend(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_RESEND, List.of(), query, body, responseType);
     }
     /**
@@ -490,7 +521,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createResend(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createResend(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_RESEND, List.of(), query, body, responseType);
     }
     /**
@@ -502,7 +534,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createResend(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createResend(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createResend(QueryParams.empty(), body, responseType);
     }
     /**
@@ -514,7 +547,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createResend(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createResend(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createResend(QueryParams.empty(), body, responseType);
     }
 
@@ -529,7 +563,8 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/signup")
-    public <T> @Nullable T createSignup(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createSignup(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_SIGNUP, List.of(), query, body, responseType);
     }
     /**
@@ -542,7 +577,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createSignup(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createSignup(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_SIGNUP, List.of(), query, body, responseType);
     }
     /**
@@ -554,7 +590,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createSignup(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createSignup(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createSignup(QueryParams.empty(), body, responseType);
     }
     /**
@@ -566,7 +603,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createSignup(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createSignup(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createSignup(QueryParams.empty(), body, responseType);
     }
 
@@ -581,7 +619,8 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/sso")
-    public <T> @Nullable T createSso(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createSso(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_SSO, List.of(), query, body, responseType);
     }
     /**
@@ -594,7 +633,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createSso(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createSso(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_SSO, List.of(), query, body, responseType);
     }
     /**
@@ -606,7 +646,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createSso(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createSso(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createSso(QueryParams.empty(), body, responseType);
     }
     /**
@@ -618,7 +659,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createSso(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createSso(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createSso(QueryParams.empty(), body, responseType);
     }
 
@@ -633,7 +675,9 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/token?grant_type=id_token")
-    public <T> @Nullable T createTokenGrantTypeIdToken(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypeIdToken(
+            QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_TOKEN_GRANT_TYPE_ID_TOKEN, List.of(), query, body, responseType);
     }
     /**
@@ -646,7 +690,9 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createTokenGrantTypeIdToken(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypeIdToken(
+            QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_TOKEN_GRANT_TYPE_ID_TOKEN, List.of(), query, body, responseType);
     }
     /**
@@ -658,7 +704,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createTokenGrantTypeIdToken(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypeIdToken(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createTokenGrantTypeIdToken(QueryParams.empty(), body, responseType);
     }
     /**
@@ -670,7 +717,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createTokenGrantTypeIdToken(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypeIdToken(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createTokenGrantTypeIdToken(QueryParams.empty(), body, responseType);
     }
 
@@ -685,7 +733,9 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/token?grant_type=password")
-    public <T> @Nullable T createTokenGrantTypePassword(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypePassword(
+            QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_TOKEN_GRANT_TYPE_PASSWORD, List.of(), query, body, responseType);
     }
     /**
@@ -698,7 +748,9 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createTokenGrantTypePassword(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypePassword(
+            QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_TOKEN_GRANT_TYPE_PASSWORD, List.of(), query, body, responseType);
     }
     /**
@@ -710,7 +762,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createTokenGrantTypePassword(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypePassword(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createTokenGrantTypePassword(QueryParams.empty(), body, responseType);
     }
     /**
@@ -722,7 +775,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createTokenGrantTypePassword(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypePassword(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createTokenGrantTypePassword(QueryParams.empty(), body, responseType);
     }
 
@@ -737,7 +791,8 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/token?grant_type=pkce")
-    public <T> @Nullable T createTokenGrantTypePkce(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypePkce(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_TOKEN_GRANT_TYPE_PKCE, List.of(), query, body, responseType);
     }
     /**
@@ -750,7 +805,9 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createTokenGrantTypePkce(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypePkce(
+            QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_TOKEN_GRANT_TYPE_PKCE, List.of(), query, body, responseType);
     }
     /**
@@ -762,7 +819,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createTokenGrantTypePkce(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypePkce(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createTokenGrantTypePkce(QueryParams.empty(), body, responseType);
     }
     /**
@@ -774,7 +832,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createTokenGrantTypePkce(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypePkce(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createTokenGrantTypePkce(QueryParams.empty(), body, responseType);
     }
 
@@ -789,7 +848,9 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/token?grant_type=refresh_token")
-    public <T> @Nullable T createTokenGrantTypeRefreshToken(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypeRefreshToken(
+            QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_TOKEN_GRANT_TYPE_REFRESH_TOKEN, List.of(), query, body, responseType);
     }
     /**
@@ -802,7 +863,9 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createTokenGrantTypeRefreshToken(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypeRefreshToken(
+            QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_TOKEN_GRANT_TYPE_REFRESH_TOKEN, List.of(), query, body, responseType);
     }
     /**
@@ -814,7 +877,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createTokenGrantTypeRefreshToken(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypeRefreshToken(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createTokenGrantTypeRefreshToken(QueryParams.empty(), body, responseType);
     }
     /**
@@ -826,7 +890,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createTokenGrantTypeRefreshToken(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createTokenGrantTypeRefreshToken(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createTokenGrantTypeRefreshToken(QueryParams.empty(), body, responseType);
     }
 
@@ -841,7 +906,8 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/verify")
-    public <T> @Nullable T verify(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_VERIFY, List.of(), query, body, responseType);
     }
     /**
@@ -854,7 +920,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T verify(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_VERIFY, List.of(), query, body, responseType);
     }
     /**
@@ -866,7 +933,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T verify(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return verify(QueryParams.empty(), body, responseType);
     }
     /**
@@ -878,7 +946,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T verify(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T verify(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return verify(QueryParams.empty(), body, responseType);
     }
 
@@ -893,7 +962,8 @@ public final class AuthClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|PUT|/auth/user")
-    public <T> @Nullable T updateUser(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T updateUser(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.PUT_AUTH_USER, List.of(), query, body, responseType);
     }
     /**
@@ -906,7 +976,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T updateUser(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T updateUser(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.PUT_AUTH_USER, List.of(), query, body, responseType);
     }
     /**
@@ -918,7 +989,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T updateUser(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T updateUser(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return updateUser(QueryParams.empty(), body, responseType);
     }
     /**
@@ -930,8 +1002,8 @@ public final class AuthClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T updateUser(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T updateUser(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return updateUser(QueryParams.empty(), body, responseType);
     }
-
 }

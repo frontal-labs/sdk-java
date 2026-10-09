@@ -1,7 +1,6 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.List;
 import org.jspecify.annotations.Nullable;
@@ -23,7 +22,8 @@ public final class WorkflowsRunsStepsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("workflows|GET|/workflows/runs/{param}/steps")
-    public <T> @Nullable T list(String runId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(String runId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Workflows.GET_WORKFLOWS_RUNS_PARAM_STEPS, List.of(runId), query, null, responseType);
     }
     /**
@@ -36,7 +36,8 @@ public final class WorkflowsRunsStepsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(String runId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(String runId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Workflows.GET_WORKFLOWS_RUNS_PARAM_STEPS, List.of(runId), query, null, responseType);
     }
     /**
@@ -63,5 +64,4 @@ public final class WorkflowsRunsStepsClient extends ServiceClient {
     public <T> @Nullable T list(String runId, TypeReference<T> responseType) throws IOException, InterruptedException {
         return list(runId, QueryParams.empty(), responseType);
     }
-
 }

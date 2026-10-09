@@ -23,7 +23,8 @@ public final class EventsUsageClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("events|POST|/events/usage/meter")
-    public <T> @Nullable T createMeter(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createMeter(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_USAGE_METER, List.of(), query, body, responseType);
     }
     /**
@@ -36,7 +37,8 @@ public final class EventsUsageClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createMeter(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createMeter(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Events.POST_EVENTS_USAGE_METER, List.of(), query, body, responseType);
     }
     /**
@@ -48,7 +50,8 @@ public final class EventsUsageClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createMeter(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createMeter(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createMeter(QueryParams.empty(), body, responseType);
     }
     /**
@@ -60,8 +63,8 @@ public final class EventsUsageClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createMeter(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createMeter(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createMeter(QueryParams.empty(), body, responseType);
     }
-
 }

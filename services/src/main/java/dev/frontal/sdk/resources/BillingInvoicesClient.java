@@ -23,8 +23,10 @@ public final class BillingInvoicesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("billing|GETRAW|/billing/invoices/{param}/pdf")
-    public <T> @Nullable T getPdf(String invoiceId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.GETRAW_BILLING_INVOICES_PARAM_PDF, List.of(invoiceId), query, null, responseType);
+    public <T> @Nullable T getPdf(String invoiceId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.GETRAW_BILLING_INVOICES_PARAM_PDF, List.of(invoiceId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GETRAW /billing/invoices/{param}/pdf} using a generic response type.
@@ -36,8 +38,10 @@ public final class BillingInvoicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getPdf(String invoiceId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.GETRAW_BILLING_INVOICES_PARAM_PDF, List.of(invoiceId), query, null, responseType);
+    public <T> @Nullable T getPdf(String invoiceId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.GETRAW_BILLING_INVOICES_PARAM_PDF, List.of(invoiceId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GETRAW /billing/invoices/{param}/pdf} without query parameters.
@@ -60,7 +64,8 @@ public final class BillingInvoicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getPdf(String invoiceId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getPdf(String invoiceId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return getPdf(invoiceId, QueryParams.empty(), responseType);
     }
 
@@ -75,7 +80,8 @@ public final class BillingInvoicesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("billing|POST|/billing/invoices/preview")
-    public <T> @Nullable T preview(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T preview(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Billing.POST_BILLING_INVOICES_PREVIEW, List.of(), query, body, responseType);
     }
     /**
@@ -88,7 +94,8 @@ public final class BillingInvoicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T preview(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T preview(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Billing.POST_BILLING_INVOICES_PREVIEW, List.of(), query, body, responseType);
     }
     /**
@@ -100,7 +107,8 @@ public final class BillingInvoicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T preview(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T preview(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return preview(QueryParams.empty(), body, responseType);
     }
     /**
@@ -112,7 +120,8 @@ public final class BillingInvoicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T preview(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T preview(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return preview(QueryParams.empty(), body, responseType);
     }
 
@@ -128,8 +137,10 @@ public final class BillingInvoicesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("billing|POST|/billing/invoices/{param}/finalize")
-    public <T> @Nullable T finalize(String invoiceId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_INVOICES_PARAM_FINALIZE, List.of(invoiceId), query, body, responseType);
+    public <T> @Nullable T finalize(String invoiceId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_INVOICES_PARAM_FINALIZE, List.of(invoiceId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/invoices/{param}/finalize} using a generic response type.
@@ -142,8 +153,11 @@ public final class BillingInvoicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T finalize(String invoiceId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_INVOICES_PARAM_FINALIZE, List.of(invoiceId), query, body, responseType);
+    public <T> @Nullable T finalize(
+            String invoiceId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_INVOICES_PARAM_FINALIZE, List.of(invoiceId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/invoices/{param}/finalize} without query parameters.
@@ -155,7 +169,8 @@ public final class BillingInvoicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T finalize(String invoiceId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T finalize(String invoiceId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return finalize(invoiceId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -168,7 +183,8 @@ public final class BillingInvoicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T finalize(String invoiceId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T finalize(String invoiceId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return finalize(invoiceId, QueryParams.empty(), body, responseType);
     }
 
@@ -184,8 +200,11 @@ public final class BillingInvoicesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("billing|POST|/billing/invoices/{param}/void")
-    public <T> @Nullable T resourceVoid(String invoiceId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_INVOICES_PARAM_VOID, List.of(invoiceId), query, body, responseType);
+    public <T> @Nullable T resourceVoid(
+            String invoiceId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_INVOICES_PARAM_VOID, List.of(invoiceId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/invoices/{param}/void} using a generic response type.
@@ -198,8 +217,11 @@ public final class BillingInvoicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resourceVoid(String invoiceId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Billing.POST_BILLING_INVOICES_PARAM_VOID, List.of(invoiceId), query, body, responseType);
+    public <T> @Nullable T resourceVoid(
+            String invoiceId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Billing.POST_BILLING_INVOICES_PARAM_VOID, List.of(invoiceId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /billing/invoices/{param}/void} without query parameters.
@@ -211,7 +233,8 @@ public final class BillingInvoicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resourceVoid(String invoiceId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T resourceVoid(String invoiceId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return resourceVoid(invoiceId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -224,8 +247,8 @@ public final class BillingInvoicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resourceVoid(String invoiceId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T resourceVoid(String invoiceId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return resourceVoid(invoiceId, QueryParams.empty(), body, responseType);
     }
-
 }

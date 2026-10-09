@@ -23,7 +23,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/graph/graph/analyze")
-    public <T> @Nullable T analyze(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T analyze(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_GRAPH_GRAPH_ANALYZE, List.of(), query, body, responseType);
     }
     /**
@@ -36,7 +37,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T analyze(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T analyze(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_GRAPH_GRAPH_ANALYZE, List.of(), query, body, responseType);
     }
     /**
@@ -48,7 +50,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T analyze(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T analyze(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return analyze(QueryParams.empty(), body, responseType);
     }
     /**
@@ -60,7 +63,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T analyze(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T analyze(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return analyze(QueryParams.empty(), body, responseType);
     }
 
@@ -75,7 +79,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/graph/graph/build")
-    public <T> @Nullable T createBuild(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createBuild(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_GRAPH_GRAPH_BUILD, List.of(), query, body, responseType);
     }
     /**
@@ -88,7 +93,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createBuild(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createBuild(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_GRAPH_GRAPH_BUILD, List.of(), query, body, responseType);
     }
     /**
@@ -100,7 +106,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createBuild(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createBuild(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createBuild(QueryParams.empty(), body, responseType);
     }
     /**
@@ -112,7 +119,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createBuild(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createBuild(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createBuild(QueryParams.empty(), body, responseType);
     }
 
@@ -127,7 +135,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/graph/graph/bulk-read")
-    public <T> @Nullable T createBulkRead(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createBulkRead(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_GRAPH_GRAPH_BULK_READ, List.of(), query, body, responseType);
     }
     /**
@@ -140,7 +149,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createBulkRead(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createBulkRead(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_GRAPH_GRAPH_BULK_READ, List.of(), query, body, responseType);
     }
     /**
@@ -152,7 +162,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createBulkRead(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createBulkRead(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createBulkRead(QueryParams.empty(), body, responseType);
     }
     /**
@@ -164,7 +175,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createBulkRead(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createBulkRead(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createBulkRead(QueryParams.empty(), body, responseType);
     }
 
@@ -179,7 +191,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/graph/graph/neighborhood")
-    public <T> @Nullable T createNeighborhood(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createNeighborhood(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_GRAPH_GRAPH_NEIGHBORHOOD, List.of(), query, body, responseType);
     }
     /**
@@ -192,7 +205,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createNeighborhood(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createNeighborhood(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_GRAPH_GRAPH_NEIGHBORHOOD, List.of(), query, body, responseType);
     }
     /**
@@ -204,7 +218,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createNeighborhood(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createNeighborhood(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createNeighborhood(QueryParams.empty(), body, responseType);
     }
     /**
@@ -216,7 +231,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createNeighborhood(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createNeighborhood(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createNeighborhood(QueryParams.empty(), body, responseType);
     }
 
@@ -231,7 +247,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/graph/graph/path")
-    public <T> @Nullable T createPath(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createPath(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_GRAPH_GRAPH_PATH, List.of(), query, body, responseType);
     }
     /**
@@ -244,7 +261,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createPath(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createPath(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_GRAPH_GRAPH_PATH, List.of(), query, body, responseType);
     }
     /**
@@ -256,7 +274,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createPath(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createPath(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return createPath(QueryParams.empty(), body, responseType);
     }
     /**
@@ -268,7 +287,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T createPath(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T createPath(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return createPath(QueryParams.empty(), body, responseType);
     }
 
@@ -283,7 +303,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/graph/graph/query")
-    public <T> @Nullable T query(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T query(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_GRAPH_GRAPH_QUERY, List.of(), query, body, responseType);
     }
     /**
@@ -296,7 +317,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T query(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T query(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_GRAPH_GRAPH_QUERY, List.of(), query, body, responseType);
     }
     /**
@@ -308,7 +330,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T query(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T query(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return query(QueryParams.empty(), body, responseType);
     }
     /**
@@ -320,8 +343,8 @@ public final class OntologyGraphGraphClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T query(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T query(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return query(QueryParams.empty(), body, responseType);
     }
-
 }

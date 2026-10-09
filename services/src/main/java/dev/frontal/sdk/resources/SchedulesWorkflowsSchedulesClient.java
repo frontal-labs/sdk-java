@@ -23,8 +23,10 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("schedules|DELETE|/workflows/schedules/{param}")
-    public <T> @Nullable T delete(String scheduleId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Schedules.DELETE_WORKFLOWS_SCHEDULES_PARAM, List.of(scheduleId), query, null, responseType);
+    public <T> @Nullable T delete(String scheduleId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Schedules.DELETE_WORKFLOWS_SCHEDULES_PARAM, List.of(scheduleId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code DELETE /workflows/schedules/{param}} using a generic response type.
@@ -36,8 +38,10 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String scheduleId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Schedules.DELETE_WORKFLOWS_SCHEDULES_PARAM, List.of(scheduleId), query, null, responseType);
+    public <T> @Nullable T delete(String scheduleId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Schedules.DELETE_WORKFLOWS_SCHEDULES_PARAM, List.of(scheduleId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code DELETE /workflows/schedules/{param}} without query parameters.
@@ -60,7 +64,8 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String scheduleId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String scheduleId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(scheduleId, QueryParams.empty(), responseType);
     }
 
@@ -86,7 +91,8 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Schedules.GET_WORKFLOWS_SCHEDULES, List.of(), query, null, responseType);
     }
     /**
@@ -123,8 +129,10 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("schedules|GET|/workflows/schedules/{param}")
-    public <T> @Nullable T get(String scheduleId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Schedules.GET_WORKFLOWS_SCHEDULES_PARAM, List.of(scheduleId), query, null, responseType);
+    public <T> @Nullable T get(String scheduleId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Schedules.GET_WORKFLOWS_SCHEDULES_PARAM, List.of(scheduleId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /workflows/schedules/{param}} using a generic response type.
@@ -136,8 +144,10 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String scheduleId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Schedules.GET_WORKFLOWS_SCHEDULES_PARAM, List.of(scheduleId), query, null, responseType);
+    public <T> @Nullable T get(String scheduleId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Schedules.GET_WORKFLOWS_SCHEDULES_PARAM, List.of(scheduleId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /workflows/schedules/{param}} without query parameters.
@@ -160,7 +170,8 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String scheduleId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String scheduleId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(scheduleId, QueryParams.empty(), responseType);
     }
 
@@ -176,8 +187,10 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("schedules|PATCH|/workflows/schedules/{param}")
-    public <T> @Nullable T update(String scheduleId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Schedules.PATCH_WORKFLOWS_SCHEDULES_PARAM, List.of(scheduleId), query, body, responseType);
+    public <T> @Nullable T update(String scheduleId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Schedules.PATCH_WORKFLOWS_SCHEDULES_PARAM, List.of(scheduleId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code PATCH /workflows/schedules/{param}} using a generic response type.
@@ -190,8 +203,11 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String scheduleId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Schedules.PATCH_WORKFLOWS_SCHEDULES_PARAM, List.of(scheduleId), query, body, responseType);
+    public <T> @Nullable T update(
+            String scheduleId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Schedules.PATCH_WORKFLOWS_SCHEDULES_PARAM, List.of(scheduleId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code PATCH /workflows/schedules/{param}} without query parameters.
@@ -203,7 +219,8 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String scheduleId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String scheduleId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return update(scheduleId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -216,7 +233,8 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String scheduleId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String scheduleId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return update(scheduleId, QueryParams.empty(), body, responseType);
     }
 
@@ -231,7 +249,8 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("schedules|POST|/workflows/schedules")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Schedules.POST_WORKFLOWS_SCHEDULES, List.of(), query, body, responseType);
     }
     /**
@@ -244,7 +263,8 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Schedules.POST_WORKFLOWS_SCHEDULES, List.of(), query, body, responseType);
     }
     /**
@@ -256,7 +276,8 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -268,7 +289,8 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -284,8 +306,14 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("schedules|POST|/workflows/schedules/{param}/pause")
-    public <T> @Nullable T pause(String scheduleId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Schedules.POST_WORKFLOWS_SCHEDULES_PARAM_PAUSE, List.of(scheduleId), query, body, responseType);
+    public <T> @Nullable T pause(String scheduleId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Schedules.POST_WORKFLOWS_SCHEDULES_PARAM_PAUSE,
+                List.of(scheduleId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/schedules/{param}/pause} using a generic response type.
@@ -298,8 +326,15 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T pause(String scheduleId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Schedules.POST_WORKFLOWS_SCHEDULES_PARAM_PAUSE, List.of(scheduleId), query, body, responseType);
+    public <T> @Nullable T pause(
+            String scheduleId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Schedules.POST_WORKFLOWS_SCHEDULES_PARAM_PAUSE,
+                List.of(scheduleId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/schedules/{param}/pause} without query parameters.
@@ -311,7 +346,8 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T pause(String scheduleId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T pause(String scheduleId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return pause(scheduleId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -324,7 +360,8 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T pause(String scheduleId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T pause(String scheduleId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return pause(scheduleId, QueryParams.empty(), body, responseType);
     }
 
@@ -340,8 +377,14 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("schedules|POST|/workflows/schedules/{param}/resume")
-    public <T> @Nullable T resume(String scheduleId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Schedules.POST_WORKFLOWS_SCHEDULES_PARAM_RESUME, List.of(scheduleId), query, body, responseType);
+    public <T> @Nullable T resume(String scheduleId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Schedules.POST_WORKFLOWS_SCHEDULES_PARAM_RESUME,
+                List.of(scheduleId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/schedules/{param}/resume} using a generic response type.
@@ -354,8 +397,15 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resume(String scheduleId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Schedules.POST_WORKFLOWS_SCHEDULES_PARAM_RESUME, List.of(scheduleId), query, body, responseType);
+    public <T> @Nullable T resume(
+            String scheduleId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Schedules.POST_WORKFLOWS_SCHEDULES_PARAM_RESUME,
+                List.of(scheduleId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/schedules/{param}/resume} without query parameters.
@@ -367,7 +417,8 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resume(String scheduleId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T resume(String scheduleId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return resume(scheduleId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -380,7 +431,8 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T resume(String scheduleId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T resume(String scheduleId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return resume(scheduleId, QueryParams.empty(), body, responseType);
     }
 
@@ -396,8 +448,14 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("schedules|POST|/workflows/schedules/{param}/trigger")
-    public <T> @Nullable T trigger(String scheduleId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Schedules.POST_WORKFLOWS_SCHEDULES_PARAM_TRIGGER, List.of(scheduleId), query, body, responseType);
+    public <T> @Nullable T trigger(String scheduleId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Schedules.POST_WORKFLOWS_SCHEDULES_PARAM_TRIGGER,
+                List.of(scheduleId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/schedules/{param}/trigger} using a generic response type.
@@ -410,8 +468,15 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T trigger(String scheduleId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Schedules.POST_WORKFLOWS_SCHEDULES_PARAM_TRIGGER, List.of(scheduleId), query, body, responseType);
+    public <T> @Nullable T trigger(
+            String scheduleId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Schedules.POST_WORKFLOWS_SCHEDULES_PARAM_TRIGGER,
+                List.of(scheduleId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /workflows/schedules/{param}/trigger} without query parameters.
@@ -423,7 +488,8 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T trigger(String scheduleId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T trigger(String scheduleId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return trigger(scheduleId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -436,8 +502,8 @@ public final class SchedulesWorkflowsSchedulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T trigger(String scheduleId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T trigger(String scheduleId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return trigger(scheduleId, QueryParams.empty(), body, responseType);
     }
-
 }

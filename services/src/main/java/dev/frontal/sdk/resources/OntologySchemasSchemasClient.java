@@ -23,8 +23,10 @@ public final class OntologySchemasSchemasClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|DELETE|/ontology/schemas/schemas/{param}")
-    public <T> @Nullable T delete(String schemaId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.DELETE_ONTOLOGY_SCHEMAS_SCHEMAS_PARAM, List.of(schemaId), query, null, responseType);
+    public <T> @Nullable T delete(String schemaId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.DELETE_ONTOLOGY_SCHEMAS_SCHEMAS_PARAM, List.of(schemaId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code DELETE /ontology/schemas/schemas/{param}} using a generic response type.
@@ -36,8 +38,10 @@ public final class OntologySchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String schemaId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.DELETE_ONTOLOGY_SCHEMAS_SCHEMAS_PARAM, List.of(schemaId), query, null, responseType);
+    public <T> @Nullable T delete(String schemaId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.DELETE_ONTOLOGY_SCHEMAS_SCHEMAS_PARAM, List.of(schemaId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code DELETE /ontology/schemas/schemas/{param}} without query parameters.
@@ -60,7 +64,8 @@ public final class OntologySchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String schemaId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String schemaId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(schemaId, QueryParams.empty(), responseType);
     }
 
@@ -86,7 +91,8 @@ public final class OntologySchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.GET_ONTOLOGY_SCHEMAS_SCHEMAS, List.of(), query, null, responseType);
     }
     /**
@@ -123,8 +129,10 @@ public final class OntologySchemasSchemasClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|GET|/ontology/schemas/schemas/{param}")
-    public <T> @Nullable T get(String schemaId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_SCHEMAS_SCHEMAS_PARAM, List.of(schemaId), query, null, responseType);
+    public <T> @Nullable T get(String schemaId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_SCHEMAS_SCHEMAS_PARAM, List.of(schemaId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/schemas/schemas/{param}} using a generic response type.
@@ -136,8 +144,10 @@ public final class OntologySchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String schemaId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_SCHEMAS_SCHEMAS_PARAM, List.of(schemaId), query, null, responseType);
+    public <T> @Nullable T get(String schemaId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_SCHEMAS_SCHEMAS_PARAM, List.of(schemaId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/schemas/schemas/{param}} without query parameters.
@@ -160,7 +170,8 @@ public final class OntologySchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String schemaId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String schemaId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(schemaId, QueryParams.empty(), responseType);
     }
 
@@ -175,7 +186,8 @@ public final class OntologySchemasSchemasClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/schemas/schemas")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_SCHEMAS_SCHEMAS, List.of(), query, body, responseType);
     }
     /**
@@ -188,7 +200,8 @@ public final class OntologySchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_SCHEMAS_SCHEMAS, List.of(), query, body, responseType);
     }
     /**
@@ -200,7 +213,8 @@ public final class OntologySchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -212,7 +226,8 @@ public final class OntologySchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -227,7 +242,8 @@ public final class OntologySchemasSchemasClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/schemas/schemas/validate")
-    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_SCHEMAS_SCHEMAS_VALIDATE, List.of(), query, body, responseType);
     }
     /**
@@ -240,7 +256,8 @@ public final class OntologySchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T validate(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_SCHEMAS_SCHEMAS_VALIDATE, List.of(), query, body, responseType);
     }
     /**
@@ -252,7 +269,8 @@ public final class OntologySchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T validate(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T validate(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return validate(QueryParams.empty(), body, responseType);
     }
     /**
@@ -264,8 +282,8 @@ public final class OntologySchemasSchemasClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T validate(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T validate(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return validate(QueryParams.empty(), body, responseType);
     }
-
 }

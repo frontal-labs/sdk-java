@@ -23,8 +23,14 @@ public final class OntologyEventsEventsLeasesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/events/events/leases/acknowledge")
-    public <T> @Nullable T acknowledge(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_EVENTS_EVENTS_LEASES_ACKNOWLEDGE, List.of(), query, body, responseType);
+    public <T> @Nullable T acknowledge(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_EVENTS_EVENTS_LEASES_ACKNOWLEDGE,
+                List.of(),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/events/events/leases/acknowledge} using a generic response type.
@@ -36,8 +42,14 @@ public final class OntologyEventsEventsLeasesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T acknowledge(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_EVENTS_EVENTS_LEASES_ACKNOWLEDGE, List.of(), query, body, responseType);
+    public <T> @Nullable T acknowledge(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_EVENTS_EVENTS_LEASES_ACKNOWLEDGE,
+                List.of(),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/events/events/leases/acknowledge} without query parameters.
@@ -48,7 +60,8 @@ public final class OntologyEventsEventsLeasesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T acknowledge(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T acknowledge(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return acknowledge(QueryParams.empty(), body, responseType);
     }
     /**
@@ -60,7 +73,8 @@ public final class OntologyEventsEventsLeasesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T acknowledge(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T acknowledge(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return acknowledge(QueryParams.empty(), body, responseType);
     }
 
@@ -75,8 +89,10 @@ public final class OntologyEventsEventsLeasesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/events/events/leases/acquire")
-    public <T> @Nullable T acquire(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_EVENTS_EVENTS_LEASES_ACQUIRE, List.of(), query, body, responseType);
+    public <T> @Nullable T acquire(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_EVENTS_EVENTS_LEASES_ACQUIRE, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/events/events/leases/acquire} using a generic response type.
@@ -88,8 +104,10 @@ public final class OntologyEventsEventsLeasesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T acquire(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_EVENTS_EVENTS_LEASES_ACQUIRE, List.of(), query, body, responseType);
+    public <T> @Nullable T acquire(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_EVENTS_EVENTS_LEASES_ACQUIRE, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/events/events/leases/acquire} without query parameters.
@@ -100,7 +118,8 @@ public final class OntologyEventsEventsLeasesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T acquire(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T acquire(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return acquire(QueryParams.empty(), body, responseType);
     }
     /**
@@ -112,8 +131,8 @@ public final class OntologyEventsEventsLeasesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T acquire(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T acquire(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return acquire(QueryParams.empty(), body, responseType);
     }
-
 }

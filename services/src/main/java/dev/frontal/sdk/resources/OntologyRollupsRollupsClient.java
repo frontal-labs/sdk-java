@@ -23,8 +23,10 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|DELETE|/ontology/rollups/rollups/{param}")
-    public <T> @Nullable T delete(String rollupId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.DELETE_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM, List.of(rollupId), query, null, responseType);
+    public <T> @Nullable T delete(String rollupId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.DELETE_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM, List.of(rollupId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code DELETE /ontology/rollups/rollups/{param}} using a generic response type.
@@ -36,8 +38,10 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String rollupId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.DELETE_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM, List.of(rollupId), query, null, responseType);
+    public <T> @Nullable T delete(String rollupId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.DELETE_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM, List.of(rollupId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code DELETE /ontology/rollups/rollups/{param}} without query parameters.
@@ -60,7 +64,8 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String rollupId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String rollupId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(rollupId, QueryParams.empty(), responseType);
     }
 
@@ -86,7 +91,8 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.GET_ONTOLOGY_ROLLUPS_ROLLUPS, List.of(), query, null, responseType);
     }
     /**
@@ -123,8 +129,10 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|GET|/ontology/rollups/rollups/{param}")
-    public <T> @Nullable T get(String rollupId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM, List.of(rollupId), query, null, responseType);
+    public <T> @Nullable T get(String rollupId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM, List.of(rollupId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/rollups/rollups/{param}} using a generic response type.
@@ -136,8 +144,10 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String rollupId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM, List.of(rollupId), query, null, responseType);
+    public <T> @Nullable T get(String rollupId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM, List.of(rollupId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/rollups/rollups/{param}} without query parameters.
@@ -160,7 +170,8 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String rollupId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String rollupId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(rollupId, QueryParams.empty(), responseType);
     }
 
@@ -175,8 +186,14 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|GET|/ontology/rollups/rollups/{param}/result")
-    public <T> @Nullable T getResult(String rollupId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_RESULT, List.of(rollupId), query, null, responseType);
+    public <T> @Nullable T getResult(String rollupId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_RESULT,
+                List.of(rollupId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/rollups/rollups/{param}/result} using a generic response type.
@@ -188,8 +205,14 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getResult(String rollupId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.GET_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_RESULT, List.of(rollupId), query, null, responseType);
+    public <T> @Nullable T getResult(String rollupId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.GET_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_RESULT,
+                List.of(rollupId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /ontology/rollups/rollups/{param}/result} without query parameters.
@@ -212,7 +235,8 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T getResult(String rollupId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T getResult(String rollupId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return getResult(rollupId, QueryParams.empty(), responseType);
     }
 
@@ -227,7 +251,8 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/rollups/rollups")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_ROLLUPS_ROLLUPS, List.of(), query, body, responseType);
     }
     /**
@@ -240,7 +265,8 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_ROLLUPS_ROLLUPS, List.of(), query, body, responseType);
     }
     /**
@@ -252,7 +278,8 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -264,7 +291,8 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -280,8 +308,14 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/rollups/rollups/{param}/execute")
-    public <T> @Nullable T execute(String rollupId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_EXECUTE, List.of(rollupId), query, body, responseType);
+    public <T> @Nullable T execute(String rollupId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_EXECUTE,
+                List.of(rollupId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/rollups/rollups/{param}/execute} using a generic response type.
@@ -294,8 +328,15 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T execute(String rollupId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_EXECUTE, List.of(rollupId), query, body, responseType);
+    public <T> @Nullable T execute(
+            String rollupId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_EXECUTE,
+                List.of(rollupId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/rollups/rollups/{param}/execute} without query parameters.
@@ -307,7 +348,8 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T execute(String rollupId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T execute(String rollupId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return execute(rollupId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -320,7 +362,8 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T execute(String rollupId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T execute(String rollupId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return execute(rollupId, QueryParams.empty(), body, responseType);
     }
 
@@ -336,8 +379,14 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/rollups/rollups/{param}/preview")
-    public <T> @Nullable T preview(String rollupId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_PREVIEW, List.of(rollupId), query, body, responseType);
+    public <T> @Nullable T preview(String rollupId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_PREVIEW,
+                List.of(rollupId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/rollups/rollups/{param}/preview} using a generic response type.
@@ -350,8 +399,15 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T preview(String rollupId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.POST_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_PREVIEW, List.of(rollupId), query, body, responseType);
+    public <T> @Nullable T preview(
+            String rollupId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.POST_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM_PREVIEW,
+                List.of(rollupId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /ontology/rollups/rollups/{param}/preview} without query parameters.
@@ -363,7 +419,8 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T preview(String rollupId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T preview(String rollupId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return preview(rollupId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -376,7 +433,8 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T preview(String rollupId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T preview(String rollupId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return preview(rollupId, QueryParams.empty(), body, responseType);
     }
 
@@ -392,8 +450,10 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|PUT|/ontology/rollups/rollups/{param}")
-    public <T> @Nullable T update(String rollupId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.PUT_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM, List.of(rollupId), query, body, responseType);
+    public <T> @Nullable T update(String rollupId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.PUT_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM, List.of(rollupId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code PUT /ontology/rollups/rollups/{param}} using a generic response type.
@@ -406,8 +466,11 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String rollupId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.PUT_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM, List.of(rollupId), query, body, responseType);
+    public <T> @Nullable T update(
+            String rollupId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.PUT_ONTOLOGY_ROLLUPS_ROLLUPS_PARAM, List.of(rollupId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code PUT /ontology/rollups/rollups/{param}} without query parameters.
@@ -419,7 +482,8 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String rollupId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String rollupId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return update(rollupId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -432,8 +496,8 @@ public final class OntologyRollupsRollupsClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String rollupId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String rollupId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return update(rollupId, QueryParams.empty(), body, responseType);
     }
-
 }

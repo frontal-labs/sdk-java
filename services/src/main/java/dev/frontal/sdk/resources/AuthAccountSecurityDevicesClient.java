@@ -23,8 +23,14 @@ public final class AuthAccountSecurityDevicesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|DELETE|/auth/account/security/devices/{param}")
-    public <T> @Nullable T delete(String deviceId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.DELETE_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM, List.of(deviceId), query, null, responseType);
+    public <T> @Nullable T delete(String deviceId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.DELETE_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM,
+                List.of(deviceId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /auth/account/security/devices/{param}} using a generic response type.
@@ -36,8 +42,14 @@ public final class AuthAccountSecurityDevicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String deviceId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.DELETE_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM, List.of(deviceId), query, null, responseType);
+    public <T> @Nullable T delete(String deviceId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.DELETE_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM,
+                List.of(deviceId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code DELETE /auth/account/security/devices/{param}} without query parameters.
@@ -60,7 +72,8 @@ public final class AuthAccountSecurityDevicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String deviceId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String deviceId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(deviceId, QueryParams.empty(), responseType);
     }
 
@@ -86,7 +99,8 @@ public final class AuthAccountSecurityDevicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.GET_AUTH_ACCOUNT_SECURITY_DEVICES, List.of(), query, null, responseType);
     }
     /**
@@ -123,8 +137,10 @@ public final class AuthAccountSecurityDevicesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|GET|/auth/account/security/devices/{param}")
-    public <T> @Nullable T get(String deviceId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.GET_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM, List.of(deviceId), query, null, responseType);
+    public <T> @Nullable T get(String deviceId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.GET_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM, List.of(deviceId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /auth/account/security/devices/{param}} using a generic response type.
@@ -136,8 +152,10 @@ public final class AuthAccountSecurityDevicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String deviceId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.GET_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM, List.of(deviceId), query, null, responseType);
+    public <T> @Nullable T get(String deviceId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.GET_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM, List.of(deviceId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /auth/account/security/devices/{param}} without query parameters.
@@ -160,7 +178,8 @@ public final class AuthAccountSecurityDevicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String deviceId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String deviceId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(deviceId, QueryParams.empty(), responseType);
     }
 
@@ -175,7 +194,8 @@ public final class AuthAccountSecurityDevicesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/account/security/devices")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ACCOUNT_SECURITY_DEVICES, List.of(), query, body, responseType);
     }
     /**
@@ -188,7 +208,8 @@ public final class AuthAccountSecurityDevicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Auth.POST_AUTH_ACCOUNT_SECURITY_DEVICES, List.of(), query, body, responseType);
     }
     /**
@@ -200,7 +221,8 @@ public final class AuthAccountSecurityDevicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -212,7 +234,8 @@ public final class AuthAccountSecurityDevicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -228,8 +251,14 @@ public final class AuthAccountSecurityDevicesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("auth|POST|/auth/account/security/devices/{param}/trust")
-    public <T> @Nullable T trust(String deviceId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.POST_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM_TRUST, List.of(deviceId), query, body, responseType);
+    public <T> @Nullable T trust(String deviceId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.POST_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM_TRUST,
+                List.of(deviceId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /auth/account/security/devices/{param}/trust} using a generic response type.
@@ -242,8 +271,15 @@ public final class AuthAccountSecurityDevicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T trust(String deviceId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Auth.POST_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM_TRUST, List.of(deviceId), query, body, responseType);
+    public <T> @Nullable T trust(
+            String deviceId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Auth.POST_AUTH_ACCOUNT_SECURITY_DEVICES_PARAM_TRUST,
+                List.of(deviceId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /auth/account/security/devices/{param}/trust} without query parameters.
@@ -255,7 +291,8 @@ public final class AuthAccountSecurityDevicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T trust(String deviceId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T trust(String deviceId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return trust(deviceId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -268,8 +305,8 @@ public final class AuthAccountSecurityDevicesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T trust(String deviceId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T trust(String deviceId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return trust(deviceId, QueryParams.empty(), body, responseType);
     }
-
 }

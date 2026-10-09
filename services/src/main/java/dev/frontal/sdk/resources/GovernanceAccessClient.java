@@ -23,7 +23,8 @@ public final class GovernanceAccessClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("governance|POST|/access/check")
-    public <T> @Nullable T check(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T check(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Governance.POST_ACCESS_CHECK, List.of(), query, body, responseType);
     }
     /**
@@ -36,7 +37,8 @@ public final class GovernanceAccessClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T check(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T check(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Governance.POST_ACCESS_CHECK, List.of(), query, body, responseType);
     }
     /**
@@ -48,7 +50,8 @@ public final class GovernanceAccessClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T check(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T check(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return check(QueryParams.empty(), body, responseType);
     }
     /**
@@ -60,8 +63,8 @@ public final class GovernanceAccessClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T check(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T check(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return check(QueryParams.empty(), body, responseType);
     }
-
 }

@@ -23,8 +23,10 @@ public final class OntologyReasoningRulesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|DELETE|/ontology/reasoning/rules/{param}")
-    public <T> @Nullable T delete(String ruleId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.DELETE_ONTOLOGY_REASONING_RULES_PARAM, List.of(ruleId), query, null, responseType);
+    public <T> @Nullable T delete(String ruleId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.DELETE_ONTOLOGY_REASONING_RULES_PARAM, List.of(ruleId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code DELETE /ontology/reasoning/rules/{param}} using a generic response type.
@@ -36,8 +38,10 @@ public final class OntologyReasoningRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String ruleId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.DELETE_ONTOLOGY_REASONING_RULES_PARAM, List.of(ruleId), query, null, responseType);
+    public <T> @Nullable T delete(String ruleId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.DELETE_ONTOLOGY_REASONING_RULES_PARAM, List.of(ruleId), query, null, responseType);
     }
     /**
      * Calls the contract route {@code DELETE /ontology/reasoning/rules/{param}} without query parameters.
@@ -60,7 +64,8 @@ public final class OntologyReasoningRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T delete(String ruleId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T delete(String ruleId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return delete(ruleId, QueryParams.empty(), responseType);
     }
 
@@ -86,7 +91,8 @@ public final class OntologyReasoningRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.GET_ONTOLOGY_REASONING_RULES, List.of(), query, null, responseType);
     }
     /**
@@ -123,7 +129,8 @@ public final class OntologyReasoningRulesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|POST|/ontology/reasoning/rules")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_REASONING_RULES, List.of(), query, body, responseType);
     }
     /**
@@ -136,7 +143,8 @@ public final class OntologyReasoningRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return request(Endpoints.Ontology.POST_ONTOLOGY_REASONING_RULES, List.of(), query, body, responseType);
     }
     /**
@@ -148,7 +156,8 @@ public final class OntologyReasoningRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -160,7 +169,8 @@ public final class OntologyReasoningRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
 
@@ -176,8 +186,10 @@ public final class OntologyReasoningRulesClient extends ServiceClient {
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("ontology|PUT|/ontology/reasoning/rules/{param}")
-    public <T> @Nullable T update(String ruleId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.PUT_ONTOLOGY_REASONING_RULES_PARAM, List.of(ruleId), query, body, responseType);
+    public <T> @Nullable T update(String ruleId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.PUT_ONTOLOGY_REASONING_RULES_PARAM, List.of(ruleId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code PUT /ontology/reasoning/rules/{param}} using a generic response type.
@@ -190,8 +202,11 @@ public final class OntologyReasoningRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String ruleId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Ontology.PUT_ONTOLOGY_REASONING_RULES_PARAM, List.of(ruleId), query, body, responseType);
+    public <T> @Nullable T update(
+            String ruleId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Ontology.PUT_ONTOLOGY_REASONING_RULES_PARAM, List.of(ruleId), query, body, responseType);
     }
     /**
      * Calls the contract route {@code PUT /ontology/reasoning/rules/{param}} without query parameters.
@@ -203,7 +218,8 @@ public final class OntologyReasoningRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String ruleId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String ruleId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return update(ruleId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -216,8 +232,8 @@ public final class OntologyReasoningRulesClient extends ServiceClient {
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T update(String ruleId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T update(String ruleId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return update(ruleId, QueryParams.empty(), body, responseType);
     }
-
 }

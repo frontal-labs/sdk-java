@@ -24,8 +24,14 @@ public final class DataQualityQualityRulesetsEvaluationsClient extends ServiceCl
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|POST|/data/quality/quality/rulesets/{param}/evaluations")
-    public <T> @Nullable T create(String rulesetId, QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.POST_DATA_QUALITY_QUALITY_RULESETS_PARAM_EVALUATIONS, List.of(rulesetId), query, body, responseType);
+    public <T> @Nullable T create(String rulesetId, QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.POST_DATA_QUALITY_QUALITY_RULESETS_PARAM_EVALUATIONS,
+                List.of(rulesetId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /data/quality/quality/rulesets/{param}/evaluations} using a generic response type.
@@ -38,8 +44,15 @@ public final class DataQualityQualityRulesetsEvaluationsClient extends ServiceCl
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(String rulesetId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.POST_DATA_QUALITY_QUALITY_RULESETS_PARAM_EVALUATIONS, List.of(rulesetId), query, body, responseType);
+    public <T> @Nullable T create(
+            String rulesetId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.POST_DATA_QUALITY_QUALITY_RULESETS_PARAM_EVALUATIONS,
+                List.of(rulesetId),
+                query,
+                body,
+                responseType);
     }
     /**
      * Calls the contract route {@code POST /data/quality/quality/rulesets/{param}/evaluations} without query parameters.
@@ -51,7 +64,8 @@ public final class DataQualityQualityRulesetsEvaluationsClient extends ServiceCl
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(String rulesetId, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(String rulesetId, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(rulesetId, QueryParams.empty(), body, responseType);
     }
     /**
@@ -64,8 +78,8 @@ public final class DataQualityQualityRulesetsEvaluationsClient extends ServiceCl
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(String rulesetId, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(String rulesetId, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(rulesetId, QueryParams.empty(), body, responseType);
     }
-
 }

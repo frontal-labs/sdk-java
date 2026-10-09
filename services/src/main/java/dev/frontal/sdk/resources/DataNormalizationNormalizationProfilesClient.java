@@ -30,7 +30,8 @@ public final class DataNormalizationNormalizationProfilesClient extends ServiceC
      */
     @SdkOperation("data|GET|/data/normalization/normalization/profiles")
     public <T> @Nullable T list(QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.GET_DATA_NORMALIZATION_NORMALIZATION_PROFILES, List.of(), query, null, responseType);
+        return request(
+                Endpoints.Data.GET_DATA_NORMALIZATION_NORMALIZATION_PROFILES, List.of(), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /data/normalization/normalization/profiles} using a generic response type.
@@ -41,8 +42,10 @@ public final class DataNormalizationNormalizationProfilesClient extends ServiceC
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.GET_DATA_NORMALIZATION_NORMALIZATION_PROFILES, List.of(), query, null, responseType);
+    public <T> @Nullable T list(QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.GET_DATA_NORMALIZATION_NORMALIZATION_PROFILES, List.of(), query, null, responseType);
     }
     /**
      * Calls the contract route {@code GET /data/normalization/normalization/profiles} without query parameters.
@@ -78,8 +81,14 @@ public final class DataNormalizationNormalizationProfilesClient extends ServiceC
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|GET|/data/normalization/normalization/profiles/{param}")
-    public <T> @Nullable T get(String profileId, QueryParams query, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.GET_DATA_NORMALIZATION_NORMALIZATION_PROFILES_PARAM, List.of(profileId), query, null, responseType);
+    public <T> @Nullable T get(String profileId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.GET_DATA_NORMALIZATION_NORMALIZATION_PROFILES_PARAM,
+                List.of(profileId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /data/normalization/normalization/profiles/{param}} using a generic response type.
@@ -91,8 +100,14 @@ public final class DataNormalizationNormalizationProfilesClient extends ServiceC
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String profileId, QueryParams query, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.GET_DATA_NORMALIZATION_NORMALIZATION_PROFILES_PARAM, List.of(profileId), query, null, responseType);
+    public <T> @Nullable T get(String profileId, QueryParams query, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.GET_DATA_NORMALIZATION_NORMALIZATION_PROFILES_PARAM,
+                List.of(profileId),
+                query,
+                null,
+                responseType);
     }
     /**
      * Calls the contract route {@code GET /data/normalization/normalization/profiles/{param}} without query parameters.
@@ -115,7 +130,8 @@ public final class DataNormalizationNormalizationProfilesClient extends ServiceC
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T get(String profileId, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T get(String profileId, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return get(profileId, QueryParams.empty(), responseType);
     }
 
@@ -130,8 +146,10 @@ public final class DataNormalizationNormalizationProfilesClient extends ServiceC
      * @throws InterruptedException if the operation fails
      */
     @SdkOperation("data|POST|/data/normalization/normalization/profiles")
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.POST_DATA_NORMALIZATION_NORMALIZATION_PROFILES, List.of(), query, body, responseType);
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.POST_DATA_NORMALIZATION_NORMALIZATION_PROFILES, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /data/normalization/normalization/profiles} using a generic response type.
@@ -143,8 +161,10 @@ public final class DataNormalizationNormalizationProfilesClient extends ServiceC
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Data.POST_DATA_NORMALIZATION_NORMALIZATION_PROFILES, List.of(), query, body, responseType);
+    public <T> @Nullable T create(QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        return request(
+                Endpoints.Data.POST_DATA_NORMALIZATION_NORMALIZATION_PROFILES, List.of(), query, body, responseType);
     }
     /**
      * Calls the contract route {@code POST /data/normalization/normalization/profiles} without query parameters.
@@ -155,7 +175,8 @@ public final class DataNormalizationNormalizationProfilesClient extends ServiceC
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, Class<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
     /**
@@ -167,8 +188,8 @@ public final class DataNormalizationNormalizationProfilesClient extends ServiceC
      * @throws IOException if the operation fails
      * @throws InterruptedException if the operation fails
      */
-    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType) throws IOException, InterruptedException {
+    public <T> @Nullable T create(@Nullable JsonNode body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
         return create(QueryParams.empty(), body, responseType);
     }
-
 }
