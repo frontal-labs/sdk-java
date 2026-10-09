@@ -51,7 +51,6 @@ public final class Frontal implements AutoCloseable {
                         case PIPELINES -> new PipelinesClient(apiClient);
                         case PROVIDERS -> new ProvidersClient(apiClient);
                         case REACT -> new ReactClient(apiClient);
-                        case SANDBOX -> new SandboxClient(apiClient);
                         case SCHEDULES -> new SchedulesClient(apiClient);
                         case WEBHOOKS -> new WebhooksClient(apiClient);
                         case WEBHOOK_ENDPOINTS -> new WebhookEndpointsClient(apiClient);
@@ -151,10 +150,6 @@ public final class Frontal implements AutoCloseable {
 
     public ReactClient react() {
         return (ReactClient) service(ApiService.REACT);
-    }
-
-    public SandboxClient sandbox() {
-        return (SandboxClient) service(ApiService.SANDBOX);
     }
 
     public SchedulesClient schedules() {

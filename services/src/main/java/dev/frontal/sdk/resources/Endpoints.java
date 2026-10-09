@@ -1725,20 +1725,6 @@ public final class Endpoints {
         private React() {}
     }
 
-    public static final class Sandbox {
-        private Sandbox() {}
-
-        /** Endpoint for {@code GET /sandbox/languages}. */
-        public static final Endpoint GET_SANDBOX_LANGUAGES =
-                new Endpoint(ApiService.SANDBOX, HttpMethod.GET, "/sandbox/languages");
-        /** Endpoint for {@code POST /sandbox/self-test}. */
-        public static final Endpoint POST_SANDBOX_SELF_TEST =
-                new Endpoint(ApiService.SANDBOX, HttpMethod.POST, "/sandbox/self-test");
-        /** Endpoint for {@code POST /sandbox/submit}. */
-        public static final Endpoint POST_SANDBOX_SUBMIT =
-                new Endpoint(ApiService.SANDBOX, HttpMethod.POST, "/sandbox/submit");
-    }
-
     public static final class Schedules {
         private Schedules() {}
 

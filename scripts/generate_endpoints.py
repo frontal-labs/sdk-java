@@ -31,7 +31,6 @@ SERVICES = {
     "pipelines": "PIPELINES",
     "providers": "PROVIDERS",
     "react": "REACT",
-    "sandbox": "SANDBOX",
     "schedules": "SCHEDULES",
     "webhooks": "WEBHOOKS",
     "webhook-endpoints": "WEBHOOK_ENDPOINTS",

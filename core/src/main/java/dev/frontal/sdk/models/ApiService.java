@@ -16,7 +16,6 @@ public enum ApiService {
     ONTOLOGY("ontology"),
     PIPELINES("pipelines"),
     REACT("react"),
-    SANDBOX("sandbox"),
     SCHEDULES("schedules"),
     WEBHOOKS("webhooks"),
     WORKFLOWS("workflows"),
