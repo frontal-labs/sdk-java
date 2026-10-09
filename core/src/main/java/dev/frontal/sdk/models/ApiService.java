@@ -1,6 +1,6 @@
 package dev.frontal.sdk;
 
-/** Service domains exposed by the Frontal API. */
+/** Contract route groups used to identify endpoint ownership. */
 public enum ApiService {
     AGENTS("agents"),
     AI("ai"),
@@ -20,10 +20,8 @@ public enum ApiService {
     SCHEDULES("schedules"),
     WEBHOOKS("webhooks"),
     WORKFLOWS("workflows"),
-    ACTION_RUNS("action-runs"),
     CONNECTION_TESTS("connection-tests"),
     EVENTS("events"),
-    INTEGRATIONS("integrations"),
     INVOCATIONS("invocations"),
     PROVIDERS("providers"),
     WEBHOOK_ENDPOINTS("webhook-endpoints");

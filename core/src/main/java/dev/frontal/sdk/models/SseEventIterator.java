@@ -32,12 +32,13 @@ public final class SseEventIterator implements Iterator<String>, AutoCloseable {
             return false;
         }
         StringBuilder data = new StringBuilder();
+        boolean sawData = false;
         try {
             while (true) {
                 String line = reader.readLine();
                 if (line == null) {
                     close();
-                    if (data.isEmpty()) {
+                    if (!sawData) {
                         return false;
                     }
                     next = data.toString();
@@ -45,7 +46,7 @@ public final class SseEventIterator implements Iterator<String>, AutoCloseable {
                     return true;
                 }
                 if (line.isEmpty()) {
-                    if (!data.isEmpty()) {
+                    if (sawData) {
                         next = data.toString();
                         ready = true;
                         return true;
@@ -62,10 +63,11 @@ public final class SseEventIterator implements Iterator<String>, AutoCloseable {
                     if (value.startsWith(" ")) {
                         value = value.substring(1);
                     }
-                    if (!data.isEmpty()) {
+                    if (sawData) {
                         data.append('\n');
                     }
                     data.append(value);
+                    sawData = true;
                 }
             }
         } catch (IOException exception) {
@@ -83,6 +85,10 @@ public final class SseEventIterator implements Iterator<String>, AutoCloseable {
         next = null;
         ready = false;
         return value;
+    }
+
+    boolean isExhausted() {
+        return closed && !ready;
     }
 
     @Override

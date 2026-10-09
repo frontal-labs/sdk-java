@@ -9,8 +9,8 @@ public final class ApiKeyAuthProvider implements AuthProvider {
 
     public ApiKeyAuthProvider(String apiKey) {
         Objects.requireNonNull(apiKey, "apiKey");
-        if (apiKey.isBlank()) {
-            throw new IllegalArgumentException("apiKey must not be blank");
+        if (apiKey.isBlank() || apiKey.indexOf('\r') >= 0 || apiKey.indexOf('\n') >= 0) {
+            throw new IllegalArgumentException("apiKey must be nonblank and contain no line breaks");
         }
         this.apiKey = apiKey;
     }

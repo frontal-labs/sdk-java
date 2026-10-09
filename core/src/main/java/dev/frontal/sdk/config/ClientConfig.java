@@ -20,6 +20,7 @@ public final class ClientConfig {
     private final Duration requestTimeout;
     private final int maxRetries;
     private final long maxResponseBytes;
+    private final int maxErrorBodyBytes;
     private final String userAgent;
     private final String environment;
     private final boolean debug;
@@ -37,12 +38,25 @@ public final class ClientConfig {
         if (builder.maxResponseBytes <= 0) {
             throw new IllegalArgumentException("maxResponseBytes must be positive");
         }
+        if (builder.maxErrorBodyBytes <= 0) {
+            throw new IllegalArgumentException("maxErrorBodyBytes must be positive");
+        }
         maxRetries = builder.maxRetries;
         maxResponseBytes = builder.maxResponseBytes;
+        maxErrorBodyBytes = builder.maxErrorBodyBytes;
         userAgent = requireText(builder.userAgent, "userAgent");
         environment = requireText(builder.environment, "environment").toLowerCase(Locale.ROOT);
         debug = builder.debug;
-        headers = Map.copyOf(builder.headers);
+        Map<String, String> validatedHeaders = new LinkedHashMap<>();
+        java.util.Set<String> normalizedNames = new java.util.HashSet<>();
+        builder.headers.forEach((name, value) -> {
+            validateHeader(name, value);
+            if (!normalizedNames.add(name.toLowerCase(Locale.ROOT))) {
+                throw new IllegalArgumentException("Duplicate header name ignoring case: " + name);
+            }
+            validatedHeaders.put(name, value);
+        });
+        headers = Map.copyOf(validatedHeaders);
     }
 
     /** Creates the default configuration without authentication. */
@@ -53,23 +67,6 @@ public final class ClientConfig {
     /** Creates a default configuration that authenticates with a Frontal API key. */
     public ClientConfig(String apiKey) {
         this(builder().apiKey(apiKey));
-    }
-
-    /** Compatibility constructor for explicit connection settings. */
-    public ClientConfig(
-            String apiKey,
-            URI baseUrl,
-            Duration timeout,
-            int maxRetries,
-            long maxResponseBytes,
-            Map<String, String> headers) {
-        this(builder()
-                .apiKey(apiKey)
-                .apiBaseUrl(baseUrl)
-                .requestTimeout(timeout)
-                .maxRetries(maxRetries)
-                .maxResponseBytes(maxResponseBytes)
-                .headers(headers));
     }
 
     public static Builder builder() {
@@ -122,21 +119,11 @@ public final class ClientConfig {
         return aiBaseUrl;
     }
 
-    /** Returns the general API base URL for compatibility with earlier SDK versions. */
-    public URI baseUrl() {
-        return apiBaseUrl;
-    }
-
     public Duration connectTimeout() {
         return connectTimeout;
     }
 
     public Duration requestTimeout() {
-        return requestTimeout;
-    }
-
-    /** Returns the request timeout for compatibility with earlier SDK versions. */
-    public Duration timeout() {
         return requestTimeout;
     }
 
@@ -146,6 +133,11 @@ public final class ClientConfig {
 
     public long maxResponseBytes() {
         return maxResponseBytes;
+    }
+
+    /** Maximum error response bytes retained for diagnostics. */
+    public int maxErrorBodyBytes() {
+        return maxErrorBodyBytes;
     }
 
     public String userAgent() {
@@ -170,6 +162,9 @@ public final class ClientConfig {
         if (value.getHost() == null || !("http".equalsIgnoreCase(scheme) || "https".equalsIgnoreCase(scheme))) {
             throw new IllegalArgumentException(name + " must be an absolute HTTP or HTTPS URL");
         }
+        if (value.getRawUserInfo() != null || value.getRawQuery() != null || value.getRawFragment() != null) {
+            throw new IllegalArgumentException(name + " must not include user info, a query, or a fragment");
+        }
         String normalized = value.toString();
         while (normalized.endsWith("/")) {
             normalized = normalized.substring(0, normalized.length() - 1);
@@ -193,6 +188,24 @@ public final class ClientConfig {
         return value;
     }
 
+    private static void validateHeader(String name, String value) {
+        requireText(name, "header name");
+        Objects.requireNonNull(value, "header value");
+        for (int index = 0; index < name.length(); index++) {
+            char character = name.charAt(index);
+            boolean valid = (character >= '0' && character <= '9')
+                    || (character >= 'A' && character <= 'Z')
+                    || (character >= 'a' && character <= 'z')
+                    || "!#$%&'*+-.^_`|~".indexOf(character) >= 0;
+            if (!valid) {
+                throw new IllegalArgumentException("Invalid HTTP header name: " + name);
+            }
+        }
+        if (value.indexOf('\r') >= 0 || value.indexOf('\n') >= 0) {
+            throw new IllegalArgumentException("HTTP header values must not contain line breaks");
+        }
+    }
+
     /** Mutable builder used to create an immutable client configuration. */
     public static final class Builder {
         private @Nullable String apiKey;
@@ -202,7 +215,8 @@ public final class ClientConfig {
         private Duration requestTimeout = Duration.ofSeconds(30);
         private int maxRetries = 2;
         private long maxResponseBytes = 64L * 1024 * 1024;
-        private String userAgent = "frontal-java-sdk/1.0.0";
+        private int maxErrorBodyBytes = 16 * 1024;
+        private String userAgent = "frontal-java-sdk/2.0.0";
         private String environment = "development";
         private boolean debug;
         private final Map<String, String> headers = new LinkedHashMap<>();
@@ -211,9 +225,6 @@ public final class ClientConfig {
 
         public Builder apiKey(String apiKey) {
             String value = requireText(apiKey, "apiKey");
-            if (!value.startsWith("frt_")) {
-                throw new IllegalArgumentException("apiKey must start with frt_");
-            }
             this.apiKey = value;
             return this;
         }
@@ -225,15 +236,6 @@ public final class ClientConfig {
         public Builder apiBaseUrl(URI apiBaseUrl) {
             this.apiBaseUrl = Objects.requireNonNull(apiBaseUrl, "apiBaseUrl");
             return this;
-        }
-
-        /** Alias for {@link #apiBaseUrl(URI)}. */
-        public Builder baseUrl(URI baseUrl) {
-            return apiBaseUrl(baseUrl);
-        }
-
-        public Builder baseUrl(String baseUrl) {
-            return apiBaseUrl(baseUrl);
         }
 
         public Builder aiBaseUrl(String aiBaseUrl) {
@@ -255,11 +257,6 @@ public final class ClientConfig {
             return this;
         }
 
-        /** Alias for {@link #requestTimeout(Duration)}. */
-        public Builder timeout(Duration timeout) {
-            return requestTimeout(timeout);
-        }
-
         public Builder maxRetries(int maxRetries) {
             this.maxRetries = maxRetries;
             return this;
@@ -267,6 +264,11 @@ public final class ClientConfig {
 
         public Builder maxResponseBytes(long maxResponseBytes) {
             this.maxResponseBytes = maxResponseBytes;
+            return this;
+        }
+
+        public Builder maxErrorBodyBytes(int maxErrorBodyBytes) {
+            this.maxErrorBodyBytes = maxErrorBodyBytes;
             return this;
         }
 

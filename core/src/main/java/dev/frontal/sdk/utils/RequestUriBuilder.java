@@ -5,16 +5,16 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 /** Builds request URIs and encodes path and query values as UTF-8. */
 public final class RequestUriBuilder {
     private RequestUriBuilder() {}
 
-    public static URI build(URI baseUrl, Endpoint endpoint, List<String> pathParameters, Map<String, ?> query) {
+    public static URI build(URI baseUrl, Endpoint endpoint, List<String> pathParameters, QueryParams query) {
         Objects.requireNonNull(baseUrl, "baseUrl");
         Objects.requireNonNull(endpoint, "endpoint");
+        Objects.requireNonNull(query, "query");
         List<String> parameters = pathParameters == null ? List.of() : pathParameters;
         if (parameters.size() != endpoint.pathParameterCount()) {
             throw new IllegalArgumentException(
@@ -57,42 +57,21 @@ public final class RequestUriBuilder {
                 .replace("%7E", "~");
     }
 
-    private static String encodeQuery(Map<String, ?> query) {
-        if (query == null || query.isEmpty()) {
+    private static String encodeQuery(QueryParams query) {
+        if (query.values().isEmpty()) {
             return "";
         }
         List<String> pairs = new ArrayList<>();
-        query.forEach((name, value) -> {
-            if (name == null || value == null) {
-                return;
-            }
-            String wireName = toSnakeCase(name);
-            if (value instanceof Iterable<?> values) {
-                values.forEach(item -> addPair(pairs, wireName, item));
-            } else if (value.getClass().isArray()) {
-                int length = java.lang.reflect.Array.getLength(value);
-                for (int index = 0; index < length; index++) {
-                    addPair(pairs, wireName, java.lang.reflect.Array.get(value, index));
-                }
-            } else {
-                addPair(pairs, wireName, value);
-            }
-        });
+        query.values().forEach((name, values) -> values.forEach(value -> addPair(pairs, name, value)));
         return String.join("&", pairs);
     }
 
-    private static void addPair(List<String> pairs, String name, Object value) {
-        if (value != null) {
-            pairs.add(encodeQueryComponent(name) + "=" + encodeQueryComponent(value.toString()));
-        }
+    private static void addPair(List<String> pairs, String name, String value) {
+        pairs.add(encodeQueryComponent(name) + "=" + encodeQueryComponent(value));
     }
 
     private static String encodeQueryComponent(String value) {
         return URLEncoder.encode(value, StandardCharsets.UTF_8).replace("+", "%20");
-    }
-
-    private static String toSnakeCase(String value) {
-        return value.replaceAll("([a-z0-9])([A-Z])", "$1_$2").toLowerCase(java.util.Locale.ROOT);
     }
 
     private static String trimTrailingSlash(String value) {

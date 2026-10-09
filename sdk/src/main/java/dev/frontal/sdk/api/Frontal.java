@@ -1,10 +1,12 @@
 package dev.frontal.sdk;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URI;
 import java.time.Duration;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Objects;
+import org.jspecify.annotations.Nullable;
 
 /** Root client. Every service accessor shares one configured transport. */
 public final class Frontal implements AutoCloseable {
@@ -33,7 +35,26 @@ public final class Frontal implements AutoCloseable {
                         case AI -> new AiClient(apiClient);
                         case AGENTS -> new AgentsClient(apiClient);
                         case WORKFLOWS -> new WorkflowsClient(apiClient);
-                        default -> new ServiceClient(service, apiClient);
+                        case AUDIT -> new AuditClient(apiClient);
+                        case AUTH -> new AuthClient(apiClient);
+                        case BILLING -> new BillingClient(apiClient);
+                        case BLOB -> new BlobClient(apiClient);
+                        case CONNECTORS -> new ConnectorsClient(apiClient);
+                        case CONNECTION_TESTS -> new ConnectionTestsClient(apiClient);
+                        case DATA -> new DataClient(apiClient);
+                        case EVENTS -> new EventsClient(apiClient);
+                        case GOVERNANCE -> new GovernanceClient(apiClient);
+                        case INVOCATIONS -> new InvocationsClient(apiClient);
+                        case LINEAGE -> new LineageClient(apiClient);
+                        case OBSERVABILITY -> new ObservabilityClient(apiClient);
+                        case ONTOLOGY -> new OntologyClient(apiClient);
+                        case PIPELINES -> new PipelinesClient(apiClient);
+                        case PROVIDERS -> new ProvidersClient(apiClient);
+                        case REACT -> new ReactClient(apiClient);
+                        case SANDBOX -> new SandboxClient(apiClient);
+                        case SCHEDULES -> new SchedulesClient(apiClient);
+                        case WEBHOOKS -> new WebhooksClient(apiClient);
+                        case WEBHOOK_ENDPOINTS -> new WebhookEndpointsClient(apiClient);
                     };
             services.put(service, serviceClient);
         }
@@ -52,7 +73,12 @@ public final class Frontal implements AutoCloseable {
     }
 
     public ServiceClient service(ApiService service) {
-        return Objects.requireNonNull(services.get(Objects.requireNonNull(service, "service")));
+        ApiService requestedService = Objects.requireNonNull(service, "service");
+        ServiceClient serviceClient = services.get(requestedService);
+        if (serviceClient == null) {
+            throw new IllegalArgumentException("Service is not available in this SDK: " + requestedService.value());
+        }
+        return serviceClient;
     }
 
     public AgentsClient agents() {
@@ -63,92 +89,84 @@ public final class Frontal implements AutoCloseable {
         return (AiClient) service(ApiService.AI);
     }
 
-    public ServiceClient audit() {
-        return service(ApiService.AUDIT);
+    public AuditClient audit() {
+        return (AuditClient) service(ApiService.AUDIT);
     }
 
-    public ServiceClient actionRuns() {
-        return service(ApiService.ACTION_RUNS);
+    public AuthClient auth() {
+        return (AuthClient) service(ApiService.AUTH);
     }
 
-    public ServiceClient auth() {
-        return service(ApiService.AUTH);
+    public BillingClient billing() {
+        return (BillingClient) service(ApiService.BILLING);
     }
 
-    public ServiceClient billing() {
-        return service(ApiService.BILLING);
+    public BlobClient blob() {
+        return (BlobClient) service(ApiService.BLOB);
     }
 
-    public ServiceClient blob() {
-        return service(ApiService.BLOB);
+    public ConnectorsClient connectors() {
+        return (ConnectorsClient) service(ApiService.CONNECTORS);
     }
 
-    public ServiceClient connectors() {
-        return service(ApiService.CONNECTORS);
+    public ConnectionTestsClient connectionTests() {
+        return (ConnectionTestsClient) service(ApiService.CONNECTION_TESTS);
     }
 
-    public ServiceClient connectionTests() {
-        return service(ApiService.CONNECTION_TESTS);
+    public DataClient data() {
+        return (DataClient) service(ApiService.DATA);
     }
 
-    public ServiceClient data() {
-        return service(ApiService.DATA);
+    public EventsClient events() {
+        return (EventsClient) service(ApiService.EVENTS);
     }
 
-    public ServiceClient events() {
-        return service(ApiService.EVENTS);
+    public GovernanceClient governance() {
+        return (GovernanceClient) service(ApiService.GOVERNANCE);
     }
 
-    public ServiceClient governance() {
-        return service(ApiService.GOVERNANCE);
+    public LineageClient lineage() {
+        return (LineageClient) service(ApiService.LINEAGE);
     }
 
-    public ServiceClient lineage() {
-        return service(ApiService.LINEAGE);
+    public ObservabilityClient observability() {
+        return (ObservabilityClient) service(ApiService.OBSERVABILITY);
     }
 
-    public ServiceClient integrations() {
-        return service(ApiService.INTEGRATIONS);
+    public OntologyClient ontology() {
+        return (OntologyClient) service(ApiService.ONTOLOGY);
     }
 
-    public ServiceClient observability() {
-        return service(ApiService.OBSERVABILITY);
+    public InvocationsClient invocations() {
+        return (InvocationsClient) service(ApiService.INVOCATIONS);
     }
 
-    public ServiceClient ontology() {
-        return service(ApiService.ONTOLOGY);
+    public PipelinesClient pipelines() {
+        return (PipelinesClient) service(ApiService.PIPELINES);
     }
 
-    public ServiceClient invocations() {
-        return service(ApiService.INVOCATIONS);
+    public ProvidersClient providers() {
+        return (ProvidersClient) service(ApiService.PROVIDERS);
     }
 
-    public ServiceClient pipelines() {
-        return service(ApiService.PIPELINES);
+    public ReactClient react() {
+        return (ReactClient) service(ApiService.REACT);
     }
 
-    public ServiceClient providers() {
-        return service(ApiService.PROVIDERS);
+    public SandboxClient sandbox() {
+        return (SandboxClient) service(ApiService.SANDBOX);
     }
 
-    public ServiceClient react() {
-        return service(ApiService.REACT);
+    public SchedulesClient schedules() {
+        return (SchedulesClient) service(ApiService.SCHEDULES);
     }
 
-    public ServiceClient sandbox() {
-        return service(ApiService.SANDBOX);
+    public WebhooksClient webhooks() {
+        return (WebhooksClient) service(ApiService.WEBHOOKS);
     }
 
-    public ServiceClient schedules() {
-        return service(ApiService.SCHEDULES);
-    }
-
-    public ServiceClient webhooks() {
-        return service(ApiService.WEBHOOKS);
-    }
-
-    public ServiceClient webhookEndpoints() {
-        return service(ApiService.WEBHOOK_ENDPOINTS);
+    public WebhookEndpointsClient webhookEndpoints() {
+        return (WebhookEndpointsClient) service(ApiService.WEBHOOK_ENDPOINTS);
     }
 
     public WorkflowsClient workflows() {
@@ -163,6 +181,7 @@ public final class Frontal implements AutoCloseable {
     /** Fluent configuration for constructing a testable client. */
     public static final class Builder {
         private final ClientConfig.Builder config = ClientConfig.builder();
+        private @Nullable ObjectMapper objectMapper;
 
         private Builder() {}
 
@@ -171,21 +190,22 @@ public final class Frontal implements AutoCloseable {
             return this;
         }
 
-        public Builder baseUrl(String baseUrl) {
-            config.apiBaseUrl(baseUrl);
-            return this;
-        }
-
-        public Builder baseUrl(URI baseUrl) {
-            config.apiBaseUrl(baseUrl);
-            return this;
-        }
-
         public Builder apiBaseUrl(String baseUrl) {
-            return baseUrl(baseUrl);
+            config.apiBaseUrl(baseUrl);
+            return this;
+        }
+
+        public Builder apiBaseUrl(URI baseUrl) {
+            config.apiBaseUrl(baseUrl);
+            return this;
         }
 
         public Builder aiBaseUrl(String baseUrl) {
+            config.aiBaseUrl(baseUrl);
+            return this;
+        }
+
+        public Builder aiBaseUrl(URI baseUrl) {
             config.aiBaseUrl(baseUrl);
             return this;
         }
@@ -195,16 +215,12 @@ public final class Frontal implements AutoCloseable {
             return this;
         }
 
-        public Builder env(String environment) {
-            return environment(environment);
-        }
-
         public Builder debug(boolean debug) {
             config.debug(debug);
             return this;
         }
 
-        public Builder timeout(Duration timeout) {
+        public Builder requestTimeout(Duration timeout) {
             config.requestTimeout(timeout);
             return this;
         }
@@ -219,13 +235,45 @@ public final class Frontal implements AutoCloseable {
             return this;
         }
 
+        public Builder maxResponseBytes(long maxResponseBytes) {
+            config.maxResponseBytes(maxResponseBytes);
+            return this;
+        }
+
+        /** Sets the maximum raw error body retained for diagnostics. */
+        public Builder maxErrorBodyBytes(int maxErrorBodyBytes) {
+            config.maxErrorBodyBytes(maxErrorBodyBytes);
+            return this;
+        }
+
+        public Builder userAgent(String userAgent) {
+            config.userAgent(userAgent);
+            return this;
+        }
+
+        public Builder headers(Map<String, String> headers) {
+            config.headers(headers);
+            return this;
+        }
+
         public Builder header(String name, String value) {
             config.header(name, value);
             return this;
         }
 
+        /** Supplies JSON settings; the SDK copies the mapper so later caller changes are isolated. */
+        public Builder objectMapper(ObjectMapper objectMapper) {
+            this.objectMapper =
+                    Objects.requireNonNull(objectMapper, "objectMapper").copy();
+            return this;
+        }
+
         public Frontal build() {
-            return new Frontal(config.build());
+            ClientConfig builtConfig = config.build();
+            @Nullable ObjectMapper configuredMapper = objectMapper;
+            return configuredMapper == null
+                    ? new Frontal(builtConfig)
+                    : new Frontal(new ApiClient(builtConfig, configuredMapper));
         }
     }
 }
