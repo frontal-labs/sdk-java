@@ -6,6 +6,6 @@ We aim to acknowledge reports within five business days and will coordinate a fi
 
 ## Supported versions
 
-Security fixes are provided for the latest stable release line (currently `1.x`). Upgrade to the latest patch release before reporting an issue. Unsupported versions may receive a fix only when a vulnerability warrants it and a maintainer can provide one.
+Security fixes are provided for the latest stable release line (currently `2.x`). Upgrade to the latest patch release before reporting an issue. Unsupported versions may receive a fix only when a vulnerability warrants it and a maintainer can provide one.
 
 Never commit populated `.env` files, credentials, or captured production payloads.

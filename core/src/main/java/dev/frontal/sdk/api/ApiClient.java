@@ -4,8 +4,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -45,11 +43,15 @@ public final class ApiClient implements AutoCloseable {
     private final boolean ownsHttpClient;
 
     public ApiClient(ClientConfig config) {
-        this(config, createHttpClient(config), new ObjectMapper(), apiKeyAuth(config), true);
+        this(config, createHttpClient(config), defaultObjectMapper(), apiKeyAuth(config), true);
+    }
+
+    ApiClient(ClientConfig config, ObjectMapper objectMapper) {
+        this(config, createHttpClient(config), objectMapper, apiKeyAuth(config), true);
     }
 
     public ApiClient(ClientConfig config, AuthProvider authProvider) {
-        this(config, createHttpClient(config), new ObjectMapper(), authProvider, true);
+        this(config, createHttpClient(config), defaultObjectMapper(), authProvider, true);
     }
 
     public ApiClient(ClientConfig config, OkHttpClient httpClient, ObjectMapper objectMapper) {
@@ -69,15 +71,13 @@ public final class ApiClient implements AutoCloseable {
             boolean ownsHttpClient) {
         this.config = Objects.requireNonNull(config, "config");
         this.httpClient = Objects.requireNonNull(httpClient, "httpClient");
-        this.objectMapper = Objects.requireNonNull(objectMapper, "objectMapper")
-                .copy()
-                .setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
+        this.objectMapper = Objects.requireNonNull(objectMapper, "objectMapper").copy();
         this.authProvider = authProvider;
         this.ownsHttpClient = ownsHttpClient;
     }
 
     public ObjectMapper objectMapper() {
-        return objectMapper;
+        return objectMapper.copy();
     }
 
     public ClientConfig config() {
@@ -87,8 +87,8 @@ public final class ApiClient implements AutoCloseable {
     public <T> @Nullable T request(
             Endpoint endpoint,
             List<String> pathParams,
-            Map<String, ?> query,
-            @Nullable Object body,
+            QueryParams query,
+            @Nullable JsonNode body,
             Class<T> responseType)
             throws IOException, InterruptedException {
         return decode(execute(endpoint, pathParams, query, body).body(), responseType);
@@ -97,8 +97,8 @@ public final class ApiClient implements AutoCloseable {
     public <T> @Nullable T request(
             Endpoint endpoint,
             List<String> pathParams,
-            Map<String, ?> query,
-            @Nullable Object body,
+            QueryParams query,
+            @Nullable JsonNode body,
             TypeReference<T> responseType)
             throws IOException, InterruptedException {
         byte[] response = execute(endpoint, pathParams, query, body).body();
@@ -106,14 +106,16 @@ public final class ApiClient implements AutoCloseable {
     }
 
     /** Executes an endpoint and returns the successful status, headers, and raw response bytes. */
-    public ApiResponse execute(Endpoint endpoint, List<String> pathParams, Map<String, ?> query, @Nullable Object body)
+    public ApiResponse execute(Endpoint endpoint, List<String> pathParams, QueryParams query, @Nullable JsonNode body)
             throws IOException, InterruptedException {
         Objects.requireNonNull(endpoint, "endpoint");
-        if (endpoint.method() == HttpMethod.STREAM || endpoint.method() == HttpMethod.POSTFORMDATA) {
+        if (endpoint.method() == HttpMethod.STREAM
+                || endpoint.method() == HttpMethod.POSTFORMDATA
+                || endpoint.method() == HttpMethod.POSTRAW) {
             throw new IllegalArgumentException("Use stream() or executeForm() for this endpoint kind");
         }
         RequestBody requestBody = requestBody(endpoint.method(), body);
-        String contentType = contentType(endpoint.method(), body);
+        String contentType = contentType(body);
         String accept = endpoint.method() == HttpMethod.GETRAW
                 ? "application/pdf, application/octet-stream, */*"
                 : "application/json, application/octet-stream";
@@ -121,15 +123,104 @@ public final class ApiClient implements AutoCloseable {
     }
 
     /** Sends a request and returns its body as bytes. */
-    public byte[] requestBytes(Endpoint endpoint, List<String> pathParams, Map<String, ?> query, @Nullable Object body)
+    public byte[] requestBytes(Endpoint endpoint, List<String> pathParams, QueryParams query, @Nullable JsonNode body)
             throws IOException, InterruptedException {
         return execute(endpoint, pathParams, query, body).body();
+    }
+
+    /** Sends an opaque binary request body and returns response metadata and bytes. */
+    public ApiResponse executeRaw(Endpoint endpoint, List<String> pathParams, QueryParams query, byte[] body)
+            throws IOException, InterruptedException {
+        Objects.requireNonNull(endpoint, "endpoint");
+        Objects.requireNonNull(body, "body");
+        if (endpoint.method() != HttpMethod.POSTRAW) {
+            throw new IllegalArgumentException("executeRaw requires a POSTRAW endpoint");
+        }
+        return exchange(
+                endpoint,
+                pathParams,
+                query,
+                RequestBody.create(body, OCTET_STREAM),
+                OCTET_STREAM.toString(),
+                "application/json, application/octet-stream");
+    }
+
+    /** Sends an opaque binary request body and decodes the response. */
+    public <T> @Nullable T requestRaw(
+            Endpoint endpoint, List<String> pathParams, QueryParams query, byte[] body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return decode(executeRaw(endpoint, pathParams, query, body).body(), responseType);
+    }
+
+    /** Sends an opaque binary request body and decodes a generic response. */
+    public <T> @Nullable T requestRaw(
+            Endpoint endpoint, List<String> pathParams, QueryParams query, byte[] body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        byte[] response = executeRaw(endpoint, pathParams, query, body).body();
+        return response.length == 0 ? null : objectMapper.readValue(response, responseType);
+    }
+
+    /** Sends an opaque binary request body and returns raw response bytes. */
+    public byte[] requestRawBytes(Endpoint endpoint, List<String> pathParams, QueryParams query, byte[] body)
+            throws IOException, InterruptedException {
+        return executeRaw(endpoint, pathParams, query, body).body();
+    }
+
+    /** Opens a successful response body without buffering it. The caller must close the result. */
+    public ApiStream streamBody(Endpoint endpoint, List<String> pathParams, QueryParams query, @Nullable JsonNode body)
+            throws IOException, InterruptedException {
+        Objects.requireNonNull(endpoint, "endpoint");
+        if (endpoint.method() == HttpMethod.STREAM
+                || endpoint.method() == HttpMethod.POSTFORMDATA
+                || endpoint.method() == HttpMethod.POSTRAW) {
+            throw new IllegalArgumentException("Use streamResponse() or executeForm() for this endpoint kind");
+        }
+        String requestId = UUID.randomUUID().toString();
+        RequestBody requestBody = requestBody(endpoint.method(), body);
+        String contentType = contentType(body);
+        int attempts = endpoint.method().wireMethod().equals("GET") ? config.maxRetries() + 1 : 1;
+        for (int attempt = 0; attempt < attempts; attempt++) {
+            Request request = buildRequest(endpoint, pathParams, query, requestBody, contentType, "*/*", requestId);
+            Response response;
+            try {
+                response = httpClient.newCall(request).execute();
+            } catch (IOException exception) {
+                if (attempt + 1 < attempts) {
+                    waitBeforeRetry(attempt, null);
+                    continue;
+                }
+                throw new NetworkException("Frontal request failed before receiving a response", requestId, exception);
+            }
+            if (!response.isSuccessful()) {
+                int status = response.code();
+                String responseRequestId = response.header("x-request-id", requestId);
+                String retryAfter = response.header("retry-after");
+                ErrorBody errorBody;
+                try (response) {
+                    ResponseBody bodyValue = response.body();
+                    errorBody =
+                            readErrorBody(bodyValue == null ? InputStream.nullInputStream() : bodyValue.byteStream());
+                }
+                if (endpoint.method().wireMethod().equals("GET")
+                        && attempt + 1 < attempts
+                        && isRetryableStatus(status)) {
+                    waitBeforeRetry(attempt, retryAfter);
+                    continue;
+                }
+                throw toFrontalException(status, responseRequestId, retryAfter, errorBody);
+            }
+            ResponseBody responseBody = response.body();
+            InputStream input = responseBody == null ? InputStream.nullInputStream() : responseBody.byteStream();
+            return new ApiStream(
+                    response.code(), response.headers().toMultimap(), new ResponseInputStream(response, input));
+        }
+        throw new NetworkException("Frontal request failed", requestId, null);
     }
 
     public <T> @Nullable T requestForm(
             Endpoint endpoint,
             List<String> pathParams,
-            Map<String, ?> query,
+            QueryParams query,
             Map<String, String> fields,
             Map<String, Path> files,
             Class<T> responseType)
@@ -140,7 +231,7 @@ public final class ApiClient implements AutoCloseable {
     public <T> @Nullable T requestForm(
             Endpoint endpoint,
             List<String> pathParams,
-            Map<String, ?> query,
+            QueryParams query,
             Map<String, String> fields,
             Map<String, Path> files,
             TypeReference<T> responseType)
@@ -154,7 +245,7 @@ public final class ApiClient implements AutoCloseable {
     public ApiResponse executeForm(
             Endpoint endpoint,
             List<String> pathParams,
-            Map<String, ?> query,
+            QueryParams query,
             Map<String, String> fields,
             Map<String, Path> files)
             throws IOException, InterruptedException {
@@ -178,18 +269,18 @@ public final class ApiClient implements AutoCloseable {
     }
 
     /** Returns a live response body for a contract endpoint marked {@code STREAM}. */
-    public InputStream stream(Endpoint endpoint, List<String> pathParams, Map<String, ?> query)
+    public InputStream stream(Endpoint endpoint, List<String> pathParams, QueryParams query)
             throws IOException, InterruptedException {
         return streamResponse(endpoint, pathParams, query).body();
     }
 
     /** Opens a streaming response while preserving its status and headers. */
-    public ApiStream streamResponse(Endpoint endpoint, List<String> pathParams, Map<String, ?> query)
+    public ApiStream streamResponse(Endpoint endpoint, List<String> pathParams, QueryParams query)
             throws IOException, InterruptedException {
         return newPendingStream(endpoint, pathParams, query).execute();
     }
 
-    private PendingStream newPendingStream(Endpoint endpoint, List<String> pathParams, Map<String, ?> query) {
+    private PendingStream newPendingStream(Endpoint endpoint, List<String> pathParams, QueryParams query) {
         Objects.requireNonNull(endpoint, "endpoint");
         if (endpoint.method() != HttpMethod.STREAM) {
             throw new IllegalArgumentException("stream requires a STREAM endpoint");
@@ -222,16 +313,16 @@ public final class ApiClient implements AutoCloseable {
             }
             ResponseBody responseBody = response.body();
             if (!response.isSuccessful()) {
-                byte[] bytes;
+                ErrorBody errorBody;
                 try (response) {
-                    bytes = readBounded(
+                    errorBody = readErrorBody(
                             responseBody == null ? InputStream.nullInputStream() : responseBody.byteStream());
                 }
                 throw toFrontalException(
                         response.code(),
                         response.header("x-request-id", requestId),
                         response.header("retry-after"),
-                        bytes);
+                        errorBody);
             }
             if (responseBody == null) {
                 response.close();
@@ -246,7 +337,7 @@ public final class ApiClient implements AutoCloseable {
     }
 
     /** Returns a backpressure-aware publisher of SSE event data. */
-    public Flow.Publisher<String> streamPublisher(Endpoint endpoint, List<String> pathParams, Map<String, ?> query) {
+    public Flow.Publisher<String> streamPublisher(Endpoint endpoint, List<String> pathParams, QueryParams query) {
         return SseEventPublisher.cancellable(() -> {
             PendingStream pending = newPendingStream(endpoint, pathParams, query);
             return new SseEventPublisher.StreamSource() {
@@ -264,7 +355,7 @@ public final class ApiClient implements AutoCloseable {
     }
 
     /** Returns a blocking iterator over SSE event data. The caller must close it. */
-    public SseEventIterator streamEvents(Endpoint endpoint, List<String> pathParams, Map<String, ?> query)
+    public SseEventIterator streamEvents(Endpoint endpoint, List<String> pathParams, QueryParams query)
             throws IOException, InterruptedException {
         return new SseEventIterator(streamResponse(endpoint, pathParams, query));
     }
@@ -272,7 +363,7 @@ public final class ApiClient implements AutoCloseable {
     private ApiResponse exchange(
             Endpoint endpoint,
             List<String> pathParams,
-            Map<String, ?> query,
+            QueryParams query,
             @Nullable RequestBody requestBody,
             @Nullable String contentType,
             String accept)
@@ -292,6 +383,7 @@ public final class ApiClient implements AutoCloseable {
                 throw new NetworkException("Frontal request failed before receiving a response", requestId, exception);
             }
             byte[] responseBytes;
+            @Nullable ErrorBody errorBody = null;
             int status;
             String responseRequestId;
             String retryAfter;
@@ -302,7 +394,17 @@ public final class ApiClient implements AutoCloseable {
                 retryAfter = response.header("retry-after");
                 responseHeaders = response.headers().toMultimap();
                 ResponseBody responseBody = response.body();
-                responseBytes = responseBody == null ? new byte[0] : readBounded(responseBody.byteStream());
+                if (responseBody == null) {
+                    responseBytes = new byte[0];
+                    if (status < 200 || status >= 300) {
+                        errorBody = new ErrorBody(responseBytes, false);
+                    }
+                } else if (status >= 200 && status < 300) {
+                    responseBytes = readBounded(responseBody.byteStream());
+                } else {
+                    errorBody = readErrorBody(responseBody.byteStream());
+                    responseBytes = errorBody.body();
+                }
             }
             if (status >= 200 && status < 300) {
                 return new ApiResponse(status, responseHeaders, responseBytes);
@@ -311,7 +413,7 @@ public final class ApiClient implements AutoCloseable {
                 waitBeforeRetry(attempt, retryAfter);
                 continue;
             }
-            throw toFrontalException(status, responseRequestId, retryAfter, responseBytes);
+            throw toFrontalException(status, responseRequestId, retryAfter, Objects.requireNonNull(errorBody));
         }
         throw new NetworkException("Frontal request failed", requestId, null);
     }
@@ -319,7 +421,7 @@ public final class ApiClient implements AutoCloseable {
     private Request buildRequest(
             Endpoint endpoint,
             List<String> pathParams,
-            Map<String, ?> query,
+            QueryParams query,
             @Nullable RequestBody body,
             @Nullable String contentType,
             String accept,
@@ -353,7 +455,7 @@ public final class ApiClient implements AutoCloseable {
         return builder.method(method, effectiveBody).build();
     }
 
-    private @Nullable RequestBody requestBody(HttpMethod method, @Nullable Object body) throws IOException {
+    private @Nullable RequestBody requestBody(HttpMethod method, @Nullable JsonNode body) throws IOException {
         if (body == null) {
             return null;
         }
@@ -365,43 +467,21 @@ public final class ApiClient implements AutoCloseable {
             throw new IllegalArgumentException("This endpoint does not accept a request body");
         }
         if (method == HttpMethod.POSTRAW) {
-            if (!(body instanceof byte[] bytes)) {
-                throw new IllegalArgumentException("POSTRAW request bodies must be byte[]");
-            }
-            return RequestBody.create(bytes, OCTET_STREAM);
+            throw new IllegalArgumentException("Use executeRaw() for POSTRAW endpoint request bodies");
         }
-        JsonNode tree = objectMapper.valueToTree(body);
-        return RequestBody.create(objectMapper.writeValueAsBytes(camelToSnake(tree)), JSON);
+        return RequestBody.create(objectMapper.writeValueAsBytes(body), JSON);
     }
 
-    private @Nullable String contentType(HttpMethod method, @Nullable Object body) {
+    private @Nullable String contentType(@Nullable JsonNode body) {
         if (body == null) {
             return null;
         }
-        return method == HttpMethod.POSTRAW ? OCTET_STREAM.toString() : JSON.toString();
-    }
-
-    private JsonNode camelToSnake(JsonNode node) {
-        if (node.isObject()) {
-            ObjectNode converted = objectMapper.createObjectNode();
-            node.fields()
-                    .forEachRemaining(entry -> converted.set(toSnake(entry.getKey()), camelToSnake(entry.getValue())));
-            return converted;
-        }
-        if (node.isArray()) {
-            ArrayNode converted = objectMapper.createArrayNode();
-            node.forEach(item -> converted.add(camelToSnake(item)));
-            return converted;
-        }
-        return node;
-    }
-
-    private String toSnake(String key) {
-        return key.replaceAll("([a-z0-9])([A-Z])", "$1_$2").toLowerCase(java.util.Locale.ROOT);
+        return JSON.toString();
     }
 
     private FrontalException toFrontalException(
-            int status, String requestId, @Nullable String retryAfter, byte[] body) {
+            int status, String requestId, @Nullable String retryAfter, ErrorBody errorBody) {
+        byte[] body = errorBody.body();
         String responseBody = new String(body, StandardCharsets.UTF_8);
         @Nullable String code = null;
         @Nullable String message = null;
@@ -418,18 +498,19 @@ public final class ApiClient implements AutoCloseable {
             // Preserve plain-text error bodies in the exception.
         }
         if (status == 401 || status == 403) {
-            return new AuthException(code, message, requestId, status);
+            return new AuthException(code, message, requestId, status, responseBody, errorBody.truncated());
         }
         if (status == 400 || status == 422) {
-            return new ValidationException(code, message, requestId, status);
+            return new ValidationException(code, message, requestId, status, responseBody, errorBody.truncated());
         }
         if (status == 429) {
-            return new RateLimitException(code, message, requestId, parseRetryAfter(retryAfter));
+            return new RateLimitException(
+                    code, message, requestId, parseRetryAfter(retryAfter), responseBody, errorBody.truncated());
         }
         if (status >= 500) {
-            return new ServerException(code, message, requestId, status, responseBody);
+            return new ServerException(code, message, requestId, status, responseBody, errorBody.truncated());
         }
-        return new ApiException(status, code, message, requestId, responseBody);
+        return new ApiException(status, code, message, requestId, responseBody, errorBody.truncated());
     }
 
     private @Nullable String textOrNull(JsonNode node) {
@@ -454,13 +535,49 @@ public final class ApiClient implements AutoCloseable {
         }
     }
 
+    private ErrorBody readErrorBody(InputStream stream) throws IOException {
+        ByteArrayOutputStream output = new ByteArrayOutputStream(Math.min(config.maxErrorBodyBytes(), 8192));
+        byte[] buffer = new byte[8192];
+        int remaining = config.maxErrorBodyBytes();
+        int read;
+        while (remaining > 0 && (read = stream.read(buffer, 0, Math.min(buffer.length, remaining))) >= 0) {
+            output.write(buffer, 0, read);
+            remaining -= read;
+        }
+        boolean truncated = remaining == 0 && stream.read() >= 0;
+        return new ErrorBody(output.toByteArray(), truncated);
+    }
+
+    private static final class ErrorBody {
+        private final byte[] body;
+        private final boolean truncated;
+
+        private ErrorBody(byte[] body, boolean truncated) {
+            this.body = body;
+            this.truncated = truncated;
+        }
+
+        private byte[] body() {
+            return body;
+        }
+
+        private boolean truncated() {
+            return truncated;
+        }
+    }
+
     private void waitBeforeRetry(int attempt, @Nullable String retryAfter) throws InterruptedException {
         long delayMillis = Math.min(5_000L, 100L << Math.min(attempt, 5));
         Duration serverDelay = parseRetryAfter(retryAfter);
         if (retryAfter != null && !retryAfter.isBlank()) {
-            delayMillis = Math.min(5_000L, serverDelay.toMillis());
+            delayMillis = serverDelay.compareTo(Duration.ofSeconds(5)) >= 0 ? 5_000L : serverDelay.toMillis();
         }
-        TimeUnit.MILLISECONDS.sleep(delayMillis);
+        try {
+            TimeUnit.MILLISECONDS.sleep(delayMillis);
+        } catch (InterruptedException exception) {
+            Thread.currentThread().interrupt();
+            throw exception;
+        }
     }
 
     private Duration parseRetryAfter(@Nullable String retryAfter) {
@@ -516,6 +633,28 @@ public final class ApiClient implements AutoCloseable {
                 .callTimeout(config.requestTimeout().toMillis(), TimeUnit.MILLISECONDS)
                 .followRedirects(true)
                 .build();
+    }
+
+    private static ObjectMapper defaultObjectMapper() {
+        return new ObjectMapper().setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
+    }
+
+    private static final class ResponseInputStream extends java.io.FilterInputStream {
+        private final Response response;
+
+        private ResponseInputStream(Response response, InputStream input) {
+            super(input);
+            this.response = response;
+        }
+
+        @Override
+        public void close() throws IOException {
+            try {
+                super.close();
+            } finally {
+                response.close();
+            }
+        }
     }
 
     private static @Nullable AuthProvider apiKeyAuth(ClientConfig config) {

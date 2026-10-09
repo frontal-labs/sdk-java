@@ -23,7 +23,7 @@ Do not guess operation methods or payload schemas. Use `JsonNode` for a response
 
 ## Configuration and lifecycle
 
-Builder options include `baseUrl`, `aiBaseUrl`, `env`, `debug`, `timeout`, `connectTimeout`, `maxRetries`, and custom headers. `fromEnvironment()` reads `FRONTAL_API_KEY`, `FRONTAL_API_URL`, `FRONTAL_AI_URL`, `FRONTAL_ENV`, and `FRONTAL_DEBUG` (the implementation may also support `FRONTAL_TIMEOUT`). Java does not load `.env` files. Close `Frontal` when its lifecycle ends; use try-with-resources in applications and tests. Never log keys or include them in URLs or exception messages.
+Builder options include `apiBaseUrl`, `aiBaseUrl`, `environment`, `debug`, `requestTimeout`, `connectTimeout`, `maxRetries`, and custom headers. `fromEnvironment()` reads `FRONTAL_API_KEY`, `FRONTAL_API_URL`, `FRONTAL_AI_URL`, `FRONTAL_ENV`, and `FRONTAL_DEBUG` (the implementation may also support `FRONTAL_TIMEOUT`). Java does not load `.env` files. Close `Frontal` when its lifecycle ends; use try-with-resources in applications and tests. Never log keys or include them in URLs or exception messages.
 
 ## Runtime patterns
 

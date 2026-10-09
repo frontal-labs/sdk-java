@@ -3,10 +3,14 @@ package dev.frontal.sdk;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.Map;
 import java.util.Objects;
@@ -22,6 +26,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ApiClientTest {
+    private static final ObjectMapper JSON = new ObjectMapper();
+
     private MockWebServer server;
 
     @BeforeEach
@@ -57,6 +63,82 @@ class ApiClientTest {
             JsonNode response = Objects.requireNonNull(client.agents().health(JsonNode.class));
             assertEquals("ok", response.path("status").asText());
             assertEquals(2, server.getRequestCount());
+        }
+    }
+
+    @Test
+    void streamBodyRetriesSafeGetBeforeReturningTheBody() throws Exception {
+        server.enqueue(new MockResponse().setResponseCode(503).setBody("temporary"));
+        server.enqueue(new MockResponse().setBody("large response"));
+        try (Frontal client = client(1);
+                ApiStream response = client.agents()
+                        .streamBody(
+                                Endpoints.Agents.GET_AGENTS_HEALTH, java.util.List.of(), QueryParams.empty(), null)) {
+            assertEquals("large response", new String(response.body().readAllBytes(), StandardCharsets.UTF_8));
+            assertEquals(2, server.getRequestCount());
+        }
+    }
+
+    @Test
+    void errorDiagnosticBodyIsBoundedAndMarksTruncation() {
+        server.enqueue(new MockResponse().setResponseCode(418).setBody("0123456789abcdef"));
+        try (Frontal client = Frontal.builder()
+                .apiKey("frt_test_key")
+                .apiBaseUrl(server.url("/v1").toString())
+                .maxRetries(0)
+                .maxErrorBodyBytes(8)
+                .build()) {
+            ApiException error = org.junit.jupiter.api.Assertions.assertThrows(
+                    ApiException.class, () -> client.agents().health(JsonNode.class));
+            assertEquals("01234567", error.responseBody());
+            assertTrue(error.responseBodyTruncated());
+        }
+    }
+
+    @Test
+    void generatedNamedServiceMethodUsesExactQueryWireNames() throws Exception {
+        server.enqueue(new MockResponse().setBody("{\"data\":[]}"));
+        try (Frontal client = client(0)) {
+            client.agents().getAgents(QueryParams.of("agentId", "agt_1"), JsonNode.class);
+            RecordedRequest request = server.takeRequest(1, TimeUnit.SECONDS);
+            assertEquals("agt_1", request.getRequestUrl().queryParameter("agentId"));
+            assertNull(request.getRequestUrl().queryParameter("agent_id"));
+        }
+    }
+
+    @Test
+    void requestMapKeysRemainVerbatimOnTheJsonWire() throws Exception {
+        server.enqueue(new MockResponse().setBody("{}"));
+        try (Frontal client = client(0)) {
+            client.agents().create(JSON.valueToTree(Map.of("agentId", "agt_1")), JsonNode.class);
+            RecordedRequest request = server.takeRequest(1, TimeUnit.SECONDS);
+            assertEquals("{\"agentId\":\"agt_1\"}", request.getBody().readUtf8());
+        }
+    }
+
+    @Test
+    void customObjectMapperIsCopiedAndHonorsItsNamingStrategy() throws Exception {
+        server.enqueue(new MockResponse().setBody("{\"agent-id\":\"agt_1\"}"));
+        ObjectMapper mapper = new ObjectMapper().setPropertyNamingStrategy(PropertyNamingStrategies.KEBAB_CASE);
+        try (Frontal client = Frontal.builder()
+                .apiKey("frt_test_key")
+                .apiBaseUrl(server.url("/v1").toString())
+                .objectMapper(mapper)
+                .maxRetries(0)
+                .build()) {
+            mapper.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
+            CamelRequest response = Objects.requireNonNull(client.agents().health(CamelRequest.class));
+            assertEquals("agt_1", response.agentId());
+        }
+    }
+
+    @Test
+    void veryLargeRetryAfterIsExposedWithoutMillisecondOverflow() {
+        server.enqueue(new MockResponse().setResponseCode(429).addHeader("Retry-After", Long.MAX_VALUE + ""));
+        try (Frontal client = client(0)) {
+            RateLimitException error = org.junit.jupiter.api.Assertions.assertThrows(
+                    RateLimitException.class, () -> client.agents().health(JsonNode.class));
+            assertEquals(Long.MAX_VALUE, error.retryAfter().toSeconds());
         }
     }
 
@@ -98,12 +180,14 @@ class ApiClientTest {
                 .setBody("{\"error\":{\"code\":\"RATE_LIMITED\",\"message\":\"slow down\"}}"));
         try (Frontal client = client(0)) {
             ValidationException validation = org.junit.jupiter.api.Assertions.assertThrows(
-                    ValidationException.class, () -> client.agents().create(Map.of("name", "triage"), JsonNode.class));
+                    ValidationException.class,
+                    () -> client.agents().create(JSON.valueToTree(Map.of("name", "triage")), JsonNode.class));
             assertEquals("INVALID_AGENT", validation.code());
             assertEquals(422, validation.statusCode());
 
             RateLimitException rateLimit = org.junit.jupiter.api.Assertions.assertThrows(
-                    RateLimitException.class, () -> client.agents().create(Map.of("name", "triage"), JsonNode.class));
+                    RateLimitException.class,
+                    () -> client.agents().create(JSON.valueToTree(Map.of("name", "triage")), JsonNode.class));
             assertEquals("RATE_LIMITED", rateLimit.code());
             assertEquals(Duration.ofSeconds(2), rateLimit.retryAfter());
             assertTrue(rateLimit.retryable());
@@ -117,7 +201,8 @@ class ApiClientTest {
         server.enqueue(new MockResponse()
                 .setBody("{\"data\":[{\"id\":\"agt_2\"}],\"pagination\":{\"cursor\":\"\",\"hasMore\":false}}"));
         try (Frontal client = client(0)) {
-            PageResult<JsonNode> first = client.agents().list(Map.of("limit", 1), JsonNode.class);
+            PageResult<JsonNode> first =
+                    client.agents().list(QueryParams.builder().add("limit", 1).build(), JsonNode.class);
             PageResult<JsonNode> second = Objects.requireNonNull(first.nextPage());
             assertEquals("agt_1", first.data().get(0).path("id").asText());
             assertEquals("agt_2", second.data().get(0).path("id").asText());
@@ -177,6 +262,40 @@ class ApiClientTest {
     }
 
     @Test
+    void publisherCompletesWhenFinalEventEndsAtEofWithoutDelimiter() throws Exception {
+        server.enqueue(new MockResponse()
+                .addHeader("Content-Type", "text/event-stream")
+                .setBody("data: done"));
+        try (Frontal client = client(0)) {
+            CountDownLatch complete = new CountDownLatch(1);
+            AtomicReference<String> received = new AtomicReference<>();
+            client.agents().watch("run_eof").subscribe(new Flow.Subscriber<>() {
+                @Override
+                public void onSubscribe(Flow.Subscription value) {
+                    value.request(1);
+                }
+
+                @Override
+                public void onNext(String item) {
+                    received.set(item);
+                }
+
+                @Override
+                public void onError(Throwable throwable) {
+                    complete.countDown();
+                }
+
+                @Override
+                public void onComplete() {
+                    complete.countDown();
+                }
+            });
+            assertTrue(complete.await(2, TimeUnit.SECONDS));
+            assertEquals("done", received.get());
+        }
+    }
+
+    @Test
     void publisherCancellationReachesAnOpeningStream() throws Exception {
         CountDownLatch opening = new CountDownLatch(1);
         CountDownLatch cancelled = new CountDownLatch(1);
@@ -225,9 +344,11 @@ class ApiClientTest {
     private Frontal client(int retries) {
         return Frontal.builder()
                 .apiKey("frt_test_key")
-                .baseUrl(server.url("/v1").toString())
-                .timeout(Duration.ofSeconds(2))
+                .apiBaseUrl(server.url("/v1").toString())
+                .requestTimeout(Duration.ofSeconds(2))
                 .maxRetries(retries)
                 .build();
     }
+
+    private record CamelRequest(String agentId) {}
 }

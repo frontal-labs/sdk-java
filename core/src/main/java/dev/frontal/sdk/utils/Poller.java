@@ -1,8 +1,8 @@
 package dev.frontal.sdk;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Objects;
-import java.util.concurrent.Callable;
 import java.util.concurrent.TimeoutException;
 import java.util.function.Predicate;
 
@@ -10,15 +10,16 @@ import java.util.function.Predicate;
 public final class Poller {
     private Poller() {}
 
-    public static <T> T pollUntil(Callable<T> operation, Predicate<T> finished, Duration interval, Duration timeout)
-            throws Exception {
+    public static <T> T pollUntil(
+            PollOperation<T> operation, Predicate<T> finished, Duration interval, Duration timeout)
+            throws IOException, InterruptedException, TimeoutException {
         Objects.requireNonNull(operation, "operation");
         Objects.requireNonNull(finished, "finished");
         requirePositive(interval, "interval");
         requirePositive(timeout, "timeout");
         long deadline = System.nanoTime() + timeout.toNanos();
         while (true) {
-            T result = operation.call();
+            T result = operation.poll();
             if (finished.test(result)) {
                 return result;
             }
@@ -31,6 +32,11 @@ public final class Poller {
             int nanos = (int) (sleepNanos % 1_000_000L);
             Thread.sleep(millis, nanos);
         }
+    }
+
+    @FunctionalInterface
+    public interface PollOperation<T> {
+        T poll() throws IOException, InterruptedException;
     }
 
     private static void requirePositive(Duration duration, String name) {

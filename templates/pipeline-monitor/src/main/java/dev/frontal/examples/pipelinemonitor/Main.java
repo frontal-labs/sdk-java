@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.time.Duration;
 import java.util.List;
-import java.util.Map;
 
 /** Prints events from a Frontal pipeline run stream until the server closes it. */
 public final class Main {
@@ -72,7 +71,7 @@ public final class Main {
             .streamEvents(
                 Endpoints.Pipelines.STREAM_DATA_PIPELINES_PIPELINE_RUNS_PARAM,
                 List.of(runId),
-                Map.of())) {
+                QueryParams.empty())) {
       LOGGER.log(System.Logger.Level.INFO, "Connected to pipeline event stream");
       try {
         while (events.hasNext()) {

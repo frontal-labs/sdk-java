@@ -1,23 +1,23 @@
 package dev.frontal.sdk;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.Flow;
+import java.util.concurrent.TimeoutException;
 import org.jspecify.annotations.Nullable;
 
 /** Agent definitions, executions, conversation history, and event streaming. */
-public final class AgentsClient extends ServiceClient {
+public final class AgentsClient extends AgentsServiceClient {
     AgentsClient(ApiClient client) {
-        super(ApiService.AGENTS, client);
+        super(client);
     }
 
-    public <T> PageResult<T> list(Map<String, ?> query, Class<T> itemType) throws IOException, InterruptedException {
+    public <T> PageResult<T> list(QueryParams query, Class<T> itemType) throws IOException, InterruptedException {
         return fetchPage(query, itemType);
     }
 
@@ -25,22 +25,54 @@ public final class AgentsClient extends ServiceClient {
         return request(Endpoints.Agents.GET_AGENTS_PARAM, List.of(agentId), responseType);
     }
 
-    public <T> @Nullable T create(Object definition, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Agents.POST_AGENTS, List.of(), Map.of(), definition, responseType);
+    /**
+     * Retrieves an agent run by its identifier.
+     * @param <T> decoded response type
+     * @param actionRunId identifier of the agent run
+     * @param query query parameters supported by the operation
+     * @param responseType class used to decode the response
+     * @return the decoded response, or null when the response body is empty
+     * @throws IOException if the operation fails
+     * @throws InterruptedException if the operation is interrupted
+     */
+    @SdkOperation("agents|GET|/action-runs/{param}")
+    public <T> @Nullable T getActionRun(String actionRunId, QueryParams query, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(Endpoints.Agents.GET_ACTION_RUNS_PARAM, List.of(actionRunId), query, null, responseType);
     }
 
-    public <T> @Nullable T update(String agentId, Object update, Class<T> responseType)
+    /**
+     * Retrieves an agent run using a generic response type.
+     * @param <T> decoded response type
+     * @param actionRunId identifier of the agent run
+     * @param query query parameters supported by the operation
+     * @param responseType type reference used to decode the response
+     * @return the decoded response, or null when the response body is empty
+     * @throws IOException if the operation fails
+     * @throws InterruptedException if the operation is interrupted
+     */
+    public <T> @Nullable T getActionRun(String actionRunId, QueryParams query, TypeReference<T> responseType)
             throws IOException, InterruptedException {
-        return request(Endpoints.Agents.PUT_AGENTS_PARAM, List.of(agentId), Map.of(), update, responseType);
+        return request(Endpoints.Agents.GET_ACTION_RUNS_PARAM, List.of(actionRunId), query, null, responseType);
+    }
+
+    public <T> @Nullable T create(JsonNode definition, Class<T> responseType) throws IOException, InterruptedException {
+        return request(Endpoints.Agents.POST_AGENTS, List.of(), QueryParams.empty(), definition, responseType);
+    }
+
+    public <T> @Nullable T update(String agentId, JsonNode update, Class<T> responseType)
+            throws IOException, InterruptedException {
+        return request(Endpoints.Agents.PUT_AGENTS_PARAM, List.of(agentId), QueryParams.empty(), update, responseType);
     }
 
     public void delete(String agentId) throws IOException, InterruptedException {
-        requestBytes(Endpoints.Agents.DELETE_AGENTS_PARAM, List.of(agentId), Map.of(), null);
+        requestBytes(Endpoints.Agents.DELETE_AGENTS_PARAM, List.of(agentId), QueryParams.empty(), null);
     }
 
-    public <T> @Nullable T createRun(String agentId, Object input, Class<T> responseType)
+    public <T> @Nullable T createRun(String agentId, JsonNode input, Class<T> responseType)
             throws IOException, InterruptedException {
-        return request(Endpoints.Agents.POST_AGENTS_PARAM_RUNS, List.of(agentId), Map.of(), input, responseType);
+        return request(
+                Endpoints.Agents.POST_AGENTS_PARAM_RUNS, List.of(agentId), QueryParams.empty(), input, responseType);
     }
 
     public <T> @Nullable T run(String runId, Class<T> responseType) throws IOException, InterruptedException {
@@ -56,14 +88,15 @@ public final class AgentsClient extends ServiceClient {
     }
 
     public Flow.Publisher<String> watch(String runId) {
-        return streamPublisher(Endpoints.Agents.STREAM_AGENTS_RUNS_PARAM_STREAM, List.of(runId), Map.of());
+        return streamPublisher(Endpoints.Agents.STREAM_AGENTS_RUNS_PARAM_STREAM, List.of(runId), QueryParams.empty());
     }
 
     public SseEventIterator watchBlocking(String runId) throws IOException, InterruptedException {
-        return streamEvents(Endpoints.Agents.STREAM_AGENTS_RUNS_PARAM_STREAM, List.of(runId), Map.of());
+        return streamEvents(Endpoints.Agents.STREAM_AGENTS_RUNS_PARAM_STREAM, List.of(runId), QueryParams.empty());
     }
 
-    public JsonNode waitForCompletion(String runId, Duration interval, Duration timeout) throws Exception {
+    public JsonNode waitForCompletion(String runId, Duration interval, Duration timeout)
+            throws IOException, InterruptedException, TimeoutException {
         return Poller.pollUntil(
                 () -> Objects.requireNonNull(run(runId, JsonNode.class), "Agent run response was empty"),
                 result -> {
@@ -75,9 +108,9 @@ public final class AgentsClient extends ServiceClient {
                 timeout);
     }
 
-    private <T> PageResult<T> fetchPage(Map<String, ?> options, Class<T> itemType)
+    private <T> PageResult<T> fetchPage(QueryParams options, Class<T> itemType)
             throws IOException, InterruptedException {
-        Map<String, ?> query = options == null ? Map.of() : Map.copyOf(options);
+        QueryParams query = Objects.requireNonNull(options, "query");
         JsonNode response = Objects.requireNonNull(
                 request(Endpoints.Agents.GET_AGENTS, List.of(), query, null, JsonNode.class),
                 "Agent list response was empty");
@@ -98,10 +131,9 @@ public final class AgentsClient extends ServiceClient {
                 metadata.path("hasMore").asBoolean(metadata.path("has_more").asBoolean(!cursor.isBlank()));
         Long total = metadata.has("total") ? metadata.path("total").asLong() : null;
         return new PageResult<>(data, new Pagination(cursor, more, total), next -> {
-            Map<String, Object> nextQuery = new LinkedHashMap<>();
-            query.forEach(nextQuery::put);
-            nextQuery.put("cursor", next);
-            return fetchPage(nextQuery, itemType);
+            QueryParams.Builder nextQuery = QueryParams.builder();
+            query.values().forEach((name, values) -> values.forEach(value -> nextQuery.add(name, value)));
+            return fetchPage(nextQuery.add("cursor", next).build(), itemType);
         });
     }
 }

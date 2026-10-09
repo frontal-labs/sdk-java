@@ -84,18 +84,31 @@ class ReadmeExamplesTest {
 
     private String wrap(String snippet) {
         return """
+        import dev.frontal.sdk.ApiService;
+        import dev.frontal.sdk.ApiStream;
+        import dev.frontal.sdk.Endpoint;
+        import dev.frontal.sdk.FrontalException;
         import com.fasterxml.jackson.databind.JsonNode;
+        import dev.frontal.sdk.HttpMethod;
         import dev.frontal.sdk.Frontal;
         import dev.frontal.sdk.PageResult;
+        import dev.frontal.sdk.QueryParams;
+        import dev.frontal.sdk.RateLimitException;
+        import java.io.ByteArrayOutputStream;
+        import java.io.OutputStream;
+        import java.util.List;
         import java.util.Map;
         public class ReadmeQuickstart {
           public static void run() throws Exception {
             okhttp3.mockwebserver.MockWebServer mock = new okhttp3.mockwebserver.MockWebServer();
             mock.start();
             mock.enqueue(new okhttp3.mockwebserver.MockResponse().setBody(\"{\\\"id\\\":\\\"agt_123\\\",\\\"name\\\":\\\"triage\\\",\\\"data\\\":[{\\\"id\\\":\\\"agt_123\\\",\\\"name\\\":\\\"triage\\\"}]}\"));
+            Frontal f = Frontal.builder().apiKey(\"frt_test_key\").apiBaseUrl(mock.url(\"/v1\").toString()).build();
+            OutputStream outputStream = new ByteArrayOutputStream();
             try {
               %s
             } finally {
+              f.close();
               mock.shutdown();
             }
           }

@@ -122,11 +122,11 @@ public final class SseEventPublisher implements Flow.Publisher<String> {
                     if (isCancelled()) {
                         return;
                     }
-                    if (!activeIterator.hasNext()) {
-                        complete();
+                    if (!awaitDemand()) {
                         return;
                     }
-                    if (!awaitDemand()) {
+                    if (!activeIterator.hasNext()) {
+                        complete();
                         return;
                     }
                     String event = activeIterator.next();
@@ -139,6 +139,18 @@ public final class SseEventPublisher implements Flow.Publisher<String> {
                         }
                     }
                     subscriber.onNext(event);
+                    if (isCancelled()) {
+                        return;
+                    }
+                    if (activeIterator.isExhausted()) {
+                        complete();
+                        return;
+                    }
+                    // Look ahead once so a finite stream can complete when demand ends on its last event.
+                    if (!activeIterator.hasNext()) {
+                        complete();
+                        return;
+                    }
                 }
             } catch (Throwable exception) {
                 signalError(exception);

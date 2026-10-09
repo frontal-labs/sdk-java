@@ -7,7 +7,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.Map;
 import java.util.Objects;
 
 /** Lists pending workflow approvals and submits only an operator-confirmed approval. */
@@ -57,7 +56,7 @@ public final class Main {
         }
 
         JsonNode result = Objects.requireNonNull(
-            client.workflows().approve(approvalId, Map.of(), JsonNode.class),
+            client.workflows().approve(approvalId, client.apiClient().objectMapper().createObjectNode(), JsonNode.class),
             "Workflow approval response was empty");
         LOGGER.log(System.Logger.Level.INFO, "Workflow approval submitted");
         System.out.println(

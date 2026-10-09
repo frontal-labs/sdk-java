@@ -1,6 +1,7 @@
 package dev.frontal.sdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Path;
@@ -29,19 +30,19 @@ public class ServiceClient {
     }
 
     public <T> @Nullable T request(Endpoint endpoint, Class<T> responseType) throws IOException, InterruptedException {
-        return request(endpoint, List.of(), Map.of(), null, responseType);
+        return request(endpoint, List.of(), QueryParams.empty(), null, responseType);
     }
 
     public <T> @Nullable T request(Endpoint endpoint, List<String> pathParams, Class<T> responseType)
             throws IOException, InterruptedException {
-        return request(endpoint, pathParams, Map.of(), null, responseType);
+        return request(endpoint, pathParams, QueryParams.empty(), null, responseType);
     }
 
     public <T> @Nullable T request(
             Endpoint endpoint,
             List<String> pathParams,
-            Map<String, ?> query,
-            @Nullable Object body,
+            QueryParams query,
+            @Nullable JsonNode body,
             Class<T> responseType)
             throws IOException, InterruptedException {
         verify(endpoint);
@@ -51,30 +52,63 @@ public class ServiceClient {
     public <T> @Nullable T request(
             Endpoint endpoint,
             List<String> pathParams,
-            Map<String, ?> query,
-            @Nullable Object body,
+            QueryParams query,
+            @Nullable JsonNode body,
             TypeReference<T> responseType)
             throws IOException, InterruptedException {
         verify(endpoint);
         return client.request(endpoint, pathParams, query, body, responseType);
     }
 
-    public byte[] requestBytes(Endpoint endpoint, List<String> pathParams, Map<String, ?> query, @Nullable Object body)
+    public byte[] requestBytes(Endpoint endpoint, List<String> pathParams, QueryParams query, @Nullable JsonNode body)
             throws IOException, InterruptedException {
         verify(endpoint);
         return client.requestBytes(endpoint, pathParams, query, body);
     }
 
-    public ApiResponse execute(Endpoint endpoint, List<String> pathParams, Map<String, ?> query, @Nullable Object body)
+    /** Opens a successful response body without buffering it. The caller must close the result. */
+    public ApiStream streamBody(Endpoint endpoint, List<String> pathParams, QueryParams query, @Nullable JsonNode body)
+            throws IOException, InterruptedException {
+        verify(endpoint);
+        return client.streamBody(endpoint, pathParams, query, body);
+    }
+
+    public ApiResponse execute(Endpoint endpoint, List<String> pathParams, QueryParams query, @Nullable JsonNode body)
             throws IOException, InterruptedException {
         verify(endpoint);
         return client.execute(endpoint, pathParams, query, body);
     }
 
+    public ApiResponse executeRaw(Endpoint endpoint, List<String> pathParams, QueryParams query, byte[] body)
+            throws IOException, InterruptedException {
+        verify(endpoint);
+        return client.executeRaw(endpoint, pathParams, query, body);
+    }
+
+    public <T> @Nullable T requestRaw(
+            Endpoint endpoint, List<String> pathParams, QueryParams query, byte[] body, Class<T> responseType)
+            throws IOException, InterruptedException {
+        verify(endpoint);
+        return client.requestRaw(endpoint, pathParams, query, body, responseType);
+    }
+
+    public <T> @Nullable T requestRaw(
+            Endpoint endpoint, List<String> pathParams, QueryParams query, byte[] body, TypeReference<T> responseType)
+            throws IOException, InterruptedException {
+        verify(endpoint);
+        return client.requestRaw(endpoint, pathParams, query, body, responseType);
+    }
+
+    public byte[] requestRawBytes(Endpoint endpoint, List<String> pathParams, QueryParams query, byte[] body)
+            throws IOException, InterruptedException {
+        verify(endpoint);
+        return client.requestRawBytes(endpoint, pathParams, query, body);
+    }
+
     public <T> @Nullable T requestForm(
             Endpoint endpoint,
             List<String> pathParams,
-            Map<String, ?> query,
+            QueryParams query,
             Map<String, String> fields,
             Map<String, Path> files,
             Class<T> responseType)
@@ -86,7 +120,7 @@ public class ServiceClient {
     public <T> @Nullable T requestForm(
             Endpoint endpoint,
             List<String> pathParams,
-            Map<String, ?> query,
+            QueryParams query,
             Map<String, String> fields,
             Map<String, Path> files,
             TypeReference<T> responseType)
@@ -98,7 +132,7 @@ public class ServiceClient {
     public ApiResponse executeForm(
             Endpoint endpoint,
             List<String> pathParams,
-            Map<String, ?> query,
+            QueryParams query,
             Map<String, String> fields,
             Map<String, Path> files)
             throws IOException, InterruptedException {
@@ -106,26 +140,26 @@ public class ServiceClient {
         return client.executeForm(endpoint, pathParams, query, fields, files);
     }
 
-    public InputStream stream(Endpoint endpoint, List<String> pathParams, Map<String, ?> query)
+    public InputStream stream(Endpoint endpoint, List<String> pathParams, QueryParams query)
             throws IOException, InterruptedException {
         verify(endpoint);
         return client.stream(endpoint, pathParams, query);
     }
 
-    public ApiStream streamResponse(Endpoint endpoint, List<String> pathParams, Map<String, ?> query)
+    public ApiStream streamResponse(Endpoint endpoint, List<String> pathParams, QueryParams query)
             throws IOException, InterruptedException {
         verify(endpoint);
         return client.streamResponse(endpoint, pathParams, query);
     }
 
     /** Opens a reactive stream of event payloads from a {@code STREAM} endpoint. */
-    public Flow.Publisher<String> streamPublisher(Endpoint endpoint, List<String> pathParams, Map<String, ?> query) {
+    public Flow.Publisher<String> streamPublisher(Endpoint endpoint, List<String> pathParams, QueryParams query) {
         verify(endpoint);
         return client.streamPublisher(endpoint, pathParams, query);
     }
 
     /** Opens a blocking iterator of event payloads; close it to release the HTTP connection. */
-    public SseEventIterator streamEvents(Endpoint endpoint, List<String> pathParams, Map<String, ?> query)
+    public SseEventIterator streamEvents(Endpoint endpoint, List<String> pathParams, QueryParams query)
             throws IOException, InterruptedException {
         verify(endpoint);
         return client.streamEvents(endpoint, pathParams, query);

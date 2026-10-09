@@ -4,19 +4,18 @@ import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.TimeoutException;
 import org.jspecify.annotations.Nullable;
 
 /** Workflow definitions, executions, tasks, templates, and approvals. */
-public final class WorkflowsClient extends ServiceClient {
+public final class WorkflowsClient extends WorkflowsServiceClient {
     WorkflowsClient(ApiClient client) {
-        super(ApiService.WORKFLOWS, client);
+        super(client);
     }
 
-    public <T> PageResult<T> list(Map<String, ?> query, Class<T> itemType) throws IOException, InterruptedException {
+    public <T> PageResult<T> list(QueryParams query, Class<T> itemType) throws IOException, InterruptedException {
         return fetchPage(query, itemType);
     }
 
@@ -24,22 +23,28 @@ public final class WorkflowsClient extends ServiceClient {
         return request(Endpoints.Workflows.GET_WORKFLOWS_PARAM, List.of(workflowId), responseType);
     }
 
-    public <T> @Nullable T create(Object definition, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.POST_WORKFLOWS, List.of(), Map.of(), definition, responseType);
+    public <T> @Nullable T create(JsonNode definition, Class<T> responseType) throws IOException, InterruptedException {
+        return request(Endpoints.Workflows.POST_WORKFLOWS, List.of(), QueryParams.empty(), definition, responseType);
     }
 
-    public <T> @Nullable T update(String workflowId, Object update, Class<T> responseType)
+    public <T> @Nullable T update(String workflowId, JsonNode update, Class<T> responseType)
             throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.PATCH_WORKFLOWS_PARAM, List.of(workflowId), Map.of(), update, responseType);
+        return request(
+                Endpoints.Workflows.PATCH_WORKFLOWS_PARAM,
+                List.of(workflowId),
+                QueryParams.empty(),
+                update,
+                responseType);
     }
 
     public void delete(String workflowId) throws IOException, InterruptedException {
-        requestBytes(Endpoints.Workflows.DELETE_WORKFLOWS_PARAM, List.of(workflowId), Map.of(), null);
+        requestBytes(Endpoints.Workflows.DELETE_WORKFLOWS_PARAM, List.of(workflowId), QueryParams.empty(), null);
     }
 
-    public <T> @Nullable T createExecution(Object input, Class<T> responseType)
+    public <T> @Nullable T createExecution(JsonNode input, Class<T> responseType)
             throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.POST_WORKFLOWS_EXECUTIONS, List.of(), Map.of(), input, responseType);
+        return request(
+                Endpoints.Workflows.POST_WORKFLOWS_EXECUTIONS, List.of(), QueryParams.empty(), input, responseType);
     }
 
     public <T> @Nullable T execution(String executionId, Class<T> responseType)
@@ -47,7 +52,8 @@ public final class WorkflowsClient extends ServiceClient {
         return request(Endpoints.Workflows.GET_WORKFLOWS_EXECUTIONS_PARAM, List.of(executionId), responseType);
     }
 
-    public JsonNode waitForCompletion(String executionId, Duration interval, Duration timeout) throws Exception {
+    public JsonNode waitForCompletion(String executionId, Duration interval, Duration timeout)
+            throws IOException, InterruptedException, TimeoutException {
         return Poller.pollUntil(
                 () -> Objects.requireNonNull(execution(executionId, JsonNode.class), "Workflow response was empty"),
                 result -> {
@@ -59,29 +65,29 @@ public final class WorkflowsClient extends ServiceClient {
                 timeout);
     }
 
-    public <T> @Nullable T approve(String approvalId, Object decision, Class<T> responseType)
+    public <T> @Nullable T approve(String approvalId, JsonNode decision, Class<T> responseType)
             throws IOException, InterruptedException {
         return request(
                 Endpoints.Workflows.POST_WORKFLOWS_APPROVALS_PARAM_APPROVE,
                 List.of(approvalId),
-                Map.of(),
+                QueryParams.empty(),
                 decision,
                 responseType);
     }
 
-    public <T> @Nullable T reject(String approvalId, Object decision, Class<T> responseType)
+    public <T> @Nullable T reject(String approvalId, JsonNode decision, Class<T> responseType)
             throws IOException, InterruptedException {
         return request(
                 Endpoints.Workflows.POST_WORKFLOWS_APPROVALS_PARAM_REJECT,
                 List.of(approvalId),
-                Map.of(),
+                QueryParams.empty(),
                 decision,
                 responseType);
     }
 
-    private <T> PageResult<T> fetchPage(Map<String, ?> options, Class<T> itemType)
+    private <T> PageResult<T> fetchPage(QueryParams options, Class<T> itemType)
             throws IOException, InterruptedException {
-        Map<String, ?> query = options == null ? Map.of() : Map.copyOf(options);
+        QueryParams query = Objects.requireNonNull(options, "query");
         JsonNode response = Objects.requireNonNull(
                 request(Endpoints.Workflows.GET_WORKFLOWS, List.of(), query, null, JsonNode.class),
                 "Workflow list response was empty");
@@ -102,10 +108,9 @@ public final class WorkflowsClient extends ServiceClient {
                 metadata.path("hasMore").asBoolean(metadata.path("has_more").asBoolean(!cursor.isBlank()));
         Long total = metadata.has("total") ? metadata.path("total").asLong() : null;
         return new PageResult<>(data, new Pagination(cursor, more, total), next -> {
-            Map<String, Object> nextQuery = new LinkedHashMap<>();
-            query.forEach(nextQuery::put);
-            nextQuery.put("cursor", next);
-            return fetchPage(nextQuery, itemType);
+            QueryParams.Builder nextQuery = QueryParams.builder();
+            query.values().forEach((name, values) -> values.forEach(value -> nextQuery.add(name, value)));
+            return fetchPage(nextQuery.add("cursor", next).build(), itemType);
         });
     }
 }

@@ -1,13 +1,11 @@
 # Changelog
 
-## 1.0.0
+## 2.0.0
 
-- Add the Gradle multi-module SDK, shared OkHttp/Jackson transport, typed errors, pagination, polling, and SSE support.
-- Add named AI, agents, and workflows clients plus accessors for every service.
-- Add MockWebServer, README example, route contract, Java 17/21 CI, and Central Portal release checks.
+- Establish the initial SDK release with the multi-module build, shared transport, typed failures, pagination, polling, and SSE support.
+- Add named service clients and operation methods for all catalogued routes.
+- Retry safe streamed GET downloads and bound retained error diagnostics.
+- Add immutable typed query parameters and JSON tree request bodies for routes without contract schemas; isolate custom Jackson configuration.
+- Narrow polling exceptions, complete finite SSE publishers at exact demand boundaries, and publish generated service references.
 
 All notable changes to this SDK are recorded here.
-
-## Unreleased
-
-- Add the initial repository scaffold and shared API contract snapshots.

@@ -1,6 +1,6 @@
 # Java application templates
 
-Each directory is a standalone Java 17 Maven application that uses `dev.frontal:frontal-sdk:1.0.0`. To build a template against this checkout, publish the SDK modules to your local Maven repository from the repository root:
+Each directory is a standalone Java 17 Maven application that uses `dev.frontal:frontal-sdk:2.0.0`. To build a template against this checkout, publish the SDK modules to your local Maven repository from the repository root:
 
 ```bash
 ./gradlew :core:publishToMavenLocal :services:publishToMavenLocal :sdk:publishToMavenLocal

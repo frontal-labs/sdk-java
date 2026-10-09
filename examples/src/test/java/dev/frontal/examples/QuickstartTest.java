@@ -17,8 +17,8 @@ class QuickstartTest {
             mock.enqueue(new MockResponse().setBody("{\"id\":\"agt_123\",\"name\":\"triage\"}"));
             try (Frontal frontal = Frontal.builder()
                     .apiKey("frt_test_key")
-                    .baseUrl(mock.url("/v1").toString())
-                    .timeout(Duration.ofSeconds(2))
+                    .apiBaseUrl(mock.url("/v1").toString())
+                    .requestTimeout(Duration.ofSeconds(2))
                     .build()) {
                 JsonNode agent = frontal.agents().get("agt_123", JsonNode.class);
                 assertEquals("triage", agent.path("name").asText());
