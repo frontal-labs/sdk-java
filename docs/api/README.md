@@ -24,7 +24,6 @@ Call-shaped listing of every operation: [methods as code](./methods-as-code.md).
 | pipelines | 11 | [pipelines](./pipelines.md) |
 | providers | 1 | [providers](./providers.md) |
 | react | 0 | [react](./react.md) |
-| sandbox | 3 | [sandbox](./sandbox.md) |
 | schedules | 10 | [schedules](./schedules.md) |
 | webhook-endpoints | 7 | [webhook-endpoints](./webhook-endpoints.md) |
 | webhooks | 10 | [webhooks](./webhooks.md) |

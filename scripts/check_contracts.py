@@ -169,10 +169,10 @@ def main() -> None:
     snapshots = {path.name: load_json(path) for path in SNAPSHOTS}
     inventory = snapshots["sdk-endpoints.json"]
     expected_services = {
-        "agents", "ai", "audit", "auth", "billing", "blob", "connectors", "data",
-        "governance", "lineage", "observability", "ontology", "pipelines", "react",
-        "sandbox", "schedules", "webhooks", "workflows", "action-runs", "connection-tests",
-        "events", "integrations", "invocations", "providers", "webhook-endpoints",
+        "action-runs", "agents", "ai", "audit", "auth", "billing", "blob", "connection-tests",
+        "connectors", "data", "events", "governance", "integrations", "invocations", "lineage",
+        "observability", "ontology", "pipelines", "providers", "react", "schedules", "webhook-endpoints",
+        "webhooks", "workflows",
     }
     if set(inventory) != expected_services:
         raise SystemExit("SDK endpoint inventory service list drifted")

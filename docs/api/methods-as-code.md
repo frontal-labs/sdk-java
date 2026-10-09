@@ -646,14 +646,6 @@ client.providers().get(providerSlug, responseType);
 ```java
 ```
 
-## sandbox
-
-```java
-client.sandbox().createSelfTest(body, responseType);
-client.sandbox().submit(body, responseType);
-client.sandbox().languages().list(responseType);
-```
-
 ## schedules
 
 ```java

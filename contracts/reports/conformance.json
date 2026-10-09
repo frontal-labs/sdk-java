@@ -2,9 +2,9 @@
   "repository": "sdk-java",
   "language": "Java",
   "status": "named-operations",
-  "contractEndpointEntries": 622,
-  "generatedEndpointConstants": 611,
-  "namedOperationMethods": 611,
-  "supportedRouteCoverage": "611/622",
+  "contractEndpointEntries": 619,
+  "generatedEndpointConstants": 608,
+  "namedOperationMethods": 608,
+  "supportedRouteCoverage": "608/619",
   "note": "Endpoint constants and named operations cover SDK service routes. Payloads without usable schemas retain caller-provided JSON and response types."
 }

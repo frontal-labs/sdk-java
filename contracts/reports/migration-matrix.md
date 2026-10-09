@@ -4,9 +4,9 @@ _Status: generated route catalog and named operation surface complete. Typed mod
 
 | Metric | Value |
 | --- | ---: |
-| Contract endpoint entries | 622 |
-| Generated endpoint constants | 611 |
-| Named operation methods for supported routes | 611 |
+| Contract endpoint entries | 619 |
+| Generated endpoint constants | 608 |
+| Named operation methods for supported routes | 608 |
 | Contract routes omitted from the SDK surface | 11 |
 | Operation-specific payload schemas usable | Limited by committed contract snapshots |
 
