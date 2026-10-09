@@ -2,26 +2,41 @@
 
 Service accessor: `frontal.blob()` (`BlobClient`).
 
-Named methods are generated from the committed route catalog. Build query values with `QueryParams` using exact API wire names. Routes without request schemas accept `JsonNode`; select `JsonNode` or a caller-provided model for unmodeled responses.
+Operations are grouped by resource path. Collection methods use `list` and `create`; item methods use `get`, `update`, and `delete`. Calls can omit `QueryParams` when no query values are needed. Use contract-defined `JsonNode` bodies and caller-selected response types where schemas are not available.
 
 | Method | HTTP | Route | Parameters | Response |
 | --- | --- | --- | --- | --- |
-| `deleteBlobObjectParamParam(...)` | `DELETE` | `/blob/object/{param}/{param}` | `pathParam1, pathParam2, query, Class<T> responseType` | `@Nullable T` |
-| `deleteBlobObjectParamParam(...)` | `DELETE` | `/blob/object/{param}/{param}` | `pathParam1, pathParam2, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getBlobObjectInfoParamParam(...)` | `GET` | `/blob/object/info/{param}/{param}` | `pathParam1, pathParam2, query, Class<T> responseType` | `@Nullable T` |
-| `getBlobObjectInfoParamParam(...)` | `GET` | `/blob/object/info/{param}/{param}` | `pathParam1, pathParam2, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getBlobObjectParamParam(...)` | `GET` | `/blob/object/{param}/{param}` | `pathParam1, pathParam2, query, Class<T> responseType` | `@Nullable T` |
-| `getBlobObjectParamParam(...)` | `GET` | `/blob/object/{param}/{param}` | `pathParam1, pathParam2, query, TypeReference<T> responseType` | `@Nullable T` |
-| `postBlobObjectCopy(...)` | `POST` | `/blob/object/copy` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postBlobObjectCopy(...)` | `POST` | `/blob/object/copy` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postBlobObjectListParam(...)` | `POST` | `/blob/object/list/{param}` | `pathParam1, query, body, Class<T> responseType` | `@Nullable T` |
-| `postBlobObjectListParam(...)` | `POST` | `/blob/object/list/{param}` | `pathParam1, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postBlobObjectMove(...)` | `POST` | `/blob/object/move` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postBlobObjectMove(...)` | `POST` | `/blob/object/move` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postBlobObjectSignParamParam(...)` | `POST` | `/blob/object/sign/{param}/{param}` | `pathParam1, pathParam2, query, body, Class<T> responseType` | `@Nullable T` |
-| `postBlobObjectSignParamParam(...)` | `POST` | `/blob/object/sign/{param}/{param}` | `pathParam1, pathParam2, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postformdataBlobObjectParamParam(...)` | `POSTFORMDATA` | `/blob/object/{param}/{param}` | `pathParam1, pathParam2, query, fields, files, Class<T> responseType` | `@Nullable T` |
-| `postformdataBlobObjectParamParam(...)` | `POSTFORMDATA` | `/blob/object/{param}/{param}` | `pathParam1, pathParam2, query, fields, files, TypeReference<T> responseType` | `@Nullable T` |
-| No catalogued operations | — | — | — | — |
+| `blob().object().delete(...)` | `DELETE` | `/blob/object/{param}/{param}` | `String objectId, String objectId2, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `blob().object().delete(...)` | `DELETE` | `/blob/object/{param}/{param}` | `String objectId, String objectId2, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `blob().object().delete(...)` | `DELETE` | `/blob/object/{param}/{param}` | `String objectId, String objectId2, Class<T> responseType` | `@Nullable T` |
+| `blob().object().delete(...)` | `DELETE` | `/blob/object/{param}/{param}` | `String objectId, String objectId2, TypeReference<T> responseType` | `@Nullable T` |
+| `blob().object().get(...)` | `GET` | `/blob/object/{param}/{param}` | `String objectId, String objectId2, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `blob().object().get(...)` | `GET` | `/blob/object/{param}/{param}` | `String objectId, String objectId2, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `blob().object().get(...)` | `GET` | `/blob/object/{param}/{param}` | `String objectId, String objectId2, Class<T> responseType` | `@Nullable T` |
+| `blob().object().get(...)` | `GET` | `/blob/object/{param}/{param}` | `String objectId, String objectId2, TypeReference<T> responseType` | `@Nullable T` |
+| `blob().object().copy(...)` | `POST` | `/blob/object/copy` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `blob().object().copy(...)` | `POST` | `/blob/object/copy` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `blob().object().copy(...)` | `POST` | `/blob/object/copy` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `blob().object().copy(...)` | `POST` | `/blob/object/copy` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `blob().object().move(...)` | `POST` | `/blob/object/move` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `blob().object().move(...)` | `POST` | `/blob/object/move` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `blob().object().move(...)` | `POST` | `/blob/object/move` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `blob().object().move(...)` | `POST` | `/blob/object/move` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `blob().object().get2(...)` | `POSTFORMDATA` | `/blob/object/{param}/{param}` | `String objectId, String objectId2, QueryParams query, Map<String, String> fields, Map<String, Path> files, Class<T> responseType` | `@Nullable T` |
+| `blob().object().get2(...)` | `POSTFORMDATA` | `/blob/object/{param}/{param}` | `String objectId, String objectId2, QueryParams query, Map<String, String> fields, Map<String, Path> files, TypeReference<T> responseType` | `@Nullable T` |
+| `blob().object().get2(...)` | `POSTFORMDATA` | `/blob/object/{param}/{param}` | `String objectId, String objectId2, Map<String, String> fields, Map<String, Path> files, Class<T> responseType` | `@Nullable T` |
+| `blob().object().get2(...)` | `POSTFORMDATA` | `/blob/object/{param}/{param}` | `String objectId, String objectId2, Map<String, String> fields, Map<String, Path> files, TypeReference<T> responseType` | `@Nullable T` |
+| `blob().object().info().get(...)` | `GET` | `/blob/object/info/{param}/{param}` | `String infoId, String infoId2, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `blob().object().info().get(...)` | `GET` | `/blob/object/info/{param}/{param}` | `String infoId, String infoId2, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `blob().object().info().get(...)` | `GET` | `/blob/object/info/{param}/{param}` | `String infoId, String infoId2, Class<T> responseType` | `@Nullable T` |
+| `blob().object().info().get(...)` | `GET` | `/blob/object/info/{param}/{param}` | `String infoId, String infoId2, TypeReference<T> responseType` | `@Nullable T` |
+| `blob().object().list().get(...)` | `POST` | `/blob/object/list/{param}` | `String listId, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `blob().object().list().get(...)` | `POST` | `/blob/object/list/{param}` | `String listId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `blob().object().list().get(...)` | `POST` | `/blob/object/list/{param}` | `String listId, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `blob().object().list().get(...)` | `POST` | `/blob/object/list/{param}` | `String listId, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `blob().object().sign().get(...)` | `POST` | `/blob/object/sign/{param}/{param}` | `String signId, String signId2, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `blob().object().sign().get(...)` | `POST` | `/blob/object/sign/{param}/{param}` | `String signId, String signId2, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `blob().object().sign().get(...)` | `POST` | `/blob/object/sign/{param}/{param}` | `String signId, String signId2, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `blob().object().sign().get(...)` | `POST` | `/blob/object/sign/{param}/{param}` | `String signId, String signId2, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
 
 The generic `request(...)` methods and `Endpoints` constants remain available.

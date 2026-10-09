@@ -2,12 +2,13 @@
 
 Service accessor: `frontal.connectionTests()` (`ConnectionTestsClient`).
 
-Named methods are generated from the committed route catalog. Build query values with `QueryParams` using exact API wire names. Routes without request schemas accept `JsonNode`; select `JsonNode` or a caller-provided model for unmodeled responses.
+Operations are grouped by resource path. Collection methods use `list` and `create`; item methods use `get`, `update`, and `delete`. Calls can omit `QueryParams` when no query values are needed. Use contract-defined `JsonNode` bodies and caller-selected response types where schemas are not available.
 
 | Method | HTTP | Route | Parameters | Response |
 | --- | --- | --- | --- | --- |
-| `getConnectionTestsConnectionTestId(...)` | `GET` | `/connection-tests/{param}` | `connectionTestId, query, Class<T> responseType` | `@Nullable T` |
-| `getConnectionTestsConnectionTestId(...)` | `GET` | `/connection-tests/{param}` | `connectionTestId, query, TypeReference<T> responseType` | `@Nullable T` |
-| No catalogued operations | — | — | — | — |
+| `connectionTests().get(...)` | `GET` | `/connection-tests/{param}` | `String connectionTestId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `connectionTests().get(...)` | `GET` | `/connection-tests/{param}` | `String connectionTestId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `connectionTests().get(...)` | `GET` | `/connection-tests/{param}` | `String connectionTestId, Class<T> responseType` | `@Nullable T` |
+| `connectionTests().get(...)` | `GET` | `/connection-tests/{param}` | `String connectionTestId, TypeReference<T> responseType` | `@Nullable T` |
 
 The generic `request(...)` methods and `Endpoints` constants remain available.

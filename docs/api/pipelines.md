@@ -2,32 +2,53 @@
 
 Service accessor: `frontal.pipelines()` (`PipelinesClient`).
 
-Named methods are generated from the committed route catalog. Build query values with `QueryParams` using exact API wire names. Routes without request schemas accept `JsonNode`; select `JsonNode` or a caller-provided model for unmodeled responses.
+Operations are grouped by resource path. Collection methods use `list` and `create`; item methods use `get`, `update`, and `delete`. Calls can omit `QueryParams` when no query values are needed. Use contract-defined `JsonNode` bodies and caller-selected response types where schemas are not available.
 
 | Method | HTTP | Route | Parameters | Response |
 | --- | --- | --- | --- | --- |
-| `getDataPipelinesCapabilities(...)` | `GET` | `/data/pipelines/capabilities` | `query, Class<T> responseType` | `@Nullable T` |
-| `getDataPipelinesCapabilities(...)` | `GET` | `/data/pipelines/capabilities` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getDataPipelinesHealth(...)` | `GET` | `/data/pipelines/health` | `query, Class<T> responseType` | `@Nullable T` |
-| `getDataPipelinesHealth(...)` | `GET` | `/data/pipelines/health` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getDataPipelinesInfo(...)` | `GET` | `/data/pipelines/info` | `query, Class<T> responseType` | `@Nullable T` |
-| `getDataPipelinesInfo(...)` | `GET` | `/data/pipelines/info` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getDataPipelinesPipelineRuns(...)` | `GET` | `/data/pipelines/pipeline-runs` | `query, Class<T> responseType` | `@Nullable T` |
-| `getDataPipelinesPipelineRuns(...)` | `GET` | `/data/pipelines/pipeline-runs` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getDataPipelinesPipelineRunsParam(...)` | `GET` | `/data/pipelines/pipeline-runs/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `getDataPipelinesPipelineRunsParam(...)` | `GET` | `/data/pipelines/pipeline-runs/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getDataPipelinesPipelines(...)` | `GET` | `/data/pipelines/pipelines` | `query, Class<T> responseType` | `@Nullable T` |
-| `getDataPipelinesPipelines(...)` | `GET` | `/data/pipelines/pipelines` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getDataPipelinesPipelinesParam(...)` | `GET` | `/data/pipelines/pipelines/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `getDataPipelinesPipelinesParam(...)` | `GET` | `/data/pipelines/pipelines/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getDataPipelinesRuns(...)` | `GET` | `/data/pipelines/runs` | `query, Class<T> responseType` | `@Nullable T` |
-| `getDataPipelinesRuns(...)` | `GET` | `/data/pipelines/runs` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `postDataPipelinesPipelines(...)` | `POST` | `/data/pipelines/pipelines` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postDataPipelinesPipelines(...)` | `POST` | `/data/pipelines/pipelines` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postDataPipelinesRuns(...)` | `POST` | `/data/pipelines/runs` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postDataPipelinesRuns(...)` | `POST` | `/data/pipelines/runs` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `streamDataPipelinesPipelineRunsParam(...)` | `STREAM` | `/data/pipelines/pipeline-runs/{param}` | `pathParam1, query` | `Flow.Publisher<String>` |
-| `streamDataPipelinesPipelineRunsParamBlocking(...)` | `STREAM` | `/data/pipelines/pipeline-runs/{param}` | `pathParam1, query` | `SseEventIterator` |
-| No catalogued operations | — | — | — | — |
+| `pipelines().data().pipelines().health(...)` | `GET` | `/data/pipelines/health` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().health(...)` | `GET` | `/data/pipelines/health` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().health(...)` | `GET` | `/data/pipelines/health` | `Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().health(...)` | `GET` | `/data/pipelines/health` | `TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().getInfo(...)` | `GET` | `/data/pipelines/info` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().getInfo(...)` | `GET` | `/data/pipelines/info` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().getInfo(...)` | `GET` | `/data/pipelines/info` | `Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().getInfo(...)` | `GET` | `/data/pipelines/info` | `TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().capabilities().list(...)` | `GET` | `/data/pipelines/capabilities` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().capabilities().list(...)` | `GET` | `/data/pipelines/capabilities` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().capabilities().list(...)` | `GET` | `/data/pipelines/capabilities` | `Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().capabilities().list(...)` | `GET` | `/data/pipelines/capabilities` | `TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelineRuns().list(...)` | `GET` | `/data/pipelines/pipeline-runs` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelineRuns().list(...)` | `GET` | `/data/pipelines/pipeline-runs` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelineRuns().list(...)` | `GET` | `/data/pipelines/pipeline-runs` | `Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelineRuns().list(...)` | `GET` | `/data/pipelines/pipeline-runs` | `TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelineRuns().get(...)` | `GET` | `/data/pipelines/pipeline-runs/{param}` | `String pipelineRunId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelineRuns().get(...)` | `GET` | `/data/pipelines/pipeline-runs/{param}` | `String pipelineRunId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelineRuns().get(...)` | `GET` | `/data/pipelines/pipeline-runs/{param}` | `String pipelineRunId, Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelineRuns().get(...)` | `GET` | `/data/pipelines/pipeline-runs/{param}` | `String pipelineRunId, TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelineRuns().get2(...)` | `STREAM` | `/data/pipelines/pipeline-runs/{param}` | `String pipelineRunId, QueryParams query` | `Flow.Publisher<String>` |
+| `pipelines().data().pipelines().pipelineRuns().get2(...)` | `STREAM` | `/data/pipelines/pipeline-runs/{param}` | `String pipelineRunId` | `Flow.Publisher<String>` |
+| `pipelines().data().pipelines().pipelineRuns().get2Blocking(...)` | `STREAM` | `/data/pipelines/pipeline-runs/{param}` | `String pipelineRunId, QueryParams query` | `SseEventIterator` |
+| `pipelines().data().pipelines().pipelineRuns().get2Blocking(...)` | `STREAM` | `/data/pipelines/pipeline-runs/{param}` | `String pipelineRunId` | `SseEventIterator` |
+| `pipelines().data().pipelines().pipelines().list(...)` | `GET` | `/data/pipelines/pipelines` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelines().list(...)` | `GET` | `/data/pipelines/pipelines` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelines().list(...)` | `GET` | `/data/pipelines/pipelines` | `Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelines().list(...)` | `GET` | `/data/pipelines/pipelines` | `TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelines().get(...)` | `GET` | `/data/pipelines/pipelines/{param}` | `String pipelineId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelines().get(...)` | `GET` | `/data/pipelines/pipelines/{param}` | `String pipelineId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelines().get(...)` | `GET` | `/data/pipelines/pipelines/{param}` | `String pipelineId, Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelines().get(...)` | `GET` | `/data/pipelines/pipelines/{param}` | `String pipelineId, TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelines().create(...)` | `POST` | `/data/pipelines/pipelines` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelines().create(...)` | `POST` | `/data/pipelines/pipelines` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelines().create(...)` | `POST` | `/data/pipelines/pipelines` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().pipelines().create(...)` | `POST` | `/data/pipelines/pipelines` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().runs().list(...)` | `GET` | `/data/pipelines/runs` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().runs().list(...)` | `GET` | `/data/pipelines/runs` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().runs().list(...)` | `GET` | `/data/pipelines/runs` | `Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().runs().list(...)` | `GET` | `/data/pipelines/runs` | `TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().runs().create(...)` | `POST` | `/data/pipelines/runs` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().runs().create(...)` | `POST` | `/data/pipelines/runs` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().runs().create(...)` | `POST` | `/data/pipelines/runs` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `pipelines().data().pipelines().runs().create(...)` | `POST` | `/data/pipelines/runs` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
 
 The generic `request(...)` methods and `Endpoints` constants remain available.

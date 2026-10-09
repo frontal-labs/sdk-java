@@ -1,6 +1,6 @@
 # Java examples
 
-Examples in this repository use Java 17 and the Maven coordinate `dev.frontal:frontal-sdk:2.0.0`. Named service methods take immutable `QueryParams`, `JsonNode` request bodies when schemas are unavailable, and caller-selected response types. `Endpoints` remains available for generic requests.
+Examples in this repository use Java 17 and the Maven coordinate `dev.frontal:frontal-sdk:2.0.0`. Service clients group methods by nested resources and use concise collection, item, and action methods. Calls accept `JsonNode` request bodies where schemas are unavailable, caller-selected response types, and optional `QueryParams`. `Endpoints` remains available for generic requests.
 
 For standalone starter applications tailored to common deployment patterns, see [`templates/README.md`](../templates/README.md).
 
@@ -11,7 +11,7 @@ try (Frontal client = Frontal.builder()
     .apiKey("frt_test_key")
     .apiBaseUrl(mock.url("/v1").toString())
     .build()) {
-  PageResult<JsonNode> agents = client.agents().list(QueryParams.empty(), JsonNode.class);
+  PageResult<JsonNode> agents = client.agents().listPages(QueryParams.empty(), JsonNode.class);
   for (JsonNode agent : agents) {
     System.out.println(agent.path("id").asText());
   }

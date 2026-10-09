@@ -33,12 +33,22 @@ try (Frontal quickstartClient = Frontal.builder().apiKey("frt_test_key").apiBase
 }
 ```
 
-The production default API base URL is `https://api.frontal.dev/v1`; `apiBaseUrl(...)` configures test servers and compatible gateways. `Frontal` exposes a typed client for every API service, with named operation methods generated from the route catalog. Each service shares one transport; `Endpoints` and generic `request` methods remain available for advanced use.
+The production default API base URL is `https://api.frontal.dev/v1`; `apiBaseUrl(...)` configures test servers and compatible gateways. `Frontal` exposes a client for every API service, with nested resource clients and concise methods generated from the route catalog. Collection methods use names such as `list()` and `create()`, item methods use `get(id)`, `update(id, body)`, and `delete(id)`, and custom actions keep their action names. Each resource shares one transport; `Endpoints` and generic `request` methods remain available for advanced use.
 
-For routes whose contracts do not define a payload schema, named methods accept `JsonNode` request bodies, typed query parameters, and caller-selected response types. Use `JsonNode` for flexible responses or `TypeReference<T>` for generic collections:
+Nested routes follow their resource path:
 
 ```java
-  JsonNode health = f.agents().getAgentsHealth(QueryParams.empty(), JsonNode.class);
+JsonNode run = f.agents().runs().get("run_123", JsonNode.class);
+```
+
+```java
+JsonNode dataset = f.data().ingest().datasets().get("dataset_123", JsonNode.class);
+```
+
+For routes whose contracts do not define a payload schema, named methods accept `JsonNode` request bodies and caller-selected response types. Use `QueryParams` when you need to add query values and `TypeReference<T>` for generic collections:
+
+```java
+  JsonNode health = f.agents().health(JsonNode.class);
 ```
 
 ## Configuration
@@ -64,7 +74,7 @@ Paginated list operations return `PageResult<T>` with `nextPage()`, `all()`, and
 Iterate pages lazily when the result may be large:
 
 ```java
-for (JsonNode agent : f.agents().list(QueryParams.empty(), JsonNode.class)) {
+for (JsonNode agent : f.agents().listPages(QueryParams.empty(), JsonNode.class)) {
   System.out.println(agent.path("id").asText());
 }
 ```

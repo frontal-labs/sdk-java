@@ -2,34 +2,57 @@
 
 Service accessor: `frontal.connectors()` (`ConnectorsClient`).
 
-Named methods are generated from the committed route catalog. Build query values with `QueryParams` using exact API wire names. Routes without request schemas accept `JsonNode`; select `JsonNode` or a caller-provided model for unmodeled responses.
+Operations are grouped by resource path. Collection methods use `list` and `create`; item methods use `get`, `update`, and `delete`. Calls can omit `QueryParams` when no query values are needed. Use contract-defined `JsonNode` bodies and caller-selected response types where schemas are not available.
 
 | Method | HTTP | Route | Parameters | Response |
 | --- | --- | --- | --- | --- |
-| `deleteConnectorsInstallationsParam(...)` | `DELETE` | `/connectors/installations/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `deleteConnectorsInstallationsParam(...)` | `DELETE` | `/connectors/installations/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getConnectorsCatalog(...)` | `GET` | `/connectors/catalog` | `query, Class<T> responseType` | `@Nullable T` |
-| `getConnectorsCatalog(...)` | `GET` | `/connectors/catalog` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getConnectorsCatalogParam(...)` | `GET` | `/connectors/catalog/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `getConnectorsCatalogParam(...)` | `GET` | `/connectors/catalog/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getConnectorsConnectionTestsParam(...)` | `GET` | `/connectors/connection-tests/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `getConnectorsConnectionTestsParam(...)` | `GET` | `/connectors/connection-tests/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getConnectorsInstallations(...)` | `GET` | `/connectors/installations` | `query, Class<T> responseType` | `@Nullable T` |
-| `getConnectorsInstallations(...)` | `GET` | `/connectors/installations` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getConnectorsInstallationsParam(...)` | `GET` | `/connectors/installations/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `getConnectorsInstallationsParam(...)` | `GET` | `/connectors/installations/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getDiagnostics(...)` | `GET` | `/diagnostics` | `query, Class<T> responseType` | `@Nullable T` |
-| `getDiagnostics(...)` | `GET` | `/diagnostics` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `patchConnectorsInstallationsParam(...)` | `PATCH` | `/connectors/installations/{param}` | `pathParam1, query, body, Class<T> responseType` | `@Nullable T` |
-| `patchConnectorsInstallationsParam(...)` | `PATCH` | `/connectors/installations/{param}` | `pathParam1, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postConnectorsInstallations(...)` | `POST` | `/connectors/installations` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postConnectorsInstallations(...)` | `POST` | `/connectors/installations` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postConnectorsInstallationsParamPause(...)` | `POST` | `/connectors/installations/{param}/pause` | `pathParam1, query, body, Class<T> responseType` | `@Nullable T` |
-| `postConnectorsInstallationsParamPause(...)` | `POST` | `/connectors/installations/{param}/pause` | `pathParam1, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postConnectorsInstallationsParamResume(...)` | `POST` | `/connectors/installations/{param}/resume` | `pathParam1, query, body, Class<T> responseType` | `@Nullable T` |
-| `postConnectorsInstallationsParamResume(...)` | `POST` | `/connectors/installations/{param}/resume` | `pathParam1, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postConnectorsSyncRunsParamReplay(...)` | `POST` | `/connectors/sync-runs/{param}/replay` | `pathParam1, query, body, Class<T> responseType` | `@Nullable T` |
-| `postConnectorsSyncRunsParamReplay(...)` | `POST` | `/connectors/sync-runs/{param}/replay` | `pathParam1, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| No catalogued operations | — | — | — | — |
+| `connectors().getCatalog(...)` | `GET` | `/connectors/catalog` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `connectors().getCatalog(...)` | `GET` | `/connectors/catalog` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().getCatalog(...)` | `GET` | `/connectors/catalog` | `Class<T> responseType` | `@Nullable T` |
+| `connectors().getCatalog(...)` | `GET` | `/connectors/catalog` | `TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().catalog().get(...)` | `GET` | `/connectors/catalog/{param}` | `String catalogId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `connectors().catalog().get(...)` | `GET` | `/connectors/catalog/{param}` | `String catalogId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().catalog().get(...)` | `GET` | `/connectors/catalog/{param}` | `String catalogId, Class<T> responseType` | `@Nullable T` |
+| `connectors().catalog().get(...)` | `GET` | `/connectors/catalog/{param}` | `String catalogId, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().connectionTests().get(...)` | `GET` | `/connectors/connection-tests/{param}` | `String connectionTestId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `connectors().connectionTests().get(...)` | `GET` | `/connectors/connection-tests/{param}` | `String connectionTestId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().connectionTests().get(...)` | `GET` | `/connectors/connection-tests/{param}` | `String connectionTestId, Class<T> responseType` | `@Nullable T` |
+| `connectors().connectionTests().get(...)` | `GET` | `/connectors/connection-tests/{param}` | `String connectionTestId, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().diagnostics().list(...)` | `GET` | `/diagnostics` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `connectors().diagnostics().list(...)` | `GET` | `/diagnostics` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().diagnostics().list(...)` | `GET` | `/diagnostics` | `Class<T> responseType` | `@Nullable T` |
+| `connectors().diagnostics().list(...)` | `GET` | `/diagnostics` | `TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().installations().delete(...)` | `DELETE` | `/connectors/installations/{param}` | `String installationId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `connectors().installations().delete(...)` | `DELETE` | `/connectors/installations/{param}` | `String installationId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().installations().delete(...)` | `DELETE` | `/connectors/installations/{param}` | `String installationId, Class<T> responseType` | `@Nullable T` |
+| `connectors().installations().delete(...)` | `DELETE` | `/connectors/installations/{param}` | `String installationId, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().installations().list(...)` | `GET` | `/connectors/installations` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `connectors().installations().list(...)` | `GET` | `/connectors/installations` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().installations().list(...)` | `GET` | `/connectors/installations` | `Class<T> responseType` | `@Nullable T` |
+| `connectors().installations().list(...)` | `GET` | `/connectors/installations` | `TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().installations().get(...)` | `GET` | `/connectors/installations/{param}` | `String installationId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `connectors().installations().get(...)` | `GET` | `/connectors/installations/{param}` | `String installationId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().installations().get(...)` | `GET` | `/connectors/installations/{param}` | `String installationId, Class<T> responseType` | `@Nullable T` |
+| `connectors().installations().get(...)` | `GET` | `/connectors/installations/{param}` | `String installationId, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().installations().update(...)` | `PATCH` | `/connectors/installations/{param}` | `String installationId, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `connectors().installations().update(...)` | `PATCH` | `/connectors/installations/{param}` | `String installationId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().installations().update(...)` | `PATCH` | `/connectors/installations/{param}` | `String installationId, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `connectors().installations().update(...)` | `PATCH` | `/connectors/installations/{param}` | `String installationId, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().installations().create(...)` | `POST` | `/connectors/installations` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `connectors().installations().create(...)` | `POST` | `/connectors/installations` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().installations().create(...)` | `POST` | `/connectors/installations` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `connectors().installations().create(...)` | `POST` | `/connectors/installations` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().installations().pause(...)` | `POST` | `/connectors/installations/{param}/pause` | `String installationId, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `connectors().installations().pause(...)` | `POST` | `/connectors/installations/{param}/pause` | `String installationId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().installations().pause(...)` | `POST` | `/connectors/installations/{param}/pause` | `String installationId, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `connectors().installations().pause(...)` | `POST` | `/connectors/installations/{param}/pause` | `String installationId, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().installations().resume(...)` | `POST` | `/connectors/installations/{param}/resume` | `String installationId, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `connectors().installations().resume(...)` | `POST` | `/connectors/installations/{param}/resume` | `String installationId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().installations().resume(...)` | `POST` | `/connectors/installations/{param}/resume` | `String installationId, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `connectors().installations().resume(...)` | `POST` | `/connectors/installations/{param}/resume` | `String installationId, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().syncRuns().replay(...)` | `POST` | `/connectors/sync-runs/{param}/replay` | `String syncRunId, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `connectors().syncRuns().replay(...)` | `POST` | `/connectors/sync-runs/{param}/replay` | `String syncRunId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `connectors().syncRuns().replay(...)` | `POST` | `/connectors/sync-runs/{param}/replay` | `String syncRunId, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `connectors().syncRuns().replay(...)` | `POST` | `/connectors/sync-runs/{param}/replay` | `String syncRunId, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
 
 The generic `request(...)` methods and `Endpoints` constants remain available.

@@ -2,28 +2,45 @@
 
 Service accessor: `frontal.ai()` (`AiServiceClient`).
 
-Named methods are generated from the committed route catalog. Build query values with `QueryParams` using exact API wire names. Routes without request schemas accept `JsonNode`; select `JsonNode` or a caller-provided model for unmodeled responses.
+Operations are grouped by resource path. Collection methods use `list` and `create`; item methods use `get`, `update`, and `delete`. Calls can omit `QueryParams` when no query values are needed. Use contract-defined `JsonNode` bodies and caller-selected response types where schemas are not available.
 
 | Method | HTTP | Route | Parameters | Response |
 | --- | --- | --- | --- | --- |
-| `getHealth(...)` | `GET` | `/health` | `query, Class<T> responseType` | `@Nullable T` |
-| `getHealth(...)` | `GET` | `/health` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getInternalModels(...)` | `GET` | `/internal/models` | `query, Class<T> responseType` | `@Nullable T` |
-| `getInternalModels(...)` | `GET` | `/internal/models` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getInternalModelsDefaults(...)` | `GET` | `/internal/models/defaults` | `query, Class<T> responseType` | `@Nullable T` |
-| `getInternalModelsDefaults(...)` | `GET` | `/internal/models/defaults` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `postAiChatCompletions(...)` | `POST` | `/ai/chat/completions` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAiChatCompletions(...)` | `POST` | `/ai/chat/completions` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postInternalEmbeddings(...)` | `POST` | `/internal/embeddings` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postInternalEmbeddings(...)` | `POST` | `/internal/embeddings` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postInternalPredictions(...)` | `POST` | `/internal/predictions` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postInternalPredictions(...)` | `POST` | `/internal/predictions` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postInternalRerank(...)` | `POST` | `/internal/rerank` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postInternalRerank(...)` | `POST` | `/internal/rerank` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postformdataInternalPredictions(...)` | `POSTFORMDATA` | `/internal/predictions` | `query, fields, files, Class<T> responseType` | `@Nullable T` |
-| `postformdataInternalPredictions(...)` | `POSTFORMDATA` | `/internal/predictions` | `query, fields, files, TypeReference<T> responseType` | `@Nullable T` |
-| `postrawInternalPredictions(...)` | `POSTRAW` | `/internal/predictions` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postrawInternalPredictions(...)` | `POSTRAW` | `/internal/predictions` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| No catalogued operations | — | — | — | — |
+| `ai().health(...)` | `GET` | `/health` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `ai().health(...)` | `GET` | `/health` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `ai().health(...)` | `GET` | `/health` | `Class<T> responseType` | `@Nullable T` |
+| `ai().health(...)` | `GET` | `/health` | `TypeReference<T> responseType` | `@Nullable T` |
+| `ai().internal().embed(...)` | `POST` | `/internal/embeddings` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `ai().internal().embed(...)` | `POST` | `/internal/embeddings` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `ai().internal().embed(...)` | `POST` | `/internal/embeddings` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `ai().internal().embed(...)` | `POST` | `/internal/embeddings` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `ai().internal().predict(...)` | `POST` | `/internal/predictions` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `ai().internal().predict(...)` | `POST` | `/internal/predictions` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `ai().internal().predict(...)` | `POST` | `/internal/predictions` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `ai().internal().predict(...)` | `POST` | `/internal/predictions` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `ai().internal().rerank(...)` | `POST` | `/internal/rerank` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `ai().internal().rerank(...)` | `POST` | `/internal/rerank` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `ai().internal().rerank(...)` | `POST` | `/internal/rerank` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `ai().internal().rerank(...)` | `POST` | `/internal/rerank` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `ai().internal().predictForm(...)` | `POSTFORMDATA` | `/internal/predictions` | `QueryParams query, Map<String, String> fields, Map<String, Path> files, Class<T> responseType` | `@Nullable T` |
+| `ai().internal().predictForm(...)` | `POSTFORMDATA` | `/internal/predictions` | `QueryParams query, Map<String, String> fields, Map<String, Path> files, TypeReference<T> responseType` | `@Nullable T` |
+| `ai().internal().predictForm(...)` | `POSTFORMDATA` | `/internal/predictions` | `Map<String, String> fields, Map<String, Path> files, Class<T> responseType` | `@Nullable T` |
+| `ai().internal().predictForm(...)` | `POSTFORMDATA` | `/internal/predictions` | `Map<String, String> fields, Map<String, Path> files, TypeReference<T> responseType` | `@Nullable T` |
+| `ai().internal().predictRaw(...)` | `POSTRAW` | `/internal/predictions` | `QueryParams query, byte[] body, Class<T> responseType` | `@Nullable T` |
+| `ai().internal().predictRaw(...)` | `POSTRAW` | `/internal/predictions` | `QueryParams query, byte[] body, TypeReference<T> responseType` | `@Nullable T` |
+| `ai().internal().predictRaw(...)` | `POSTRAW` | `/internal/predictions` | `byte[] body, Class<T> responseType` | `@Nullable T` |
+| `ai().internal().predictRaw(...)` | `POSTRAW` | `/internal/predictions` | `byte[] body, TypeReference<T> responseType` | `@Nullable T` |
+| `ai().chat().completions().create(...)` | `POST` | `/ai/chat/completions` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `ai().chat().completions().create(...)` | `POST` | `/ai/chat/completions` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `ai().chat().completions().create(...)` | `POST` | `/ai/chat/completions` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `ai().chat().completions().create(...)` | `POST` | `/ai/chat/completions` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `ai().internal().models().list(...)` | `GET` | `/internal/models` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `ai().internal().models().list(...)` | `GET` | `/internal/models` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `ai().internal().models().list(...)` | `GET` | `/internal/models` | `Class<T> responseType` | `@Nullable T` |
+| `ai().internal().models().list(...)` | `GET` | `/internal/models` | `TypeReference<T> responseType` | `@Nullable T` |
+| `ai().internal().models().defaults(...)` | `GET` | `/internal/models/defaults` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `ai().internal().models().defaults(...)` | `GET` | `/internal/models/defaults` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `ai().internal().models().defaults(...)` | `GET` | `/internal/models/defaults` | `Class<T> responseType` | `@Nullable T` |
+| `ai().internal().models().defaults(...)` | `GET` | `/internal/models/defaults` | `TypeReference<T> responseType` | `@Nullable T` |
 
 The generic `request(...)` methods and `Endpoints` constants remain available.

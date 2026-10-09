@@ -2,18 +2,25 @@
 
 Service accessor: `frontal.audit()` (`AuditClient`).
 
-Named methods are generated from the committed route catalog. Build query values with `QueryParams` using exact API wire names. Routes without request schemas accept `JsonNode`; select `JsonNode` or a caller-provided model for unmodeled responses.
+Operations are grouped by resource path. Collection methods use `list` and `create`; item methods use `get`, `update`, and `delete`. Calls can omit `QueryParams` when no query values are needed. Use contract-defined `JsonNode` bodies and caller-selected response types where schemas are not available.
 
 | Method | HTTP | Route | Parameters | Response |
 | --- | --- | --- | --- | --- |
-| `getAuditEvents(...)` | `GET` | `/audit/events` | `query, Class<T> responseType` | `@Nullable T` |
-| `getAuditEvents(...)` | `GET` | `/audit/events` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuditEventsParam(...)` | `GET` | `/audit/events/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `getAuditEventsParam(...)` | `GET` | `/audit/events/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuditEvents(...)` | `POST` | `/audit/events` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuditEvents(...)` | `POST` | `/audit/events` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuditEventsBatch(...)` | `POST` | `/audit/events/batch` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuditEventsBatch(...)` | `POST` | `/audit/events/batch` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| No catalogued operations | — | — | — | — |
+| `audit().events().list(...)` | `GET` | `/audit/events` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `audit().events().list(...)` | `GET` | `/audit/events` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `audit().events().list(...)` | `GET` | `/audit/events` | `Class<T> responseType` | `@Nullable T` |
+| `audit().events().list(...)` | `GET` | `/audit/events` | `TypeReference<T> responseType` | `@Nullable T` |
+| `audit().events().get(...)` | `GET` | `/audit/events/{param}` | `String eventId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `audit().events().get(...)` | `GET` | `/audit/events/{param}` | `String eventId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `audit().events().get(...)` | `GET` | `/audit/events/{param}` | `String eventId, Class<T> responseType` | `@Nullable T` |
+| `audit().events().get(...)` | `GET` | `/audit/events/{param}` | `String eventId, TypeReference<T> responseType` | `@Nullable T` |
+| `audit().events().create(...)` | `POST` | `/audit/events` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `audit().events().create(...)` | `POST` | `/audit/events` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `audit().events().create(...)` | `POST` | `/audit/events` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `audit().events().create(...)` | `POST` | `/audit/events` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `audit().events().batch(...)` | `POST` | `/audit/events/batch` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `audit().events().batch(...)` | `POST` | `/audit/events/batch` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `audit().events().batch(...)` | `POST` | `/audit/events/batch` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `audit().events().batch(...)` | `POST` | `/audit/events/batch` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
 
 The generic `request(...)` methods and `Endpoints` constants remain available.

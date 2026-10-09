@@ -2,142 +2,273 @@
 
 Service accessor: `frontal.auth()` (`AuthClient`).
 
-Named methods are generated from the committed route catalog. Build query values with `QueryParams` using exact API wire names. Routes without request schemas accept `JsonNode`; select `JsonNode` or a caller-provided model for unmodeled responses.
+Operations are grouped by resource path. Collection methods use `list` and `create`; item methods use `get`, `update`, and `delete`. Calls can omit `QueryParams` when no query values are needed. Use contract-defined `JsonNode` bodies and caller-selected response types where schemas are not available.
 
 | Method | HTTP | Route | Parameters | Response |
 | --- | --- | --- | --- | --- |
-| `deleteAuthAccountMfaParam(...)` | `DELETE` | `/auth/account/mfa/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `deleteAuthAccountMfaParam(...)` | `DELETE` | `/auth/account/mfa/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `deleteAuthAccountProfile(...)` | `DELETE` | `/auth/account/profile` | `query, Class<T> responseType` | `@Nullable T` |
-| `deleteAuthAccountProfile(...)` | `DELETE` | `/auth/account/profile` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `deleteAuthAccountSecurityApiKeysParam(...)` | `DELETE` | `/auth/account/security/api-keys/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `deleteAuthAccountSecurityApiKeysParam(...)` | `DELETE` | `/auth/account/security/api-keys/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `deleteAuthAccountSecurityDevicesParam(...)` | `DELETE` | `/auth/account/security/devices/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `deleteAuthAccountSecurityDevicesParam(...)` | `DELETE` | `/auth/account/security/devices/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `deleteAuthAccountSessionsParam(...)` | `DELETE` | `/auth/account/sessions/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `deleteAuthAccountSessionsParam(...)` | `DELETE` | `/auth/account/sessions/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `deleteAuthAdminUsersParam(...)` | `DELETE` | `/auth/admin/users/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `deleteAuthAdminUsersParam(...)` | `DELETE` | `/auth/admin/users/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `deleteAuthAdminUsersParamFactorsParam(...)` | `DELETE` | `/auth/admin/users/{param}/factors/{param}` | `pathParam1, pathParam2, query, Class<T> responseType` | `@Nullable T` |
-| `deleteAuthAdminUsersParamFactorsParam(...)` | `DELETE` | `/auth/admin/users/{param}/factors/{param}` | `pathParam1, pathParam2, query, TypeReference<T> responseType` | `@Nullable T` |
-| `deleteAuthFactorsParam(...)` | `DELETE` | `/auth/factors/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `deleteAuthFactorsParam(...)` | `DELETE` | `/auth/factors/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `deleteAuthUserIdentitiesParam(...)` | `DELETE` | `/auth/user/identities/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `deleteAuthUserIdentitiesParam(...)` | `DELETE` | `/auth/user/identities/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthAccountAuditLog(...)` | `GET` | `/auth/account/audit-log` | `query, Class<T> responseType` | `@Nullable T` |
-| `getAuthAccountAuditLog(...)` | `GET` | `/auth/account/audit-log` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthAccountMfa(...)` | `GET` | `/auth/account/mfa` | `query, Class<T> responseType` | `@Nullable T` |
-| `getAuthAccountMfa(...)` | `GET` | `/auth/account/mfa` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthAccountMfaParam(...)` | `GET` | `/auth/account/mfa/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `getAuthAccountMfaParam(...)` | `GET` | `/auth/account/mfa/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthAccountProfile(...)` | `GET` | `/auth/account/profile` | `query, Class<T> responseType` | `@Nullable T` |
-| `getAuthAccountProfile(...)` | `GET` | `/auth/account/profile` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthAccountSecurityApiKeys(...)` | `GET` | `/auth/account/security/api-keys` | `query, Class<T> responseType` | `@Nullable T` |
-| `getAuthAccountSecurityApiKeys(...)` | `GET` | `/auth/account/security/api-keys` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthAccountSecurityApiKeysParam(...)` | `GET` | `/auth/account/security/api-keys/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `getAuthAccountSecurityApiKeysParam(...)` | `GET` | `/auth/account/security/api-keys/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthAccountSecurityDevices(...)` | `GET` | `/auth/account/security/devices` | `query, Class<T> responseType` | `@Nullable T` |
-| `getAuthAccountSecurityDevices(...)` | `GET` | `/auth/account/security/devices` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthAccountSecurityDevicesParam(...)` | `GET` | `/auth/account/security/devices/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `getAuthAccountSecurityDevicesParam(...)` | `GET` | `/auth/account/security/devices/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthAccountSessions(...)` | `GET` | `/auth/account/sessions` | `query, Class<T> responseType` | `@Nullable T` |
-| `getAuthAccountSessions(...)` | `GET` | `/auth/account/sessions` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthAdminUsers(...)` | `GET` | `/auth/admin/users` | `query, Class<T> responseType` | `@Nullable T` |
-| `getAuthAdminUsers(...)` | `GET` | `/auth/admin/users` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthAdminUsersParam(...)` | `GET` | `/auth/admin/users/{param}` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `getAuthAdminUsersParam(...)` | `GET` | `/auth/admin/users/{param}` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthAdminUsersParamFactors(...)` | `GET` | `/auth/admin/users/{param}/factors` | `pathParam1, query, Class<T> responseType` | `@Nullable T` |
-| `getAuthAdminUsersParamFactors(...)` | `GET` | `/auth/admin/users/{param}/factors` | `pathParam1, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthAuthSession(...)` | `GET` | `/auth/auth/session` | `query, Class<T> responseType` | `@Nullable T` |
-| `getAuthAuthSession(...)` | `GET` | `/auth/auth/session` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthFactors(...)` | `GET` | `/auth/factors` | `query, Class<T> responseType` | `@Nullable T` |
-| `getAuthFactors(...)` | `GET` | `/auth/factors` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthMfaStatus(...)` | `GET` | `/auth/mfa/status` | `query, Class<T> responseType` | `@Nullable T` |
-| `getAuthMfaStatus(...)` | `GET` | `/auth/mfa/status` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthUser(...)` | `GET` | `/auth/user` | `query, Class<T> responseType` | `@Nullable T` |
-| `getAuthUser(...)` | `GET` | `/auth/user` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getAuthUserIdentities(...)` | `GET` | `/auth/user/identities` | `query, Class<T> responseType` | `@Nullable T` |
-| `getAuthUserIdentities(...)` | `GET` | `/auth/user/identities` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthAccountMfa(...)` | `POST` | `/auth/account/mfa` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthAccountMfa(...)` | `POST` | `/auth/account/mfa` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthAccountMfaParamChallenge(...)` | `POST` | `/auth/account/mfa/{param}/challenge` | `pathParam1, query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthAccountMfaParamChallenge(...)` | `POST` | `/auth/account/mfa/{param}/challenge` | `pathParam1, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthAccountMfaParamVerify(...)` | `POST` | `/auth/account/mfa/{param}/verify` | `pathParam1, query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthAccountMfaParamVerify(...)` | `POST` | `/auth/account/mfa/{param}/verify` | `pathParam1, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthAccountPassword(...)` | `POST` | `/auth/account/password` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthAccountPassword(...)` | `POST` | `/auth/account/password` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthAccountSecurityApiKeys(...)` | `POST` | `/auth/account/security/api-keys` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthAccountSecurityApiKeys(...)` | `POST` | `/auth/account/security/api-keys` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthAccountSecurityDevices(...)` | `POST` | `/auth/account/security/devices` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthAccountSecurityDevices(...)` | `POST` | `/auth/account/security/devices` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthAccountSecurityDevicesParamTrust(...)` | `POST` | `/auth/account/security/devices/{param}/trust` | `pathParam1, query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthAccountSecurityDevicesParamTrust(...)` | `POST` | `/auth/account/security/devices/{param}/trust` | `pathParam1, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthAccountSessionsParamExtend(...)` | `POST` | `/auth/account/sessions/{param}/extend` | `pathParam1, query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthAccountSessionsParamExtend(...)` | `POST` | `/auth/account/sessions/{param}/extend` | `pathParam1, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthAdminGenerateLink(...)` | `POST` | `/auth/admin/generate_link` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthAdminGenerateLink(...)` | `POST` | `/auth/admin/generate_link` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthAdminLogout(...)` | `POST` | `/auth/admin/logout` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthAdminLogout(...)` | `POST` | `/auth/admin/logout` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthAdminUsers(...)` | `POST` | `/auth/admin/users` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthAdminUsers(...)` | `POST` | `/auth/admin/users` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthAuthSession(...)` | `POST` | `/auth/auth/session` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthAuthSession(...)` | `POST` | `/auth/auth/session` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthAuthorize(...)` | `POST` | `/auth/authorize` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthAuthorize(...)` | `POST` | `/auth/authorize` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthFactors(...)` | `POST` | `/auth/factors` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthFactors(...)` | `POST` | `/auth/factors` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthFactorsParamChallenge(...)` | `POST` | `/auth/factors/{param}/challenge` | `pathParam1, query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthFactorsParamChallenge(...)` | `POST` | `/auth/factors/{param}/challenge` | `pathParam1, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthFactorsParamVerify(...)` | `POST` | `/auth/factors/{param}/verify` | `pathParam1, query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthFactorsParamVerify(...)` | `POST` | `/auth/factors/{param}/verify` | `pathParam1, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthInvite(...)` | `POST` | `/auth/invite` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthInvite(...)` | `POST` | `/auth/invite` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthLogin(...)` | `POST` | `/auth/login` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthLogin(...)` | `POST` | `/auth/login` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthLogout(...)` | `POST` | `/auth/logout` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthLogout(...)` | `POST` | `/auth/logout` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthMfaBackupCodesRegenerate(...)` | `POST` | `/auth/mfa/backup-codes/regenerate` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthMfaBackupCodesRegenerate(...)` | `POST` | `/auth/mfa/backup-codes/regenerate` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthMfaDisable(...)` | `POST` | `/auth/mfa/disable` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthMfaDisable(...)` | `POST` | `/auth/mfa/disable` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthMfaEnable(...)` | `POST` | `/auth/mfa/enable` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthMfaEnable(...)` | `POST` | `/auth/mfa/enable` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthMfaSetup(...)` | `POST` | `/auth/mfa/setup` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthMfaSetup(...)` | `POST` | `/auth/mfa/setup` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthMfaVerify(...)` | `POST` | `/auth/mfa/verify` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthMfaVerify(...)` | `POST` | `/auth/mfa/verify` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthOtp(...)` | `POST` | `/auth/otp` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthOtp(...)` | `POST` | `/auth/otp` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthReauthenticate(...)` | `POST` | `/auth/reauthenticate` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthReauthenticate(...)` | `POST` | `/auth/reauthenticate` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthRecover(...)` | `POST` | `/auth/recover` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthRecover(...)` | `POST` | `/auth/recover` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthResend(...)` | `POST` | `/auth/resend` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthResend(...)` | `POST` | `/auth/resend` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthSignup(...)` | `POST` | `/auth/signup` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthSignup(...)` | `POST` | `/auth/signup` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthSso(...)` | `POST` | `/auth/sso` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthSso(...)` | `POST` | `/auth/sso` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthTokenGrantTypeIdToken(...)` | `POST` | `/auth/token?grant_type=id_token` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthTokenGrantTypeIdToken(...)` | `POST` | `/auth/token?grant_type=id_token` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthTokenGrantTypePassword(...)` | `POST` | `/auth/token?grant_type=password` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthTokenGrantTypePassword(...)` | `POST` | `/auth/token?grant_type=password` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthTokenGrantTypePkce(...)` | `POST` | `/auth/token?grant_type=pkce` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthTokenGrantTypePkce(...)` | `POST` | `/auth/token?grant_type=pkce` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthTokenGrantTypeRefreshToken(...)` | `POST` | `/auth/token?grant_type=refresh_token` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthTokenGrantTypeRefreshToken(...)` | `POST` | `/auth/token?grant_type=refresh_token` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthUserIdentities(...)` | `POST` | `/auth/user/identities` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthUserIdentities(...)` | `POST` | `/auth/user/identities` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postAuthVerify(...)` | `POST` | `/auth/verify` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postAuthVerify(...)` | `POST` | `/auth/verify` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `putAuthAccountProfile(...)` | `PUT` | `/auth/account/profile` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `putAuthAccountProfile(...)` | `PUT` | `/auth/account/profile` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `putAuthAccountSecurityApiKeysParam(...)` | `PUT` | `/auth/account/security/api-keys/{param}` | `pathParam1, query, body, Class<T> responseType` | `@Nullable T` |
-| `putAuthAccountSecurityApiKeysParam(...)` | `PUT` | `/auth/account/security/api-keys/{param}` | `pathParam1, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `putAuthAdminUsersParam(...)` | `PUT` | `/auth/admin/users/{param}` | `pathParam1, query, body, Class<T> responseType` | `@Nullable T` |
-| `putAuthAdminUsersParam(...)` | `PUT` | `/auth/admin/users/{param}` | `pathParam1, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `putAuthUser(...)` | `PUT` | `/auth/user` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `putAuthUser(...)` | `PUT` | `/auth/user` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| No catalogued operations | — | — | — | — |
+| `auth().getUser(...)` | `GET` | `/auth/user` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().getUser(...)` | `GET` | `/auth/user` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().getUser(...)` | `GET` | `/auth/user` | `Class<T> responseType` | `@Nullable T` |
+| `auth().getUser(...)` | `GET` | `/auth/user` | `TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createAuthorize(...)` | `POST` | `/auth/authorize` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createAuthorize(...)` | `POST` | `/auth/authorize` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createAuthorize(...)` | `POST` | `/auth/authorize` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createAuthorize(...)` | `POST` | `/auth/authorize` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createInvite(...)` | `POST` | `/auth/invite` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createInvite(...)` | `POST` | `/auth/invite` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createInvite(...)` | `POST` | `/auth/invite` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createInvite(...)` | `POST` | `/auth/invite` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().login(...)` | `POST` | `/auth/login` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().login(...)` | `POST` | `/auth/login` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().login(...)` | `POST` | `/auth/login` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().login(...)` | `POST` | `/auth/login` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().logout(...)` | `POST` | `/auth/logout` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().logout(...)` | `POST` | `/auth/logout` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().logout(...)` | `POST` | `/auth/logout` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().logout(...)` | `POST` | `/auth/logout` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createOtp(...)` | `POST` | `/auth/otp` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createOtp(...)` | `POST` | `/auth/otp` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createOtp(...)` | `POST` | `/auth/otp` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createOtp(...)` | `POST` | `/auth/otp` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createReauthenticate(...)` | `POST` | `/auth/reauthenticate` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createReauthenticate(...)` | `POST` | `/auth/reauthenticate` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createReauthenticate(...)` | `POST` | `/auth/reauthenticate` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createReauthenticate(...)` | `POST` | `/auth/reauthenticate` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createRecover(...)` | `POST` | `/auth/recover` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createRecover(...)` | `POST` | `/auth/recover` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createRecover(...)` | `POST` | `/auth/recover` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createRecover(...)` | `POST` | `/auth/recover` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createResend(...)` | `POST` | `/auth/resend` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createResend(...)` | `POST` | `/auth/resend` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createResend(...)` | `POST` | `/auth/resend` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createResend(...)` | `POST` | `/auth/resend` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createSignup(...)` | `POST` | `/auth/signup` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createSignup(...)` | `POST` | `/auth/signup` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createSignup(...)` | `POST` | `/auth/signup` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createSignup(...)` | `POST` | `/auth/signup` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createSso(...)` | `POST` | `/auth/sso` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createSso(...)` | `POST` | `/auth/sso` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createSso(...)` | `POST` | `/auth/sso` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createSso(...)` | `POST` | `/auth/sso` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypeIdToken(...)` | `POST` | `/auth/token?grant_type=id_token` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypeIdToken(...)` | `POST` | `/auth/token?grant_type=id_token` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypeIdToken(...)` | `POST` | `/auth/token?grant_type=id_token` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypeIdToken(...)` | `POST` | `/auth/token?grant_type=id_token` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypePassword(...)` | `POST` | `/auth/token?grant_type=password` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypePassword(...)` | `POST` | `/auth/token?grant_type=password` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypePassword(...)` | `POST` | `/auth/token?grant_type=password` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypePassword(...)` | `POST` | `/auth/token?grant_type=password` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypePkce(...)` | `POST` | `/auth/token?grant_type=pkce` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypePkce(...)` | `POST` | `/auth/token?grant_type=pkce` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypePkce(...)` | `POST` | `/auth/token?grant_type=pkce` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypePkce(...)` | `POST` | `/auth/token?grant_type=pkce` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypeRefreshToken(...)` | `POST` | `/auth/token?grant_type=refresh_token` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypeRefreshToken(...)` | `POST` | `/auth/token?grant_type=refresh_token` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypeRefreshToken(...)` | `POST` | `/auth/token?grant_type=refresh_token` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().createTokenGrantTypeRefreshToken(...)` | `POST` | `/auth/token?grant_type=refresh_token` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().verify(...)` | `POST` | `/auth/verify` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().verify(...)` | `POST` | `/auth/verify` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().verify(...)` | `POST` | `/auth/verify` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().verify(...)` | `POST` | `/auth/verify` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().updateUser(...)` | `PUT` | `/auth/user` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().updateUser(...)` | `PUT` | `/auth/user` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().updateUser(...)` | `PUT` | `/auth/user` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().updateUser(...)` | `PUT` | `/auth/user` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().deleteProfile(...)` | `DELETE` | `/auth/account/profile` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().account().deleteProfile(...)` | `DELETE` | `/auth/account/profile` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().deleteProfile(...)` | `DELETE` | `/auth/account/profile` | `Class<T> responseType` | `@Nullable T` |
+| `auth().account().deleteProfile(...)` | `DELETE` | `/auth/account/profile` | `TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().getAuditLog(...)` | `GET` | `/auth/account/audit-log` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().account().getAuditLog(...)` | `GET` | `/auth/account/audit-log` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().getAuditLog(...)` | `GET` | `/auth/account/audit-log` | `Class<T> responseType` | `@Nullable T` |
+| `auth().account().getAuditLog(...)` | `GET` | `/auth/account/audit-log` | `TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().getMfa(...)` | `GET` | `/auth/account/mfa` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().account().getMfa(...)` | `GET` | `/auth/account/mfa` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().getMfa(...)` | `GET` | `/auth/account/mfa` | `Class<T> responseType` | `@Nullable T` |
+| `auth().account().getMfa(...)` | `GET` | `/auth/account/mfa` | `TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().getProfile(...)` | `GET` | `/auth/account/profile` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().account().getProfile(...)` | `GET` | `/auth/account/profile` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().getProfile(...)` | `GET` | `/auth/account/profile` | `Class<T> responseType` | `@Nullable T` |
+| `auth().account().getProfile(...)` | `GET` | `/auth/account/profile` | `TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().createMfa(...)` | `POST` | `/auth/account/mfa` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().createMfa(...)` | `POST` | `/auth/account/mfa` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().createMfa(...)` | `POST` | `/auth/account/mfa` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().createMfa(...)` | `POST` | `/auth/account/mfa` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().createPassword(...)` | `POST` | `/auth/account/password` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().createPassword(...)` | `POST` | `/auth/account/password` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().createPassword(...)` | `POST` | `/auth/account/password` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().createPassword(...)` | `POST` | `/auth/account/password` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().updateProfile(...)` | `PUT` | `/auth/account/profile` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().updateProfile(...)` | `PUT` | `/auth/account/profile` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().updateProfile(...)` | `PUT` | `/auth/account/profile` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().updateProfile(...)` | `PUT` | `/auth/account/profile` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().createGenerateLink(...)` | `POST` | `/auth/admin/generate_link` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().createGenerateLink(...)` | `POST` | `/auth/admin/generate_link` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().createGenerateLink(...)` | `POST` | `/auth/admin/generate_link` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().createGenerateLink(...)` | `POST` | `/auth/admin/generate_link` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().logout(...)` | `POST` | `/auth/admin/logout` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().logout(...)` | `POST` | `/auth/admin/logout` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().logout(...)` | `POST` | `/auth/admin/logout` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().logout(...)` | `POST` | `/auth/admin/logout` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().auth().getSession(...)` | `GET` | `/auth/auth/session` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().auth().getSession(...)` | `GET` | `/auth/auth/session` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().auth().getSession(...)` | `GET` | `/auth/auth/session` | `Class<T> responseType` | `@Nullable T` |
+| `auth().auth().getSession(...)` | `GET` | `/auth/auth/session` | `TypeReference<T> responseType` | `@Nullable T` |
+| `auth().auth().createSession(...)` | `POST` | `/auth/auth/session` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().auth().createSession(...)` | `POST` | `/auth/auth/session` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().auth().createSession(...)` | `POST` | `/auth/auth/session` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().auth().createSession(...)` | `POST` | `/auth/auth/session` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().factors().delete(...)` | `DELETE` | `/auth/factors/{param}` | `String factorId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().factors().delete(...)` | `DELETE` | `/auth/factors/{param}` | `String factorId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().factors().delete(...)` | `DELETE` | `/auth/factors/{param}` | `String factorId, Class<T> responseType` | `@Nullable T` |
+| `auth().factors().delete(...)` | `DELETE` | `/auth/factors/{param}` | `String factorId, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().factors().list(...)` | `GET` | `/auth/factors` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().factors().list(...)` | `GET` | `/auth/factors` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().factors().list(...)` | `GET` | `/auth/factors` | `Class<T> responseType` | `@Nullable T` |
+| `auth().factors().list(...)` | `GET` | `/auth/factors` | `TypeReference<T> responseType` | `@Nullable T` |
+| `auth().factors().create(...)` | `POST` | `/auth/factors` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().factors().create(...)` | `POST` | `/auth/factors` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().factors().create(...)` | `POST` | `/auth/factors` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().factors().create(...)` | `POST` | `/auth/factors` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().factors().createChallenge(...)` | `POST` | `/auth/factors/{param}/challenge` | `String factorId, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().factors().createChallenge(...)` | `POST` | `/auth/factors/{param}/challenge` | `String factorId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().factors().createChallenge(...)` | `POST` | `/auth/factors/{param}/challenge` | `String factorId, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().factors().createChallenge(...)` | `POST` | `/auth/factors/{param}/challenge` | `String factorId, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().factors().verify(...)` | `POST` | `/auth/factors/{param}/verify` | `String factorId, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().factors().verify(...)` | `POST` | `/auth/factors/{param}/verify` | `String factorId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().factors().verify(...)` | `POST` | `/auth/factors/{param}/verify` | `String factorId, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().factors().verify(...)` | `POST` | `/auth/factors/{param}/verify` | `String factorId, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().mfa().status(...)` | `GET` | `/auth/mfa/status` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().mfa().status(...)` | `GET` | `/auth/mfa/status` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().mfa().status(...)` | `GET` | `/auth/mfa/status` | `Class<T> responseType` | `@Nullable T` |
+| `auth().mfa().status(...)` | `GET` | `/auth/mfa/status` | `TypeReference<T> responseType` | `@Nullable T` |
+| `auth().mfa().disable(...)` | `POST` | `/auth/mfa/disable` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().mfa().disable(...)` | `POST` | `/auth/mfa/disable` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().mfa().disable(...)` | `POST` | `/auth/mfa/disable` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().mfa().disable(...)` | `POST` | `/auth/mfa/disable` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().mfa().enable(...)` | `POST` | `/auth/mfa/enable` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().mfa().enable(...)` | `POST` | `/auth/mfa/enable` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().mfa().enable(...)` | `POST` | `/auth/mfa/enable` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().mfa().enable(...)` | `POST` | `/auth/mfa/enable` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().mfa().setup(...)` | `POST` | `/auth/mfa/setup` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().mfa().setup(...)` | `POST` | `/auth/mfa/setup` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().mfa().setup(...)` | `POST` | `/auth/mfa/setup` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().mfa().setup(...)` | `POST` | `/auth/mfa/setup` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().mfa().verify(...)` | `POST` | `/auth/mfa/verify` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().mfa().verify(...)` | `POST` | `/auth/mfa/verify` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().mfa().verify(...)` | `POST` | `/auth/mfa/verify` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().mfa().verify(...)` | `POST` | `/auth/mfa/verify` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().delete(...)` | `DELETE` | `/auth/account/mfa/{param}` | `String mfaId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().delete(...)` | `DELETE` | `/auth/account/mfa/{param}` | `String mfaId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().delete(...)` | `DELETE` | `/auth/account/mfa/{param}` | `String mfaId, Class<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().delete(...)` | `DELETE` | `/auth/account/mfa/{param}` | `String mfaId, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().get(...)` | `GET` | `/auth/account/mfa/{param}` | `String mfaId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().get(...)` | `GET` | `/auth/account/mfa/{param}` | `String mfaId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().get(...)` | `GET` | `/auth/account/mfa/{param}` | `String mfaId, Class<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().get(...)` | `GET` | `/auth/account/mfa/{param}` | `String mfaId, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().createChallenge(...)` | `POST` | `/auth/account/mfa/{param}/challenge` | `String mfaId, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().createChallenge(...)` | `POST` | `/auth/account/mfa/{param}/challenge` | `String mfaId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().createChallenge(...)` | `POST` | `/auth/account/mfa/{param}/challenge` | `String mfaId, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().createChallenge(...)` | `POST` | `/auth/account/mfa/{param}/challenge` | `String mfaId, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().verify(...)` | `POST` | `/auth/account/mfa/{param}/verify` | `String mfaId, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().verify(...)` | `POST` | `/auth/account/mfa/{param}/verify` | `String mfaId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().verify(...)` | `POST` | `/auth/account/mfa/{param}/verify` | `String mfaId, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().mfa().verify(...)` | `POST` | `/auth/account/mfa/{param}/verify` | `String mfaId, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().sessions().delete(...)` | `DELETE` | `/auth/account/sessions/{param}` | `String sessionId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().account().sessions().delete(...)` | `DELETE` | `/auth/account/sessions/{param}` | `String sessionId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().sessions().delete(...)` | `DELETE` | `/auth/account/sessions/{param}` | `String sessionId, Class<T> responseType` | `@Nullable T` |
+| `auth().account().sessions().delete(...)` | `DELETE` | `/auth/account/sessions/{param}` | `String sessionId, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().sessions().list(...)` | `GET` | `/auth/account/sessions` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().account().sessions().list(...)` | `GET` | `/auth/account/sessions` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().sessions().list(...)` | `GET` | `/auth/account/sessions` | `Class<T> responseType` | `@Nullable T` |
+| `auth().account().sessions().list(...)` | `GET` | `/auth/account/sessions` | `TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().sessions().extend(...)` | `POST` | `/auth/account/sessions/{param}/extend` | `String sessionId, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().sessions().extend(...)` | `POST` | `/auth/account/sessions/{param}/extend` | `String sessionId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().sessions().extend(...)` | `POST` | `/auth/account/sessions/{param}/extend` | `String sessionId, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().sessions().extend(...)` | `POST` | `/auth/account/sessions/{param}/extend` | `String sessionId, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().users().delete(...)` | `DELETE` | `/auth/admin/users/{param}` | `String userId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().users().delete(...)` | `DELETE` | `/auth/admin/users/{param}` | `String userId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().users().delete(...)` | `DELETE` | `/auth/admin/users/{param}` | `String userId, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().users().delete(...)` | `DELETE` | `/auth/admin/users/{param}` | `String userId, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().users().list(...)` | `GET` | `/auth/admin/users` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().users().list(...)` | `GET` | `/auth/admin/users` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().users().list(...)` | `GET` | `/auth/admin/users` | `Class<T> responseType` | `@Nullable T` |
+| `auth().admin().users().list(...)` | `GET` | `/auth/admin/users` | `TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().users().get(...)` | `GET` | `/auth/admin/users/{param}` | `String userId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().users().get(...)` | `GET` | `/auth/admin/users/{param}` | `String userId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().users().get(...)` | `GET` | `/auth/admin/users/{param}` | `String userId, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().users().get(...)` | `GET` | `/auth/admin/users/{param}` | `String userId, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().users().create(...)` | `POST` | `/auth/admin/users` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().users().create(...)` | `POST` | `/auth/admin/users` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().users().create(...)` | `POST` | `/auth/admin/users` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().users().create(...)` | `POST` | `/auth/admin/users` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().users().update(...)` | `PUT` | `/auth/admin/users/{param}` | `String userId, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().users().update(...)` | `PUT` | `/auth/admin/users/{param}` | `String userId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().users().update(...)` | `PUT` | `/auth/admin/users/{param}` | `String userId, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().users().update(...)` | `PUT` | `/auth/admin/users/{param}` | `String userId, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().mfa().backupCodes().createRegenerate(...)` | `POST` | `/auth/mfa/backup-codes/regenerate` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().mfa().backupCodes().createRegenerate(...)` | `POST` | `/auth/mfa/backup-codes/regenerate` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().mfa().backupCodes().createRegenerate(...)` | `POST` | `/auth/mfa/backup-codes/regenerate` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().mfa().backupCodes().createRegenerate(...)` | `POST` | `/auth/mfa/backup-codes/regenerate` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().user().identities().delete(...)` | `DELETE` | `/auth/user/identities/{param}` | `String identityId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().user().identities().delete(...)` | `DELETE` | `/auth/user/identities/{param}` | `String identityId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().user().identities().delete(...)` | `DELETE` | `/auth/user/identities/{param}` | `String identityId, Class<T> responseType` | `@Nullable T` |
+| `auth().user().identities().delete(...)` | `DELETE` | `/auth/user/identities/{param}` | `String identityId, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().user().identities().list(...)` | `GET` | `/auth/user/identities` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().user().identities().list(...)` | `GET` | `/auth/user/identities` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().user().identities().list(...)` | `GET` | `/auth/user/identities` | `Class<T> responseType` | `@Nullable T` |
+| `auth().user().identities().list(...)` | `GET` | `/auth/user/identities` | `TypeReference<T> responseType` | `@Nullable T` |
+| `auth().user().identities().create(...)` | `POST` | `/auth/user/identities` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().user().identities().create(...)` | `POST` | `/auth/user/identities` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().user().identities().create(...)` | `POST` | `/auth/user/identities` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().user().identities().create(...)` | `POST` | `/auth/user/identities` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().delete(...)` | `DELETE` | `/auth/account/security/api-keys/{param}` | `String apiKeyId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().delete(...)` | `DELETE` | `/auth/account/security/api-keys/{param}` | `String apiKeyId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().delete(...)` | `DELETE` | `/auth/account/security/api-keys/{param}` | `String apiKeyId, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().delete(...)` | `DELETE` | `/auth/account/security/api-keys/{param}` | `String apiKeyId, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().list(...)` | `GET` | `/auth/account/security/api-keys` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().list(...)` | `GET` | `/auth/account/security/api-keys` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().list(...)` | `GET` | `/auth/account/security/api-keys` | `Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().list(...)` | `GET` | `/auth/account/security/api-keys` | `TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().get(...)` | `GET` | `/auth/account/security/api-keys/{param}` | `String apiKeyId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().get(...)` | `GET` | `/auth/account/security/api-keys/{param}` | `String apiKeyId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().get(...)` | `GET` | `/auth/account/security/api-keys/{param}` | `String apiKeyId, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().get(...)` | `GET` | `/auth/account/security/api-keys/{param}` | `String apiKeyId, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().create(...)` | `POST` | `/auth/account/security/api-keys` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().create(...)` | `POST` | `/auth/account/security/api-keys` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().create(...)` | `POST` | `/auth/account/security/api-keys` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().create(...)` | `POST` | `/auth/account/security/api-keys` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().update(...)` | `PUT` | `/auth/account/security/api-keys/{param}` | `String apiKeyId, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().update(...)` | `PUT` | `/auth/account/security/api-keys/{param}` | `String apiKeyId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().update(...)` | `PUT` | `/auth/account/security/api-keys/{param}` | `String apiKeyId, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().apiKeys().update(...)` | `PUT` | `/auth/account/security/api-keys/{param}` | `String apiKeyId, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().delete(...)` | `DELETE` | `/auth/account/security/devices/{param}` | `String deviceId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().delete(...)` | `DELETE` | `/auth/account/security/devices/{param}` | `String deviceId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().delete(...)` | `DELETE` | `/auth/account/security/devices/{param}` | `String deviceId, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().delete(...)` | `DELETE` | `/auth/account/security/devices/{param}` | `String deviceId, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().list(...)` | `GET` | `/auth/account/security/devices` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().list(...)` | `GET` | `/auth/account/security/devices` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().list(...)` | `GET` | `/auth/account/security/devices` | `Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().list(...)` | `GET` | `/auth/account/security/devices` | `TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().get(...)` | `GET` | `/auth/account/security/devices/{param}` | `String deviceId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().get(...)` | `GET` | `/auth/account/security/devices/{param}` | `String deviceId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().get(...)` | `GET` | `/auth/account/security/devices/{param}` | `String deviceId, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().get(...)` | `GET` | `/auth/account/security/devices/{param}` | `String deviceId, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().create(...)` | `POST` | `/auth/account/security/devices` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().create(...)` | `POST` | `/auth/account/security/devices` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().create(...)` | `POST` | `/auth/account/security/devices` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().create(...)` | `POST` | `/auth/account/security/devices` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().trust(...)` | `POST` | `/auth/account/security/devices/{param}/trust` | `String deviceId, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().trust(...)` | `POST` | `/auth/account/security/devices/{param}/trust` | `String deviceId, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().trust(...)` | `POST` | `/auth/account/security/devices/{param}/trust` | `String deviceId, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `auth().account().security().devices().trust(...)` | `POST` | `/auth/account/security/devices/{param}/trust` | `String deviceId, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().users().factors().delete(...)` | `DELETE` | `/auth/admin/users/{param}/factors/{param}` | `String userId, String factorId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().users().factors().delete(...)` | `DELETE` | `/auth/admin/users/{param}/factors/{param}` | `String userId, String factorId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().users().factors().delete(...)` | `DELETE` | `/auth/admin/users/{param}/factors/{param}` | `String userId, String factorId, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().users().factors().delete(...)` | `DELETE` | `/auth/admin/users/{param}/factors/{param}` | `String userId, String factorId, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().users().factors().list(...)` | `GET` | `/auth/admin/users/{param}/factors` | `String userId, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().users().factors().list(...)` | `GET` | `/auth/admin/users/{param}/factors` | `String userId, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `auth().admin().users().factors().list(...)` | `GET` | `/auth/admin/users/{param}/factors` | `String userId, Class<T> responseType` | `@Nullable T` |
+| `auth().admin().users().factors().list(...)` | `GET` | `/auth/admin/users/{param}/factors` | `String userId, TypeReference<T> responseType` | `@Nullable T` |
 
 The generic `request(...)` methods and `Endpoints` constants remain available.

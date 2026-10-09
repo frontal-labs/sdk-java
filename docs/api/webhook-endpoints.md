@@ -2,24 +2,37 @@
 
 Service accessor: `frontal.webhookEndpoints()` (`WebhookEndpointsClient`).
 
-Named methods are generated from the committed route catalog. Build query values with `QueryParams` using exact API wire names. Routes without request schemas accept `JsonNode`; select `JsonNode` or a caller-provided model for unmodeled responses.
+Operations are grouped by resource path. Collection methods use `list` and `create`; item methods use `get`, `update`, and `delete`. Calls can omit `QueryParams` when no query values are needed. Use contract-defined `JsonNode` bodies and caller-selected response types where schemas are not available.
 
 | Method | HTTP | Route | Parameters | Response |
 | --- | --- | --- | --- | --- |
-| `deleteWebhookEndpointsId(...)` | `DELETE` | `/webhook-endpoints/{param}` | `id, query, Class<T> responseType` | `@Nullable T` |
-| `deleteWebhookEndpointsId(...)` | `DELETE` | `/webhook-endpoints/{param}` | `id, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getWebhookEndpoints(...)` | `GET` | `/webhook-endpoints` | `query, Class<T> responseType` | `@Nullable T` |
-| `getWebhookEndpoints(...)` | `GET` | `/webhook-endpoints` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getWebhookEndpointsId(...)` | `GET` | `/webhook-endpoints/{param}` | `id, query, Class<T> responseType` | `@Nullable T` |
-| `getWebhookEndpointsId(...)` | `GET` | `/webhook-endpoints/{param}` | `id, query, TypeReference<T> responseType` | `@Nullable T` |
-| `getWebhookEndpointsIdDeliveries(...)` | `GET` | `/webhook-endpoints/{param}/deliveries` | `id, query, Class<T> responseType` | `@Nullable T` |
-| `getWebhookEndpointsIdDeliveries(...)` | `GET` | `/webhook-endpoints/{param}/deliveries` | `id, query, TypeReference<T> responseType` | `@Nullable T` |
-| `patchWebhookEndpointsId(...)` | `PATCH` | `/webhook-endpoints/{param}` | `id, query, body, Class<T> responseType` | `@Nullable T` |
-| `patchWebhookEndpointsId(...)` | `PATCH` | `/webhook-endpoints/{param}` | `id, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postWebhookEndpoints(...)` | `POST` | `/webhook-endpoints` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postWebhookEndpoints(...)` | `POST` | `/webhook-endpoints` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postWebhookEndpointsIdRotateSecret(...)` | `POST` | `/webhook-endpoints/{param}/rotate-secret` | `id, query, body, Class<T> responseType` | `@Nullable T` |
-| `postWebhookEndpointsIdRotateSecret(...)` | `POST` | `/webhook-endpoints/{param}/rotate-secret` | `id, query, body, TypeReference<T> responseType` | `@Nullable T` |
-| No catalogued operations | — | — | — | — |
+| `webhookEndpoints().delete(...)` | `DELETE` | `/webhook-endpoints/{param}` | `String id, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().delete(...)` | `DELETE` | `/webhook-endpoints/{param}` | `String id, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().delete(...)` | `DELETE` | `/webhook-endpoints/{param}` | `String id, Class<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().delete(...)` | `DELETE` | `/webhook-endpoints/{param}` | `String id, TypeReference<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().list(...)` | `GET` | `/webhook-endpoints` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().list(...)` | `GET` | `/webhook-endpoints` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().list(...)` | `GET` | `/webhook-endpoints` | `Class<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().list(...)` | `GET` | `/webhook-endpoints` | `TypeReference<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().get(...)` | `GET` | `/webhook-endpoints/{param}` | `String id, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().get(...)` | `GET` | `/webhook-endpoints/{param}` | `String id, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().get(...)` | `GET` | `/webhook-endpoints/{param}` | `String id, Class<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().get(...)` | `GET` | `/webhook-endpoints/{param}` | `String id, TypeReference<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().update(...)` | `PATCH` | `/webhook-endpoints/{param}` | `String id, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().update(...)` | `PATCH` | `/webhook-endpoints/{param}` | `String id, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().update(...)` | `PATCH` | `/webhook-endpoints/{param}` | `String id, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().update(...)` | `PATCH` | `/webhook-endpoints/{param}` | `String id, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().create(...)` | `POST` | `/webhook-endpoints` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().create(...)` | `POST` | `/webhook-endpoints` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().create(...)` | `POST` | `/webhook-endpoints` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().create(...)` | `POST` | `/webhook-endpoints` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().rotateSecret(...)` | `POST` | `/webhook-endpoints/{param}/rotate-secret` | `String id, QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().rotateSecret(...)` | `POST` | `/webhook-endpoints/{param}/rotate-secret` | `String id, QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().rotateSecret(...)` | `POST` | `/webhook-endpoints/{param}/rotate-secret` | `String id, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().rotateSecret(...)` | `POST` | `/webhook-endpoints/{param}/rotate-secret` | `String id, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().deliveries().list(...)` | `GET` | `/webhook-endpoints/{param}/deliveries` | `String id, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().deliveries().list(...)` | `GET` | `/webhook-endpoints/{param}/deliveries` | `String id, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().deliveries().list(...)` | `GET` | `/webhook-endpoints/{param}/deliveries` | `String id, Class<T> responseType` | `@Nullable T` |
+| `webhookEndpoints().deliveries().list(...)` | `GET` | `/webhook-endpoints/{param}/deliveries` | `String id, TypeReference<T> responseType` | `@Nullable T` |
 
 The generic `request(...)` methods and `Endpoints` constants remain available.

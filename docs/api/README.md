@@ -2,7 +2,7 @@
 
 Generated from the committed route catalog for SDK service clients.
 
-Call-shaped listing of every method: [methods as code](./methods-as-code.md).
+Call-shaped listing of every operation: [methods as code](./methods-as-code.md).
 
 | Service | Routes | Reference |
 | --- | ---: | --- |

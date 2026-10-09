@@ -1,771 +1,732 @@
-# SDK methods as Java call lines
+# Canonical Java calls
 
-One call-shaped line for every method listed in the service API reference. `/* args */` is a placeholder; use the linked service page for the exact signature, argument order, and response type. Streaming methods are listed with both their publisher and blocking forms.
+Generated from the contract route catalog. Query parameters are optional; use `QueryParams` when required by the endpoint.
 
 ## agents
 
 ```java
-client.agents().deleteAgentsParam(/* args */);
-client.agents().getAgents(/* args */);
-client.agents().getAgentsHealth(/* args */);
-client.agents().getAgentsRunsParam(/* args */);
-client.agents().getAgentsRunsParamConversation(/* args */);
-client.agents().getAgentsParam(/* args */);
-client.agents().getAgentsParamRuns(/* args */);
-client.agents().getAgentsParamVersions(/* args */);
-client.agents().postAgents(/* args */);
-client.agents().postAgentsParamRollback(/* args */);
-client.agents().postAgentsParamRuns(/* args */);
-client.agents().putAgentsParam(/* args */);
-client.agents().streamAgentsRunsParamStream(/* args */);
-client.agents().streamAgentsRunsParamStreamBlocking(/* args */);
-client.agents().getActionRun(/* args */);
+client.agents().delete(agentId, responseType);
+client.agents().list(responseType);
+client.agents().health(responseType);
+client.agents().get(agentId, responseType);
+client.agents().create(body, responseType);
+client.agents().rollback(agentId, body, responseType);
+client.agents().update(agentId, body, responseType);
+client.agents().runs().getByActionRunId(actionRunId, responseType);
+client.agents().runs().get(runId, responseType);
+client.agents().runs().conversation(runId, responseType);
+client.agents().runs().list(agentId, responseType);
+client.agents().runs().create(agentId, body, responseType);
+client.agents().runs().stream(runId);
+client.agents().runs().streamBlocking(runId);
+client.agents().versions().list(agentId, responseType);
 ```
-
-Full signatures: [agents](./agents.md).
 
 ## ai
 
 ```java
-client.ai().getHealth(/* args */);
-client.ai().getInternalModels(/* args */);
-client.ai().getInternalModelsDefaults(/* args */);
-client.ai().postAiChatCompletions(/* args */);
-client.ai().postInternalEmbeddings(/* args */);
-client.ai().postInternalPredictions(/* args */);
-client.ai().postInternalRerank(/* args */);
-client.ai().postformdataInternalPredictions(/* args */);
-client.ai().postrawInternalPredictions(/* args */);
+client.ai().health(responseType);
+client.ai().internal().embed(body, responseType);
+client.ai().internal().predict(body, responseType);
+client.ai().internal().rerank(body, responseType);
+client.ai().internal().predictForm(fields, files, responseType);
+client.ai().internal().predictRaw(body, responseType);
+client.ai().chat().completions().create(body, responseType);
+client.ai().internal().models().list(responseType);
+client.ai().internal().models().defaults(responseType);
 ```
-
-Full signatures: [ai](./ai.md).
 
 ## audit
 
 ```java
-client.audit().getAuditEvents(/* args */);
-client.audit().getAuditEventsParam(/* args */);
-client.audit().postAuditEvents(/* args */);
-client.audit().postAuditEventsBatch(/* args */);
+client.audit().events().list(responseType);
+client.audit().events().get(eventId, responseType);
+client.audit().events().create(body, responseType);
+client.audit().events().batch(body, responseType);
 ```
-
-Full signatures: [audit](./audit.md).
 
 ## auth
 
 ```java
-client.auth().deleteAuthAccountMfaParam(/* args */);
-client.auth().deleteAuthAccountProfile(/* args */);
-client.auth().deleteAuthAccountSecurityApiKeysParam(/* args */);
-client.auth().deleteAuthAccountSecurityDevicesParam(/* args */);
-client.auth().deleteAuthAccountSessionsParam(/* args */);
-client.auth().deleteAuthAdminUsersParam(/* args */);
-client.auth().deleteAuthAdminUsersParamFactorsParam(/* args */);
-client.auth().deleteAuthFactorsParam(/* args */);
-client.auth().deleteAuthUserIdentitiesParam(/* args */);
-client.auth().getAuthAccountAuditLog(/* args */);
-client.auth().getAuthAccountMfa(/* args */);
-client.auth().getAuthAccountMfaParam(/* args */);
-client.auth().getAuthAccountProfile(/* args */);
-client.auth().getAuthAccountSecurityApiKeys(/* args */);
-client.auth().getAuthAccountSecurityApiKeysParam(/* args */);
-client.auth().getAuthAccountSecurityDevices(/* args */);
-client.auth().getAuthAccountSecurityDevicesParam(/* args */);
-client.auth().getAuthAccountSessions(/* args */);
-client.auth().getAuthAdminUsers(/* args */);
-client.auth().getAuthAdminUsersParam(/* args */);
-client.auth().getAuthAdminUsersParamFactors(/* args */);
-client.auth().getAuthAuthSession(/* args */);
-client.auth().getAuthFactors(/* args */);
-client.auth().getAuthMfaStatus(/* args */);
-client.auth().getAuthUser(/* args */);
-client.auth().getAuthUserIdentities(/* args */);
-client.auth().postAuthAccountMfa(/* args */);
-client.auth().postAuthAccountMfaParamChallenge(/* args */);
-client.auth().postAuthAccountMfaParamVerify(/* args */);
-client.auth().postAuthAccountPassword(/* args */);
-client.auth().postAuthAccountSecurityApiKeys(/* args */);
-client.auth().postAuthAccountSecurityDevices(/* args */);
-client.auth().postAuthAccountSecurityDevicesParamTrust(/* args */);
-client.auth().postAuthAccountSessionsParamExtend(/* args */);
-client.auth().postAuthAdminGenerateLink(/* args */);
-client.auth().postAuthAdminLogout(/* args */);
-client.auth().postAuthAdminUsers(/* args */);
-client.auth().postAuthAuthSession(/* args */);
-client.auth().postAuthAuthorize(/* args */);
-client.auth().postAuthFactors(/* args */);
-client.auth().postAuthFactorsParamChallenge(/* args */);
-client.auth().postAuthFactorsParamVerify(/* args */);
-client.auth().postAuthInvite(/* args */);
-client.auth().postAuthLogin(/* args */);
-client.auth().postAuthLogout(/* args */);
-client.auth().postAuthMfaBackupCodesRegenerate(/* args */);
-client.auth().postAuthMfaDisable(/* args */);
-client.auth().postAuthMfaEnable(/* args */);
-client.auth().postAuthMfaSetup(/* args */);
-client.auth().postAuthMfaVerify(/* args */);
-client.auth().postAuthOtp(/* args */);
-client.auth().postAuthReauthenticate(/* args */);
-client.auth().postAuthRecover(/* args */);
-client.auth().postAuthResend(/* args */);
-client.auth().postAuthSignup(/* args */);
-client.auth().postAuthSso(/* args */);
-client.auth().postAuthTokenGrantTypeIdToken(/* args */);
-client.auth().postAuthTokenGrantTypePassword(/* args */);
-client.auth().postAuthTokenGrantTypePkce(/* args */);
-client.auth().postAuthTokenGrantTypeRefreshToken(/* args */);
-client.auth().postAuthUserIdentities(/* args */);
-client.auth().postAuthVerify(/* args */);
-client.auth().putAuthAccountProfile(/* args */);
-client.auth().putAuthAccountSecurityApiKeysParam(/* args */);
-client.auth().putAuthAdminUsersParam(/* args */);
-client.auth().putAuthUser(/* args */);
+client.auth().getUser(responseType);
+client.auth().createAuthorize(body, responseType);
+client.auth().createInvite(body, responseType);
+client.auth().login(body, responseType);
+client.auth().logout(body, responseType);
+client.auth().createOtp(body, responseType);
+client.auth().createReauthenticate(body, responseType);
+client.auth().createRecover(body, responseType);
+client.auth().createResend(body, responseType);
+client.auth().createSignup(body, responseType);
+client.auth().createSso(body, responseType);
+client.auth().createTokenGrantTypeIdToken(body, responseType);
+client.auth().createTokenGrantTypePassword(body, responseType);
+client.auth().createTokenGrantTypePkce(body, responseType);
+client.auth().createTokenGrantTypeRefreshToken(body, responseType);
+client.auth().verify(body, responseType);
+client.auth().updateUser(body, responseType);
+client.auth().account().deleteProfile(responseType);
+client.auth().account().getAuditLog(responseType);
+client.auth().account().getMfa(responseType);
+client.auth().account().getProfile(responseType);
+client.auth().account().createMfa(body, responseType);
+client.auth().account().createPassword(body, responseType);
+client.auth().account().updateProfile(body, responseType);
+client.auth().admin().createGenerateLink(body, responseType);
+client.auth().admin().logout(body, responseType);
+client.auth().auth().getSession(responseType);
+client.auth().auth().createSession(body, responseType);
+client.auth().factors().delete(factorId, responseType);
+client.auth().factors().list(responseType);
+client.auth().factors().create(body, responseType);
+client.auth().factors().createChallenge(factorId, body, responseType);
+client.auth().factors().verify(factorId, body, responseType);
+client.auth().mfa().status(responseType);
+client.auth().mfa().disable(body, responseType);
+client.auth().mfa().enable(body, responseType);
+client.auth().mfa().setup(body, responseType);
+client.auth().mfa().verify(body, responseType);
+client.auth().account().mfa().delete(mfaId, responseType);
+client.auth().account().mfa().get(mfaId, responseType);
+client.auth().account().mfa().createChallenge(mfaId, body, responseType);
+client.auth().account().mfa().verify(mfaId, body, responseType);
+client.auth().account().sessions().delete(sessionId, responseType);
+client.auth().account().sessions().list(responseType);
+client.auth().account().sessions().extend(sessionId, body, responseType);
+client.auth().admin().users().delete(userId, responseType);
+client.auth().admin().users().list(responseType);
+client.auth().admin().users().get(userId, responseType);
+client.auth().admin().users().create(body, responseType);
+client.auth().admin().users().update(userId, body, responseType);
+client.auth().mfa().backupCodes().createRegenerate(body, responseType);
+client.auth().user().identities().delete(identityId, responseType);
+client.auth().user().identities().list(responseType);
+client.auth().user().identities().create(body, responseType);
+client.auth().account().security().apiKeys().delete(apiKeyId, responseType);
+client.auth().account().security().apiKeys().list(responseType);
+client.auth().account().security().apiKeys().get(apiKeyId, responseType);
+client.auth().account().security().apiKeys().create(body, responseType);
+client.auth().account().security().apiKeys().update(apiKeyId, body, responseType);
+client.auth().account().security().devices().delete(deviceId, responseType);
+client.auth().account().security().devices().list(responseType);
+client.auth().account().security().devices().get(deviceId, responseType);
+client.auth().account().security().devices().create(body, responseType);
+client.auth().account().security().devices().trust(deviceId, body, responseType);
+client.auth().admin().users().factors().delete(userId, factorId, responseType);
+client.auth().admin().users().factors().list(userId, responseType);
 ```
-
-Full signatures: [auth](./auth.md).
 
 ## billing
 
 ```java
-client.billing().getBillingAddonsParamEntitlements(/* args */);
-client.billing().getBillingCustomersPortalParam(/* args */);
-client.billing().getBillingCustomersParamEntitlements(/* args */);
-client.billing().getBillingCustomersParamInvoicesSummary(/* args */);
-client.billing().getBillingCustomersParamUsage(/* args */);
-client.billing().getBillingCustomersParamWallets(/* args */);
-client.billing().getBillingPlansParamEntitlements(/* args */);
-client.billing().getBillingPricesLookupParam(/* args */);
-client.billing().getBillingSubscriptionsParamEntitlements(/* args */);
-client.billing().getBillingWalletsParamBalanceRealTime(/* args */);
-client.billing().getBillingWalletsParamTransactions(/* args */);
-client.billing().getrawBillingInvoicesParamPdf(/* args */);
-client.billing().postBillingInvoicesPreview(/* args */);
-client.billing().postBillingInvoicesParamFinalize(/* args */);
-client.billing().postBillingInvoicesParamVoid(/* args */);
-client.billing().postBillingMetersParamDisable(/* args */);
-client.billing().postBillingPlansParamClone(/* args */);
-client.billing().postBillingSubscriptionsParamActivate(/* args */);
-client.billing().postBillingSubscriptionsParamCancel(/* args */);
-client.billing().postBillingSubscriptionsParamPause(/* args */);
-client.billing().postBillingSubscriptionsParamResume(/* args */);
-client.billing().postBillingWalletsParamTerminate(/* args */);
-client.billing().postBillingWalletsParamTopUp(/* args */);
+client.billing().customers().usage(customerId, responseType);
+client.billing().invoices().getPdf(invoiceId, responseType);
+client.billing().invoices().preview(body, responseType);
+client.billing().invoices().finalize(invoiceId, body, responseType);
+client.billing().invoices().resourceVoid(invoiceId, body, responseType);
+client.billing().meters().disable(meterId, body, responseType);
+client.billing().plans().clone(planId, body, responseType);
+client.billing().subscriptions().activate(subscriptionId, body, responseType);
+client.billing().subscriptions().cancel(subscriptionId, body, responseType);
+client.billing().subscriptions().pause(subscriptionId, body, responseType);
+client.billing().subscriptions().resume(subscriptionId, body, responseType);
+client.billing().wallets().createTerminate(walletId, body, responseType);
+client.billing().wallets().topUp(walletId, body, responseType);
+client.billing().addons().entitlements().list(addonId, responseType);
+client.billing().customers().entitlements().list(customerId, responseType);
+client.billing().customers().invoices().summary(customerId, responseType);
+client.billing().customers().portal().get(portalId, responseType);
+client.billing().customers().wallets().list(customerId, responseType);
+client.billing().plans().entitlements().list(planId, responseType);
+client.billing().prices().lookup().get(lookupId, responseType);
+client.billing().subscriptions().entitlements().list(subscriptionId, responseType);
+client.billing().wallets().balance().getRealTime(walletId, responseType);
+client.billing().wallets().transactions().list(walletId, responseType);
 ```
-
-Full signatures: [billing](./billing.md).
 
 ## blob
 
 ```java
-client.blob().deleteBlobObjectParamParam(/* args */);
-client.blob().getBlobObjectInfoParamParam(/* args */);
-client.blob().getBlobObjectParamParam(/* args */);
-client.blob().postBlobObjectCopy(/* args */);
-client.blob().postBlobObjectListParam(/* args */);
-client.blob().postBlobObjectMove(/* args */);
-client.blob().postBlobObjectSignParamParam(/* args */);
-client.blob().postformdataBlobObjectParamParam(/* args */);
+client.blob().object().delete(objectId, objectId2, responseType);
+client.blob().object().get(objectId, objectId2, responseType);
+client.blob().object().copy(body, responseType);
+client.blob().object().move(body, responseType);
+client.blob().object().get2(objectId, objectId2, fields, files, responseType);
+client.blob().object().info().get(infoId, infoId2, responseType);
+client.blob().object().list().get(listId, body, responseType);
+client.blob().object().sign().get(signId, signId2, body, responseType);
 ```
-
-Full signatures: [blob](./blob.md).
 
 ## connection-tests
 
 ```java
-client.connectionTests().getConnectionTestsConnectionTestId(/* args */);
+client.connectionTests().get(connectionTestId, responseType);
 ```
-
-Full signatures: [connection-tests](./connection-tests.md).
 
 ## connectors
 
 ```java
-client.connectors().deleteConnectorsInstallationsParam(/* args */);
-client.connectors().getConnectorsCatalog(/* args */);
-client.connectors().getConnectorsCatalogParam(/* args */);
-client.connectors().getConnectorsConnectionTestsParam(/* args */);
-client.connectors().getConnectorsInstallations(/* args */);
-client.connectors().getConnectorsInstallationsParam(/* args */);
-client.connectors().getDiagnostics(/* args */);
-client.connectors().patchConnectorsInstallationsParam(/* args */);
-client.connectors().postConnectorsInstallations(/* args */);
-client.connectors().postConnectorsInstallationsParamPause(/* args */);
-client.connectors().postConnectorsInstallationsParamResume(/* args */);
-client.connectors().postConnectorsSyncRunsParamReplay(/* args */);
+client.connectors().getCatalog(responseType);
+client.connectors().catalog().get(catalogId, responseType);
+client.connectors().connectionTests().get(connectionTestId, responseType);
+client.connectors().diagnostics().list(responseType);
+client.connectors().installations().delete(installationId, responseType);
+client.connectors().installations().list(responseType);
+client.connectors().installations().get(installationId, responseType);
+client.connectors().installations().update(installationId, body, responseType);
+client.connectors().installations().create(body, responseType);
+client.connectors().installations().pause(installationId, body, responseType);
+client.connectors().installations().resume(installationId, body, responseType);
+client.connectors().syncRuns().replay(syncRunId, body, responseType);
 ```
-
-Full signatures: [connectors](./connectors.md).
 
 ## data
 
 ```java
-client.data().getDataAggregationsAggregations(/* args */);
-client.data().getDataAggregationsAggregationsAggregationId(/* args */);
-client.data().getDataAggregationsCapabilities(/* args */);
-client.data().getDataAggregationsHealth(/* args */);
-client.data().getDataAggregationsInfo(/* args */);
-client.data().getDataAggregationsRuns(/* args */);
-client.data().getDataAggregationsRunsRunId(/* args */);
-client.data().getDataArchivalArchivalPolicies(/* args */);
-client.data().getDataArchivalArchivalPoliciesPolicyId(/* args */);
-client.data().getDataArchivalCapabilities(/* args */);
-client.data().getDataArchivalHealth(/* args */);
-client.data().getDataArchivalInfo(/* args */);
-client.data().getDataArchivalRuns(/* args */);
-client.data().getDataArchivalRunsRunId(/* args */);
-client.data().getDataCatalogCapabilities(/* args */);
-client.data().getDataCatalogCatalogDatasets(/* args */);
-client.data().getDataCatalogCatalogDatasetsDatasetId(/* args */);
-client.data().getDataCatalogCatalogDatasetsDatasetIdArtifactsManifestIdContent(/* args */);
-client.data().getDataCatalogCatalogSources(/* args */);
-client.data().getDataCatalogCatalogSourcesSourceId(/* args */);
-client.data().getDataCatalogHealth(/* args */);
-client.data().getDataCatalogInfo(/* args */);
-client.data().getDataCatalogRuns(/* args */);
-client.data().getDataCatalogRunsRunId(/* args */);
-client.data().getDataEnrichmentCapabilities(/* args */);
-client.data().getDataEnrichmentEnrichmentProfiles(/* args */);
-client.data().getDataEnrichmentEnrichmentProfilesProfileId(/* args */);
-client.data().getDataEnrichmentHealth(/* args */);
-client.data().getDataEnrichmentInfo(/* args */);
-client.data().getDataEnrichmentRuns(/* args */);
-client.data().getDataEnrichmentRunsRunId(/* args */);
-client.data().getDataExportsCapabilities(/* args */);
-client.data().getDataExportsExports(/* args */);
-client.data().getDataExportsExportsExportId(/* args */);
-client.data().getDataExportsHealth(/* args */);
-client.data().getDataExportsInfo(/* args */);
-client.data().getDataExportsRuns(/* args */);
-client.data().getDataExportsRunsRunId(/* args */);
-client.data().getDataIngestCapabilities(/* args */);
-client.data().getDataIngestDatasets(/* args */);
-client.data().getDataIngestDatasetsDatasetId(/* args */);
-client.data().getDataIngestDatasetsDatasetIdArtifactsManifestIdContent(/* args */);
-client.data().getDataIngestHealth(/* args */);
-client.data().getDataIngestInfo(/* args */);
-client.data().getDataIngestRuns(/* args */);
-client.data().getDataIngestRunsRunId(/* args */);
-client.data().getDataIngestSchemas(/* args */);
-client.data().getDataIngestSchemasSchemaRef(/* args */);
-client.data().getDataNormalizationCapabilities(/* args */);
-client.data().getDataNormalizationHealth(/* args */);
-client.data().getDataNormalizationInfo(/* args */);
-client.data().getDataNormalizationNormalizationProfiles(/* args */);
-client.data().getDataNormalizationNormalizationProfilesProfileId(/* args */);
-client.data().getDataNormalizationRuns(/* args */);
-client.data().getDataNormalizationRunsRunId(/* args */);
-client.data().getDataPipelinesCapabilities(/* args */);
-client.data().getDataPipelinesHealth(/* args */);
-client.data().getDataPipelinesInfo(/* args */);
-client.data().getDataPipelinesPipelineRuns(/* args */);
-client.data().getDataPipelinesPipelineRunsRunId(/* args */);
-client.data().getDataPipelinesPipelines(/* args */);
-client.data().getDataPipelinesPipelinesDefinitionId(/* args */);
-client.data().getDataPipelinesRuns(/* args */);
-client.data().getDataPipelinesRunsRunId(/* args */);
-client.data().getDataQualityCapabilities(/* args */);
-client.data().getDataQualityHealth(/* args */);
-client.data().getDataQualityInfo(/* args */);
-client.data().getDataQualityQualityRulesets(/* args */);
-client.data().getDataQualityQualityRulesetsRulesetId(/* args */);
-client.data().getDataQualityRuns(/* args */);
-client.data().getDataQualityRunsRunId(/* args */);
-client.data().getDataQueryCapabilities(/* args */);
-client.data().getDataQueryHealth(/* args */);
-client.data().getDataQueryInfo(/* args */);
-client.data().getDataQueryRuns(/* args */);
-client.data().getDataQueryRunsRunId(/* args */);
-client.data().getDataSchemasCapabilities(/* args */);
-client.data().getDataSchemasHealth(/* args */);
-client.data().getDataSchemasInfo(/* args */);
-client.data().getDataSchemasRuns(/* args */);
-client.data().getDataSchemasRunsRunId(/* args */);
-client.data().getDataSchemasSchemas(/* args */);
-client.data().getDataSchemasSchemasSchemaRef(/* args */);
-client.data().getDataServingCapabilities(/* args */);
-client.data().getDataServingHealth(/* args */);
-client.data().getDataServingInfo(/* args */);
-client.data().getDataServingRuns(/* args */);
-client.data().getDataServingRunsRunId(/* args */);
-client.data().getDataServingServingProducts(/* args */);
-client.data().getDataServingServingProductsProductId(/* args */);
-client.data().getDataStreamsCapabilities(/* args */);
-client.data().getDataStreamsHealth(/* args */);
-client.data().getDataStreamsInfo(/* args */);
-client.data().getDataStreamsRuns(/* args */);
-client.data().getDataStreamsRunsRunId(/* args */);
-client.data().getDataStreamsStreams(/* args */);
-client.data().getDataStreamsStreamsStreamId(/* args */);
-client.data().getDataSyncCapabilities(/* args */);
-client.data().getDataSyncHealth(/* args */);
-client.data().getDataSyncInfo(/* args */);
-client.data().getDataSyncRuns(/* args */);
-client.data().getDataSyncRunsRunId(/* args */);
-client.data().getDataSyncSyncJobs(/* args */);
-client.data().getDataSyncSyncJobsJobId(/* args */);
-client.data().getDataTransformationsCapabilities(/* args */);
-client.data().getDataTransformationsHealth(/* args */);
-client.data().getDataTransformationsInfo(/* args */);
-client.data().getDataTransformationsRuns(/* args */);
-client.data().getDataTransformationsRunsRunId(/* args */);
-client.data().getDataTransformationsTransformations(/* args */);
-client.data().getDataTransformationsTransformationsTransformationId(/* args */);
-client.data().postDataAggregationsAggregations(/* args */);
-client.data().postDataAggregationsAggregationsAggregationIdExecutions(/* args */);
-client.data().postDataAggregationsRuns(/* args */);
-client.data().postDataArchivalArchivalPolicies(/* args */);
-client.data().postDataArchivalArchivalPoliciesPolicyIdExecutions(/* args */);
-client.data().postDataArchivalRuns(/* args */);
-client.data().postDataCatalogRuns(/* args */);
-client.data().postDataEnrichmentEnrichmentProfiles(/* args */);
-client.data().postDataEnrichmentEnrichmentProfilesProfileIdExecutions(/* args */);
-client.data().postDataEnrichmentRuns(/* args */);
-client.data().postDataExportsExports(/* args */);
-client.data().postDataExportsExportsExportIdExecutions(/* args */);
-client.data().postDataExportsRuns(/* args */);
-client.data().postDataIngestDatasetsIngest(/* args */);
-client.data().postDataIngestRuns(/* args */);
-client.data().postDataNormalizationNormalizationProfiles(/* args */);
-client.data().postDataNormalizationNormalizationProfilesProfileIdExecutions(/* args */);
-client.data().postDataNormalizationRuns(/* args */);
-client.data().postDataPipelinesPipelines(/* args */);
-client.data().postDataPipelinesRuns(/* args */);
-client.data().postDataQualityQualityRulesets(/* args */);
-client.data().postDataQualityQualityRulesetsRulesetIdEvaluations(/* args */);
-client.data().postDataQualityRuns(/* args */);
-client.data().postDataQueryQueryFederated(/* args */);
-client.data().postDataQueryRuns(/* args */);
-client.data().postDataSchemasRuns(/* args */);
-client.data().postDataSchemasSchemas(/* args */);
-client.data().postDataSchemasSchemasResolve(/* args */);
-client.data().postDataServingRuns(/* args */);
-client.data().postDataServingServingProducts(/* args */);
-client.data().postDataServingServingProductsProductIdRefreshes(/* args */);
-client.data().postDataStreamsRuns(/* args */);
-client.data().postDataStreamsStreams(/* args */);
-client.data().postDataStreamsStreamsStreamIdDeliveries(/* args */);
-client.data().postDataSyncRuns(/* args */);
-client.data().postDataSyncSyncJobs(/* args */);
-client.data().postDataSyncSyncJobsJobIdExecutions(/* args */);
-client.data().postDataTransformationsRuns(/* args */);
-client.data().postDataTransformationsTransformations(/* args */);
-client.data().postDataTransformationsTransformationsTransformationIdExecutions(/* args */);
+client.data().aggregations().health(responseType);
+client.data().aggregations().getInfo(responseType);
+client.data().archival().health(responseType);
+client.data().archival().getInfo(responseType);
+client.data().catalog().health(responseType);
+client.data().catalog().getInfo(responseType);
+client.data().enrichment().health(responseType);
+client.data().enrichment().getInfo(responseType);
+client.data().exports().health(responseType);
+client.data().exports().getInfo(responseType);
+client.data().ingest().health(responseType);
+client.data().ingest().getInfo(responseType);
+client.data().normalization().health(responseType);
+client.data().normalization().getInfo(responseType);
+client.data().pipelines().health(responseType);
+client.data().pipelines().getInfo(responseType);
+client.data().quality().health(responseType);
+client.data().quality().getInfo(responseType);
+client.data().query().health(responseType);
+client.data().query().getInfo(responseType);
+client.data().schemas().health(responseType);
+client.data().schemas().getInfo(responseType);
+client.data().serving().health(responseType);
+client.data().serving().getInfo(responseType);
+client.data().streams().health(responseType);
+client.data().streams().getInfo(responseType);
+client.data().sync().health(responseType);
+client.data().sync().getInfo(responseType);
+client.data().transformations().health(responseType);
+client.data().transformations().getInfo(responseType);
+client.data().aggregations().aggregations().list(responseType);
+client.data().aggregations().aggregations().get(aggregationId, responseType);
+client.data().aggregations().aggregations().create(body, responseType);
+client.data().aggregations().capabilities().list(responseType);
+client.data().aggregations().runs().list(responseType);
+client.data().aggregations().runs().get(runId, responseType);
+client.data().aggregations().runs().create(body, responseType);
+client.data().archival().capabilities().list(responseType);
+client.data().archival().runs().list(responseType);
+client.data().archival().runs().get(runId, responseType);
+client.data().archival().runs().create(body, responseType);
+client.data().catalog().capabilities().list(responseType);
+client.data().catalog().runs().list(responseType);
+client.data().catalog().runs().get(runId, responseType);
+client.data().catalog().runs().create(body, responseType);
+client.data().enrichment().capabilities().list(responseType);
+client.data().enrichment().runs().list(responseType);
+client.data().enrichment().runs().get(runId, responseType);
+client.data().enrichment().runs().create(body, responseType);
+client.data().exports().capabilities().list(responseType);
+client.data().exports().exports().list(responseType);
+client.data().exports().exports().get(exportId, responseType);
+client.data().exports().exports().create(body, responseType);
+client.data().exports().runs().list(responseType);
+client.data().exports().runs().get(runId, responseType);
+client.data().exports().runs().create(body, responseType);
+client.data().ingest().capabilities().list(responseType);
+client.data().ingest().datasets().list(responseType);
+client.data().ingest().datasets().get(datasetId, responseType);
+client.data().ingest().datasets().ingest(body, responseType);
+client.data().ingest().runs().list(responseType);
+client.data().ingest().runs().get(runId, responseType);
+client.data().ingest().runs().create(body, responseType);
+client.data().ingest().schemas().list(responseType);
+client.data().ingest().schemas().get(schemaRef, responseType);
+client.data().normalization().capabilities().list(responseType);
+client.data().normalization().runs().list(responseType);
+client.data().normalization().runs().get(runId, responseType);
+client.data().normalization().runs().create(body, responseType);
+client.data().pipelines().capabilities().list(responseType);
+client.data().pipelines().pipelineRuns().list(responseType);
+client.data().pipelines().pipelineRuns().get(runId, responseType);
+client.data().pipelines().pipelines().list(responseType);
+client.data().pipelines().pipelines().get(definitionId, responseType);
+client.data().pipelines().pipelines().create(body, responseType);
+client.data().pipelines().runs().list(responseType);
+client.data().pipelines().runs().get(runId, responseType);
+client.data().pipelines().runs().create(body, responseType);
+client.data().quality().capabilities().list(responseType);
+client.data().quality().runs().list(responseType);
+client.data().quality().runs().get(runId, responseType);
+client.data().quality().runs().create(body, responseType);
+client.data().query().capabilities().list(responseType);
+client.data().query().query().federated(body, responseType);
+client.data().query().runs().list(responseType);
+client.data().query().runs().get(runId, responseType);
+client.data().query().runs().create(body, responseType);
+client.data().schemas().capabilities().list(responseType);
+client.data().schemas().runs().list(responseType);
+client.data().schemas().runs().get(runId, responseType);
+client.data().schemas().runs().create(body, responseType);
+client.data().schemas().schemas().list(responseType);
+client.data().schemas().schemas().get(schemaRef, responseType);
+client.data().schemas().schemas().create(body, responseType);
+client.data().schemas().schemas().resolve(body, responseType);
+client.data().serving().capabilities().list(responseType);
+client.data().serving().runs().list(responseType);
+client.data().serving().runs().get(runId, responseType);
+client.data().serving().runs().create(body, responseType);
+client.data().streams().capabilities().list(responseType);
+client.data().streams().runs().list(responseType);
+client.data().streams().runs().get(runId, responseType);
+client.data().streams().runs().create(body, responseType);
+client.data().streams().streams().list(responseType);
+client.data().streams().streams().get(streamId, responseType);
+client.data().streams().streams().create(body, responseType);
+client.data().sync().capabilities().list(responseType);
+client.data().sync().runs().list(responseType);
+client.data().sync().runs().get(runId, responseType);
+client.data().sync().runs().create(body, responseType);
+client.data().transformations().capabilities().list(responseType);
+client.data().transformations().runs().list(responseType);
+client.data().transformations().runs().get(runId, responseType);
+client.data().transformations().runs().create(body, responseType);
+client.data().transformations().transformations().list(responseType);
+client.data().transformations().transformations().get(transformationId, responseType);
+client.data().transformations().transformations().create(body, responseType);
+client.data().aggregations().aggregations().executions().create(aggregationId, body, responseType);
+client.data().archival().archival().policies().list(responseType);
+client.data().archival().archival().policies().get(policyId, responseType);
+client.data().archival().archival().policies().create(body, responseType);
+client.data().catalog().catalog().datasets().list(responseType);
+client.data().catalog().catalog().datasets().get(datasetId, responseType);
+client.data().catalog().catalog().sources().list(responseType);
+client.data().catalog().catalog().sources().get(sourceId, responseType);
+client.data().enrichment().enrichment().profiles().list(responseType);
+client.data().enrichment().enrichment().profiles().get(profileId, responseType);
+client.data().enrichment().enrichment().profiles().create(body, responseType);
+client.data().exports().exports().executions().create(exportId, body, responseType);
+client.data().ingest().datasets().artifacts().getContent(datasetId, manifestId, responseType);
+client.data().normalization().normalization().profiles().list(responseType);
+client.data().normalization().normalization().profiles().get(profileId, responseType);
+client.data().normalization().normalization().profiles().create(body, responseType);
+client.data().quality().quality().rulesets().list(responseType);
+client.data().quality().quality().rulesets().get(rulesetId, responseType);
+client.data().quality().quality().rulesets().create(body, responseType);
+client.data().serving().serving().products().list(responseType);
+client.data().serving().serving().products().get(productId, responseType);
+client.data().serving().serving().products().create(body, responseType);
+client.data().streams().streams().deliveries().create(streamId, body, responseType);
+client.data().sync().sync().jobs().list(responseType);
+client.data().sync().sync().jobs().get(jobId, responseType);
+client.data().sync().sync().jobs().create(body, responseType);
+client.data().transformations().transformations().executions().create(transformationId, body, responseType);
+client.data().archival().archival().policies().executions().create(policyId, body, responseType);
+client.data().catalog().catalog().datasets().artifacts().getContent(datasetId, manifestId, responseType);
+client.data().enrichment().enrichment().profiles().executions().create(profileId, body, responseType);
+client.data().normalization().normalization().profiles().executions().create(profileId, body, responseType);
+client.data().quality().quality().rulesets().evaluations().create(rulesetId, body, responseType);
+client.data().serving().serving().products().refreshes().create(productId, body, responseType);
+client.data().sync().sync().jobs().executions().create(jobId, body, responseType);
 ```
-
-Full signatures: [data](./data.md).
 
 ## events
 
 ```java
-client.events().getEvents(/* args */);
-client.events().getEventsMonitoring(/* args */);
-client.events().getEventsId(/* args */);
-client.events().postEvents(/* args */);
-client.events().postEventsAnalytics(/* args */);
-client.events().postEventsAnalyticsV2(/* args */);
-client.events().postEventsBenchmarkV1(/* args */);
-client.events().postEventsBenchmarkV2(/* args */);
-client.events().postEventsBulk(/* args */);
-client.events().postEventsHuggingfaceBilling(/* args */);
-client.events().postEventsQuery(/* args */);
-client.events().postEventsRawReprocessAll(/* args */);
-client.events().postEventsRawReprocessPending(/* args */);
-client.events().postEventsReprocess(/* args */);
-client.events().postEventsReprocessInternal(/* args */);
-client.events().postEventsUsage(/* args */);
-client.events().postEventsUsageMeter(/* args */);
+client.events().list(responseType);
+client.events().getMonitoring(responseType);
+client.events().get(id, responseType);
+client.events().create(body, responseType);
+client.events().analytics(body, responseType);
+client.events().createAnalyticsV2(body, responseType);
+client.events().bulk(body, responseType);
+client.events().createHuggingfaceBilling(body, responseType);
+client.events().query(body, responseType);
+client.events().reprocess(body, responseType);
+client.events().usage(body, responseType);
+client.events().benchmark().createV1(body, responseType);
+client.events().benchmark().createV2(body, responseType);
+client.events().reprocess().createInternal(body, responseType);
+client.events().usage().createMeter(body, responseType);
+client.events().raw().reprocess().createAll(body, responseType);
+client.events().raw().reprocess().createPending(body, responseType);
 ```
-
-Full signatures: [events](./events.md).
 
 ## governance
 
 ```java
-client.governance().deletePoliciesParam(/* args */);
-client.governance().deleteRolesParam(/* args */);
-client.governance().getComplianceAssessments(/* args */);
-client.governance().getComplianceAssessmentsParam(/* args */);
-client.governance().getComplianceFrameworks(/* args */);
-client.governance().getComplianceScore(/* args */);
-client.governance().getComplianceViolations(/* args */);
-client.governance().getPermissions(/* args */);
-client.governance().getPermissionsParam(/* args */);
-client.governance().getPolicies(/* args */);
-client.governance().getPoliciesTemplates(/* args */);
-client.governance().getPoliciesParam(/* args */);
-client.governance().getPoliciesParamVersions(/* args */);
-client.governance().getRoles(/* args */);
-client.governance().getRolesParam(/* args */);
-client.governance().postAccessCheck(/* args */);
-client.governance().postComplianceAssessments(/* args */);
-client.governance().postComplianceViolationsParamResolve(/* args */);
-client.governance().postPermissions(/* args */);
-client.governance().postPolicies(/* args */);
-client.governance().postPoliciesFromTemplate(/* args */);
-client.governance().postPoliciesValidate(/* args */);
-client.governance().postRoles(/* args */);
-client.governance().putPoliciesParam(/* args */);
+client.governance().access().check(body, responseType);
+client.governance().compliance().getScore(responseType);
+client.governance().permissions().list(responseType);
+client.governance().permissions().get(permissionId, responseType);
+client.governance().permissions().create(body, responseType);
+client.governance().policies().delete(policyId, responseType);
+client.governance().policies().list(responseType);
+client.governance().policies().get(policyId, responseType);
+client.governance().policies().create(body, responseType);
+client.governance().policies().createFromTemplate(body, responseType);
+client.governance().policies().validate(body, responseType);
+client.governance().policies().update(policyId, body, responseType);
+client.governance().roles().delete(roleId, responseType);
+client.governance().roles().list(responseType);
+client.governance().roles().get(roleId, responseType);
+client.governance().roles().create(body, responseType);
+client.governance().compliance().assessments().list(responseType);
+client.governance().compliance().assessments().get(assessmentId, responseType);
+client.governance().compliance().assessments().create(body, responseType);
+client.governance().compliance().frameworks().list(responseType);
+client.governance().compliance().violations().list(responseType);
+client.governance().compliance().violations().resolve(violationId, body, responseType);
+client.governance().policies().templates().list(responseType);
+client.governance().policies().versions().list(policyId, responseType);
 ```
-
-Full signatures: [governance](./governance.md).
 
 ## invocations
 
 ```java
-client.invocations().postInvocations(/* args */);
+client.invocations().create(body, responseType);
 ```
-
-Full signatures: [invocations](./invocations.md).
 
 ## lineage
 
 ```java
-client.lineage().getLineageEdges(/* args */);
-client.lineage().getLineageEdgesParam(/* args */);
-client.lineage().getLineageGraph(/* args */);
-client.lineage().getLineageNodes(/* args */);
-client.lineage().getLineageNodesParam(/* args */);
-client.lineage().getLineageNodesParamTrace(/* args */);
-client.lineage().postLineageImpact(/* args */);
+client.lineage().getGraph(responseType);
+client.lineage().createImpact(body, responseType);
+client.lineage().edges().list(responseType);
+client.lineage().edges().get(edgeId, responseType);
+client.lineage().nodes().list(responseType);
+client.lineage().nodes().get(nodeId, responseType);
+client.lineage().nodes().getTrace(nodeId, responseType);
 ```
-
-Full signatures: [lineage](./lineage.md).
 
 ## observability
 
 ```java
-client.observability().deleteObservabilityAlertsRulesRuleId(/* args */);
-client.observability().deleteObservabilityAlertsParam(/* args */);
-client.observability().deleteObservabilityDashboardsParam(/* args */);
-client.observability().getObservabilityAlerts(/* args */);
-client.observability().getObservabilityAlertsIncidents(/* args */);
-client.observability().getObservabilityAlertsRules(/* args */);
-client.observability().getObservabilityAlertsRulesRuleId(/* args */);
-client.observability().getObservabilityDashboards(/* args */);
-client.observability().getObservabilityDashboardsParam(/* args */);
-client.observability().getObservabilityEventsStats(/* args */);
-client.observability().getObservabilityMetrics(/* args */);
-client.observability().getObservabilityMetricsList(/* args */);
-client.observability().getObservabilityTraces(/* args */);
-client.observability().getObservabilityTracesParam(/* args */);
-client.observability().postObservabilityAlerts(/* args */);
-client.observability().postObservabilityAlertsRules(/* args */);
-client.observability().postObservabilityAlertsRulesRuleIdToggle(/* args */);
-client.observability().postObservabilityAlertsParamDisable(/* args */);
-client.observability().postObservabilityAlertsParamEnable(/* args */);
-client.observability().postObservabilityDashboards(/* args */);
-client.observability().postObservabilityDashboardsParamShare(/* args */);
-client.observability().postObservabilityEvents(/* args */);
-client.observability().postObservabilityEventsBatch(/* args */);
-client.observability().postObservabilityLogsIngest(/* args */);
-client.observability().postObservabilityLogsQuery(/* args */);
-client.observability().postObservabilityMetricsIngest(/* args */);
-client.observability().postObservabilityTracesQuery(/* args */);
-client.observability().putObservabilityAlertsRulesRuleId(/* args */);
-client.observability().putObservabilityAlertsParam(/* args */);
-client.observability().putObservabilityDashboardsParam(/* args */);
-client.observability().streamObservabilityLogsStream(/* args */);
-client.observability().streamObservabilityLogsStreamBlocking(/* args */);
+client.observability().alerts().delete(alertId, responseType);
+client.observability().alerts().list(responseType);
+client.observability().alerts().create(body, responseType);
+client.observability().alerts().disable(alertId, body, responseType);
+client.observability().alerts().enable(alertId, body, responseType);
+client.observability().alerts().update(alertId, body, responseType);
+client.observability().dashboards().delete(dashboardId, responseType);
+client.observability().dashboards().list(responseType);
+client.observability().dashboards().get(dashboardId, responseType);
+client.observability().dashboards().create(body, responseType);
+client.observability().dashboards().share(dashboardId, body, responseType);
+client.observability().dashboards().update(dashboardId, body, responseType);
+client.observability().events().create(body, responseType);
+client.observability().events().batch(body, responseType);
+client.observability().logs().ingest(body, responseType);
+client.observability().logs().query(body, responseType);
+client.observability().logs().stream();
+client.observability().logs().streamBlocking();
+client.observability().metrics().list(responseType);
+client.observability().metrics().getList(responseType);
+client.observability().metrics().ingest(body, responseType);
+client.observability().traces().list(responseType);
+client.observability().traces().get(traceId, responseType);
+client.observability().traces().query(body, responseType);
+client.observability().alerts().incidents().list(responseType);
+client.observability().alerts().rules().delete(ruleId, responseType);
+client.observability().alerts().rules().list(responseType);
+client.observability().alerts().rules().get(ruleId, responseType);
+client.observability().alerts().rules().create(body, responseType);
+client.observability().alerts().rules().toggle(ruleId, body, responseType);
+client.observability().alerts().rules().update(ruleId, body, responseType);
+client.observability().events().stats().list(responseType);
 ```
-
-Full signatures: [observability](./observability.md).
 
 ## ontology
 
 ```java
-client.ontology().deleteOntologyObjectsObjectTypesObjectTypeId(/* args */);
-client.ontology().deleteOntologyObjectsObjectsObjectId(/* args */);
-client.ontology().deleteOntologyReasoningRulesRuleId(/* args */);
-client.ontology().deleteOntologyRelationshipsRelationshipTypesRelationshipTypeId(/* args */);
-client.ontology().deleteOntologyRelationshipsRelationshipsRelationshipId(/* args */);
-client.ontology().deleteOntologyRolloutsRolloutsRolloutId(/* args */);
-client.ontology().deleteOntologyRollupsRollupsRollupId(/* args */);
-client.ontology().deleteOntologySchemasSchemasSchemaId(/* args */);
-client.ontology().deleteOntologyValidationRulesRuleId(/* args */);
-client.ontology().deleteOntologyVersionsVersionsVersionId(/* args */);
-client.ontology().getOntologyEngineCapabilities(/* args */);
-client.ontology().getOntologyEngineHealth(/* args */);
-client.ontology().getOntologyEngineInfo(/* args */);
-client.ontology().getOntologyEngineRuns(/* args */);
-client.ontology().getOntologyEngineRunsRunId(/* args */);
-client.ontology().getOntologyEventsCapabilities(/* args */);
-client.ontology().getOntologyEventsEvents(/* args */);
-client.ontology().getOntologyEventsEventsCheckpointsConsumer(/* args */);
-client.ontology().getOntologyEventsEventsEventId(/* args */);
-client.ontology().getOntologyEventsHealth(/* args */);
-client.ontology().getOntologyEventsInfo(/* args */);
-client.ontology().getOntologyEventsRuns(/* args */);
-client.ontology().getOntologyEventsRunsRunId(/* args */);
-client.ontology().getOntologyExtractCapabilities(/* args */);
-client.ontology().getOntologyExtractHealth(/* args */);
-client.ontology().getOntologyExtractInfo(/* args */);
-client.ontology().getOntologyExtractRuns(/* args */);
-client.ontology().getOntologyExtractRunsRunId(/* args */);
-client.ontology().getOntologyGraphCapabilities(/* args */);
-client.ontology().getOntologyGraphEntitiesEntityId(/* args */);
-client.ontology().getOntologyGraphEntitiesEntityIdProvenance(/* args */);
-client.ontology().getOntologyGraphHealth(/* args */);
-client.ontology().getOntologyGraphInfo(/* args */);
-client.ontology().getOntologyGraphRelationshipsRelationshipId(/* args */);
-client.ontology().getOntologyGraphRuns(/* args */);
-client.ontology().getOntologyGraphRunsRunId(/* args */);
-client.ontology().getOntologyObjectsCapabilities(/* args */);
-client.ontology().getOntologyObjectsHealth(/* args */);
-client.ontology().getOntologyObjectsInfo(/* args */);
-client.ontology().getOntologyObjectsObjectTypes(/* args */);
-client.ontology().getOntologyObjectsObjectTypesObjectTypeId(/* args */);
-client.ontology().getOntologyObjectsObjects(/* args */);
-client.ontology().getOntologyObjectsObjectsObjectId(/* args */);
-client.ontology().getOntologyObjectsRuns(/* args */);
-client.ontology().getOntologyObjectsRunsRunId(/* args */);
-client.ontology().getOntologyReasoningCapabilities(/* args */);
-client.ontology().getOntologyReasoningHealth(/* args */);
-client.ontology().getOntologyReasoningInfo(/* args */);
-client.ontology().getOntologyReasoningRules(/* args */);
-client.ontology().getOntologyReasoningRuns(/* args */);
-client.ontology().getOntologyReasoningRunsRunId(/* args */);
-client.ontology().getOntologyRelationshipsCapabilities(/* args */);
-client.ontology().getOntologyRelationshipsHealth(/* args */);
-client.ontology().getOntologyRelationshipsInfo(/* args */);
-client.ontology().getOntologyRelationshipsRelationshipTypes(/* args */);
-client.ontology().getOntologyRelationshipsRelationships(/* args */);
-client.ontology().getOntologyRelationshipsRelationshipsRelationshipId(/* args */);
-client.ontology().getOntologyRelationshipsRuns(/* args */);
-client.ontology().getOntologyRelationshipsRunsRunId(/* args */);
-client.ontology().getOntologyRolloutsCapabilities(/* args */);
-client.ontology().getOntologyRolloutsHealth(/* args */);
-client.ontology().getOntologyRolloutsInfo(/* args */);
-client.ontology().getOntologyRolloutsRollouts(/* args */);
-client.ontology().getOntologyRolloutsRolloutsRolloutId(/* args */);
-client.ontology().getOntologyRolloutsRolloutsRolloutIdStatus(/* args */);
-client.ontology().getOntologyRolloutsRuns(/* args */);
-client.ontology().getOntologyRolloutsRunsRunId(/* args */);
-client.ontology().getOntologyRollupsCapabilities(/* args */);
-client.ontology().getOntologyRollupsHealth(/* args */);
-client.ontology().getOntologyRollupsInfo(/* args */);
-client.ontology().getOntologyRollupsRollupResultsExecutionId(/* args */);
-client.ontology().getOntologyRollupsRollups(/* args */);
-client.ontology().getOntologyRollupsRollupsRollupId(/* args */);
-client.ontology().getOntologyRollupsRollupsRollupIdResult(/* args */);
-client.ontology().getOntologyRollupsRuns(/* args */);
-client.ontology().getOntologyRollupsRunsRunId(/* args */);
-client.ontology().getOntologySchemasCapabilities(/* args */);
-client.ontology().getOntologySchemasHealth(/* args */);
-client.ontology().getOntologySchemasInfo(/* args */);
-client.ontology().getOntologySchemasRuns(/* args */);
-client.ontology().getOntologySchemasRunsRunId(/* args */);
-client.ontology().getOntologySchemasSchemas(/* args */);
-client.ontology().getOntologySchemasSchemasSchemaId(/* args */);
-client.ontology().getOntologyTransformationsCapabilities(/* args */);
-client.ontology().getOntologyTransformationsHealth(/* args */);
-client.ontology().getOntologyTransformationsInfo(/* args */);
-client.ontology().getOntologyTransformationsRuns(/* args */);
-client.ontology().getOntologyTransformationsRunsRunId(/* args */);
-client.ontology().getOntologyValidationCapabilities(/* args */);
-client.ontology().getOntologyValidationHealth(/* args */);
-client.ontology().getOntologyValidationInfo(/* args */);
-client.ontology().getOntologyValidationRules(/* args */);
-client.ontology().getOntologyValidationRulesRuleId(/* args */);
-client.ontology().getOntologyValidationRuns(/* args */);
-client.ontology().getOntologyValidationRunsRunId(/* args */);
-client.ontology().getOntologyVersionsCapabilities(/* args */);
-client.ontology().getOntologyVersionsHealth(/* args */);
-client.ontology().getOntologyVersionsInfo(/* args */);
-client.ontology().getOntologyVersionsReleaseBundles(/* args */);
-client.ontology().getOntologyVersionsReleaseBundlesBundleId(/* args */);
-client.ontology().getOntologyVersionsRuns(/* args */);
-client.ontology().getOntologyVersionsRunsRunId(/* args */);
-client.ontology().getOntologyVersionsVersionsVersionId(/* args */);
-client.ontology().postOntologyEngineOntologiesCompareVersions(/* args */);
-client.ontology().postOntologyEngineOntologiesExport(/* args */);
-client.ontology().postOntologyEngineOntologiesExportShacl(/* args */);
-client.ontology().postOntologyEngineOntologiesGenerate(/* args */);
-client.ontology().postOntologyEngineOntologiesInferClasses(/* args */);
-client.ontology().postOntologyEngineOntologiesInferProperties(/* args */);
-client.ontology().postOntologyEngineOntologiesValidate(/* args */);
-client.ontology().postOntologyEngineRuns(/* args */);
-client.ontology().postOntologyEventsEvents(/* args */);
-client.ontology().postOntologyEventsEventsCheckpoints(/* args */);
-client.ontology().postOntologyEventsEventsLeasesAcknowledge(/* args */);
-client.ontology().postOntologyEventsEventsLeasesAcquire(/* args */);
-client.ontology().postOntologyEventsRuns(/* args */);
-client.ontology().postOntologyExtractExtractAnalyze(/* args */);
-client.ontology().postOntologyExtractExtractArchitecture(/* args */);
-client.ontology().postOntologyExtractExtractCoreferences(/* args */);
-client.ontology().postOntologyExtractExtractEntities(/* args */);
-client.ontology().postOntologyExtractExtractEvents(/* args */);
-client.ontology().postOntologyExtractExtractRelations(/* args */);
-client.ontology().postOntologyExtractExtractTriplets(/* args */);
-client.ontology().postOntologyExtractRuns(/* args */);
-client.ontology().postOntologyGraphGraphAnalyze(/* args */);
-client.ontology().postOntologyGraphGraphBuild(/* args */);
-client.ontology().postOntologyGraphGraphBulkRead(/* args */);
-client.ontology().postOntologyGraphGraphNeighborhood(/* args */);
-client.ontology().postOntologyGraphGraphPath(/* args */);
-client.ontology().postOntologyGraphGraphQuery(/* args */);
-client.ontology().postOntologyGraphRuns(/* args */);
-client.ontology().postOntologyObjectsRuns(/* args */);
-client.ontology().postOntologyReasoningExplain(/* args */);
-client.ontology().postOntologyReasoningFacts(/* args */);
-client.ontology().postOntologyReasoningFactsLoadGraph(/* args */);
-client.ontology().postOntologyReasoningReasonBackward(/* args */);
-client.ontology().postOntologyReasoningReasonForward(/* args */);
-client.ontology().postOntologyReasoningRules(/* args */);
-client.ontology().postOntologyReasoningRuns(/* args */);
-client.ontology().postOntologyRelationshipsRuns(/* args */);
-client.ontology().postOntologyRolloutsRollouts(/* args */);
-client.ontology().postOntologyRolloutsRolloutsRolloutIdPause(/* args */);
-client.ontology().postOntologyRolloutsRolloutsRolloutIdResume(/* args */);
-client.ontology().postOntologyRolloutsRolloutsRolloutIdRollback(/* args */);
-client.ontology().postOntologyRolloutsRolloutsRolloutIdStart(/* args */);
-client.ontology().postOntologyRolloutsRuns(/* args */);
-client.ontology().postOntologyRollupsRollups(/* args */);
-client.ontology().postOntologyRollupsRollupsRollupIdExecute(/* args */);
-client.ontology().postOntologyRollupsRollupsRollupIdPreview(/* args */);
-client.ontology().postOntologyRollupsRuns(/* args */);
-client.ontology().postOntologySchemasRuns(/* args */);
-client.ontology().postOntologySchemasSchemas(/* args */);
-client.ontology().postOntologySchemasSchemasValidate(/* args */);
-client.ontology().postOntologyTransformationsRuns(/* args */);
-client.ontology().postOntologyTransformationsTransformations(/* args */);
-client.ontology().postOntologyValidationPayloadsValidate(/* args */);
-client.ontology().postOntologyValidationRules(/* args */);
-client.ontology().postOntologyValidationRuns(/* args */);
-client.ontology().postOntologyVersionsAuditVerify(/* args */);
-client.ontology().postOntologyVersionsReleaseBundles(/* args */);
-client.ontology().postOntologyVersionsRuns(/* args */);
-client.ontology().postOntologyVersionsVersions(/* args */);
-client.ontology().postOntologyVersionsVersionsCompare(/* args */);
-client.ontology().putOntologyGraphEntitiesEntityId(/* args */);
-client.ontology().putOntologyGraphRelationshipsRelationshipId(/* args */);
-client.ontology().putOntologyObjectsObjectTypesObjectTypeId(/* args */);
-client.ontology().putOntologyObjectsObjectsObjectId(/* args */);
-client.ontology().putOntologyReasoningRulesRuleId(/* args */);
-client.ontology().putOntologyRelationshipsRelationshipsRelationshipId(/* args */);
-client.ontology().putOntologyRolloutsRolloutsRolloutId(/* args */);
-client.ontology().putOntologyRollupsRollupsRollupId(/* args */);
+client.ontology().engine().health(responseType);
+client.ontology().engine().getInfo(responseType);
+client.ontology().events().health(responseType);
+client.ontology().events().getInfo(responseType);
+client.ontology().extract().health(responseType);
+client.ontology().extract().getInfo(responseType);
+client.ontology().graph().health(responseType);
+client.ontology().graph().getInfo(responseType);
+client.ontology().objects().health(responseType);
+client.ontology().objects().getInfo(responseType);
+client.ontology().reasoning().health(responseType);
+client.ontology().reasoning().getInfo(responseType);
+client.ontology().reasoning().createExplain(body, responseType);
+client.ontology().relationships().health(responseType);
+client.ontology().relationships().getInfo(responseType);
+client.ontology().rollouts().health(responseType);
+client.ontology().rollouts().getInfo(responseType);
+client.ontology().rollups().health(responseType);
+client.ontology().rollups().getInfo(responseType);
+client.ontology().schemas().health(responseType);
+client.ontology().schemas().getInfo(responseType);
+client.ontology().transformations().health(responseType);
+client.ontology().transformations().getInfo(responseType);
+client.ontology().validation().health(responseType);
+client.ontology().validation().getInfo(responseType);
+client.ontology().versions().health(responseType);
+client.ontology().versions().getInfo(responseType);
+client.ontology().engine().capabilities().list(responseType);
+client.ontology().engine().ontologies().export(body, responseType);
+client.ontology().engine().ontologies().createExportShacl(body, responseType);
+client.ontology().engine().ontologies().generate(body, responseType);
+client.ontology().engine().ontologies().validate(body, responseType);
+client.ontology().engine().runs().list(responseType);
+client.ontology().engine().runs().get(runId, responseType);
+client.ontology().engine().runs().create(body, responseType);
+client.ontology().events().capabilities().list(responseType);
+client.ontology().events().events().list(responseType);
+client.ontology().events().events().get(eventId, responseType);
+client.ontology().events().events().create(body, responseType);
+client.ontology().events().runs().list(responseType);
+client.ontology().events().runs().get(runId, responseType);
+client.ontology().events().runs().create(body, responseType);
+client.ontology().extract().capabilities().list(responseType);
+client.ontology().extract().extract().analyze(body, responseType);
+client.ontology().extract().extract().createArchitecture(body, responseType);
+client.ontology().extract().runs().list(responseType);
+client.ontology().extract().runs().get(runId, responseType);
+client.ontology().extract().runs().create(body, responseType);
+client.ontology().graph().capabilities().list(responseType);
+client.ontology().graph().entities().get(entityId, responseType);
+client.ontology().graph().entities().getProvenance(entityId, responseType);
+client.ontology().graph().entities().update(entityId, body, responseType);
+client.ontology().graph().graph().analyze(body, responseType);
+client.ontology().graph().graph().createBuild(body, responseType);
+client.ontology().graph().graph().createBulkRead(body, responseType);
+client.ontology().graph().graph().createNeighborhood(body, responseType);
+client.ontology().graph().graph().createPath(body, responseType);
+client.ontology().graph().graph().query(body, responseType);
+client.ontology().graph().relationships().get(relationshipId, responseType);
+client.ontology().graph().relationships().update(relationshipId, body, responseType);
+client.ontology().graph().runs().list(responseType);
+client.ontology().graph().runs().get(runId, responseType);
+client.ontology().graph().runs().create(body, responseType);
+client.ontology().objects().capabilities().list(responseType);
+client.ontology().objects().objectTypes().delete(objectTypeId, responseType);
+client.ontology().objects().objectTypes().list(responseType);
+client.ontology().objects().objectTypes().get(objectTypeId, responseType);
+client.ontology().objects().objectTypes().update(objectTypeId, body, responseType);
+client.ontology().objects().objects().delete(objectId, responseType);
+client.ontology().objects().objects().list(responseType);
+client.ontology().objects().objects().get(objectId, responseType);
+client.ontology().objects().objects().update(objectId, body, responseType);
+client.ontology().objects().runs().list(responseType);
+client.ontology().objects().runs().get(runId, responseType);
+client.ontology().objects().runs().create(body, responseType);
+client.ontology().reasoning().capabilities().list(responseType);
+client.ontology().reasoning().facts().create(body, responseType);
+client.ontology().reasoning().facts().createLoadGraph(body, responseType);
+client.ontology().reasoning().reason().createBackward(body, responseType);
+client.ontology().reasoning().reason().createForward(body, responseType);
+client.ontology().reasoning().rules().delete(ruleId, responseType);
+client.ontology().reasoning().rules().list(responseType);
+client.ontology().reasoning().rules().create(body, responseType);
+client.ontology().reasoning().rules().update(ruleId, body, responseType);
+client.ontology().reasoning().runs().list(responseType);
+client.ontology().reasoning().runs().get(runId, responseType);
+client.ontology().reasoning().runs().create(body, responseType);
+client.ontology().relationships().capabilities().list(responseType);
+client.ontology().relationships().relationshipTypes().delete(relationshipTypeId, responseType);
+client.ontology().relationships().relationshipTypes().list(responseType);
+client.ontology().relationships().relationships().delete(relationshipId, responseType);
+client.ontology().relationships().relationships().list(responseType);
+client.ontology().relationships().relationships().get(relationshipId, responseType);
+client.ontology().relationships().relationships().update(relationshipId, body, responseType);
+client.ontology().relationships().runs().list(responseType);
+client.ontology().relationships().runs().get(runId, responseType);
+client.ontology().relationships().runs().create(body, responseType);
+client.ontology().rollouts().capabilities().list(responseType);
+client.ontology().rollouts().rollouts().delete(rolloutId, responseType);
+client.ontology().rollouts().rollouts().list(responseType);
+client.ontology().rollouts().rollouts().get(rolloutId, responseType);
+client.ontology().rollouts().rollouts().status(rolloutId, responseType);
+client.ontology().rollouts().rollouts().create(body, responseType);
+client.ontology().rollouts().rollouts().pause(rolloutId, body, responseType);
+client.ontology().rollouts().rollouts().resume(rolloutId, body, responseType);
+client.ontology().rollouts().rollouts().rollback(rolloutId, body, responseType);
+client.ontology().rollouts().rollouts().createStart(rolloutId, body, responseType);
+client.ontology().rollouts().rollouts().update(rolloutId, body, responseType);
+client.ontology().rollouts().runs().list(responseType);
+client.ontology().rollouts().runs().get(runId, responseType);
+client.ontology().rollouts().runs().create(body, responseType);
+client.ontology().rollups().capabilities().list(responseType);
+client.ontology().rollups().rollupResults().get(executionId, responseType);
+client.ontology().rollups().rollups().delete(rollupId, responseType);
+client.ontology().rollups().rollups().list(responseType);
+client.ontology().rollups().rollups().get(rollupId, responseType);
+client.ontology().rollups().rollups().getResult(rollupId, responseType);
+client.ontology().rollups().rollups().create(body, responseType);
+client.ontology().rollups().rollups().execute(rollupId, body, responseType);
+client.ontology().rollups().rollups().preview(rollupId, body, responseType);
+client.ontology().rollups().rollups().update(rollupId, body, responseType);
+client.ontology().rollups().runs().list(responseType);
+client.ontology().rollups().runs().get(runId, responseType);
+client.ontology().rollups().runs().create(body, responseType);
+client.ontology().schemas().capabilities().list(responseType);
+client.ontology().schemas().runs().list(responseType);
+client.ontology().schemas().runs().get(runId, responseType);
+client.ontology().schemas().runs().create(body, responseType);
+client.ontology().schemas().schemas().delete(schemaId, responseType);
+client.ontology().schemas().schemas().list(responseType);
+client.ontology().schemas().schemas().get(schemaId, responseType);
+client.ontology().schemas().schemas().create(body, responseType);
+client.ontology().schemas().schemas().validate(body, responseType);
+client.ontology().transformations().capabilities().list(responseType);
+client.ontology().transformations().runs().list(responseType);
+client.ontology().transformations().runs().get(runId, responseType);
+client.ontology().transformations().runs().create(body, responseType);
+client.ontology().transformations().transformations().create(body, responseType);
+client.ontology().validation().capabilities().list(responseType);
+client.ontology().validation().payloads().validate(body, responseType);
+client.ontology().validation().rules().delete(ruleId, responseType);
+client.ontology().validation().rules().list(responseType);
+client.ontology().validation().rules().get(ruleId, responseType);
+client.ontology().validation().rules().create(body, responseType);
+client.ontology().validation().runs().list(responseType);
+client.ontology().validation().runs().get(runId, responseType);
+client.ontology().validation().runs().create(body, responseType);
+client.ontology().versions().audit().verify(body, responseType);
+client.ontology().versions().capabilities().list(responseType);
+client.ontology().versions().releaseBundles().list(responseType);
+client.ontology().versions().releaseBundles().get(bundleId, responseType);
+client.ontology().versions().releaseBundles().create(body, responseType);
+client.ontology().versions().runs().list(responseType);
+client.ontology().versions().runs().get(runId, responseType);
+client.ontology().versions().runs().create(body, responseType);
+client.ontology().versions().versions().delete(versionId, responseType);
+client.ontology().versions().versions().get(versionId, responseType);
+client.ontology().versions().versions().create(body, responseType);
+client.ontology().versions().versions().compare(body, responseType);
+client.ontology().engine().ontologies().compareVersions().create(body, responseType);
+client.ontology().engine().ontologies().inferClasses().create(body, responseType);
+client.ontology().engine().ontologies().inferProperties().create(body, responseType);
+client.ontology().events().events().checkpoints().get(consumer, responseType);
+client.ontology().events().events().checkpoints().create(body, responseType);
+client.ontology().events().events().leases().acknowledge(body, responseType);
+client.ontology().events().events().leases().acquire(body, responseType);
+client.ontology().extract().extract().coreferences().create(body, responseType);
+client.ontology().extract().extract().entities().create(body, responseType);
+client.ontology().extract().extract().events().create(body, responseType);
+client.ontology().extract().extract().relations().create(body, responseType);
+client.ontology().extract().extract().triplets().create(body, responseType);
 ```
-
-Full signatures: [ontology](./ontology.md).
 
 ## pipelines
 
 ```java
-client.pipelines().getDataPipelinesCapabilities(/* args */);
-client.pipelines().getDataPipelinesHealth(/* args */);
-client.pipelines().getDataPipelinesInfo(/* args */);
-client.pipelines().getDataPipelinesPipelineRuns(/* args */);
-client.pipelines().getDataPipelinesPipelineRunsParam(/* args */);
-client.pipelines().getDataPipelinesPipelines(/* args */);
-client.pipelines().getDataPipelinesPipelinesParam(/* args */);
-client.pipelines().getDataPipelinesRuns(/* args */);
-client.pipelines().postDataPipelinesPipelines(/* args */);
-client.pipelines().postDataPipelinesRuns(/* args */);
-client.pipelines().streamDataPipelinesPipelineRunsParam(/* args */);
-client.pipelines().streamDataPipelinesPipelineRunsParamBlocking(/* args */);
+client.pipelines().data().pipelines().health(responseType);
+client.pipelines().data().pipelines().getInfo(responseType);
+client.pipelines().data().pipelines().capabilities().list(responseType);
+client.pipelines().data().pipelines().pipelineRuns().list(responseType);
+client.pipelines().data().pipelines().pipelineRuns().get(pipelineRunId, responseType);
+client.pipelines().data().pipelines().pipelineRuns().get2(pipelineRunId);
+client.pipelines().data().pipelines().pipelineRuns().get2Blocking(pipelineRunId);
+client.pipelines().data().pipelines().pipelines().list(responseType);
+client.pipelines().data().pipelines().pipelines().get(pipelineId, responseType);
+client.pipelines().data().pipelines().pipelines().create(body, responseType);
+client.pipelines().data().pipelines().runs().list(responseType);
+client.pipelines().data().pipelines().runs().create(body, responseType);
 ```
-
-Full signatures: [pipelines](./pipelines.md).
 
 ## providers
 
 ```java
-client.providers().getProvidersProviderSlug(/* args */);
+client.providers().get(providerSlug, responseType);
 ```
 
-Full signatures: [providers](./providers.md).
+## react
+
+```java
+```
 
 ## sandbox
 
 ```java
-client.sandbox().getSandboxLanguages(/* args */);
-client.sandbox().postSandboxSelfTest(/* args */);
-client.sandbox().postSandboxSubmit(/* args */);
+client.sandbox().createSelfTest(body, responseType);
+client.sandbox().submit(body, responseType);
+client.sandbox().languages().list(responseType);
 ```
-
-Full signatures: [sandbox](./sandbox.md).
 
 ## schedules
 
 ```java
-client.schedules().deleteWorkflowsSchedulesParam(/* args */);
-client.schedules().getWorkflowsSchedules(/* args */);
-client.schedules().getWorkflowsSchedulesParam(/* args */);
-client.schedules().patchWorkflowsSchedulesParam(/* args */);
-client.schedules().postWorkflowsCronParse(/* args */);
-client.schedules().postWorkflowsCronValidate(/* args */);
-client.schedules().postWorkflowsSchedules(/* args */);
-client.schedules().postWorkflowsSchedulesParamPause(/* args */);
-client.schedules().postWorkflowsSchedulesParamResume(/* args */);
-client.schedules().postWorkflowsSchedulesParamTrigger(/* args */);
+client.schedules().workflows().cron().parse(body, responseType);
+client.schedules().workflows().cron().validate(body, responseType);
+client.schedules().workflows().schedules().delete(scheduleId, responseType);
+client.schedules().workflows().schedules().list(responseType);
+client.schedules().workflows().schedules().get(scheduleId, responseType);
+client.schedules().workflows().schedules().update(scheduleId, body, responseType);
+client.schedules().workflows().schedules().create(body, responseType);
+client.schedules().workflows().schedules().pause(scheduleId, body, responseType);
+client.schedules().workflows().schedules().resume(scheduleId, body, responseType);
+client.schedules().workflows().schedules().trigger(scheduleId, body, responseType);
 ```
-
-Full signatures: [schedules](./schedules.md).
 
 ## webhook-endpoints
 
 ```java
-client.webhookEndpoints().deleteWebhookEndpointsId(/* args */);
-client.webhookEndpoints().getWebhookEndpoints(/* args */);
-client.webhookEndpoints().getWebhookEndpointsId(/* args */);
-client.webhookEndpoints().getWebhookEndpointsIdDeliveries(/* args */);
-client.webhookEndpoints().patchWebhookEndpointsId(/* args */);
-client.webhookEndpoints().postWebhookEndpoints(/* args */);
-client.webhookEndpoints().postWebhookEndpointsIdRotateSecret(/* args */);
+client.webhookEndpoints().delete(id, responseType);
+client.webhookEndpoints().list(responseType);
+client.webhookEndpoints().get(id, responseType);
+client.webhookEndpoints().update(id, body, responseType);
+client.webhookEndpoints().create(body, responseType);
+client.webhookEndpoints().rotateSecret(id, body, responseType);
+client.webhookEndpoints().deliveries().list(id, responseType);
 ```
-
-Full signatures: [webhook-endpoints](./webhook-endpoints.md).
 
 ## webhooks
 
 ```java
-client.webhooks().deleteWebhooksParam(/* args */);
-client.webhooks().getWebhooks(/* args */);
-client.webhooks().getWebhooksDeliveries(/* args */);
-client.webhooks().getWebhooksDeliveriesParam(/* args */);
-client.webhooks().getWebhooksStats(/* args */);
-client.webhooks().getWebhooksParam(/* args */);
-client.webhooks().postWebhooks(/* args */);
-client.webhooks().postWebhooksDeliveriesParamRetry(/* args */);
-client.webhooks().postWebhooksParamRotateSecret(/* args */);
-client.webhooks().putWebhooksParam(/* args */);
+client.webhooks().delete(webhookId, responseType);
+client.webhooks().list(responseType);
+client.webhooks().get(webhookId, responseType);
+client.webhooks().create(body, responseType);
+client.webhooks().rotateSecret(webhookId, body, responseType);
+client.webhooks().update(webhookId, body, responseType);
+client.webhooks().deliveries().list(responseType);
+client.webhooks().deliveries().get(deliveryId, responseType);
+client.webhooks().deliveries().retry(deliveryId, body, responseType);
+client.webhooks().stats().list(responseType);
 ```
-
-Full signatures: [webhooks](./webhooks.md).
 
 ## workflows
 
 ```java
-client.workflows().deleteWorkflowsParam(/* args */);
-client.workflows().getWorkflows(/* args */);
-client.workflows().getWorkflowsApprovals(/* args */);
-client.workflows().getWorkflowsApprovalsParam(/* args */);
-client.workflows().getWorkflowsExecutions(/* args */);
-client.workflows().getWorkflowsExecutionsParam(/* args */);
-client.workflows().getWorkflowsExecutionsParamTasks(/* args */);
-client.workflows().getWorkflowsRunsParamSteps(/* args */);
-client.workflows().getWorkflowsTasksParam(/* args */);
-client.workflows().getWorkflowsTemplates(/* args */);
-client.workflows().getWorkflowsTemplatesParam(/* args */);
-client.workflows().getWorkflowsParam(/* args */);
-client.workflows().getWorkflowsWorkflowIdRunId(/* args */);
-client.workflows().getWorkflowsWorkflowIdRunIdSummary(/* args */);
-client.workflows().getWorkflowsWorkflowIdRunIdTimeline(/* args */);
-client.workflows().patchWorkflowsParam(/* args */);
-client.workflows().postWorkflows(/* args */);
-client.workflows().postWorkflowsApprovalsParamApprove(/* args */);
-client.workflows().postWorkflowsApprovalsParamReject(/* args */);
-client.workflows().postWorkflowsBatch(/* args */);
-client.workflows().postWorkflowsExecutions(/* args */);
-client.workflows().postWorkflowsSearch(/* args */);
-client.workflows().postWorkflowsTasksParamCancel(/* args */);
-client.workflows().postWorkflowsTasksParamRetry(/* args */);
-client.workflows().postWorkflowsTemplates(/* args */);
-client.workflows().postWorkflowsTemplatesParamInstantiate(/* args */);
-client.workflows().postWorkflowsParamArchive(/* args */);
-client.workflows().postWorkflowsParamPublish(/* args */);
-client.workflows().postWorkflowsParamRestore(/* args */);
-client.workflows().postWorkflowsParamVersions(/* args */);
+client.workflows().delete(workflowId, responseType);
+client.workflows().list(responseType);
+client.workflows().get(workflowId, responseType);
+client.workflows().get2(workflowId, runId, responseType);
+client.workflows().summary(workflowId, runId, responseType);
+client.workflows().timeline(workflowId, runId, responseType);
+client.workflows().update(workflowId, body, responseType);
+client.workflows().create(body, responseType);
+client.workflows().batch(body, responseType);
+client.workflows().search(body, responseType);
+client.workflows().archive(workflowId, body, responseType);
+client.workflows().publish(workflowId, body, responseType);
+client.workflows().restore(workflowId, body, responseType);
+client.workflows().approvals().list(responseType);
+client.workflows().approvals().get(approvalId, responseType);
+client.workflows().approvals().approve(approvalId, body, responseType);
+client.workflows().approvals().reject(approvalId, body, responseType);
+client.workflows().executions().list(responseType);
+client.workflows().executions().get(executionId, responseType);
+client.workflows().executions().create(body, responseType);
+client.workflows().tasks().get(taskId, responseType);
+client.workflows().tasks().cancel(taskId, body, responseType);
+client.workflows().tasks().retry(taskId, body, responseType);
+client.workflows().templates().list(responseType);
+client.workflows().templates().get(templateId, responseType);
+client.workflows().templates().create(body, responseType);
+client.workflows().templates().instantiate(templateId, body, responseType);
+client.workflows().versions().create(workflowId, body, responseType);
+client.workflows().executions().tasks().list(executionId, responseType);
+client.workflows().runs().steps().list(runId, responseType);
 ```
-
-Full signatures: [workflows](./workflows.md).

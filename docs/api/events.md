@@ -2,44 +2,77 @@
 
 Service accessor: `frontal.events()` (`EventsClient`).
 
-Named methods are generated from the committed route catalog. Build query values with `QueryParams` using exact API wire names. Routes without request schemas accept `JsonNode`; select `JsonNode` or a caller-provided model for unmodeled responses.
+Operations are grouped by resource path. Collection methods use `list` and `create`; item methods use `get`, `update`, and `delete`. Calls can omit `QueryParams` when no query values are needed. Use contract-defined `JsonNode` bodies and caller-selected response types where schemas are not available.
 
 | Method | HTTP | Route | Parameters | Response |
 | --- | --- | --- | --- | --- |
-| `getEvents(...)` | `GET` | `/events` | `query, Class<T> responseType` | `@Nullable T` |
-| `getEvents(...)` | `GET` | `/events` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getEventsMonitoring(...)` | `GET` | `/events/monitoring` | `query, Class<T> responseType` | `@Nullable T` |
-| `getEventsMonitoring(...)` | `GET` | `/events/monitoring` | `query, TypeReference<T> responseType` | `@Nullable T` |
-| `getEventsId(...)` | `GET` | `/events/{param}` | `id, query, Class<T> responseType` | `@Nullable T` |
-| `getEventsId(...)` | `GET` | `/events/{param}` | `id, query, TypeReference<T> responseType` | `@Nullable T` |
-| `postEvents(...)` | `POST` | `/events` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postEvents(...)` | `POST` | `/events` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postEventsAnalytics(...)` | `POST` | `/events/analytics` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postEventsAnalytics(...)` | `POST` | `/events/analytics` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postEventsAnalyticsV2(...)` | `POST` | `/events/analytics-v2` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postEventsAnalyticsV2(...)` | `POST` | `/events/analytics-v2` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postEventsBenchmarkV1(...)` | `POST` | `/events/benchmark/v1` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postEventsBenchmarkV1(...)` | `POST` | `/events/benchmark/v1` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postEventsBenchmarkV2(...)` | `POST` | `/events/benchmark/v2` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postEventsBenchmarkV2(...)` | `POST` | `/events/benchmark/v2` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postEventsBulk(...)` | `POST` | `/events/bulk` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postEventsBulk(...)` | `POST` | `/events/bulk` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postEventsHuggingfaceBilling(...)` | `POST` | `/events/huggingface-billing` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postEventsHuggingfaceBilling(...)` | `POST` | `/events/huggingface-billing` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postEventsQuery(...)` | `POST` | `/events/query` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postEventsQuery(...)` | `POST` | `/events/query` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postEventsRawReprocessAll(...)` | `POST` | `/events/raw/reprocess/all` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postEventsRawReprocessAll(...)` | `POST` | `/events/raw/reprocess/all` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postEventsRawReprocessPending(...)` | `POST` | `/events/raw/reprocess/pending` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postEventsRawReprocessPending(...)` | `POST` | `/events/raw/reprocess/pending` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postEventsReprocess(...)` | `POST` | `/events/reprocess` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postEventsReprocess(...)` | `POST` | `/events/reprocess` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postEventsReprocessInternal(...)` | `POST` | `/events/reprocess/internal` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postEventsReprocessInternal(...)` | `POST` | `/events/reprocess/internal` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postEventsUsage(...)` | `POST` | `/events/usage` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postEventsUsage(...)` | `POST` | `/events/usage` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| `postEventsUsageMeter(...)` | `POST` | `/events/usage/meter` | `query, body, Class<T> responseType` | `@Nullable T` |
-| `postEventsUsageMeter(...)` | `POST` | `/events/usage/meter` | `query, body, TypeReference<T> responseType` | `@Nullable T` |
-| No catalogued operations | — | — | — | — |
+| `events().list(...)` | `GET` | `/events` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `events().list(...)` | `GET` | `/events` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `events().list(...)` | `GET` | `/events` | `Class<T> responseType` | `@Nullable T` |
+| `events().list(...)` | `GET` | `/events` | `TypeReference<T> responseType` | `@Nullable T` |
+| `events().getMonitoring(...)` | `GET` | `/events/monitoring` | `QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `events().getMonitoring(...)` | `GET` | `/events/monitoring` | `QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `events().getMonitoring(...)` | `GET` | `/events/monitoring` | `Class<T> responseType` | `@Nullable T` |
+| `events().getMonitoring(...)` | `GET` | `/events/monitoring` | `TypeReference<T> responseType` | `@Nullable T` |
+| `events().get(...)` | `GET` | `/events/{param}` | `String id, QueryParams query, Class<T> responseType` | `@Nullable T` |
+| `events().get(...)` | `GET` | `/events/{param}` | `String id, QueryParams query, TypeReference<T> responseType` | `@Nullable T` |
+| `events().get(...)` | `GET` | `/events/{param}` | `String id, Class<T> responseType` | `@Nullable T` |
+| `events().get(...)` | `GET` | `/events/{param}` | `String id, TypeReference<T> responseType` | `@Nullable T` |
+| `events().create(...)` | `POST` | `/events` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().create(...)` | `POST` | `/events` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().create(...)` | `POST` | `/events` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().create(...)` | `POST` | `/events` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().analytics(...)` | `POST` | `/events/analytics` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().analytics(...)` | `POST` | `/events/analytics` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().analytics(...)` | `POST` | `/events/analytics` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().analytics(...)` | `POST` | `/events/analytics` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().createAnalyticsV2(...)` | `POST` | `/events/analytics-v2` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().createAnalyticsV2(...)` | `POST` | `/events/analytics-v2` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().createAnalyticsV2(...)` | `POST` | `/events/analytics-v2` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().createAnalyticsV2(...)` | `POST` | `/events/analytics-v2` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().bulk(...)` | `POST` | `/events/bulk` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().bulk(...)` | `POST` | `/events/bulk` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().bulk(...)` | `POST` | `/events/bulk` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().bulk(...)` | `POST` | `/events/bulk` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().createHuggingfaceBilling(...)` | `POST` | `/events/huggingface-billing` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().createHuggingfaceBilling(...)` | `POST` | `/events/huggingface-billing` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().createHuggingfaceBilling(...)` | `POST` | `/events/huggingface-billing` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().createHuggingfaceBilling(...)` | `POST` | `/events/huggingface-billing` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().query(...)` | `POST` | `/events/query` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().query(...)` | `POST` | `/events/query` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().query(...)` | `POST` | `/events/query` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().query(...)` | `POST` | `/events/query` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().reprocess(...)` | `POST` | `/events/reprocess` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().reprocess(...)` | `POST` | `/events/reprocess` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().reprocess(...)` | `POST` | `/events/reprocess` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().reprocess(...)` | `POST` | `/events/reprocess` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().usage(...)` | `POST` | `/events/usage` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().usage(...)` | `POST` | `/events/usage` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().usage(...)` | `POST` | `/events/usage` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().usage(...)` | `POST` | `/events/usage` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().benchmark().createV1(...)` | `POST` | `/events/benchmark/v1` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().benchmark().createV1(...)` | `POST` | `/events/benchmark/v1` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().benchmark().createV1(...)` | `POST` | `/events/benchmark/v1` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().benchmark().createV1(...)` | `POST` | `/events/benchmark/v1` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().benchmark().createV2(...)` | `POST` | `/events/benchmark/v2` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().benchmark().createV2(...)` | `POST` | `/events/benchmark/v2` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().benchmark().createV2(...)` | `POST` | `/events/benchmark/v2` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().benchmark().createV2(...)` | `POST` | `/events/benchmark/v2` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().reprocess().createInternal(...)` | `POST` | `/events/reprocess/internal` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().reprocess().createInternal(...)` | `POST` | `/events/reprocess/internal` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().reprocess().createInternal(...)` | `POST` | `/events/reprocess/internal` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().reprocess().createInternal(...)` | `POST` | `/events/reprocess/internal` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().usage().createMeter(...)` | `POST` | `/events/usage/meter` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().usage().createMeter(...)` | `POST` | `/events/usage/meter` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().usage().createMeter(...)` | `POST` | `/events/usage/meter` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().usage().createMeter(...)` | `POST` | `/events/usage/meter` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().raw().reprocess().createAll(...)` | `POST` | `/events/raw/reprocess/all` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().raw().reprocess().createAll(...)` | `POST` | `/events/raw/reprocess/all` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().raw().reprocess().createAll(...)` | `POST` | `/events/raw/reprocess/all` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().raw().reprocess().createAll(...)` | `POST` | `/events/raw/reprocess/all` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().raw().reprocess().createPending(...)` | `POST` | `/events/raw/reprocess/pending` | `QueryParams query, @Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().raw().reprocess().createPending(...)` | `POST` | `/events/raw/reprocess/pending` | `QueryParams query, @Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
+| `events().raw().reprocess().createPending(...)` | `POST` | `/events/raw/reprocess/pending` | `@Nullable JsonNode body, Class<T> responseType` | `@Nullable T` |
+| `events().raw().reprocess().createPending(...)` | `POST` | `/events/raw/reprocess/pending` | `@Nullable JsonNode body, TypeReference<T> responseType` | `@Nullable T` |
 
 The generic `request(...)` methods and `Endpoints` constants remain available.
