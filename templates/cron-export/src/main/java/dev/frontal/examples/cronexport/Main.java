@@ -46,7 +46,7 @@ public final class Main {
       throw new IllegalArgumentException("Output file must not be blank");
     }
     try (Frontal client = Frontal.fromEnvironment()) {
-      List<JsonNode> agents = client.agents().list(QueryParams.empty(), JsonNode.class).all();
+      List<JsonNode> agents = client.agents().listPages(QueryParams.empty(), JsonNode.class).all();
 
       Path absoluteOutput = output.toAbsolutePath().normalize();
       if (absoluteOutput.getFileName() == null) {

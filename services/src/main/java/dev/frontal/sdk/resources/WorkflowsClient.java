@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeoutException;
-import org.jspecify.annotations.Nullable;
 
 /** Workflow definitions, executions, tasks, templates, and approvals. */
 public final class WorkflowsClient extends WorkflowsServiceClient {
@@ -15,47 +14,17 @@ public final class WorkflowsClient extends WorkflowsServiceClient {
         super(client);
     }
 
-    public <T> PageResult<T> list(QueryParams query, Class<T> itemType) throws IOException, InterruptedException {
-        return fetchPage(query, itemType);
+    /** Fetches the first page of workflows and exposes lazy page traversal. */
+    public <T> PageResult<T> listPages(QueryParams query, Class<T> itemType) throws IOException, InterruptedException {
+        return fetchPage(Objects.requireNonNull(query, "query"), Objects.requireNonNull(itemType, "itemType"));
     }
 
-    public <T> @Nullable T get(String workflowId, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.GET_WORKFLOWS_PARAM, List.of(workflowId), responseType);
-    }
-
-    public <T> @Nullable T create(JsonNode definition, Class<T> responseType) throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.POST_WORKFLOWS, List.of(), QueryParams.empty(), definition, responseType);
-    }
-
-    public <T> @Nullable T update(String workflowId, JsonNode update, Class<T> responseType)
-            throws IOException, InterruptedException {
-        return request(
-                Endpoints.Workflows.PATCH_WORKFLOWS_PARAM,
-                List.of(workflowId),
-                QueryParams.empty(),
-                update,
-                responseType);
-    }
-
-    public void delete(String workflowId) throws IOException, InterruptedException {
-        requestBytes(Endpoints.Workflows.DELETE_WORKFLOWS_PARAM, List.of(workflowId), QueryParams.empty(), null);
-    }
-
-    public <T> @Nullable T createExecution(JsonNode input, Class<T> responseType)
-            throws IOException, InterruptedException {
-        return request(
-                Endpoints.Workflows.POST_WORKFLOWS_EXECUTIONS, List.of(), QueryParams.empty(), input, responseType);
-    }
-
-    public <T> @Nullable T execution(String executionId, Class<T> responseType)
-            throws IOException, InterruptedException {
-        return request(Endpoints.Workflows.GET_WORKFLOWS_EXECUTIONS_PARAM, List.of(executionId), responseType);
-    }
-
+    /** Waits until an execution reaches a terminal status or the timeout expires. */
     public JsonNode waitForCompletion(String executionId, Duration interval, Duration timeout)
             throws IOException, InterruptedException, TimeoutException {
         return Poller.pollUntil(
-                () -> Objects.requireNonNull(execution(executionId, JsonNode.class), "Workflow response was empty"),
+                () -> Objects.requireNonNull(
+                        executions().get(executionId, JsonNode.class), "Workflow response was empty"),
                 result -> {
                     String status = result.path("status").asText("").toLowerCase(java.util.Locale.ROOT);
                     return List.of("completed", "succeeded", "failed", "cancelled", "rejected")
@@ -65,32 +34,8 @@ public final class WorkflowsClient extends WorkflowsServiceClient {
                 timeout);
     }
 
-    public <T> @Nullable T approve(String approvalId, JsonNode decision, Class<T> responseType)
-            throws IOException, InterruptedException {
-        return request(
-                Endpoints.Workflows.POST_WORKFLOWS_APPROVALS_PARAM_APPROVE,
-                List.of(approvalId),
-                QueryParams.empty(),
-                decision,
-                responseType);
-    }
-
-    public <T> @Nullable T reject(String approvalId, JsonNode decision, Class<T> responseType)
-            throws IOException, InterruptedException {
-        return request(
-                Endpoints.Workflows.POST_WORKFLOWS_APPROVALS_PARAM_REJECT,
-                List.of(approvalId),
-                QueryParams.empty(),
-                decision,
-                responseType);
-    }
-
-    private <T> PageResult<T> fetchPage(QueryParams options, Class<T> itemType)
-            throws IOException, InterruptedException {
-        QueryParams query = Objects.requireNonNull(options, "query");
-        JsonNode response = Objects.requireNonNull(
-                request(Endpoints.Workflows.GET_WORKFLOWS, List.of(), query, null, JsonNode.class),
-                "Workflow list response was empty");
+    private <T> PageResult<T> fetchPage(QueryParams query, Class<T> itemType) throws IOException, InterruptedException {
+        JsonNode response = Objects.requireNonNull(list(query, JsonNode.class), "Workflow list response was empty");
         JsonNode items = response.path("data");
         if (!items.isArray()) {
             items = response.path("workflows");
