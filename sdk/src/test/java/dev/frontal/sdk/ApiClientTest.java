@@ -99,10 +99,35 @@ class ApiClientTest {
     void generatedNamedServiceMethodUsesExactQueryWireNames() throws Exception {
         server.enqueue(new MockResponse().setBody("{\"data\":[]}"));
         try (Frontal client = client(0)) {
-            client.agents().getAgents(QueryParams.of("agentId", "agt_1"), JsonNode.class);
+            client.agents().list(QueryParams.of("agentId", "agt_1"), JsonNode.class);
             RecordedRequest request = server.takeRequest(1, TimeUnit.SECONDS);
             assertEquals("agt_1", request.getRequestUrl().queryParameter("agentId"));
             assertNull(request.getRequestUrl().queryParameter("agent_id"));
+        }
+    }
+
+    @Test
+    void nestedResourceMethodsUseTheContractRouteAndOptionalQuery() throws Exception {
+        server.enqueue(new MockResponse().setBody("{\"id\":\"ds_1\"}"));
+        try (Frontal client = client(0)) {
+            JsonNode dataset = Objects.requireNonNull(
+                    client.data().ingest().datasets().get("ds_1", QueryParams.of("view", "full"), JsonNode.class));
+            RecordedRequest request = server.takeRequest(1, TimeUnit.SECONDS);
+            assertEquals("ds_1", dataset.path("id").asText());
+            assertEquals(
+                    "/v1/data/ingest/datasets/ds_1", request.getRequestUrl().encodedPath());
+            assertEquals("full", request.getRequestUrl().queryParameter("view"));
+        }
+    }
+
+    @Test
+    void agentRunMethodsAreGroupedUnderTheAgentsRunsResource() throws Exception {
+        server.enqueue(new MockResponse().setBody("{\"id\":\"run_1\"}"));
+        try (Frontal client = client(0)) {
+            JsonNode run = Objects.requireNonNull(client.agents().runs().get("run_1", JsonNode.class));
+            RecordedRequest request = server.takeRequest(1, TimeUnit.SECONDS);
+            assertEquals("run_1", run.path("id").asText());
+            assertEquals("/v1/agents/runs/run_1", request.getPath());
         }
     }
 
@@ -201,8 +226,8 @@ class ApiClientTest {
         server.enqueue(new MockResponse()
                 .setBody("{\"data\":[{\"id\":\"agt_2\"}],\"pagination\":{\"cursor\":\"\",\"hasMore\":false}}"));
         try (Frontal client = client(0)) {
-            PageResult<JsonNode> first =
-                    client.agents().list(QueryParams.builder().add("limit", 1).build(), JsonNode.class);
+            PageResult<JsonNode> first = client.agents()
+                    .listPages(QueryParams.builder().add("limit", 1).build(), JsonNode.class);
             PageResult<JsonNode> second = Objects.requireNonNull(first.nextPage());
             assertEquals("agt_1", first.data().get(0).path("id").asText());
             assertEquals("agt_2", second.data().get(0).path("id").asText());
@@ -220,7 +245,7 @@ class ApiClientTest {
                 .addHeader("Content-Type", "text/event-stream")
                 .setBody("event: state\ndata: {\"step\":\ndata: 2}\n\ndata: done\n\n"));
         try (Frontal client = client(0);
-                SseEventIterator events = client.agents().watchBlocking("run_1")) {
+                SseEventIterator events = client.agents().runs().streamBlocking("run_1")) {
             assertEquals("{\"step\":\n2}", events.next());
             assertEquals("done", events.next());
             assertFalse(events.hasNext());
@@ -235,7 +260,7 @@ class ApiClientTest {
         try (Frontal client = client(0)) {
             CountDownLatch complete = new CountDownLatch(1);
             AtomicReference<String> received = new AtomicReference<>();
-            client.agents().watch("run_2").subscribe(new Flow.Subscriber<>() {
+            client.agents().runs().stream("run_2").subscribe(new Flow.Subscriber<>() {
                 @Override
                 public void onSubscribe(Flow.Subscription value) {
                     value.request(2);
@@ -269,7 +294,7 @@ class ApiClientTest {
         try (Frontal client = client(0)) {
             CountDownLatch complete = new CountDownLatch(1);
             AtomicReference<String> received = new AtomicReference<>();
-            client.agents().watch("run_eof").subscribe(new Flow.Subscriber<>() {
+            client.agents().runs().stream("run_eof").subscribe(new Flow.Subscriber<>() {
                 @Override
                 public void onSubscribe(Flow.Subscription value) {
                     value.request(1);

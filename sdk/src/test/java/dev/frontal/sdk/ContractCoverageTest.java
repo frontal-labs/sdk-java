@@ -12,9 +12,10 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -139,54 +140,31 @@ class ContractCoverageTest {
         });
 
         Set<String> actual = new HashSet<>();
-        for (String service : Set.of(
-                "agents",
-                "ai",
-                "audit",
-                "auth",
-                "billing",
-                "blob",
-                "connectors",
-                "connection-tests",
-                "data",
-                "events",
-                "governance",
-                "invocations",
-                "lineage",
-                "observability",
-                "ontology",
-                "pipelines",
-                "providers",
-                "react",
-                "sandbox",
-                "schedules",
-                "webhooks",
-                "webhook-endpoints",
-                "workflows")) {
-            String prefix =
-                    switch (service) {
-                        case "agents", "ai", "workflows" ->
-                            service.substring(0, 1).toUpperCase(Locale.ROOT) + service.substring(1) + "ServiceClient";
-                        default ->
-                            java.util.Arrays.stream(service.split("[-_]"))
-                                            .map(part ->
-                                                    part.substring(0, 1).toUpperCase(Locale.ROOT) + part.substring(1))
-                                            .collect(java.util.stream.Collectors.joining())
-                                    + "Client";
-                    };
-            Class<?> clientType = Class.forName("dev.frontal.sdk." + prefix);
-            for (Method method : clientType.getDeclaredMethods()) {
-                SdkOperation operation = method.getAnnotation(SdkOperation.class);
-                if (operation != null) {
-                    actual.add(operation.value());
+        Set<Class<?>> visited = new HashSet<>();
+        Deque<ServiceClient> pending = new ArrayDeque<>();
+        try (Frontal frontal = Frontal.builder().apiKey("frt_contract_test").build()) {
+            for (ApiService service : ApiService.values()) {
+                pending.add(frontal.service(service));
+            }
+            while (!pending.isEmpty()) {
+                ServiceClient client = pending.removeFirst();
+                if (visited.add(client.getClass())) {
+                    for (Method method : client.getClass().getMethods()) {
+                        SdkOperation operation = method.getAnnotation(SdkOperation.class);
+                        if (operation != null) {
+                            actual.add(operation.value());
+                        }
+                        if (method.getParameterCount() == 0
+                                && ServiceClient.class.isAssignableFrom(method.getReturnType())) {
+                            pending.add((ServiceClient) method.invoke(client));
+                        }
+                    }
                 }
             }
-        }
-        for (Method method : AgentsClient.class.getDeclaredMethods()) {
-            SdkOperation operation = method.getAnnotation(SdkOperation.class);
-            if (operation != null) {
-                actual.add(operation.value());
-            }
+            assertFalse(
+                    java.util.Arrays.stream(AgentsServiceClient.class.getDeclaredMethods())
+                            .anyMatch(method -> method.getName().startsWith("getAgents")),
+                    "Verbose service-prefixed methods must not remain in the canonical API");
         }
         assertEquals(expected, actual, "Generated named-operation clients drifted from the route inventory");
     }
