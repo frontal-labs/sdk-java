@@ -12,6 +12,8 @@ import org.jspecify.annotations.Nullable;
 public final class ClientConfig {
     public static final URI DEFAULT_API_BASE_URL = URI.create("https://api.frontal.dev/v1");
     public static final URI DEFAULT_AI_BASE_URL = URI.create("https://ai.frontal.dev");
+    private static final int DEFAULT_MAX_RETRIES = 2;
+    private static final int DEFAULT_FUNCTIONS_MAX_RETRIES = 3;
 
     private final @Nullable String apiKey;
     private final URI apiBaseUrl;
@@ -19,6 +21,7 @@ public final class ClientConfig {
     private final Duration connectTimeout;
     private final Duration requestTimeout;
     private final int maxRetries;
+    private final boolean maxRetriesExplicit;
     private final long maxResponseBytes;
     private final int maxErrorBodyBytes;
     private final String userAgent;
@@ -42,6 +45,7 @@ public final class ClientConfig {
             throw new IllegalArgumentException("maxErrorBodyBytes must be positive");
         }
         maxRetries = builder.maxRetries;
+        maxRetriesExplicit = builder.maxRetriesExplicit;
         maxResponseBytes = builder.maxResponseBytes;
         maxErrorBodyBytes = builder.maxErrorBodyBytes;
         userAgent = requireText(builder.userAgent, "userAgent");
@@ -131,6 +135,14 @@ public final class ClientConfig {
         return maxRetries;
     }
 
+    int maxRetriesFor(ApiService service) {
+        Objects.requireNonNull(service, "service");
+        if (!maxRetriesExplicit && service == ApiService.FUNCTIONS) {
+            return DEFAULT_FUNCTIONS_MAX_RETRIES;
+        }
+        return maxRetries;
+    }
+
     public long maxResponseBytes() {
         return maxResponseBytes;
     }
@@ -213,7 +225,8 @@ public final class ClientConfig {
         private URI aiBaseUrl = DEFAULT_AI_BASE_URL;
         private Duration connectTimeout = Duration.ofSeconds(10);
         private Duration requestTimeout = Duration.ofSeconds(30);
-        private int maxRetries = 2;
+        private int maxRetries = DEFAULT_MAX_RETRIES;
+        private boolean maxRetriesExplicit;
         private long maxResponseBytes = 64L * 1024 * 1024;
         private int maxErrorBodyBytes = 16 * 1024;
         private String userAgent = "frontal-java-sdk/2.0.0";
@@ -259,6 +272,7 @@ public final class ClientConfig {
 
         public Builder maxRetries(int maxRetries) {
             this.maxRetries = maxRetries;
+            this.maxRetriesExplicit = true;
             return this;
         }
 

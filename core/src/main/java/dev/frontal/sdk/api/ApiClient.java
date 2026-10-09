@@ -178,7 +178,7 @@ public final class ApiClient implements AutoCloseable {
         String requestId = UUID.randomUUID().toString();
         RequestBody requestBody = requestBody(endpoint.method(), body);
         String contentType = contentType(body);
-        int attempts = endpoint.method().wireMethod().equals("GET") ? config.maxRetries() + 1 : 1;
+        int attempts = endpoint.method().wireMethod().equals("GET") ? config.maxRetriesFor(endpoint.service()) + 1 : 1;
         for (int attempt = 0; attempt < attempts; attempt++) {
             Request request = buildRequest(endpoint, pathParams, query, requestBody, contentType, "*/*", requestId);
             Response response;
@@ -369,7 +369,7 @@ public final class ApiClient implements AutoCloseable {
             String accept)
             throws IOException, InterruptedException {
         String requestId = UUID.randomUUID().toString();
-        int attempts = endpoint.method().wireMethod().equals("GET") ? config.maxRetries() + 1 : 1;
+        int attempts = endpoint.method().wireMethod().equals("GET") ? config.maxRetriesFor(endpoint.service()) + 1 : 1;
         for (int attempt = 0; attempt < attempts; attempt++) {
             Request request = buildRequest(endpoint, pathParams, query, requestBody, contentType, accept, requestId);
             Response response;

@@ -21,6 +21,7 @@ public enum ApiService {
     WORKFLOWS("workflows"),
     CONNECTION_TESTS("connection-tests"),
     EVENTS("events"),
+    FUNCTIONS("functions"),
     INVOCATIONS("invocations"),
     PROVIDERS("providers"),
     WEBHOOK_ENDPOINTS("webhook-endpoints");
