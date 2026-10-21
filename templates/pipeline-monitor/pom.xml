@@ -7,7 +7,7 @@
     <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <frontal.sdk.version>2.0.0</frontal.sdk.version>
-    <jackson.version>2.18.2</jackson.version>
+    <jackson.version>2.18.11</jackson.version>
   </properties>
   <dependencies>
     <dependency>
