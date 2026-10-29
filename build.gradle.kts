@@ -6,7 +6,7 @@ import org.gradle.jvm.toolchain.JavaLanguageVersion
 import net.ltgt.gradle.errorprone.errorprone
 
 plugins {
-  id("com.diffplug.spotless") version "8.10.3" apply false
+  id("com.diffplug.spotless") version "8.10.4" apply false
   id("net.ltgt.errorprone") version "5.1.1" apply false
   id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
 }
@@ -25,8 +25,8 @@ subprojects {
   apply(plugin = "net.ltgt.errorprone")
 
   dependencies {
-    "errorprone"("com.google.errorprone:error_prone_core:2.42.0")
-    "errorprone"("com.uber.nullaway:nullaway:0.14.2")
+    "errorprone"("com.google.errorprone:error_prone_core:2.51.0")
+    "errorprone"("com.uber.nullaway:nullaway:0.14.3")
     "testImplementation"("org.junit.jupiter:junit-jupiter:6.1.3")
     "testRuntimeOnly"("org.junit.platform:junit-platform-launcher")
   }
